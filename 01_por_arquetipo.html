@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Por tipo de problema — 56 empresas</title><style>
+@page { margin: 1.2cm; size: letter; }
+body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.45; max-width: 760px; margin: 24px auto; padding: 0 20px; font-size: 11pt; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 16px; }
+.sigla { font-size: 38pt; font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.verdict-badge { display: inline-block; padding: 10px 18px; background: #e67e22; color: white; font-weight: 700; font-size: 11pt; letter-spacing: 0.5px; }
+.verdict-badge.cerrar { background: #c0392b; }
+.verdict-badge.liquidar { background: #1a1a1a; }
+.verdict-badge.mantener { background: #27ae60; }
+.verdict-badge.privatizar { background: #2980b9; }
+.verdict-badge.pendiente { background: #7f8c8d; }
+.name { font-size: 12pt; color: #333; margin-top: 4px; }
+.sector { font-size: 10pt; color: #666; font-style: italic; margin-bottom: 14px; }
+h3 { font-size: 12pt; margin: 18px 0 4px; color: #1a1a1a; }
+.q-verdict { font-weight: 700; color: #e67e22; }
+.q-verdict.si-bueno { color: #27ae60; }
+.q-verdict.si-malo { color: #c0392b; }
+.q-text { margin: 2px 0 0; font-size: 10.5pt; }
+.q-interp { font-size: 9.5pt; color: #666; font-style: italic; margin: 4px 0 0; line-height: 1.4; }
+.section-intro { margin: 14px 0 16px; font-size: 10.5pt; }
+.recomendacion { background: #e67e22; color: white; padding: 18px 22px; margin-top: 24px; }
+.recomendacion.cerrar { background: #c0392b; }
+.recomendacion.liquidar { background: #1a1a1a; }
+.recomendacion.mantener { background: #27ae60; }
+.recomendacion.privatizar { background: #2980b9; }
+.recomendacion.pendiente { background: #7f8c8d; }
+.recomendacion h2 { margin: 0 0 8px; font-size: 12pt; }
+.recomendacion p { margin: 6px 0; font-size: 10.5pt; }
+.recomendacion ul { margin: 6px 0 6px 18px; font-size: 10.5pt; padding: 0; }
+.recomendacion .ministers { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.35); font-size: 10pt; line-height: 1.6; }
+/* aggregate */
+.agg-h1 { font-size: 22pt; margin: 0 0 4px; }
+.agg-subtitle { color: #666; font-size: 12pt; margin: 0 0 24px; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 28px; }
+.stat-box { padding: 14px; background: #f5f5f5; border-left: 4px solid #e67e22; }
+.stat-box .label { font-size: 9.5pt; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-box .value { font-size: 18pt; font-weight: 800; margin: 4px 0; }
+.stat-box .sub { font-size: 9.5pt; color: #888; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+th { background: #f0f0f0; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 1.5px solid #ccc; }
+td { padding: 7px 10px; border-bottom: 0.5px solid #eee; }
+tr:nth-child(even) td { background: #fafafa; }
+.section { margin-top: 32px; }
+.section h2 { font-size: 14pt; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid #ddd; }
+.chip { display: inline-block; font-size: 10pt; font-weight: 600; padding: 3px 8px; margin: 3px; border-radius: 3px; color: white; }
+.chip.liquidar { background: #1a1a1a; }
+.chip.cerrar { background: #c0392b; }
+.chip.reestructurar { background: #e67e22; }
+.chip.recapitalizar { background: #f39c12; }
+.chip.privatizar { background: #2980b9; }
+.chip.mantener { background: #27ae60; }
+.chip.pendiente { background: #7f8c8d; }
+.matriz { display: grid; grid-template-columns: 220px 1fr 1fr; gap: 6px; margin-top: 14px; }
+.matriz .col-header { text-align: center; padding: 10px 6px; background: #f0f0f0; font-weight: 600; }
+.matriz .row-label { padding: 12px; background: #fafafa; border-right: 2px solid #ddd; }
+.matriz .row-label .arq-name { font-weight: 600; font-size: 11pt; }
+.matriz .row-label .arq-desc { font-size: 9.5pt; color: #666; margin-top: 2px; }
+.matriz .cell { padding: 10px; background: #fafafa; min-height: 48px; }
+/* Navegación */
+.nav-bar { display: flex; gap: 14px; margin: 0 0 20px; padding: 12px 16px; background: #1a1a1a; border-radius: 4px; flex-wrap: wrap; }
+.nav-bar a { color: white; text-decoration: none; font-size: 11pt; padding: 4px 10px; border-radius: 3px; transition: background 0.15s; }
+.nav-bar a:hover { background: rgba(255,255,255,0.15); }
+.nav-bar a.active { background: #e67e22; }
+.stat-box.clickable { cursor: pointer; transition: background 0.15s, border-left-width 0.15s; }
+.stat-box.clickable:hover { background: #ebebeb; border-left-width: 8px; }
+.stat-box.clickable .label::after { content: ' →'; color: #e67e22; }
+.nav-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.nav-choice a { display: block; padding: 18px; background: #fff; border: 2px solid #e67e22; border-radius: 6px; text-decoration: none; color: #1a1a1a; transition: background 0.15s; }
+.nav-choice a:hover { background: #fff5e6; }
+.nav-choice a .title { font-size: 14pt; font-weight: 700; color: #e67e22; margin-bottom: 4px; }
+.nav-choice a .desc { font-size: 10.5pt; color: #555; }
+@media print { body { margin: 0; max-width: none; padding: 1cm; } .recomendacion, .verdict-badge, .chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .nav-bar, .stat-box.clickable::after { display: none; } }
+</style></head>
+<body>
+<nav class="nav-bar">
+  <a href="00_resumen_general.html" >Resumen General</a>
+  <a href="01_por_arquetipo.html" class="active">Por Tipo de Problema</a>
+  <a href="02_por_recomendacion.html" >Por Recomendación</a>
+  <a href="03_matriz.html" >Matriz Visual</a>
+</nav>
+<h1 class="agg-h1">Las 56 Empresas Agrupadas por Tipo de Problema</h1>
+<p class="agg-subtitle">Cada tipo de problema describe un patrón financiero distinto. Para cada grupo se responden las 8 preguntas clave a nivel agregado.</p>
+<div class="section"><h2>1. Operacionalmente Defuncto — 4 empresas</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">Ya no operan como empresa</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">Bs, 578 mil</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">Bs, 219 mil</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">Bs, 607 mil</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">4</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip liquidar" title="EPSA MUNICIPAL  — LIQUIDAR">EPSA MUNICIPAL </span><span class="chip liquidar" title="YACANA — LIQUIDAR">YACANA</span><span class="chip liquidar" title="SAMAPA — LIQUIDAR">SAMAPA</span><span class="chip liquidar" title="ENFE — LIQUIDAR">ENFE</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 13 millones</b> en 2025 — eso es <b>11,4% más</b> que en 2023 (Bs, 12 millones). <b>Sin embargo</b>, la mayoría (3 de 4) <b>vende menos cada año</b>; solo unas pocas grandes empresas (YACANA, ENFE, SAMAPA) están compensando con volumen lo que las demás pierden.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>3</b></td><td>75%</td><td>EPSA MUNICIPAL , YACANA, SAMAPA</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos de ventas</td><td><b>1</b></td><td>25%</td><td>ENFE</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>3</b></td><td>75%</td><td>EPSA MUNICIPAL , YACANA, SAMAPA</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Patrón mixto</td><td><b>1</b></td><td>25%</td><td>ENFE</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>4</b></td><td>100%</td><td>EPSA MUNICIPAL , YACANA, SAMAPA</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: —.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>3</b></td><td>75%</td><td>EPSA MUNICIPAL , SAMAPA, ENFE</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>1</b></td><td>25%</td><td>YACANA</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 565 millones</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>2</b></td><td>50%</td><td>EPSA MUNICIPAL , YACANA</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>1</b></td><td>25%</td><td>SAMAPA</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>25%</td><td>ENFE</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>—</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>Bs, 578 mil</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>Bs, 578 mil</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>Bs, 607 mil</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (3 con pérdida · 1 sin pérdida neta · 0 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td><b>EPSA MUNICIPAL </b></td><td>Agua</td><td>Bs, 264 mil</td><td>Bs, 277 mil</td><td><span class="chip liquidar">DEBE LIQUIDARSE</span></td></tr><tr><td><b>YACANA</b></td><td>Agro</td><td>Bs, 166 mil</td><td>Bs, 174 mil</td><td><span class="chip liquidar">DEBE LIQUIDARSE</span></td></tr><tr><td><b>SAMAPA</b></td><td>Agua</td><td>Bs, 148 mil</td><td>Bs, 155 mil</td><td><span class="chip liquidar">DEBE LIQUIDARSE</span></td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 4 empresas, 3 (75%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 1 que sí podemos evaluar, <b>0 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>1</b></td><td>25%</td><td>ENFE</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>3</b></td><td>75%</td><td>EPSA MUNICIPAL , YACANA, SAMAPA</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>1</b></td><td>25%</td><td>EPSA MUNICIPAL </td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>3</b></td><td>75%</td><td>YACANA, SAMAPA, ENFE</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>EPSA MUNICIPAL </td><td>Agua</td><td>Bs, 264 mil</td><td>Bs, 277 mil</td></tr><tr><td>YACANA</td><td>Agro</td><td>Bs, 166 mil</td><td>Bs, 174 mil</td></tr><tr><td>SAMAPA</td><td>Agua</td><td>Bs, 148 mil</td><td>Bs, 155 mil</td></tr><tr><td>ENFE</td><td>Transporte</td><td>—</td><td>—</td></tr></tbody></table></div><div class="section"><h2>2. Colapso Multidimensional — 19 empresas</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">Múltiples problemas graves simultáneos</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">Bs, 8,95 mil millones</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">Bs, 3,40 mil millones</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">Bs, 9,39 mil millones</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">19</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip reestructurar" title="YPFB — REESTRUCTURAR PROFUNDAMENTE">YPFB</span><span class="chip cerrar" title="EBA — CERRAR (o PRIVATIZAR si activos recuperables)">EBA</span><span class="chip reestructurar" title="ES - MUTUN — REESTRUCTURAR PROFUNDAMENTE">ES - MUTUN</span><span class="chip cerrar" title="EASBA — CERRAR (o PRIVATIZAR si activos recuperables)">EASBA</span><span class="chip reestructurar" title="YLB — REESTRUCTURAR PROFUNDAMENTE">YLB</span><span class="chip reestructurar" title="EBC — REESTRUCTURAR PROFUNDAMENTE">EBC</span><span class="chip reestructurar" title="TAB — REESTRUCTURAR PROFUNDAMENTE — URGENTE">TAB</span><span class="chip reestructurar" title="VINTO - NAL — REESTRUCTURAR PROFUNDAMENTE — URGENTE">VINTO - NAL</span><span class="chip reestructurar" title="ELAPAS — REESTRUCTURAR PROFUNDAMENTE">ELAPAS</span><span class="chip cerrar" title="BTV — CERRAR (o PRIVATIZAR si activos recuperables)">BTV</span><span class="chip cerrar" title="QUIPUS — CERRAR (o PRIVATIZAR si activos recuperables)">QUIPUS</span><span class="chip reestructurar" title="EMAPAS — REESTRUCTURAR PROFUNDAMENTE — URGENTE">EMAPAS</span><span class="chip reestructurar" title="TAM — REESTRUCTURAR PROFUNDAMENTE">TAM</span><span class="chip cerrar" title="B-Agro — CERRAR (o PRIVATIZAR si activos recuperables) — URGENTE">B-Agro</span><span class="chip reestructurar" title="AAPOS — REESTRUCTURAR PROFUNDAMENTE">AAPOS</span><span class="chip cerrar" title="EMAVS — CERRAR (o PRIVATIZAR si activos recuperables)">EMAVS</span><span class="chip cerrar" title="CARTONBOL — CERRAR (o PRIVATIZAR si activos recuperables)">CARTONBOL</span><span class="chip cerrar" title="EMAVIAS — CERRAR (o PRIVATIZAR si activos recuperables) — URGENTE">EMAVIAS</span><span class="chip cerrar" title="EMUJOYAS — CERRAR (o PRIVATIZAR si activos recuperables)">EMUJOYAS</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 50,78 mil millones</b> en 2025 — eso es <b>5,7% menos</b> que en 2023 (Bs, 53,85 mil millones).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>11</b></td><td>58%</td><td>YPFB, EBA, ES - MUTUN</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>3</b></td><td>16%</td><td>EASBA, VINTO - NAL, AAPOS</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>5</b></td><td>26%</td><td>YLB, TAB, ELAPAS</td></tr><tr><td>Sin datos de ventas</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>7</b></td><td>37%</td><td>YPFB, EASBA, YLB</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>5</b></td><td>26%</td><td>EBA, EBC, TAB</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Patrón mixto</td><td><b>6</b></td><td>32%</td><td>ES - MUTUN, EMAPAS, TAM</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>5%</td><td>CARTONBOL</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>4</b></td><td>21%</td><td>YPFB, EBC, TAB</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>2</b></td><td>11%</td><td>EBA, ELAPAS</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>8</b></td><td>42%</td><td>EASBA, YLB, VINTO - NAL</td></tr><tr><td>Sin datos</td><td><b>5</b></td><td>26%</td><td>ES - MUTUN, EMAPAS, B-Agro</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: Bs, 5,49 mil millones.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>4</b></td><td>21%</td><td>YLB, TAB, VINTO - NAL</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>2</b></td><td>11%</td><td>ES - MUTUN, ELAPAS</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>13</b></td><td>68%</td><td>YPFB, EBA, EASBA</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 50,88 mil millones</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>1</b></td><td>5%</td><td>ELAPAS</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>7</b></td><td>37%</td><td>EBA, EASBA, YLB</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>4</b></td><td>21%</td><td>YPFB, EBC, TAB</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>1</b></td><td>5%</td><td>QUIPUS</td></tr><tr><td>Sin datos</td><td><b>6</b></td><td>32%</td><td>ES - MUTUN, EMAPAS, B-Agro</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>Bs, 5,49 mil millones</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>Bs, 3,45 mil millones</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>Bs, 8,95 mil millones</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>Bs, 9,12 mil millones</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (16 con pérdida · 2 sin pérdida neta · 1 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td><b>YPFB</b></td><td>Hidrocarburos</td><td>Bs, 7,94 mil millones</td><td>Bs, 8,33 mil millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>EBA</b></td><td>Agro</td><td>Bs, 776 millones</td><td>Bs, 815 millones</td><td><span class="chip cerrar">DEBE CERRARSE</span></td></tr><tr><td><b>ES - MUTUN</b></td><td>Minería</td><td>Bs, 109 millones</td><td>Bs, 114 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>EASBA</b></td><td>Agro</td><td>Bs, 39 millones</td><td>Bs, 41 millones</td><td><span class="chip cerrar">DEBE CERRARSE</span></td></tr><tr><td><b>YLB</b></td><td>Minería</td><td>Bs, 25 millones</td><td>Bs, 26 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>EBC</b></td><td>Construcción</td><td>Bs, 16 millones</td><td>Bs, 17 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>TAB</b></td><td>Transporte</td><td>Bs, 10 millones</td><td>Bs, 10 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR URGENTE</span></td></tr><tr><td><b>VINTO - NAL</b></td><td>Minería</td><td>Bs, 9 millones</td><td>Bs, 9 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR URGENTE</span></td></tr><tr><td><b>ELAPAS</b></td><td>Agua</td><td>Bs, 7 millones</td><td>Bs, 8 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>BTV</b></td><td>Medios</td><td>Bs, 7 millones</td><td>Bs, 7 millones</td><td><span class="chip cerrar">DEBE CERRARSE</span></td></tr><tr><td><b>QUIPUS</b></td><td>Industria</td><td>Bs, 4 millones</td><td>Bs, 4 millones</td><td><span class="chip cerrar">DEBE CERRARSE</span></td></tr><tr><td><b>EMAPAS</b></td><td>Agua</td><td>Bs, 3 millones</td><td>Bs, 4 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR URGENTE</span></td></tr><tr><td><b>TAM</b></td><td>Transporte</td><td>Bs, 3 millones</td><td>Bs, 3 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>B-Agro</b></td><td>Agro</td><td>Bs, 2 millones</td><td>Bs, 2 millones</td><td><span class="chip cerrar">DEBE CERRARSE URGENTE</span></td></tr><tr><td><b>AAPOS</b></td><td>Agua</td><td>Bs, 919 mil</td><td>Bs, 965 mil</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>EMAVS</b></td><td>Servicios Municipales</td><td>Bs, 733 mil</td><td>Bs, 770 mil</td><td><span class="chip cerrar">DEBE CERRARSE</span></td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 19 empresas, 17 (89%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 2 que sí podemos evaluar, <b>0 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>2</b></td><td>11%</td><td>YPFB, BTV</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>17</b></td><td>89%</td><td>EBA, ES - MUTUN, EASBA</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>13</b></td><td>68%</td><td>YPFB, EBA, ES - MUTUN</td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>5</b></td><td>26%</td><td>B-Agro, AAPOS, EMAVS</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>5%</td><td>CARTONBOL</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>YPFB</td><td>Hidrocarburos</td><td>Bs, 7,94 mil millones</td><td>Bs, 8,33 mil millones</td></tr><tr><td>EBA</td><td>Agro</td><td>Bs, 776 millones</td><td>Bs, 815 millones</td></tr><tr><td>ES - MUTUN</td><td>Minería</td><td>Bs, 109 millones</td><td>Bs, 114 millones</td></tr><tr><td>EASBA</td><td>Agro</td><td>Bs, 39 millones</td><td>Bs, 41 millones</td></tr><tr><td>YLB</td><td>Minería</td><td>Bs, 25 millones</td><td>Bs, 26 millones</td></tr><tr><td>EBC</td><td>Construcción</td><td>Bs, 16 millones</td><td>Bs, 17 millones</td></tr><tr><td>TAB</td><td>Transporte</td><td>Bs, 10 millones</td><td>Bs, 10 millones</td></tr><tr><td>VINTO - NAL</td><td>Minería</td><td>Bs, 9 millones</td><td>Bs, 9 millones</td></tr><tr><td>ELAPAS</td><td>Agua</td><td>Bs, 7 millones</td><td>Bs, 8 millones</td></tr><tr><td>BTV</td><td>Medios</td><td>Bs, 7 millones</td><td>Bs, 7 millones</td></tr><tr><td>QUIPUS</td><td>Industria</td><td>Bs, 4 millones</td><td>Bs, 4 millones</td></tr><tr><td>EMAPAS</td><td>Agua</td><td>Bs, 3 millones</td><td>Bs, 4 millones</td></tr><tr><td>TAM</td><td>Transporte</td><td>Bs, 3 millones</td><td>Bs, 3 millones</td></tr><tr><td>B-Agro</td><td>Agro</td><td>Bs, 2 millones</td><td>Bs, 2 millones</td></tr><tr><td>AAPOS</td><td>Agua</td><td>Bs, 919 mil</td><td>Bs, 965 mil</td></tr><tr><td>EMAVS</td><td>Servicios Municipales</td><td>Bs, 733 mil</td><td>Bs, 770 mil</td></tr><tr><td>CARTONBOL</td><td>Industria</td><td>—</td><td>—</td></tr><tr><td>EMAVIAS</td><td>Construcción</td><td>—</td><td>—</td></tr><tr><td>EMUJOYAS</td><td>Industria</td><td>—</td><td>—</td></tr></tbody></table></div><div class="section"><h2>4. Zombie Subsidiado — 8 empresas</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">No sobreviven sin transferencias del Estado</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">Bs, 11,57 mil millones</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">Bs, 4,39 mil millones</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">Bs, 12,15 mil millones</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">8</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip reestructurar" title="Mi teleférico — REESTRUCTURAR + REFORMA DE SUBSIDIOS — proceso en curso, continuar">Mi teleférico</span><span class="chip cerrar" title="EMAPA — CERRAR o PRIVATIZAR">EMAPA</span><span class="chip reestructurar" title="ENDE — REESTRUCTURAR + REFORMA DE SUBSIDIOS">ENDE</span><span class="chip reestructurar" title="ENABOL — REESTRUCTURAR + REFORMA DE SUBSIDIOS — proceso en curso, continuar">ENABOL</span><span class="chip reestructurar" title="SELA — REESTRUCTURAR + REFORMA DE SUBSIDIOS">SELA</span><span class="chip reestructurar" title="COFADENA — REESTRUCTURAR + REFORMA DE SUBSIDIOS">COFADENA</span><span class="chip reestructurar" title="SEMAPA — REESTRUCTURAR + REFORMA DE SUBSIDIOS">SEMAPA</span><span class="chip reestructurar" title="EMAPYC — REESTRUCTURAR + REFORMA DE SUBSIDIOS — URGENTE">EMAPYC</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 6,25 mil millones</b> en 2025 — eso es <b>44,1% más</b> que en 2023 (Bs, 4,34 mil millones).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>1</b></td><td>12%</td><td>EMAPA</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>1</b></td><td>12%</td><td>ENDE</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>5</b></td><td>62%</td><td>Mi teleférico, SELA, COFADENA</td></tr><tr><td>Sin datos de ventas</td><td><b>1</b></td><td>12%</td><td>ENABOL</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>2</b></td><td>25%</td><td>EMAPA, SELA</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>5</b></td><td>62%</td><td>Mi teleférico, ENDE, COFADENA</td></tr><tr><td>Patrón mixto</td><td><b>1</b></td><td>12%</td><td>ENABOL</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>3</b></td><td>38%</td><td>ENDE, SELA, COFADENA</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>5</b></td><td>62%</td><td>Mi teleférico, EMAPA, ENABOL</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: Bs, 11,51 mil millones.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>2</b></td><td>25%</td><td>ENDE, EMAPYC</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>6</b></td><td>75%</td><td>Mi teleférico, EMAPA, ENABOL</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 3,94 mil millones</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>1</b></td><td>12%</td><td>SELA</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>2</b></td><td>25%</td><td>SEMAPA, EMAPYC</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>2</b></td><td>25%</td><td>EMAPA, ENDE</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>2</b></td><td>25%</td><td>Mi teleférico, COFADENA</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>12%</td><td>ENABOL</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>Bs, 11,51 mil millones</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>Bs, 63 millones</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>Bs, 11,57 mil millones</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>Bs, 11,58 mil millones</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (5 con pérdida · 3 sin pérdida neta · 0 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td><b>Mi teleférico</b></td><td>Transporte</td><td>Bs, 5,43 mil millones</td><td>Bs, 5,70 mil millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>EMAPA</b></td><td>Agro</td><td>Bs, 3,42 mil millones</td><td>Bs, 3,59 mil millones</td><td><span class="chip cerrar">DEBE CERRARSE</span></td></tr><tr><td><b>ENDE</b></td><td>Energía</td><td>Bs, 2,51 mil millones</td><td>Bs, 2,64 mil millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>ENABOL</b></td><td>Transporte</td><td>Bs, 209 millones</td><td>Bs, 220 millones</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr><tr><td><b>SELA</b></td><td>Agua</td><td>Bs, 460 mil</td><td>Bs, 483 mil</td><td><span class="chip reestructurar">NECESITA REESTRUCTURAR</span></td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 8 empresas, 1 (12%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 7 que sí podemos evaluar, <b>0 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>2</b></td><td>25%</td><td>ENDE, COFADENA</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>5</b></td><td>62%</td><td>EMAPA, ENABOL, SELA</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>12%</td><td>Mi teleférico</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>7</b></td><td>88%</td><td>Mi teleférico, EMAPA, ENDE</td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>1</b></td><td>12%</td><td>EMAPYC</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>Mi teleférico</td><td>Transporte</td><td>Bs, 5,43 mil millones</td><td>Bs, 5,70 mil millones</td></tr><tr><td>EMAPA</td><td>Agro</td><td>Bs, 3,42 mil millones</td><td>Bs, 3,59 mil millones</td></tr><tr><td>ENDE</td><td>Energía</td><td>Bs, 2,51 mil millones</td><td>Bs, 2,64 mil millones</td></tr><tr><td>ENABOL</td><td>Transporte</td><td>Bs, 209 millones</td><td>Bs, 220 millones</td></tr><tr><td>SELA</td><td>Agua</td><td>Bs, 460 mil</td><td>Bs, 483 mil</td></tr><tr><td>COFADENA</td><td>Defensa</td><td>—</td><td>—</td></tr><tr><td>SEMAPA</td><td>Agua</td><td>—</td><td>—</td></tr><tr><td>EMAPYC</td><td>Agua</td><td>—</td><td>—</td></tr></tbody></table></div><div class="section"><h2>5. Capital Agotado, Operaciones Viables — 4 empresas</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">Pérdidas > capital pero ops funcionan</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">Bs, 912 millones</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">Bs, 346 millones</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">Bs, 957 millones</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">4</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip reestructurar" title="COMIBOL — RECAPITALIZAR — proceso en curso, continuar">COMIBOL</span><span class="chip reestructurar" title="BOA — RECAPITALIZAR — URGENTE">BOA</span><span class="chip reestructurar" title="EBIH — RECAPITALIZAR — proceso en curso, continuar">EBIH</span><span class="chip reestructurar" title="MISICUNI — RECAPITALIZAR — URGENTE">MISICUNI</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 8,87 mil millones</b> en 2025 — eso es <b>85,7% más</b> que en 2023 (Bs, 4,78 mil millones).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>1</b></td><td>25%</td><td>COMIBOL</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>3</b></td><td>75%</td><td>BOA, EBIH, MISICUNI</td></tr><tr><td>Sin datos de ventas</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>2</b></td><td>50%</td><td>EBIH, MISICUNI</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>2</b></td><td>50%</td><td>COMIBOL, BOA</td></tr><tr><td>Patrón mixto</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>4</b></td><td>100%</td><td>COMIBOL, BOA, EBIH</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: Bs, 902 millones.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>2</b></td><td>50%</td><td>EBIH, MISICUNI</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>1</b></td><td>25%</td><td>COMIBOL</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>1</b></td><td>25%</td><td>BOA</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 8,00 mil millones</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>2</b></td><td>50%</td><td>BOA, EBIH</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>1</b></td><td>25%</td><td>MISICUNI</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>1</b></td><td>25%</td><td>COMIBOL</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>Bs, 902 millones</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>Bs, 9 millones</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>Bs, 912 millones</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>Bs, 912 millones</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (4 con pérdida · 0 sin pérdida neta · 0 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td><b>COMIBOL</b></td><td>Minería</td><td>Bs, 581 millones</td><td>Bs, 610 millones</td><td><span class="chip reestructurar">NECESITA RECAPITALIZACIÓN</span></td></tr><tr><td><b>BOA</b></td><td>Transporte</td><td>Bs, 321 millones</td><td>Bs, 337 millones</td><td><span class="chip reestructurar">NECESITA RECAPITALIZACIÓN URGENTE</span></td></tr><tr><td><b>EBIH</b></td><td>Hidrocarburos</td><td>Bs, 8 millones</td><td>Bs, 9 millones</td><td><span class="chip reestructurar">NECESITA RECAPITALIZACIÓN</span></td></tr><tr><td><b>MISICUNI</b></td><td>Construcción</td><td>Bs, 915 mil</td><td>Bs, 960 mil</td><td><span class="chip reestructurar">NECESITA RECAPITALIZACIÓN URGENTE</span></td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 4 empresas, 3 (75%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 1 que sí podemos evaluar, <b>1 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>1</b></td><td>25%</td><td>COMIBOL</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>3</b></td><td>75%</td><td>BOA, EBIH, MISICUNI</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>4</b></td><td>100%</td><td>COMIBOL, BOA, EBIH</td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>COMIBOL</td><td>Minería</td><td>Bs, 581 millones</td><td>Bs, 610 millones</td></tr><tr><td>BOA</td><td>Transporte</td><td>Bs, 321 millones</td><td>Bs, 337 millones</td></tr><tr><td>EBIH</td><td>Hidrocarburos</td><td>Bs, 8 millones</td><td>Bs, 9 millones</td></tr><tr><td>MISICUNI</td><td>Construcción</td><td>Bs, 915 mil</td><td>Bs, 960 mil</td></tr></tbody></table></div><div class="section"><h2>7. Bajo Desempeño Estructural — 1 empresa</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">Funcionan pero rinden poco</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">—</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">—</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">—</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">1</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip privatizar" title="EMSA — PRIVATIZAR">EMSA</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 132 millones</b> en 2025 — eso es <b>6,6% más</b> que en 2023 (Bs, 124 millones).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Sin datos de ventas</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Patrón mixto</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: —.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 72 millones</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>—</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>—</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>—</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>—</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (0 con pérdida · 1 sin pérdida neta · 0 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td colspan="5" style="text-align:center; color:#888;">Ninguna empresa de este grupo registró pérdida de efectivo en 2025</td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 1 empresas, 0 (0%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 1 que sí podemos evaluar, <b>0 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>1</b></td><td>100%</td><td>EMSA</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>EMSA</td><td>Servicios Municipales</td><td>—</td><td>—</td></tr></tbody></table></div><div class="section"><h2>9. Datos Insuficientes — 9 empresas</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">Estados financieros no disponibles</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">Bs, 211 mil</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">Bs, 80 mil</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">Bs, 222 mil</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">9</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip pendiente" title="EPDEOR — PENDIENTE — Solicitar Estados Financieros / Verificar si la Entidad los Produce">EPDEOR</span><span class="chip pendiente" title="EMAPAU — DIAGNÓSTICO PARCIAL — Distrés Detectado al 2024, Completar Datos 2025">EMAPAU</span><span class="chip pendiente" title="EMAPAV — PENDIENTE — Completar Estados Financieros Faltantes (2025)">EMAPAV</span><span class="chip pendiente" title="EMAVERDE — DIAGNÓSTICO PARCIAL — Distrés Detectado al 2024, Completar Datos 2025">EMAVERDE</span><span class="chip pendiente" title="SETAR — PENDIENTE — Solicitar Estados Financieros / Verificar si la Entidad los Produce">SETAR</span><span class="chip pendiente" title="FCCCP-EPD — PENDIENTE — Solicitar Estados Financieros / Verificar si la Entidad los Produce">FCCCP-EPD</span><span class="chip pendiente" title="KALLPAWAWA — DIAGNÓSTICO PARCIAL — Distrés Detectado al 2025, Completar Datos 2023, 2024">KALLPAWAWA</span><span class="chip pendiente" title="EMPRESA — DIAGNÓSTICO PARCIAL — Distrés Detectado al 2025, Completar Datos 2023">EMPRESA</span><span class="chip pendiente" title="EMPRESA — DIAGNÓSTICO PARCIAL — Distrés Detectado al 2025, Completar Datos 2023">EMPRESA</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 2 millones</b> en 2025 — eso es <b>96,2% menos</b> que en 2023 (Bs, 62 millones).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>4</b></td><td>44%</td><td>EMAPAU, EMAPAV, EMAVERDE</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>1</b></td><td>11%</td><td>EMPRESA</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos de ventas</td><td><b>4</b></td><td>44%</td><td>EPDEOR, SETAR, FCCCP-EPD</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>1</b></td><td>11%</td><td>EMPRESA</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Patrón mixto</td><td><b>7</b></td><td>78%</td><td>EPDEOR, EMAPAU, EMAPAV</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>11%</td><td>EMPRESA</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>2</b></td><td>22%</td><td>KALLPAWAWA, EMPRESA</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>1</b></td><td>11%</td><td>EMPRESA</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>6</b></td><td>67%</td><td>EPDEOR, EMAPAU, EMAPAV</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: —.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>2</b></td><td>22%</td><td>EMAVERDE, KALLPAWAWA</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>2</b></td><td>22%</td><td>EMAPAV, EMPRESA</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>1</b></td><td>11%</td><td>EMPRESA</td></tr><tr><td>Sin datos</td><td><b>4</b></td><td>44%</td><td>EPDEOR, EMAPAU, SETAR</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 498 mil</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>1</b></td><td>11%</td><td>EMPRESA</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>8</b></td><td>89%</td><td>EPDEOR, EMAPAU, EMAPAV</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>—</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>Bs, 211 mil</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>Bs, 211 mil</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>Bs, 222 mil</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (2 con pérdida · 5 sin pérdida neta · 2 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td><b>EPDEOR</b></td><td>Servicios</td><td>Bs, 164 mil</td><td>Bs, 172 mil</td><td><span class="chip pendiente">PENDIENTE DE DATOS</span></td></tr><tr><td><b>EMAPAU</b></td><td>Agua</td><td>Bs, 48 mil</td><td>Bs, 50 mil</td><td><span class="chip pendiente">REQUIERE ANÁLISIS ESPECÍFICO</span></td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 9 empresas, 9 (100%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 0 que sí podemos evaluar, <b>0 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>9</b></td><td>100%</td><td>EPDEOR, EMAPAU, EMAPAV</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>5</b></td><td>56%</td><td>EMAPAU, EMAPAV, SETAR</td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>1</b></td><td>11%</td><td>EPDEOR</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>1</b></td><td>11%</td><td>EMAVERDE</td></tr><tr><td>Sin datos</td><td><b>2</b></td><td>22%</td><td>EMPRESA, EMPRESA</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>EPDEOR</td><td>Servicios</td><td>Bs, 164 mil</td><td>Bs, 172 mil</td></tr><tr><td>EMAPAU</td><td>Agua</td><td>Bs, 48 mil</td><td>Bs, 50 mil</td></tr><tr><td>EMAPAV</td><td>Agua</td><td>—</td><td>—</td></tr><tr><td>EMAVERDE</td><td>Servicios Municipales</td><td>—</td><td>—</td></tr><tr><td>SETAR</td><td>Energía</td><td>—</td><td>—</td></tr><tr><td>FCCCP-EPD</td><td>Industria</td><td>—</td><td>—</td></tr><tr><td>KALLPAWAWA</td><td>Industria</td><td>—</td><td>—</td></tr><tr><td>EMPRESA</td><td>Agua</td><td>—</td><td>—</td></tr><tr><td>EMPRESA</td><td>Agua</td><td>—</td><td>—</td></tr></tbody></table></div><div class="section"><h2>10. Distrés Mixto — Análisis Específico Requerido — 11 empresas</h2>
+<p style="color:#666; font-size:10.5pt; font-style:italic;">Patrón atípico, requiere análisis específico</p>
+<div class="summary-grid">
+  <div class="stat-box"><div class="label">Pérdida de efectivo 2025</div><div class="value">Bs, 324 millones</div></div>
+  <div class="stat-box"><div class="label">Ya perdido al 11 mayo 2026</div><div class="value">Bs, 123 millones</div></div>
+  <div class="stat-box"><div class="label">Proyección 2026</div><div class="value">Bs, 340 millones</div></div>
+  <div class="stat-box"><div class="label">Empresas</div><div class="value">11</div></div>
+</div>
+<div style="margin: 10px 0 14px;"><span class="chip pendiente" title="ABE. — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">ABE.</span><span class="chip pendiente" title="EMTAGAS — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">EMTAGAS</span><span class="chip pendiente" title="DAB — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">DAB</span><span class="chip pendiente" title="EDITORIAL — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">EDITORIAL</span><span class="chip pendiente" title="GERES — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">GERES</span><span class="chip pendiente" title="ASP-B — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">ASP-B</span><span class="chip pendiente" title="GESTORA — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">GESTORA</span><span class="chip pendiente" title="ESABOL — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">ESABOL</span><span class="chip pendiente" title="EMAVRA — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">EMAVRA</span><span class="chip pendiente" title="EPSA COBIJA — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">EPSA COBIJA</span><span class="chip pendiente" title="EMDELL — DIAGNÓSTICO ESPECÍFICO — Análisis Sector/Contexto">EMDELL</span></div>
+
+<div class="section"><h2>Las 8 preguntas — a nivel agregado</h2>
+
+<h3>1. ¿Están vendiendo más o menos cada año?</h3>
+<p class="q-text">Estas empresas en conjunto facturaron <b>Bs, 1,23 mil millones</b> en 2025 — eso es <b>7,9% más</b> que en 2023 (Bs, 1,14 mil millones).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Vendiendo MENOS (caída &gt; 5%)</td><td><b>2</b></td><td>18%</td><td>DAB, EMAVRA</td></tr><tr><td>Estables (cambio ±5%)</td><td><b>4</b></td><td>36%</td><td>ABE., EMTAGAS, GERES</td></tr><tr><td>Vendiendo MÁS (alza &gt; 5%)</td><td><b>5</b></td><td>45%</td><td>EDITORIAL, ASP-B, ESABOL</td></tr><tr><td>Sin datos de ventas</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>2. ¿La utilidad que reportan se convierte en plata real?</h3>
+<p class="q-text">En los libros contables una empresa puede "ganar" aunque no haya recibido la plata. Si vendes a un cliente que no te paga, la venta se anota como ganancia pero el dinero nunca entra a tu cuenta bancaria. Esto es lo que pasa con muchas empresas estatales: reportan utilidad porque le venden al Tesoro o a otra entidad pública, pero esa entidad no paga. Para el ciudadano lo que importa es la <b>plata real que entra</b> — no la utilidad de papel.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Reportan utilidad en libros pero pierden efectivo</td><td><b>4</b></td><td>36%</td><td>ABE., EMTAGAS, DAB</td></tr><tr><td>Pierden en libros y en efectivo</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>La utilidad se convierte en efectivo</td><td><b>7</b></td><td>64%</td><td>EDITORIAL, ASP-B, GESTORA</td></tr><tr><td>Patrón mixto</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>3. ¿Cuántas están legalmente solventes?</h3>
+<p class="q-text">Bajo el Artículo 354 del Código de Comercio, una empresa con pérdidas acumuladas que superan el 50% del capital pagado debe recapitalizarse o disolverse.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Capital sólido (pérdidas acumuladas &lt; capital)</td><td><b>5</b></td><td>45%</td><td>DAB, EDITORIAL, ASP-B</td></tr><tr><td>Patrimonio erosionado (pérdidas hasta 50% del capital)</td><td><b>4</b></td><td>36%</td><td>EMTAGAS, GERES, ESABOL</td></tr><tr><td>Quiebra técnica — Artículo 354 del Código de Comercio</td><td><b>2</b></td><td>18%</td><td>ABE., EMAVRA</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>4. ¿Cuántas dependen del Estado para sobrevivir?</h3>
+<p class="q-text">Cuántos bolivianos pone el Estado en aportes y transferencias por cada boliviano que la empresa invierte por su cuenta. Si pone Bs. 1, iguala lo que pone la empresa. Si pone Bs. 3, el Estado financia 3× más que la propia empresa.</p>
+<p class="q-text"><b>Aportes totales del Estado a este grupo en 2025: Bs, 3 millones.</b> Esto es plata real que salió del Tesoro Nacional para mantener funcionando a estas empresas.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Autofinanciada (el Estado pone &lt; 30 centavos por cada Bs. propio)</td><td><b>7</b></td><td>64%</td><td>ABE., EMTAGAS, GERES</td></tr><tr><td>Dependencia moderada (Estado pone 30 c. a 1 Bs. por cada Bs. propio)</td><td><b>1</b></td><td>9%</td><td>GESTORA</td></tr><tr><td>Dependencia alta (Estado pone 1 a 3 Bs. por cada Bs. propio)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Dependencia extrema (Estado pone más de 3 Bs. por cada Bs. propio)</td><td><b>3</b></td><td>27%</td><td>DAB, EDITORIAL, EPSA COBIJA</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+
+<h3>5. ¿Cuántas cobran a tiempo a sus clientes?</h3>
+<p class="q-text">Cuentas por cobrar acumuladas del grupo en 2025: <b>Bs, 142 millones</b>. El principal moroso de las empresas estatales suele ser el propio Tesoro General del Estado.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Cobra a tiempo (≤ 4 meses)</td><td><b>7</b></td><td>64%</td><td>ABE., DAB, EDITORIAL</td></tr><tr><td>Lento (4 meses a 1 año)</td><td><b>3</b></td><td>27%</td><td>EMTAGAS, EMAVRA, EPSA COBIJA</td></tr><tr><td>Muy lento (1 a 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Extremadamente lento (más de 2 años)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>1</b></td><td>9%</td><td>ESABOL</td></tr></tbody></table>
+
+<h3>6. ¿Cuánto le cuesta al Estado mantener este grupo?</h3>
+<table><thead><tr><th>Concepto</th><th>Cifra</th></tr></thead><tbody><tr><td>Aportes directos del Tesoro al grupo en 2025 (medido)</td><td><b>Bs, 3 millones</b></td></tr><tr><td>Déficit operativo del grupo en 2025 (medido)</td><td><b>Bs, 321 millones</b></td></tr><tr><td>COSTO TOTAL real al Tesoro en 2025</td><td><b>Bs, 324 millones</b></td></tr><tr><td>Costo estimado al Tesoro en 2026 (proyección)</td><td><b>Bs, 340 millones</b></td></tr></tbody></table>
+<p class="q-text" style="margin-top:14px;"><b>Empresas del grupo con pérdida de efectivo en 2025</b> (5 con pérdida · 6 sin pérdida neta · 0 sin datos):</p>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th><th>Recomendación</th></tr></thead><tbody><tr><td><b>ABE.</b></td><td>Servicios</td><td>Bs, 305 millones</td><td>Bs, 320 millones</td><td><span class="chip pendiente">REQUIERE ANÁLISIS ESPECÍFICO</span></td></tr><tr><td><b>EMTAGAS</b></td><td>Hidrocarburos</td><td>Bs, 12 millones</td><td>Bs, 13 millones</td><td><span class="chip pendiente">REQUIERE ANÁLISIS ESPECÍFICO</span></td></tr><tr><td><b>DAB</b></td><td>Logística</td><td>Bs, 5 millones</td><td>Bs, 5 millones</td><td><span class="chip pendiente">REQUIERE ANÁLISIS ESPECÍFICO</span></td></tr><tr><td><b>EDITORIAL</b></td><td>Medios</td><td>Bs, 2 millones</td><td>Bs, 2 millones</td><td><span class="chip pendiente">REQUIERE ANÁLISIS ESPECÍFICO</span></td></tr><tr><td><b>GERES</b></td><td>Servicios Municipales</td><td>Bs, 426 mil</td><td>Bs, 447 mil</td><td><span class="chip pendiente">REQUIERE ANÁLISIS ESPECÍFICO</span></td></tr></tbody></table>
+
+<h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3>
+<p class="q-text">Cuánto produce cada Bs. 100 invertidos en la empresa al año. El costo alternativo conservador para Bolivia es 13% — si la empresa produce menos, el Estado pierde valor financiero respecto a otras inversiones públicas alternativas.</p>
+<p class="q-text"><b>De 11 empresas, 3 (27%) no tienen datos suficientes</b> para calcular si el capital invertido rinde. De las 8 que sí podemos evaluar, <b>5 superan el costo de capital del Estado</b> (≥13%) y <b>0 destruyen valor activamente</b> (rendimiento negativo).</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Rinden bien (más de Bs. 13 por cada Bs. 100, supera costo de capital)</td><td><b>5</b></td><td>45%</td><td>ABE., DAB, EDITORIAL</td></tr><tr><td>Rinden poco (Bs. 5 a Bs. 13 por cada Bs. 100)</td><td><b>1</b></td><td>9%</td><td>EPSA COBIJA</td></tr><tr><td>Break-even (Bs. 0 a Bs. 5)</td><td><b>2</b></td><td>18%</td><td>EMTAGAS, GERES</td></tr><tr><td>Destruyen valor (rendimiento negativo)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>3</b></td><td>27%</td><td>GESTORA, ESABOL, EMAVRA</td></tr></tbody></table>
+
+<h3>8. ¿Son empresas reales o solo pagan sueldos?</h3>
+<p class="q-text">Si más del 70% del gasto va a planilla, la empresa funciona principalmente como un vehículo de empleo, no como operador comercial.</p>
+<table><thead><tr><th>Categoría</th><th>Cantidad</th><th>% del grupo</th><th>Ejemplos (más costosas)</th></tr></thead><tbody><tr><td>Empresas reales (sueldos ≤ 40% del gasto)</td><td><b>9</b></td><td>82%</td><td>ABE., EMTAGAS, DAB</td></tr><tr><td>Intensivas en personal (sueldos 40-70%)</td><td><b>2</b></td><td>18%</td><td>GERES, EMAVRA</td></tr><tr><td>Cascarón funcional (sueldos &gt; 70%)</td><td><b>0</b></td><td>0%</td><td>—</td></tr><tr><td>Sin datos</td><td><b>0</b></td><td>0%</td><td>—</td></tr></tbody></table>
+</div>
+<h3>Todas las empresas en este grupo</h3>
+<table><thead><tr><th>Empresa</th><th>Sector</th><th>Pérdida 2025</th><th>Proyección 2026</th></tr></thead><tbody><tr><td>ABE.</td><td>Servicios</td><td>Bs, 305 millones</td><td>Bs, 320 millones</td></tr><tr><td>EMTAGAS</td><td>Hidrocarburos</td><td>Bs, 12 millones</td><td>Bs, 13 millones</td></tr><tr><td>DAB</td><td>Logística</td><td>Bs, 5 millones</td><td>Bs, 5 millones</td></tr><tr><td>EDITORIAL</td><td>Medios</td><td>Bs, 2 millones</td><td>Bs, 2 millones</td></tr><tr><td>GERES</td><td>Servicios Municipales</td><td>Bs, 426 mil</td><td>Bs, 447 mil</td></tr><tr><td>ASP-B</td><td>Transporte</td><td>—</td><td>—</td></tr><tr><td>GESTORA</td><td>Seguros</td><td>—</td><td>—</td></tr><tr><td>ESABOL</td><td>Transporte</td><td>—</td><td>—</td></tr><tr><td>EMAVRA</td><td>Servicios Municipales</td><td>—</td><td>—</td></tr><tr><td>EPSA COBIJA</td><td>Agua</td><td>—</td><td>—</td></tr><tr><td>EMDELL</td><td>Energía</td><td>—</td><td>—</td></tr></tbody></table></div></body></html>

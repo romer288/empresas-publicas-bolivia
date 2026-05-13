@@ -94,14 +94,15 @@ tr:nth-child(even) td { background: #fafafa; }
 </nav>
 
 <div style="background:#fff3cd; border:2px solid #e67e22; padding:18px 22px; margin:0 0 24px; border-radius:6px; font-size:11pt; line-height:1.55;">
-<p style="margin:0 0 8px; font-size:13pt; font-weight:700; color:#a04000;">⚠ Aviso importante sobre las cifras de este reporte</p>
-<p style="margin:0 0 8px;">Una auditoría posterior detectó <b>dos problemas semánticos importantes</b> que afectan las cifras de <b>"Aportes del Estado"</b> y <b>"Costo al Tesoro"</b> en todas las páginas:</p>
+<p style="margin:0 0 8px; font-size:13pt; font-weight:700; color:#a04000;">⚠ Aviso sobre las cifras de costo fiscal — versión iterativa</p>
+<p style="margin:0 0 8px;">El cálculo del costo fiscal anual al Estado se viene refinando en varias iteraciones. Lo que sabemos hasta ahora:</p>
 <ol style="margin:6px 0 10px 22px; padding:0;">
-<li style="margin-bottom:6px;"><b>Stock vs. flujo:</b> los "aportes" mostrados son el <b>saldo acumulado</b> en la cuenta de Patrimonio (3.1.1.2 "Aportes por Capitalizar") al cierre de 2025 — <b>no es lo que el Estado inyectó durante el año 2025</b>. Para YPFB, el saldo no cambió entre 2024 y 2025 (Bs 4,79 mil millones ambos años) → en 2025 el Estado <b>no le inyectó capital nuevo</b>. La cifra anual real de aportes 2025 sería el delta (2025 − 2024), que para la mayoría de empresas es cercano a cero.</li>
-<li style="margin-bottom:6px;"><b>Subvenciones operativas no contabilizadas:</b> el reporte <b>no incluye las subvenciones operativas</b> que recibe cada empresa vía cuenta 54000 (Otros Ingresos: subvención diésel, GLP, insumos, tarifa eléctrica regulada, compra a precio garantizado, etc.). Para YPFB, esto fue <b>Bs 17 mil millones en 2025</b> — flujo real del Tesoro que el reporte omite.</li>
+<li style="margin-bottom:6px;"><b>Los "aportes" mostrados son saldos acumulados (stock), no flujo anual.</b> El "Aporte 2025" de cada empresa es el balance histórico en la cuenta 3.1.1.2 del Patrimonio al cierre de 2025 — incluye inyecciones de hace décadas. El flujo nuevo en 2025 fue cercano a <b>Bs 0</b> para la mayoría: prácticamente nadie recibió capital nuevo. (Ej.: YPFB tiene Bs 4,79 mil M en aportes acumulados — sin cambio entre 2024 y 2025.)</li>
+<li style="margin-bottom:6px;"><b>El verdadero apoyo del Estado fluye vía SIGEP, no vía aportes de capital.</b> Cruzando los datos del SIGEP (Ingreso percibido) con las ventas comerciales (op_revenue de cada empresa), se identifican <b>~Bs 27 mil millones en ingresos no-comerciales en 2025</b> — dinero que entró por la vía del Estado sin ser venta. Por empresa: YPFB +Bs 19,5 mil M (subsidio al diésel), COMIBOL +Bs 2,8 mil M, ENDE +Bs 2,0 mil M (tarifa regulada), EMAPA +Bs 1,1 mil M (precios sociales), BOA +Bs 693 M, varias otras menores. <b>Esa es la cifra fiscal real, no los Bs 17,91 mil M de "aportes" mostrados.</b></li>
+<li style="margin-bottom:6px;"><b>La cifra del SIGEP no es 100% subsidios.</b> Incluye también devolución de IVA, regalías intra-grupo (COMIBOL → filiales), intereses de depósitos del Estado, y otros flujos no-comerciales. Una desagregación más fina requiere revisar caso por caso (especialmente COMIBOL).</li>
 </ol>
-<p style="margin:8px 0 4px;"><b>Implicación:</b> el verdadero costo fiscal anual de las 56 empresas al Estado es <b>significativamente mayor</b> que las cifras de "Costo al Tesoro" mostradas, y está dominado por subsidios operativos (combustibles, electricidad, agua, alimentos) — no por aportes de capital. La narrativa correcta sería <b>"el Estado subsidia heavily ciertos sectores a través de estas empresas"</b>, no "las empresas reciben mucha plata sin rendir".</p>
-<p style="margin:8px 0 0; font-size:10pt; color:#555;">Una versión revisada con (a) flujos anuales correctos en lugar de stocks y (b) subvenciones operativas incluidas está en preparación. Hasta entonces, <b>tratar los números de "Aportes" y "Costo al Tesoro" como referenciales, no como cifras finales para decisiones de política.</b></p>
+<p style="margin:8px 0 4px;"><b>Implicación para la lectura:</b> el ciudadano que ve "Aportes del Estado: Bs 17,91 mil M" debe entender que <b>esa NO es la plata que el Estado puso en 2025</b>, sino el saldo histórico. El costo fiscal real del 2025 está más cerca de <b>Bs 27 mil M anuales</b>, y está concentrado en mantener subsidios al diésel, tarifas eléctricas, precios alimentarios y operaciones mineras — no en "aportes de capital".</p>
+<p style="margin:8px 0 0; font-size:10pt; color:#555;">Tratar las cifras de "Aportes" y "Costo al Tesoro" como referenciales hasta la próxima iteración. Los demás verbos de recomendación (CERRAR, REESTRUCTURAR, etc.) podrían también recalibrarse cuando se integre M17 correctamente.</p>
 </div>
 
 <h1 class="agg-h1">Las 56 Empresas Públicas — Vista Individual</h1>
@@ -123,10 +124,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 47,02 mil millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 47,02 mil millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 46,93 mil millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 4,79 mil millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 7,94 mil millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 19,50 mil millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 4,79 mil millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tesoro no le paga el subsidio a combustibles a tiempo</p>
   <a href="0513_YPFB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de YPFB →</a>
@@ -141,10 +142,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 218 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 218 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 403 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 5,43 mil millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 5,43 mil millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 77 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 5,43 mil millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifa subsidiada por decisión política</p>
   <a href="0591_Mi_teleférico.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de Mi teleférico →</a>
@@ -159,10 +160,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 2,00 mil millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 2,00 mil millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 1,99 mil millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 3,36 mil millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 3,42 mil millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 1,11 mil millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 3,36 mil millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Compra a precio garantizado y vende a precio social</p>
   <a href="0572_EMAPA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPA →</a>
@@ -177,10 +178,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 3,59 mil millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 3,59 mil millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 1,23 mil millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 2,51 mil millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 2,51 mil millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 2,00 mil millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 2,51 mil millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas eléctricas reguladas por debajo del costo</p>
   <a href="0514_ENDE.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ENDE →</a>
@@ -195,10 +196,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 320 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 320 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 425 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 666 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 776 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 666 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Cadena almendrera sin escala ni canal</p>
   <a href="0599_EBA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EBA →</a>
@@ -213,10 +214,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA RECAPITALIZACIÓN</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 5,64 mil millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 5,64 mil millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 5,07 mil millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 581 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 581 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 2,82 mil millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 581 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Pérdidas mineras estructurales y precios de metales</p>
   <a href="0517_COMIBOL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de COMIBOL →</a>
@@ -231,10 +232,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA RECAPITALIZACIÓN URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 3,04 mil millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 3,04 mil millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 3,18 mil millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 321 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 321 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 693 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 321 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Deudas con arrendadores de aeronaves y competencia</p>
   <a href="0578_BOA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de BOA →</a>
@@ -249,10 +250,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 228 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 228 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 220 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 305 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Boliviana de la Energía Eléctrica</p>
   <a href="0585_ABE.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ABE. →</a>
@@ -267,10 +268,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 60 mil</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 60 mil</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 109 mil</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 209 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 209 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 60 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 209 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa naval, mercado y carga limitados</p>
   <a href="0551_ENABOL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ENABOL →</a>
@@ -285,10 +286,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 109 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 200 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="0573_ES_-_MUTUN.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ES - MUTUN →</a>
@@ -303,10 +304,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 64 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 64 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 80 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 34 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 39 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 34 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Azucarera estatal sin escala competitiva</p>
   <a href="0586_EASBA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EASBA →</a>
@@ -321,10 +322,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 313 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 313 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 545 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 25 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 18 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Inversión grande en litio que aún no genera retorno</p>
   <a href="0597_YLB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de YLB →</a>
@@ -339,10 +340,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 36 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 36 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 55 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 2 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 16 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 3 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 2 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Boliviana de Cementos</p>
   <a href="0587_EBC.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EBC →</a>
@@ -357,10 +358,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 63 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 63 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 70 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 1 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 12 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 934 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 1 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de gas regional</p>
   <a href="0716_EMTAGAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMTAGAS →</a>
@@ -375,10 +376,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 93 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 93 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 98 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 10 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 16 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Mercado de boletas fiscales con tarifas controladas</p>
   <a href="0525_TAB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de TAB →</a>
@@ -393,10 +394,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 2,64 mil millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 2,64 mil millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 2,73 mil millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 9 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 186 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Estaño internacional volátil + costos altos</p>
   <a href="0520_VINTO_-_NAL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de VINTO - NAL →</a>
@@ -411,10 +412,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA RECAPITALIZACIÓN</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 161 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 161 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 160 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 8 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Hidrocarburos secundarios sin escala</p>
   <a href="0584_EBIH.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EBIH →</a>
@@ -429,10 +430,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 75 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 75 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 82 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 7 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 84 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua congeladas + cobranza débil</p>
   <a href="0802_ELAPAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ELAPAS →</a>
@@ -447,10 +448,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 66 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 66 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 67 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 7 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Sin modelo de negocio viable como TV pública</p>
   <a href="0526_BTV.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de BTV →</a>
@@ -465,10 +466,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 94 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 94 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 90 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 5 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Depósitos Aduaneros Bolivianos</p>
   <a href="0580_DAB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de DAB →</a>
@@ -483,10 +484,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 35 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 35 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 33 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 4 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 23 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Ensamblaje de electrónicos sin mercado local</p>
   <a href="0590_QUIPUS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de QUIPUS →</a>
@@ -501,10 +502,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 3 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 13 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua + capital de trabajo insuficiente</p>
   <a href="2302_EMAPAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPAS →</a>
@@ -519,10 +520,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 32 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 32 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 37 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 3 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 526 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Aviación militar, mercado y rutas limitadas</p>
   <a href="0596_TAM.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de TAM →</a>
@@ -537,10 +538,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 2 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 4 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Agro estatal sin modelo viable</p>
   <a href="0601_B-Agro.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de B-Agro →</a>
@@ -555,10 +556,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 128 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 128 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 113 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">Bs, 2 millones</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 2 millones</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 16 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">Bs, 2 millones</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Editorial estatal con tiraje limitado</p>
   <a href="0598_EDITORIAL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EDITORIAL →</a>
@@ -573,10 +574,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 29 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 29 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 65 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 919 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 4 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua congeladas + infraestructura vieja</p>
   <a href="0821_AAPOS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de AAPOS →</a>
@@ -591,10 +592,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA RECAPITALIZACIÓN URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 31 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 31 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 74 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 915 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 1 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Hidroeléctrica subsidiada por decisión política</p>
   <a href="0633_MISICUNI.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de MISICUNI →</a>
@@ -609,10 +610,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 18 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 733 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 16 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Aviación pequeña sin escala</p>
   <a href="2314_EMAVS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAVS →</a>
@@ -627,10 +628,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 81 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 81 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 78 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 460 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 11 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Cementera con costos altos vs competencia</p>
   <a href="0831_SELA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SELA →</a>
@@ -645,10 +646,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 426 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 5 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Recursos estratégicos</p>
   <a href="2301_GERES.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de GERES →</a>
@@ -663,10 +664,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip liquidar" style="font-size:9pt;">DEBE LIQUIDARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 1 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 1 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 3 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 264 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 107 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2338_EPSA_MUNICIPAL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EPSA MUNICIPAL  →</a>
@@ -681,10 +682,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip liquidar" style="font-size:9pt;">DEBE LIQUIDARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 5 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 5 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 32 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 166 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 104 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de fibra de camélido sin mercado</p>
   <a href="0593_YACANA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de YACANA →</a>
@@ -699,10 +700,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">PENDIENTE DE DATOS</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 164 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 6 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="0634_EPDEOR.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EPDEOR →</a>
@@ -717,10 +718,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip liquidar" style="font-size:9pt;">DEBE LIQUIDARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 3 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 3 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 45 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 148 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 3 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de agua que ya no opera</p>
   <a href="0761_SAMAPA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SAMAPA →</a>
@@ -735,10 +736,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">Bs, 48 mil</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 182 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2328_EMAPAU.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPAU →</a>
@@ -753,10 +754,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 472 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 472 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 337 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 135 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Sistema integral de gestión de pensiones</p>
   <a href="0595_GESTORA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de GESTORA →</a>
@@ -771,10 +772,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 235 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 235 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 250 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 11 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua congeladas + pérdidas técnicas altas</p>
   <a href="0781_SEMAPA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SEMAPA →</a>
@@ -789,10 +790,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip privatizar" style="font-size:9pt;">DEBE PRIVATIZARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 132 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 132 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 130 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Servicios de salud locales bajo desempeño</p>
   <a href="2315_EMSA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMSA →</a>
@@ -807,10 +808,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 104 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 104 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 104 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Aviación de rescate</p>
   <a href="2303_EMAVRA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAVRA →</a>
@@ -825,10 +826,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 94 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 94 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 90 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 175 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Administradora de servicios portuarios</p>
   <a href="0594_ASP-B.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ASP-B →</a>
@@ -843,10 +844,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 106 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 106 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 60 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 40 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Defensa estatal con producción muy específica</p>
   <a href="0548_COFADENA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de COFADENA →</a>
@@ -861,10 +862,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 33 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 33 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 52 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 12 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Asfalto y vías sin escala competitiva</p>
   <a href="2317_EMAVIAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAVIAS →</a>
@@ -879,10 +880,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 31 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 6 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Embotelladora estatal</p>
   <a href="0600_ESABOL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ESABOL →</a>
@@ -897,10 +898,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR URGENTE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 2 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de agua municipal con pérdidas crónicas</p>
   <a href="2327_EMAPYC.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPYC →</a>
@@ -915,10 +916,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 10 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 835 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de agua de Cobija</p>
   <a href="2320_EPSA_COBIJA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EPSA COBIJA →</a>
@@ -933,10 +934,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 11 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 10 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 1 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Aluminio del Litoral</p>
   <a href="2341_EMDELL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMDELL →</a>
@@ -951,10 +952,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 2 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 2 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 4 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2353_EMPRESA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMPRESA →</a>
@@ -969,10 +970,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip liquidar" style="font-size:9pt;">DEBE LIQUIDARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 4 millones</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 4 millones</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 3 millones</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 4 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Ferrocarriles del Estado que ya no operan</p>
   <a href="0522_ENFE.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ENFE →</a>
@@ -987,10 +988,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">Bs, 187 mil</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 187 mil</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">Bs, 214 mil</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 187 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2351_KALLPAWAWA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de KALLPAWAWA →</a>
@@ -1005,10 +1006,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Cartón sin demanda industrial estable</p>
   <a href="0576_CARTONBOL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de CARTONBOL →</a>
@@ -1023,10 +1024,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">PENDIENTE DE DATOS</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 7 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Agua potable Vinto</p>
   <a href="2312_EMAPAV.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPAV →</a>
@@ -1041,10 +1042,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 56 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2316_EMAVERDE.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAVERDE →</a>
@@ -1059,10 +1060,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">PENDIENTE DE DATOS</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#c0392b;">Bs, 348 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2330_SETAR.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SETAR →</a>
@@ -1077,10 +1078,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">PENDIENTE DE DATOS</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 5 millones</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2336_FCCCP-EPD.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de FCCCP-EPD →</a>
@@ -1095,10 +1096,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">Bs, 961 mil</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Producción de joyas estatal sin canal de venta</p>
   <a href="2339_EMUJOYAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMUJOYAS →</a>
@@ -1113,10 +1114,10 @@ tr:nth-child(even) td { background: #fafafa; }
     <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
-    <div><span class="emp-stat-label">Ventas 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
     <div><span class="emp-stat-label">Gasto 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Aportes Estado 2025</span><span class="emp-stat-val">—</span></div>
-    <div><span class="emp-stat-label">Costo al Tesoro 2025</span><span class="emp-stat-val">—</span></div>
+    <div><span class="emp-stat-label">Apoyo Estado vía SIGEP 2025</span><span class="emp-stat-val" style="color:#1a1a1a;">—</span></div>
+    <div><span class="emp-stat-label">Aportes acumulados (stock)</span><span class="emp-stat-val">—</span></div>
   </div>
   
   <a href="2354_EMPRESA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMPRESA →</a>

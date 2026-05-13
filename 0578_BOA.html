@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>BOA — Ficha Ciudadana</title><style>
+@page { margin: 1.2cm; size: letter; }
+body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.45; max-width: 760px; margin: 24px auto; padding: 0 20px; font-size: 11pt; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 16px; }
+.sigla { font-size: 38pt; font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.verdict-badge { display: inline-block; padding: 10px 18px; background: #e67e22; color: white; font-weight: 700; font-size: 11pt; letter-spacing: 0.5px; }
+.verdict-badge.cerrar { background: #c0392b; }
+.verdict-badge.liquidar { background: #1a1a1a; }
+.verdict-badge.mantener { background: #27ae60; }
+.verdict-badge.privatizar { background: #2980b9; }
+.verdict-badge.pendiente { background: #7f8c8d; }
+.name { font-size: 12pt; color: #333; margin-top: 4px; }
+.sector { font-size: 10pt; color: #666; font-style: italic; margin-bottom: 14px; }
+h3 { font-size: 12pt; margin: 18px 0 4px; color: #1a1a1a; }
+.q-verdict { font-weight: 700; color: #e67e22; }
+.q-verdict.si-bueno { color: #27ae60; }
+.q-verdict.si-malo { color: #c0392b; }
+.q-text { margin: 2px 0 0; font-size: 10.5pt; }
+.q-interp { font-size: 9.5pt; color: #666; font-style: italic; margin: 4px 0 0; line-height: 1.4; }
+.section-intro { margin: 14px 0 16px; font-size: 10.5pt; }
+.recomendacion { background: #e67e22; color: white; padding: 18px 22px; margin-top: 24px; }
+.recomendacion.cerrar { background: #c0392b; }
+.recomendacion.liquidar { background: #1a1a1a; }
+.recomendacion.mantener { background: #27ae60; }
+.recomendacion.privatizar { background: #2980b9; }
+.recomendacion.pendiente { background: #7f8c8d; }
+.recomendacion h2 { margin: 0 0 8px; font-size: 12pt; }
+.recomendacion p { margin: 6px 0; font-size: 10.5pt; }
+.recomendacion ul { margin: 6px 0 6px 18px; font-size: 10.5pt; padding: 0; }
+.recomendacion .ministers { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.35); font-size: 10pt; line-height: 1.6; }
+/* aggregate */
+.agg-h1 { font-size: 22pt; margin: 0 0 4px; }
+.agg-subtitle { color: #666; font-size: 12pt; margin: 0 0 24px; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 28px; }
+.stat-box { padding: 14px; background: #f5f5f5; border-left: 4px solid #e67e22; }
+.stat-box .label { font-size: 9.5pt; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-box .value { font-size: 18pt; font-weight: 800; margin: 4px 0; }
+.stat-box .sub { font-size: 9.5pt; color: #888; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+th { background: #f0f0f0; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 1.5px solid #ccc; }
+td { padding: 7px 10px; border-bottom: 0.5px solid #eee; }
+tr:nth-child(even) td { background: #fafafa; }
+.section { margin-top: 32px; }
+.section h2 { font-size: 14pt; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid #ddd; }
+.chip { display: inline-block; font-size: 10pt; font-weight: 600; padding: 3px 8px; margin: 3px; border-radius: 3px; color: white; }
+.chip.liquidar { background: #1a1a1a; }
+.chip.cerrar { background: #c0392b; }
+.chip.reestructurar { background: #e67e22; }
+.chip.recapitalizar { background: #f39c12; }
+.chip.privatizar { background: #2980b9; }
+.chip.mantener { background: #27ae60; }
+.chip.pendiente { background: #7f8c8d; }
+.matriz { display: grid; grid-template-columns: 220px 1fr 1fr; gap: 6px; margin-top: 14px; }
+.matriz .col-header { text-align: center; padding: 10px 6px; background: #f0f0f0; font-weight: 600; }
+.matriz .row-label { padding: 12px; background: #fafafa; border-right: 2px solid #ddd; }
+.matriz .row-label .arq-name { font-weight: 600; font-size: 11pt; }
+.matriz .row-label .arq-desc { font-size: 9.5pt; color: #666; margin-top: 2px; }
+.matriz .cell { padding: 10px; background: #fafafa; min-height: 48px; }
+/* Navegación */
+.nav-bar { display: flex; gap: 14px; margin: 0 0 20px; padding: 12px 16px; background: #1a1a1a; border-radius: 4px; flex-wrap: wrap; }
+.nav-bar a { color: white; text-decoration: none; font-size: 11pt; padding: 4px 10px; border-radius: 3px; transition: background 0.15s; }
+.nav-bar a:hover { background: rgba(255,255,255,0.15); }
+.nav-bar a.active { background: #e67e22; }
+.stat-box.clickable { cursor: pointer; transition: background 0.15s, border-left-width 0.15s; }
+.stat-box.clickable:hover { background: #ebebeb; border-left-width: 8px; }
+.stat-box.clickable .label::after { content: ' →'; color: #e67e22; }
+.nav-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.nav-choice a { display: block; padding: 18px; background: #fff; border: 2px solid #e67e22; border-radius: 6px; text-decoration: none; color: #1a1a1a; transition: background 0.15s; }
+.nav-choice a:hover { background: #fff5e6; }
+.nav-choice a .title { font-size: 14pt; font-weight: 700; color: #e67e22; margin-bottom: 4px; }
+.nav-choice a .desc { font-size: 10.5pt; color: #555; }
+@media print { body { margin: 0; max-width: none; padding: 1cm; } .recomendacion, .verdict-badge, .chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .nav-bar, .stat-box.clickable::after { display: none; } }
+</style></head>
+<body>
+<div class="header">
+  <div><div class="sigla">BOA</div><div class="name">Boliviana de Aviación</div></div>
+  <div class="verdict-badge ">NECESITA RECAPITALIZACIÓN URGENTE</div>
+</div>
+<div class="sector">Transporte · Empresa pública estratégica del Estado</div>
+<h3>¿Qué hace esta empresa?</h3>
+<p class="section-intro">BOA es una empresa pública del sector de transporte. En 2025 facturó <b>Bs, 3,04 mil millones</b>.</p>
+<h3>1. ¿Está vendiendo más o menos cada año?</h3><p class="q-text"><span class="q-verdict si-bueno">VENDE MÁS CADA AÑO.</span> En 2023 facturó <b>Bs, 2,55 mil millones</b>. En 2025 subió a <b>Bs, 3,04 mil millones</b> (+19%).</p><h3>2. ¿La utilidad que reporta se convierte en plata real?</h3><p class="q-text"><span class="q-verdict si-bueno">SÍ. La utilidad se materializa en efectivo.</span> Margen en libros <b>9,8%</b>, margen real en efectivo <b>4,9%</b>. Convergen.</p><h3>3. ¿Está legalmente solvente?</h3><p class="q-text"><span class="q-verdict si-malo">NO. Está en quiebra técnica.</span> Las pérdidas acumuladas <b>superan el 106,8%</b> del capital pagado. Bajo el Artículo 354 del Código de Comercio, la empresa debe recapitalizarse o disolverse. Además, el 90,4% de sus activos están comprometidos con pasivos.</p><p class="q-interp">Bajo derecho boliviano, una empresa con pérdidas mayores al 50% del capital es legalmente insolvente.</p><h3>4. ¿Depende del Estado para sobrevivir?</h3><p class="q-text"><span class="q-verdict si-malo">SÍ, MUCHO.</span> Por cada Bs. 1 que BOA invierte por su cuenta, el Estado le pone <b>Bs. 6.82</b> en aportes (medido sobre los últimos 3 años). Balance operacional <b>6,1%</b> (superávit operativo). Balance de inversión <b>-0,5%</b> (el Estado cubre la inversión).</p><p class="q-interp">Sin la inyección estatal directa, BOA no podría operar a su escala actual.</p><h3>5. ¿Cobra a tiempo a sus clientes?</h3><p class="q-text"><span class="q-verdict si-bueno">SÍ. Cobra en 35 días.</span> Ciclo de cobranza dentro del rango comercial normal.</p><h3>6. ¿Cuánto le cuesta al Estado mantenerla?</h3><p class="q-text"><span class="q-verdict si-bueno">CASI NULO EN 2025.</span> La empresa no perdió efectivo en 2025 según los datos del presupuesto público.</p><h3>7. ¿El dinero que el Estado puso aquí está rindiendo?</h3><p class="q-text"><span class="q-verdict ">SIN DATOS.</span> </p><h3>8. ¿Es una empresa real o solo paga sueldos?</h3><p class="q-text"><span class="q-verdict si-bueno">ES UNA EMPRESA REAL.</span> Solo <b>6,0%</b> de sus gastos son sueldos, compra de insumos (COGS) <b>60,6%</b>, capex 0,4%, servicio de deuda 1,2%, transferencias 0,1%.</p><p class="q-interp">Mayor categoría de gasto: 22,1%. No es un cascarón institucional — opera comercialmente.</p>
+<div class="recomendacion "><h2>RECOMENDACIÓN</h2><p><b>Recapitalizar — el capital se agotó pero las operaciones funcionan.</b></p><p>BOA tiene pérdidas acumuladas que superan el capital pagado (Artículo 354 del Código de Comercio). Pero las operaciones funcionan. La solución es inyectar capital fresco + sanear el déficit acumulado.</p><div class="ministers"><b>¿Quién tiene que actuar?</b><br><b>Ministerio de Economía:</b> aprobar inyección de capital.<br><b>Tesoro General:</b> ejecutar la recapitalización.<br><b>Ministerio sectorial:</b> garantizar gobernanza que prevenga repetición.</div></div>
+</body></html>

@@ -92,19 +92,6 @@ tr:nth-child(even) td { background: #fafafa; }
   <a href="04_por_empresa.html" class="active">Por Empresa Individual</a>
   <a href="03_matriz.html" >Matriz Visual</a>
 </nav>
-
-<div style="background:#fff3cd; border:2px solid #e67e22; padding:18px 22px; margin:0 0 24px; border-radius:6px; font-size:11pt; line-height:1.55;">
-<p style="margin:0 0 8px; font-size:13pt; font-weight:700; color:#a04000;">⚠ Aviso sobre las cifras de costo fiscal — versión iterativa</p>
-<p style="margin:0 0 8px;">El cálculo del costo fiscal anual al Estado se viene refinando en varias iteraciones. Lo que sabemos hasta ahora:</p>
-<ol style="margin:6px 0 10px 22px; padding:0;">
-<li style="margin-bottom:6px;"><b>Los "aportes" mostrados son saldos acumulados (stock), no flujo anual.</b> El "Aporte 2025" de cada empresa es el balance histórico en la cuenta 3.1.1.2 del Patrimonio al cierre de 2025 — incluye inyecciones de hace décadas. El flujo nuevo en 2025 fue cercano a <b>Bs 0</b> para la mayoría: prácticamente nadie recibió capital nuevo. (Ej.: YPFB tiene Bs 4,79 mil M en aportes acumulados — sin cambio entre 2024 y 2025.)</li>
-<li style="margin-bottom:6px;"><b>El verdadero apoyo del Estado fluye vía SIGEP, no vía aportes de capital.</b> Cruzando los datos del SIGEP (Ingreso percibido) con las ventas comerciales (op_revenue de cada empresa), se identifican <b>~Bs 27 mil millones en ingresos no-comerciales en 2025</b> — dinero que entró por la vía del Estado sin ser venta. Por empresa: YPFB +Bs 19,5 mil M (subsidio al diésel), COMIBOL +Bs 2,8 mil M, ENDE +Bs 2,0 mil M (tarifa regulada), EMAPA +Bs 1,1 mil M (precios sociales), BOA +Bs 693 M, varias otras menores. <b>Esa es la cifra fiscal real, no los Bs 17,91 mil M de "aportes" mostrados.</b></li>
-<li style="margin-bottom:6px;"><b>La cifra del SIGEP no es 100% subsidios.</b> Incluye también devolución de IVA, regalías intra-grupo (COMIBOL → filiales), intereses de depósitos del Estado, y otros flujos no-comerciales. Una desagregación más fina requiere revisar caso por caso (especialmente COMIBOL).</li>
-</ol>
-<p style="margin:8px 0 4px;"><b>Implicación para la lectura:</b> el ciudadano que ve "Aportes del Estado: Bs 17,91 mil M" debe entender que <b>esa NO es la plata que el Estado puso en 2025</b>, sino el saldo histórico. El costo fiscal real del 2025 está más cerca de <b>Bs 27 mil M anuales</b>, y está concentrado en mantener subsidios al diésel, tarifas eléctricas, precios alimentarios y operaciones mineras — no en "aportes de capital".</p>
-<p style="margin:8px 0 0; font-size:10pt; color:#555;">Tratar las cifras de "Aportes" y "Costo al Tesoro" como referenciales hasta la próxima iteración. Los demás verbos de recomendación (CERRAR, REESTRUCTURAR, etc.) podrían también recalibrarse cuando se integre M17 correctamente.</p>
-</div>
-
 <h1 class="agg-h1">Las 56 Empresas Públicas — Vista Individual</h1>
 <p class="agg-subtitle">Una tarjeta por cada empresa, ordenada por costo al Tesoro Nacional. Clickeá <b>"Abrir ficha completa"</b> en cualquier tarjeta para ver el análisis individual de las 8 preguntas con cifras reales y recomendación.</p>
 
@@ -119,9 +106,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">YPFB</div>
       <div class="emp-name">Yacimientos Petroliferos Fiscales Bolivianos</div>
-      <div class="emp-sector">Hidrocarburos · <i>Múltiples problemas graves</i></div>
+      <div class="emp-sector">Hidrocarburos · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 47,02 mil millones</span></div>
@@ -131,7 +118,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 68.5% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 591% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 68% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tesoro no le paga el subsidio a combustibles a tiempo</p>
   <a href="0513_YPFB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de YPFB →</a>
@@ -141,9 +128,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">Mi teleférico</div>
       <div class="emp-name">Empresa Estatal de Transporte por Cable Mi Teleférico</div>
-      <div class="emp-sector">Transporte · <i>Sobrevive solo con plata del Estado</i></div>
+      <div class="emp-sector">Transporte · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 218 millones</span></div>
@@ -153,7 +140,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 40.8% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 77635% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 41% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifa subsidiada por decisión política</p>
   <a href="0591_Mi_teleférico.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de Mi teleférico →</a>
@@ -175,7 +162,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 137.0% → <b>Critical</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 693% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 137% → Critical)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Compra a precio garantizado y vende a precio social</p>
   <a href="0572_EMAPA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPA →</a>
@@ -197,7 +184,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 155.8% → <b>Critical</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 270% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 156% → Critical)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas eléctricas reguladas por debajo del costo</p>
   <a href="0514_ENDE.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ENDE →</a>
@@ -219,7 +206,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 0.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 565% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Cadena almendrera sin escala ni canal</p>
   <a href="0599_EBA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EBA →</a>
@@ -241,7 +228,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 99.7% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 102% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 100% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Pérdidas mineras estructurales y precios de metales</p>
   <a href="0517_COMIBOL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de COMIBOL →</a>
@@ -263,7 +250,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 23.5% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 682% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 23% → Warning)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Deudas con arrendadores de aeronaves y competencia</p>
   <a href="0578_BOA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de BOA →</a>
@@ -339,9 +326,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">EASBA</div>
       <div class="emp-name">Empresa Azucarera San Buenaventura</div>
-      <div class="emp-sector">Agro · <i>Múltiples problemas graves</i></div>
+      <div class="emp-sector">Agro · <i>Sin capital pero opera</i></div>
     </div>
-    <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
+    <span class="chip privatizar" style="font-size:9pt;">DEBE PRIVATIZARSE</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 64 millones</span></div>
@@ -351,7 +338,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 0.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 20032% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Azucarera estatal sin escala competitiva</p>
   <a href="0586_EASBA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EASBA →</a>
@@ -373,7 +360,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 6.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 19% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 6% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Inversión grande en litio que aún no genera retorno</p>
   <a href="0597_YLB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de YLB →</a>
@@ -395,7 +382,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 7.6% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 3486% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 8% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Boliviana de Cementos</p>
   <a href="0587_EBC.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EBC →</a>
@@ -417,7 +404,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 1.5% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 15% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 2% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de gas regional</p>
   <a href="0716_EMTAGAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMTAGAS →</a>
@@ -439,7 +426,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 21.7% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 22% → Warning)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Mercado de boletas fiscales con tarifas controladas</p>
   <a href="0525_TAB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de TAB →</a>
@@ -461,7 +448,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 7.1% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 7% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Estaño internacional volátil + costos altos</p>
   <a href="0520_VINTO_-_NAL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de VINTO - NAL →</a>
@@ -505,7 +492,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 119.8% → <b>Critical</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 233% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 120% → Critical)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua congeladas + cobranza débil</p>
   <a href="0802_ELAPAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ELAPAS →</a>
@@ -515,9 +502,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">BTV</div>
       <div class="emp-name">Bolivia TV</div>
-      <div class="emp-sector">Medios · <i>Múltiples problemas graves</i></div>
+      <div class="emp-sector">Medios · <i>Sin capital pero opera</i></div>
     </div>
-    <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
+    <span class="chip privatizar" style="font-size:9pt;">DEBE PRIVATIZARSE</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 66 millones</span></div>
@@ -527,7 +514,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 0.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 13409% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Sin modelo de negocio viable como TV pública</p>
   <a href="0526_BTV.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de BTV →</a>
@@ -537,9 +524,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">DAB</div>
       <div class="emp-name">Depósitos Aduaneros Bolivianos</div>
-      <div class="emp-sector">Logística · <i>Patrón atípico</i></div>
+      <div class="emp-sector">Logística · <i>Sana — opera bien</i></div>
     </div>
-    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
+    <span class="chip mantener" style="font-size:9pt;">MANTENER</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 94 millones</span></div>
@@ -549,7 +536,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 0.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 665% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Depósitos Aduaneros Bolivianos</p>
   <a href="0580_DAB.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de DAB →</a>
@@ -571,7 +558,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 66.6% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 854% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 67% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Ensamblaje de electrónicos sin mercado local</p>
   <a href="0590_QUIPUS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de QUIPUS →</a>
@@ -603,9 +590,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">TAM</div>
       <div class="emp-name">Empresa Pública Transporte Aéreo Militar</div>
-      <div class="emp-sector">Transporte · <i>Múltiples problemas graves</i></div>
+      <div class="emp-sector">Transporte · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 32 millones</span></div>
@@ -615,7 +602,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 1.7% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 34370% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 2% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Aviación militar, mercado y rutas limitadas</p>
   <a href="0596_TAM.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de TAM →</a>
@@ -659,7 +646,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 12.7% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 2707% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 13% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Editorial estatal con tiraje limitado</p>
   <a href="0598_EDITORIAL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EDITORIAL →</a>
@@ -669,9 +656,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">AAPOS</div>
       <div class="emp-name">Administración Autónoma para Obras Sanitarias -Potosí</div>
-      <div class="emp-sector">Agua · <i>Múltiples problemas graves</i></div>
+      <div class="emp-sector">Agua · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 29 millones</span></div>
@@ -681,7 +668,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 16.1% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 24324% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 16% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua congeladas + infraestructura vieja</p>
   <a href="0821_AAPOS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de AAPOS →</a>
@@ -703,7 +690,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 4.2% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 9% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 4% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Hidroeléctrica subsidiada por decisión política</p>
   <a href="0633_MISICUNI.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de MISICUNI →</a>
@@ -735,9 +722,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">SELA</div>
       <div class="emp-name">Servicio Local Acueducto y Alcantarillado - Oruro</div>
-      <div class="emp-sector">Agua · <i>Sobrevive solo con plata del Estado</i></div>
+      <div class="emp-sector">Agua · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 81 millones</span></div>
@@ -747,7 +734,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 16.7% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 425% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 17% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Cementera con costos altos vs competencia</p>
   <a href="0831_SELA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SELA →</a>
@@ -769,7 +756,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 87.8% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 3% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 88% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Recursos estratégicos</p>
   <a href="2301_GERES.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de GERES →</a>
@@ -791,7 +778,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 10.4% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 10% → Healthy)</span>
   </div>
   
   <a href="2338_EPSA_MUNICIPAL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EPSA MUNICIPAL  →</a>
@@ -813,7 +800,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 2.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 1727% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 2% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de fibra de camélido sin mercado</p>
   <a href="0593_YACANA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de YACANA →</a>
@@ -857,7 +844,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 1744.2% → <b>Critical</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 1744% → Critical)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de agua que ya no opera</p>
   <a href="0761_SAMAPA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SAMAPA →</a>
@@ -901,7 +888,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 30.8% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 58% → Distressed)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 31% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Sistema integral de gestión de pensiones</p>
   <a href="0595_GESTORA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de GESTORA →</a>
@@ -911,9 +898,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">SEMAPA</div>
       <div class="emp-name">Servicio Municipal de Agua Potable y Alcantarillado</div>
-      <div class="emp-sector">Agua · <i>Sobrevive solo con plata del Estado</i></div>
+      <div class="emp-sector">Agua · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 235 millones</span></div>
@@ -923,7 +910,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 4.8% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 354% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 5% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Tarifas de agua congeladas + pérdidas técnicas altas</p>
   <a href="0781_SEMAPA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de SEMAPA →</a>
@@ -945,7 +932,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 0.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 1% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Servicios de salud locales bajo desempeño</p>
   <a href="2315_EMSA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMSA →</a>
@@ -1011,7 +998,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 101.5% → <b>Critical</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 19744% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 101% → Critical)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Defensa estatal con producción muy específica</p>
   <a href="0548_COFADENA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de COFADENA →</a>
@@ -1033,7 +1020,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 38.8% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 4215% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 39% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Asfalto y vías sin escala competitiva</p>
   <a href="2317_EMAVIAS.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAVIAS →</a>
@@ -1055,7 +1042,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 35.0% → <b>Distressed</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 35% → Distressed)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Embotelladora estatal</p>
   <a href="0600_ESABOL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de ESABOL →</a>
@@ -1065,9 +1052,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">EMAPYC</div>
       <div class="emp-name">EMPRESA MUNICIPAL AUTONOMA DE AGUA POTABLE Y ALCANTARILLADO DE YACUIBA</div>
-      <div class="emp-sector">Agua · <i>Sobrevive solo con plata del Estado</i></div>
+      <div class="emp-sector">Agua · <i>Patrón atípico</i></div>
     </div>
-    <span class="chip reestructurar" style="font-size:9pt;">NECESITA REESTRUCTURAR URGENTE</span>
+    <span class="chip pendiente" style="font-size:9pt;">REQUIERE ANÁLISIS ESPECÍFICO</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">Bs, 17 millones</span></div>
@@ -1077,7 +1064,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 14.9% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 206% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 15% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de agua municipal con pérdidas crónicas</p>
   <a href="2327_EMAPYC.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMAPYC →</a>
@@ -1099,7 +1086,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 8.6% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 6622% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 9% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Empresa de agua de Cobija</p>
   <a href="2320_EPSA_COBIJA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EPSA COBIJA →</a>
@@ -1121,7 +1108,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 11.2% → <b>Warning</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 11% → Healthy)</span>
   </div>
   <p style="margin:8px 0 0; font-size:9.5pt; color:#666; font-style:italic;">Causa: Aluminio del Litoral</p>
   <a href="2341_EMDELL.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMDELL →</a>
@@ -1143,7 +1130,7 @@ tr:nth-child(even) td { background: #fafafa; }
   </div>
   <div style="margin-top:10px; padding:8px 10px; background:#f0f7ff; border-radius:4px; font-size:9.5pt; line-height:1.4;">
     <b style="color:#2980b9;">M17_v3 (subsidio / op. revenue) =</b> 0.0% → <b>Healthy</b>
-    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 27279% → Critical)</span>
+    <br><span style="color:#888; font-size:8.5pt;">(M17 actual del reporte: 0% → Healthy)</span>
   </div>
   
   <a href="2353_EMPRESA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMPRESA →</a>
@@ -1197,9 +1184,9 @@ tr:nth-child(even) td { background: #fafafa; }
     <div>
       <div class="emp-sigla">CARTONBOL</div>
       <div class="emp-name">Cartones de Bolivia</div>
-      <div class="emp-sector">Industria · <i>Múltiples problemas graves</i></div>
+      <div class="emp-sector">Industria · <i>Sin capital pero opera</i></div>
     </div>
-    <span class="chip cerrar" style="font-size:9pt;">DEBE CERRARSE</span>
+    <span class="chip privatizar" style="font-size:9pt;">DEBE PRIVATIZARSE</span>
   </div>
   <div class="emp-stats">
     <div><span class="emp-stat-label">Ventas comerciales 2025</span><span class="emp-stat-val">—</span></div>
@@ -1347,4 +1334,40 @@ tr:nth-child(even) td { background: #fafafa; }
   <a href="2354_EMPRESA.html" style="display:block; margin-top:10px; text-align:center; padding:8px 10px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-size:10pt; font-weight:600;">Abrir ficha completa de EMPRESA →</a>
 </div>
 </div>
+
+<details style="margin: 24px 0 16px; padding:14px 18px; background:#fafafa; border:1px solid #ddd; border-radius:6px; font-size:10pt; line-height:1.55;">
+<summary style="cursor:pointer; font-weight:600; color:#666;">Apéndice metodológico — cómo cada métrica responde cada pregunta</summary>
+<div style="margin-top:12px;">
+<p>Las 8 preguntas del reporte se computan automáticamente desde 28 métricas técnicas (M1 a M28). Cada pregunta tiene una o más métricas ancla, cuyos valores cruzan umbrales para producir el verdicto. Esta tabla mapea cada pregunta a su métrica origen, fórmula, fuente de datos y umbrales:</p>
+<table style="font-size:9.5pt;">
+<thead><tr><th>Pregunta</th><th>Métrica ancla</th><th>Fórmula</th><th>Fuente</th><th>Umbrales (Sano / Adv. / Distrés / Crítico)</th></tr></thead>
+<tbody>
+<tr><td><b>1. ¿Vendiendo más o menos cada año?</b></td><td>M7 Revenue Growth</td><td>(Rev_y − Rev_{y-1}) / Rev_{y-1} × 100</td><td>RGC cuenta 5 / 50000 (Recursos Corrientes)</td><td>&gt;5 / 0–5 / -5–0 / &lt;-5 %</td></tr>
+<tr><td><b>2. ¿La utilidad se convierte en plata real?</b></td><td>M1 EBITDA Margin + M19 Cash Margin + M28 Divergence</td><td>EBITDA/Rev × 100 ; (Ingreso−Gasto)/Ingreso × 100 ; M1−M19</td><td>RGC + SIGEP</td><td>M1: &gt;15 / 5–15 / -5–5 / &lt;-5 % · M19: &gt;5 / 0–5 / -5–0 / &lt;-5 %</td></tr>
+<tr><td><b>3. ¿Está legalmente solvente?</b></td><td>M9 RetEarn / Capital + M9 Reexpressed</td><td>res_acum / capital × 100</td><td>BG cuentas 3.1.5.1 (res_acum), 3.1.1 (capital), 3.1.6 (ajuste UFV)</td><td>&gt;0 / 0—-30 / -30—-50 / &lt;-50 % (Art. 354 a -50%)</td></tr>
+<tr><td><b>4. ¿Depende del Estado para sobrevivir?</b></td><td><b style="color:#c0392b;">M17_v3 Subsidy Dependence</b> (corregida)</td><td>max(0, SIGEP_ingreso − op_revenue) / op_revenue × 100</td><td>SIGEP (empresas_categorizado) + RGC cuenta 5.2/52000</td><td>&lt;20 / 20–30 / 30–100 / &gt;100 %</td></tr>
+<tr><td><b>5. ¿Cobra a tiempo a sus clientes?</b></td><td>M3 Días de Cobro + M18 AR Drag</td><td>AR / Rev × 365 ; (Δ AR − Δ Rev) ratio</td><td>BG cuenta 1.2.1/12100 (AR) + RGC</td><td>&lt;120 / 120–365 / 365–730 / &gt;730 días</td></tr>
+<tr><td><b>6. ¿Cuánto le cuesta al Estado mantenerla?</b></td><td>M21 Cash Burn + M21b Burn / Revenue + apoyo SIGEP (nuevo)</td><td>-Neto SIGEP cuando &lt;0 ; Burn/|Ingreso| × 100</td><td>SIGEP (gasto pagado, ingreso percibido, neto)</td><td>M21b: &lt;5 / 5–20 / 20–50 / &gt;50 %</td></tr>
+<tr><td><b>7. ¿El dinero del Estado puso aquí está rindiendo?</b></td><td>M15 ROIC + M16c (ROIC − 13% WACC)</td><td>NOPAT / Invested Capital × 100 ; M15 − 13</td><td>RGC (EBITDA, tax) + BG (patrimonio, debt, cash)</td><td>&gt;13 / 5–13 / 0–5 / &lt;0 %</td></tr>
+<tr><td><b>8. ¿Empresa real o solo paga sueldos?</b></td><td>M22 % Personal + M23 % Capex + M26 Mayor Bucket</td><td>Personal/Gasto × 100 ; Capex/Gasto × 100</td><td>SIGEP (descomposición de gasto por bucket)</td><td>M22: &lt;40 / 40–55 / 55–70 / &gt;70 %</td></tr>
+</tbody>
+</table>
+<p style="margin:14px 0 0; font-size:9.5pt; color:#555;">M17 originalmente computaba "stock acumulado de aportes / 3-año capex × 100" — un cálculo dimensionalmente inconsistente que inflaba la dependencia para empresas con aportes históricos antiguos. La versión M17_v3 corrige esto usando el flujo real anual de ingresos no-comerciales vía SIGEP. Las recomendaciones (DEBE CERRARSE, NECESITA REESTRUCTURAR, etc.) ahora se computan con M17_v3.</p>
+</div>
+</details>
+
+
+<details style="margin: 48px 0 16px; padding:14px 18px; background:#fafafa; border:1px solid #ddd; border-radius:6px; font-size:10pt; line-height:1.55;">
+<summary style="cursor:pointer; font-weight:600; color:#666;">Apéndice metodológico — notas sobre la medición del costo fiscal</summary>
+<div style="margin-top:12px;">
+<p>El cálculo del costo fiscal anual al Estado se viene refinando. Notas técnicas:</p>
+<ol style="margin:6px 0 10px 22px; padding:0;">
+<li style="margin-bottom:6px;"><b>Aportes = stock, no flujo:</b> el "Aporte 2025" es el saldo histórico de la cuenta 3.1.1.2 al cierre de 2025 — incluye inyecciones de décadas pasadas. El flujo nuevo en 2025 fue cercano a Bs 0 para la mayoría.</li>
+<li style="margin-bottom:6px;"><b>Apoyo real vía SIGEP:</b> el cruce entre Ingreso SIGEP y ventas comerciales identifica ~Bs 27 mil M en ingresos no-comerciales en 2025 — YPFB +Bs 19,5 mil M (subsidio diésel), COMIBOL +Bs 2,8 mil M, ENDE +Bs 2,0 mil M, EMAPA +Bs 1,1 mil M, BOA +Bs 693 M, otras menores.</li>
+<li style="margin-bottom:6px;"><b>SIGEP no es 100% subsidios:</b> incluye devolución de IVA, regalías intra-grupo (COMIBOL → filiales), intereses de depósitos del Estado. Una desagregación más fina requiere caso por caso.</li>
+<li style="margin-bottom:6px;"><b>M17_v3 ya aplicado a la cascada:</b> la versión corregida de la dependencia de subsidios = max(0, SIGEP_ingreso − op_revenue) / op_revenue × 100. Las recomendaciones (CERRAR, REESTRUCTURAR, etc.) que ves en el reporte ya usan esta fórmula corregida vía el framework v9.7.3.</li>
+</ol>
+</div>
+</details>
+
 </body></html>

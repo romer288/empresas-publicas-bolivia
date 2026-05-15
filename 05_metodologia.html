@@ -1,0 +1,605 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Metodología — 56 Empresas Públicas</title><style>
+@page { margin: 1.2cm; size: letter; }
+body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.45; max-width: 760px; margin: 24px auto; padding: 0 20px; font-size: 11pt; }
+body.wide-page { max-width: 1320px; }
+body.wide-page details > table, body.wide-page .section table { width: 100%; }
+body.wide-page details table td, body.wide-page .section table td { word-wrap: break-word; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 16px; }
+.sigla { font-size: 38pt; font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.verdict-badge { display: inline-block; padding: 10px 18px; background: #e67e22; color: white; font-weight: 700; font-size: 11pt; letter-spacing: 0.5px; }
+.verdict-badge.cerrar { background: #c0392b; }
+.verdict-badge.liquidar { background: #1a1a1a; }
+.verdict-badge.mantener { background: #27ae60; }
+.verdict-badge.privatizar { background: #2980b9; }
+.verdict-badge.pendiente { background: #7f8c8d; }
+.name { font-size: 12pt; color: #333; margin-top: 4px; }
+.sector { font-size: 10pt; color: #666; font-style: italic; margin-bottom: 14px; }
+h3 { font-size: 12pt; margin: 18px 0 4px; color: #1a1a1a; }
+.q-verdict { font-weight: 700; color: #e67e22; }
+.q-verdict.si-bueno { color: #27ae60; }
+.q-verdict.si-malo { color: #c0392b; }
+.q-text { margin: 2px 0 0; font-size: 10.5pt; }
+.q-interp { font-size: 9.5pt; color: #666; font-style: italic; margin: 4px 0 0; line-height: 1.4; }
+.section-intro { margin: 14px 0 16px; font-size: 10.5pt; }
+.recomendacion { background: #e67e22; color: white; padding: 18px 22px; margin-top: 24px; }
+.recomendacion.cerrar { background: #c0392b; }
+.recomendacion.liquidar { background: #1a1a1a; }
+.recomendacion.mantener { background: #27ae60; }
+.recomendacion.privatizar { background: #2980b9; }
+.recomendacion.pendiente { background: #7f8c8d; }
+.recomendacion h2 { margin: 0 0 8px; font-size: 12pt; }
+.recomendacion p { margin: 6px 0; font-size: 10.5pt; }
+.recomendacion ul { margin: 6px 0 6px 18px; font-size: 10.5pt; padding: 0; }
+.recomendacion .ministers { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.35); font-size: 10pt; line-height: 1.6; }
+/* aggregate */
+.agg-h1 { font-size: 22pt; margin: 0 0 4px; }
+.agg-subtitle { color: #666; font-size: 12pt; margin: 0 0 24px; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 28px; }
+.stat-box { padding: 14px; background: #f5f5f5; border-left: 4px solid #e67e22; }
+.stat-box .label { font-size: 9.5pt; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-box .value { font-size: 18pt; font-weight: 800; margin: 4px 0; }
+.stat-box .sub { font-size: 9.5pt; color: #888; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+th { background: #f0f0f0; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 1.5px solid #ccc; }
+td { padding: 7px 10px; border-bottom: 0.5px solid #eee; }
+tr:nth-child(even) td { background: #fafafa; }
+.section { margin-top: 32px; }
+.section h2 { font-size: 14pt; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid #ddd; }
+.chip { display: inline-block; font-size: 10pt; font-weight: 600; padding: 3px 8px; margin: 3px; border-radius: 3px; color: white; }
+.chip.liquidar { background: #1a1a1a; }
+.chip.cerrar { background: #c0392b; }
+.chip.reestructurar { background: #e67e22; }
+.chip.recapitalizar { background: #f39c12; }
+.chip.privatizar { background: #2980b9; }
+.chip.mantener { background: #27ae60; }
+.chip.pendiente { background: #7f8c8d; }
+.matriz { display: grid; grid-template-columns: 220px 1fr 1fr; gap: 6px; margin-top: 14px; }
+.matriz .col-header { text-align: center; padding: 10px 6px; background: #f0f0f0; font-weight: 600; }
+.matriz .row-label { padding: 12px; background: #fafafa; border-right: 2px solid #ddd; }
+.matriz .row-label .arq-name { font-weight: 600; font-size: 11pt; }
+.matriz .row-label .arq-desc { font-size: 9.5pt; color: #666; margin-top: 2px; }
+.matriz .cell { padding: 10px; background: #fafafa; min-height: 48px; }
+/* Navegación */
+.nav-bar { display: flex; gap: 14px; margin: 0 0 20px; padding: 12px 16px; background: #1a1a1a; border-radius: 4px; flex-wrap: wrap; }
+.nav-bar a { color: white; text-decoration: none; font-size: 11pt; padding: 4px 10px; border-radius: 3px; transition: background 0.15s; }
+.nav-bar a:hover { background: rgba(255,255,255,0.15); }
+.nav-bar a.active { background: #e67e22; }
+.stat-box.clickable { cursor: pointer; transition: background 0.15s, border-left-width 0.15s; }
+.stat-box.clickable:hover { background: #ebebeb; border-left-width: 8px; }
+.stat-box.clickable .label::after { content: ' →'; color: #e67e22; }
+.nav-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.nav-choice a { display: block; padding: 18px; background: #fff; border: 2px solid #e67e22; border-radius: 6px; text-decoration: none; color: #1a1a1a; transition: background 0.15s; }
+.nav-choice a:hover { background: #fff5e6; }
+.nav-choice a .title { font-size: 14pt; font-weight: 700; color: #e67e22; margin-bottom: 4px; }
+.nav-choice a .desc { font-size: 10.5pt; color: #555; }
+@media print { body { margin: 0; max-width: none; padding: 1cm; } .recomendacion, .verdict-badge, .chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .nav-bar, .stat-box.clickable::after { display: none; } }
+</style>
+<style>
+.metod-toc { background:#fafafa; border:1px solid #ddd; padding:18px 22px; margin:18px 0 28px; border-radius:6px; }
+.metod-toc ol { margin:8px 0; padding-left:24px; }
+.metod-toc a { color:#e67e22; text-decoration:none; }
+.metod-toc a:hover { text-decoration:underline; }
+.metod-section { margin: 36px 0 12px; padding-bottom:6px; border-bottom:2px solid #e67e22; font-size:18pt; color:#1a1a1a; }
+.metod-sub { margin: 22px 0 8px; font-size:13pt; color:#333; }
+.metod-formula { background:#fff8e1; border-left:4px solid #f39c12; padding:10px 14px; margin:10px 0; font-family: 'Courier New', monospace; font-size:10.5pt; }
+.metod-caveat { background:#fff3e0; border-left:4px solid #c0392b; padding:12px 16px; margin:14px 0; }
+.metod-decision { background:#e8f5e9; border-left:4px solid #27ae60; padding:12px 16px; margin:14px 0; }
+.metod-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:10.5pt; }
+.metod-table th, .metod-table td { border:1px solid #ddd; padding:8px 10px; text-align:left; vertical-align:top; }
+.metod-table th { background:#f0f0f0; }
+code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
+.metod-step { background:#f7f7f7; padding:14px 18px; border-left:4px solid #999; margin:12px 0; border-radius:4px; }
+.metod-step-num { display:inline-block; background:#e67e22; color:white; width:28px; height:28px; line-height:28px; text-align:center; border-radius:50%; font-weight:700; margin-right:10px; }
+</style>
+</head>
+<body class="wide-page">
+<nav class="nav-bar">
+  <a href="00_resumen_general.html" >Resumen General</a>
+  <a href="01_por_arquetipo.html" >Por Tipo de Problema</a>
+  <a href="02_por_recomendacion.html" >Por Recomendación</a>
+  <a href="04_por_empresa.html" >Por Empresa Individual</a>
+  <a href="03_matriz.html" >Matriz Visual</a>
+  <a href="05_metodologia.html" class="active">Metodología</a>
+</nav>
+
+<h1 class="agg-h1">Metodología Completa — Desde la Extracción Hasta el Reporte Final</h1>
+<p class="agg-subtitle">Cómo se construye este reporte: fuentes de datos, pipeline de extracción, métricas, clasificación 5×5, supuestos, limitaciones, y decisiones metodológicas. Documento técnico exhaustivo para auditoría y replicación.</p>
+
+<div class="metod-toc">
+<b>Índice del documento:</b>
+<ol>
+<li><a href="#fuentes">Fuentes de datos primarias</a></li>
+<li><a href="#pipeline">Pipeline de extracción — 5 etapas</a></li>
+<li><a href="#preguntas">Las 7 preguntas: métrica ancla, fórmula, fuente</a></li>
+<li><a href="#clasificacion">Modelo de clasificación 5×5 — Salud × Función</a></li>
+<li><a href="#scoring">Sistema de scoring multidimensional</a></li>
+<li><a href="#funcion">Curaduría del eje Función — clasificación de las 56 empresas</a></li>
+<li><a href="#matriz">Matriz de recomendaciones (verbos de acción)</a></li>
+<li><a href="#overlays">Flags overlay: banderas rojas, sectores sensibles, datos desactualizados</a></li>
+<li><a href="#supuestos">Supuestos y limitaciones declaradas</a></li>
+<li><a href="#decisiones">Decisiones metodológicas críticas (historial)</a></li>
+<li><a href="#vocabulario">Vocabulario ciudadano — sustituciones obligatorias</a></li>
+<li><a href="#reconciliacion">Tabla de reconciliación de cifras grandes</a></li>
+<li><a href="#proyecciones">Proyecciones 2026 — aproximaciones, no ejecución real</a></li>
+<li><a href="#cifratitular">Cifra titular del reporte</a></li>
+<li><a href="#legal">Marco legal aplicado (CPE, Código de Comercio, Leyes)</a></li>
+<li><a href="#scripts">Archivos y scripts del pipeline</a></li>
+<li><a href="#replicacion">Cómo replicar este análisis</a></li>
+</ol>
+</div>
+
+<h2 id="fuentes" class="metod-section">1. Fuentes de datos primarias</h2>
+
+<p>El análisis combina <b>tres tipos distintos de fuentes oficiales bolivianas</b>:</p>
+
+<h3 class="metod-sub">1.1 Estados financieros publicados (PDFs)</h3>
+<p>Cada una de las 56 empresas públicas tiene la obligación legal (Ley de Empresas Públicas Nº 466, artículos 35-40) de publicar anualmente estados financieros auditados que incluyen:</p>
+<ul>
+<li><b>Balance General</b> — activos, pasivos, patrimonio según el Plan de Cuentas del Sector Público (PCSP) boliviano</li>
+<li><b>Estado de Resultados o Estado de Recursos y Gastos Corrientes</b> — ingresos operativos, gastos, utilidad neta</li>
+<li><b>Estado de Cambios en el Patrimonio Neto</b> — movimientos de capital, aportes, resultados acumulados</li>
+<li><b>Estado de Flujo de Efectivo</b> — movimientos de caja</li>
+<li><b>Cuenta-Ahorro-Inversión-Financiamiento (CAIF)</b> — formato adicional típico de empresas municipales</li>
+</ul>
+<p>Estos PDFs se procesan vía OCR + multi-modelo (Mistral, Gemini, OpenAI, Azure) con consenso entre engines para extraer valores numéricos. El output combinado se almacena en <code>output/truth.xlsx</code> con metadata de cada celda (qué motor la extrajo, nivel de consenso, validación cruzada).</p>
+
+<h3 class="metod-sub">1.2 SIGEP raw (Sistema de Gestión Pública)</h3>
+<p>El SIGEP es el sistema oficial de gestión presupuestaria del Estado Boliviano. Provee datos de:</p>
+<table class="metod-table">
+<thead><tr><th>Archivo CSV</th><th>Contenido</th><th>Uso en este reporte</th></tr></thead>
+<tbody>
+<tr><td><code>transferencias_tgn.csv</code></td><td>Pagos del Tesoro General de la Nación a cada empresa, por año</td><td>Numerador de M17_v5 (dependencia del Estado); cifra titular del reporte</td></tr>
+<tr><td><code>transferencias_recursos_especificos.csv</code></td><td>Transferencias inter-empresa SOE + transferencias de gobiernos municipales</td><td>Numerador de M17_v5 (componente adicional)</td></tr>
+<tr><td><code>ingreso_por_tipo.csv</code></td><td>Ingresos percibidos por empresa-año en 12 categorías oficiales SIGEP</td><td>Denominador de M17_v5 (Ingresos de Operación); validación cruzada de op_revenue</td></tr>
+<tr><td><code>gasto_por_grupo.csv</code></td><td>Gasto pagado por empresa-año en 9 categorías oficiales SIGEP</td><td>Análisis de composición de gasto</td></tr>
+<tr><td><code>resumen_anual.csv</code></td><td>Totales agregados de ingreso percibido / gasto pagado / neto por empresa-año</td><td>M19 (margen de caja real) — Q2 ganancia vs caja</td></tr>
+<tr><td><code>gasto_empresas_2023_2025.csv</code></td><td>Gasto a nivel subpartida (54.191 filas, nivel 4 del PCSP)</td><td>Detección de banderas rojas (Q7) por empresa</td></tr>
+<tr><td><code>empresas_inventario.csv</code></td><td>Master list de empresas con código, sigla, sub-área, plan de cuentas</td><td>Identificación y mapeo</td></tr>
+</tbody>
+</table>
+<p>Ubicación: <code>Bolivian Companies/empresas_publicas_2023_2025/</code></p>
+
+<h3 class="metod-sub">1.3 Ley del Presupuesto General del Estado (PGE) 2026</h3>
+<p>La Ley de Modificaciones al Presupuesto General del Estado 2026 (publicada por el Ministerio de Economía y Finanzas Públicas) provee el monto autorizado de gasto para cada empresa pública para todo el año 2026, en su Tabla N° 4 columna FINAL. <b>Importante:</b> esto es el presupuesto <i>autorizado</i>, no la ejecución real. Ver sección <a href="#proyecciones">12. Proyecciones 2026</a> para el caveat completo.</p>
+
+<h2 id="pipeline" class="metod-section">2. Pipeline de extracción — 5 etapas</h2>
+
+<div class="metod-step">
+<span class="metod-step-num">1</span><b>OCR + multi-extracción de PDFs</b>
+<p>Cada PDF de estado financiero se procesa con 4-5 motores de OCR/extracción en paralelo: Mistral OCR (formateo de tablas), Gemini Pro (extracción con contexto), OpenAI GPT-4 (validación), Azure Document Intelligence (estructura), Mistral Pre-process (pre-clasificación). Cada celda numérica recibe valores de cada engine.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">2</span><b>Consenso multi-motor + verificación de árbol</b>
+<p>Cada valor se valida con tres reglas:
+<br>• <b>Consenso</b>: si ≥3 motores coinciden, el valor es de alta confianza.
+<br>• <b>Tree-consistent</b>: el valor de un total padre debe igualar la suma de sus hijos (ej. cuenta 1 ACTIVO debe igualar 1.1 + 1.2).
+<br>• <b>Balance check</b>: ACTIVO = PASIVO + PATRIMONIO en el Balance General.
+<br>El output va a <code>output/truth.xlsx</code> con marca <code>row_classification</code> (1. Consensus + Tree-Consistent, 2. Consensus only, 3. Tree-only, 4. Single source, etc.).</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">3</span><b>Cálculo de métricas M1–M28 via <code>audit_metrics_v8.py</code></b>
+<p>Lee <code>truth.xlsx</code> y produce 28 métricas financieras estándar por empresa-año (M1 EBITDA Margin, M9 Solvencia, M15 ROIC, M17 Dependencia, M19 Cash Margin, etc.) más cifras crudas en bolivianos (op_revenue, ebitda, capital, etc.). Incluye <b>fallback CAIF</b> para empresas municipales pequeñas que reportan ingresos/gastos solo en CAIF sin Estado de Resultados estándar.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">4</span><b>Cascade v9.7.3 (workbook Excel)</b>
+<p><code>56_build_v9_by_bucket.py</code> aplica clasificación de severidad por métrica, archetype assignment, trayectoria, y produce el workbook <code>financial_metrics_v9_by_bucket_spanish.xlsx</code> con 14 pestañas. <b>Importante:</b> este workbook se mantiene como referencia interna para analistas (pestaña Auditoría). El reporte ciudadano usa el modelo 5×5 simplificado descrito abajo, no el cascade v9.7.3.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">5</span><b>Construcción del reporte ciudadano via <code>60_build_citizen_reports.py</code></b>
+<p>Lee el workbook v9 + archivos SIGEP raw + JSON granular de banderas rojas. Aplica la clasificación 5×5 (función <code>apply_new_classification</code>). Genera 6 archivos HTML públicos + 56 fichas individuales por empresa. Output va a <code>output/citizen_reports/</code>, publicado vía GitHub Pages.</p>
+</div>
+
+<h2 id="preguntas" class="metod-section">3. Las 7 preguntas: métrica ancla, fórmula, fuente</h2>
+
+<p>Cada pregunta tiene una <b>métrica ancla</b> con fórmula auditable y umbrales explícitos. Los rangos se mapean a categorías en lenguaje ciudadano.</p>
+
+<table class="metod-table">
+<thead><tr><th>Pregunta</th><th>Métrica ancla</th><th>Fórmula precisa</th><th>Fuente</th><th>Umbrales</th></tr></thead>
+<tbody>
+<tr><td><b>1. ¿Vendiendo más + cobrando?</b></td><td>M7 + AR/op_revenue</td><td>M7 = (op_rev_2025 − op_rev_2023) / |op_rev_2023| × 100. AR ratio = ar_2025 / op_rev_2025 × 100</td><td>Cuenta 5.2 PCSP (op_revenue) + cuenta 1.1.3 BG (AR)</td><td>Sube >+5% / Estable ±5% / Baja >−5% / No facturan (op_rev &lt; Bs 100k)</td></tr>
+<tr><td><b>2. ¿Ganancia → caja real?</b></td><td>M1 EBITDA Margin vs M19 Cash Margin + brecha</td><td>M1 = EBITDA / op_revenue × 100 (libros).<br>M19 = (Ingreso percibido − Gasto pagado) / Ingreso percibido × 100 (caja SIGEP).<br>Brecha 2025 (Bs) = EBITDA_25 − Neto_SIGEP_25</td><td>truth.xlsx (EBITDA) + SIGEP resumen_anual.csv (caja)</td><td>Gana ambos (M1>0 Y M19>0) / Paper profit (M1>0 Y M19&lt;0) / Pierde ambos / Pierde libros gana caja</td></tr>
+<tr><td><b>3. ¿Legalmente solvente?</b></td><td>M9 Reexpresado (UFV)</td><td>M9b = res_acum / (capital + ajuste_capital_UFV) × 100</td><td>BG cuentas 3.1.5.1 (Resultados Acumulados) + 3.1.1 (Capital Pagado) + 3.1.6 (Ajuste UFV)</td><td>Sano ≥0 / Erosionado −50 ≤ M9b &lt; 0 / Quiebra técnica Art. 354 a M9b ≤ −50</td></tr>
+<tr><td><b>4. ¿Dependencia del Estado?</b></td><td>M17_v5</td><td>M17_v5 = (TGN_transferencias + Transferencias_Recursos_Específicos) / Ingresos_de_Operación × 100</td><td>SIGEP raw: transferencias_tgn.csv + transferencias_recursos_especificos.csv + ingreso_por_tipo.csv</td><td>NO recibe &lt;30 / Moderada 30–100 / Alta 100–300 / Extrema &gt;300 (+ flag "Sin actividad comercial" si op_rev &lt; Bs 1M)</td></tr>
+<tr><td><b>5. ¿Costo al Estado?</b></td><td>Tres cifras separadas (NO se suman)</td><td>① Apoyo flujo 2025 = TGN + Transf.Rec.Espec (mismo numerador que M17_v5)<br>② Aportes stock = saldo cuenta 3.1.1.2 al 31-dic-2025<br>③ Cash burn = M21 (= max(0, −Neto_SIGEP_2025))</td><td>SIGEP + BG cuenta 3.1.1.2 + SIGEP M21</td><td>Cada cifra se reporta separada — ver caja amarilla en sección Q5</td></tr>
+<tr><td><b>6. ¿Capital rinde?</b></td><td>M15 ROIC</td><td>M15 = NOPAT / Invested Capital × 100<br>NOPAT = EBIT × (1 − tax_rate)<br>Invested Capital = Patrimonio + Deuda Total − Caja<br>Flags string: 'EBIT Negativo' / 'Patrimonio Negativo' / 'IC Inválido'</td><td>truth.xlsx (EBITDA, impuestos, D&A, intereses) + BG (patrimonio, deuda, caja)</td><td>Rinde bien ≥13 / Rinde poco 5–13 / Break-even 0–5 / Destruye valor &lt;0 o flag EBIT/Patrim Negativo / IC Inválido = no aplica</td></tr>
+<tr><td><b>7. ¿Gasto irregular?</b></td><td>Conteo de banderas rojas + Bs en banderas</td><td>Por cada subpartida nivel 4 SIGEP (~50-130 por empresa): flag si crecimiento &gt;+100% (con monto &gt;Bs 500k), caída &gt;−50%, categoría "Otros/Imprevistos" desproporcionada, deuda con proveedores creciente. Bs = suma v2025 en subpartidas marcadas</td><td>SIGEP gasto granular (54.191 filas)</td><td>0 (regular) / 1-2 (leves) / 3-5 (múltiples) / 6+ (altamente irregular)</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">3.1 Por qué Q7 (banderas rojas) NO entra al score de salud</h3>
+<p>Las banderas rojas miden <b>gobernanza del gasto</b>, no salud financiera. Una empresa puede ser <b>financieramente sana CON banderas</b> (caso GESTORA: 15 banderas pero Q1-Q6 todas sanas — refleja problema de control interno, no de modelo de negocio). O <b>financieramente quebrada SIN banderas</b> (caso hipotético: gasto regular pero modelo fallido). Mezclarlas confunde dos diagnósticos distintos que requieren respuestas distintas:</p>
+<ul>
+<li><b>Salud financiera deteriorada</b> → reforma operativa (REESTRUCTURAR / CERRAR / etc.)</li>
+<li><b>Banderas rojas</b> → auditoría forense / investigación criminal (Contraloría, fiscalía)</li>
+</ul>
+<p>Por eso Q7 aparece como <b>flag overlay paralelo</b> en cada empresa, no como componente del score.</p>
+
+<h2 id="clasificacion" class="metod-section">4. Modelo de clasificación 5×5 — Salud × Función</h2>
+
+<p>Cada empresa recibe <b>tres etiquetas independientes</b> que combinadas determinan la recomendación:</p>
+
+<h3 class="metod-sub">4.1 Eje 1 — Salud Financiera</h3>
+<p>Derivada del score multidimensional (sin Q7). 7 estados posibles:</p>
+<table class="metod-table">
+<thead><tr><th>Etiqueta</th><th>Criterio</th><th>Cantidad actual</th></tr></thead>
+<tbody>
+<tr><td>🟢 <b>Buen Desempeño</b></td><td>Score = 0 — sin señales de problemas en ninguna dimensión</td><td>3 empresas</td></tr>
+<tr><td>🔵 <b>Bajo Desempeño</b></td><td>Score 1-2 — sin distrés grave pero tampoco destaca</td><td>~10 empresas</td></tr>
+<tr><td>🟡 <b>Deteriorada</b></td><td>Score 3-6 — algún daño financiero pero todavía operando</td><td>~17 empresas</td></tr>
+<tr><td>🟠 <b>Quebrada por acumulación</b></td><td>Score 7+ — múltiples señales graves simultáneas, sin Art. 354</td><td>~6 empresas</td></tr>
+<tr><td>🟠 <b>Quebrada Art. 354 (regla legal trumping)</b></td><td>M9b ≤ −50% — pérdidas acumuladas superan el 50% del capital reexpresado. Independiente del score, dispara obligación legal de recapitalización o disolución</td><td>~17 empresas</td></tr>
+<tr><td>⚫ <b>Defuncta</b></td><td>No factura + sin apoyo + sin AR + lista curada confirmada (ENFE, YACANA, SAMAPA, EPSA MUNICIPAL, ENABOL)</td><td>~4 empresas</td></tr>
+<tr><td>⚪ <b>Sin datos</b></td><td>No publicaron capital ni revenue en ningún año (2023/2024/2025)</td><td>~3-4 empresas</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">4.2 Eje 2 — Función para el Estado (curaduría humana)</h3>
+<p>NO derivable de las métricas. Se asigna por marco legal/político/funcional. 5 categorías:</p>
+<table class="metod-table">
+<thead><tr><th>Etiqueta</th><th>Criterio jurídico</th><th>Cantidad</th></tr></thead>
+<tbody>
+<tr><td>🛡️ <b>Constitucional</b></td><td>Sector protegido por CPE Art. 348-355 (hidrocarburos, minería, electricidad nacional, agua nacional). <b>NO se pueden privatizar sin reforma constitucional.</b></td><td>8 empresas</td></tr>
+<tr><td>🏛️ <b>Funcional</b></td><td>Servicio público esencial no constitucional. EPNE creada por Ley/DS para función pública (alimentación, transporte aéreo nacional, defensa, pensiones)</td><td>11 empresas</td></tr>
+<tr><td>📺 <b>Cultural / discrecional</b></td><td>Política cultural, mediática o de fomento industrial sin esencialidad legal</td><td>6 empresas</td></tr>
+<tr><td>🏭 <b>Comercial sin esencialidad</b></td><td>Compite o podría competir con privados en mercado normal</td><td>8 empresas</td></tr>
+<tr><td>💧 <b>Servicio municipal/local</b></td><td>Jurisdicción departamental o municipal — autoridad subnacional decide</td><td>23 empresas</td></tr>
+</tbody>
+</table>
+
+<h2 id="scoring" class="metod-section">5. Sistema de scoring multidimensional</h2>
+
+<p>El score de Salud se construye sumando puntos por señal financiera. <b>Pesos validados por revisor pre-publicación</b> (2026-05-12):</p>
+
+<table class="metod-table">
+<thead><tr><th>Señal</th><th>Condición</th><th>Puntos</th><th>Razón del peso</th></tr></thead>
+<tbody>
+<tr><td>Q1 Ventas bajaron</td><td>M7 &lt; −5%</td><td>+1</td><td>Tendencia negativa pero recuperable</td></tr>
+<tr><td>Q1 No facturan</td><td>op_revenue 2024+2025 &lt; Bs 100k</td><td>+2</td><td>Empresa sin actividad comercial real</td></tr>
+<tr><td>Q2 Paper profit</td><td>M1 &gt; 0 Y M19 &lt; 0</td><td><b>+3</b></td><td>Maquillaje contable — engaña a dueños del Estado</td></tr>
+<tr><td>Q2 Pierde ambos lados</td><td>M1 &lt; 0 Y M19 &lt; 0</td><td>+2</td><td>Pierde en libros y caja simultáneamente</td></tr>
+<tr><td>Q3 Erosionado</td><td>−50 ≤ M9b &lt; 0</td><td>+1</td><td>Capital dañado pero recuperable</td></tr>
+<tr><td>Q3 Quiebra técnica</td><td>M9b ≤ −50</td><td><b>+3</b></td><td>Disparador legal Art. 354 — máxima señal patrimonial</td></tr>
+<tr><td>Q4 Dependencia alta</td><td>100 &lt; M17_v5 ≤ 300</td><td>+1</td><td>El Estado pone 1-3 Bs por cada Bs propio</td></tr>
+<tr><td>Q4 Dependencia extrema</td><td>M17_v5 &gt; 300</td><td><b>+3</b></td><td>La empresa es transferencia disfrazada</td></tr>
+<tr><td>Q5 Costo alto</td><td>apoyo_flow_2025 entre Bs 1-5 mil M</td><td>+1</td><td>Cifra fiscal significativa</td></tr>
+<tr><td>Q5 Costo extremo</td><td>apoyo_flow_2025 &gt; Bs 5 mil M</td><td><b>+3</b></td><td>Titular de prensa por sí solo</td></tr>
+<tr><td>Q6 Rinde poco / BE</td><td>0 ≤ M15 &lt; 13</td><td>+1</td><td>Positivo pero subóptimo</td></tr>
+<tr><td>Q6 Destruye valor</td><td>M15 &lt; 0 O flag EBIT/Patrimonio Negativo</td><td><b>+3</b></td><td>Pierde valor del capital del Estado</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">5.1 Umbrales del score</h3>
+<table class="metod-table">
+<thead><tr><th>Score</th><th>Categoría de Salud</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>🟢 Buen Desempeño</td></tr>
+<tr><td>1-2</td><td>🔵 Bajo Desempeño</td></tr>
+<tr><td>3-6</td><td>🟡 Deteriorada</td></tr>
+<tr><td>7+</td><td>🟠 Quebrada por acumulación</td></tr>
+<tr><td>Cualquiera, pero M9b ≤ −50%</td><td>🟠 Quebrada Art. 354 (regla legal trumping)</td></tr>
+</tbody>
+</table>
+
+<h2 id="funcion" class="metod-section">6. Curaduría del eje Función — clasificación de las 56 empresas</h2>
+
+<p>Esta lista <b>requiere juicio humano</b> y se mantiene en el código fuente como constante <code>FUNCION_EMPRESA</code>. Verificación con búsquedas legales/web realizadas para casos ambiguos (SETAR, ENABOL, DAB, ABE).</p>
+
+<h3 class="metod-sub">6.1 🛡️ Constitucional (8 empresas)</h3>
+<table class="metod-table">
+<thead><tr><th>Sigla</th><th>Sector CPE</th><th>Justificación</th></tr></thead>
+<tbody>
+<tr><td>YPFB</td><td>Hidrocarburos (Art. 359)</td><td>Empresa Pública Nacional Estratégica creada por Ley 3058</td></tr>
+<tr><td>COMIBOL</td><td>Minería (Art. 369)</td><td>Minería estatal — minerales son dominio del Estado</td></tr>
+<tr><td>ENDE</td><td>Electricidad (Art. 378)</td><td>Cadena productiva eléctrica nacional</td></tr>
+<tr><td>VINTO-NAL</td><td>Metalurgia / Minería (Art. 369)</td><td>Fundición de estaño nacionalizada</td></tr>
+<tr><td>EBIH</td><td>Industrialización Hidrocarburos (Art. 360)</td><td>Derivado del sector estratégico petrolero</td></tr>
+<tr><td>YLB</td><td>Litio / Minería (Art. 369)</td><td>Yacimientos de Litio Bolivianos — recurso evaporítico</td></tr>
+<tr><td>MISICUNI</td><td>Energía hidroeléctrica + Agua (Art. 378 + 373)</td><td>Generación eléctrica + agua para Cochabamba</td></tr>
+<tr><td>ES-MUTUN</td><td>Siderurgia / Minería del hierro (Art. 369)</td><td>Empresa Siderúrgica del Mutún — recurso estratégico</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">6.2 🏛️ Funcional (11 empresas)</h3>
+<table class="metod-table">
+<thead><tr><th>Sigla</th><th>Función esencial</th><th>Verificación</th></tr></thead>
+<tbody>
+<tr><td>EMAPA</td><td>Seguridad alimentaria nacional</td><td>EPNE creada para estabilizar precios alimentarios</td></tr>
+<tr><td>BOA</td><td>Transporte aéreo nacional + rutas a regiones aisladas</td><td>EPNE Boliviana de Aviación</td></tr>
+<tr><td>Mi teleférico</td><td>Transporte urbano masivo La Paz-El Alto</td><td>Servicio público esencial en eje metropolitano</td></tr>
+<tr><td>GESTORA</td><td>Gestor de pensiones — custodia de ahorros previsionales</td><td>Esencial por Ley de Pensiones</td></tr>
+<tr><td>COFADENA</td><td>Defensa nacional + producción militar</td><td>CPE Art. 244-249 — no privatizable por naturaleza</td></tr>
+<tr><td>TAM</td><td>Transporte Aéreo Militar — función dual militar + civil para regiones remotas</td><td>Empresa Pública por DS</td></tr>
+<tr><td>ABE</td><td>Telecomunicaciones satelitales (Túpac Katari)</td><td>Verificación web: democratiza acceso telecom rural + educación + salud rural</td></tr>
+<tr><td>ASP-B</td><td>Administración de Servicios Portuarios — esencial para comercio exterior por puertos chilenos/peruanos</td><td>Bolivia es país sin litoral</td></tr>
+<tr><td>DAB</td><td>Depósitos Aduaneros Bolivianos — logística aduanera nacional</td><td>Verificación web: EPNE por DS 29694/2008. 1.4M toneladas/año</td></tr>
+<tr><td>ENABOL</td><td>Empresa Naviera Boliviana — Hidrovía Paraguay-Paraná</td><td>Verificación web: EPNE comercio exterior fluvial. Actualmente operativamente abandonada → marcada como defuncta</td></tr>
+<tr><td>ENFE</td><td>Empresa Nacional de Ferrocarriles (residual histórica)</td><td>Función estratégica histórica — defuncta de facto</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">6.3 📺 Cultural / discrecional (6 empresas)</h3>
+<p>BTV (medio estatal), EDITORIAL del Estado Plurinacional, QUIPUS (electrónica de fomento), KALLPAWAWA (alimentos infantiles), YACANA (textiles camélidos), EPDEOR (hotel terminal Oruro).</p>
+
+<h3 class="metod-sub">6.4 🏭 Comercial sin esencialidad (8 empresas)</h3>
+<p>EBA, B-Agro, CARTONBOL, EBC, EASBA, ESABOL, TAB, FCCCP-EPD. Compiten con privados en mercados normales (alimentos derivados, cartón, cemento, azúcar, servicios aéreos, calaminas).</p>
+
+<h3 class="metod-sub">6.5 💧 Servicio municipal/local (23 empresas)</h3>
+<p>13 EPSAs de agua municipales (SAMAPA, AAPOS, ELAPAS, etc.), 6 servicios municipales adicionales (EMAVRA, EMAVS, GERES, EMAVERDE, EMSA, EMAVIAS), 2 departamentales (SETAR electricidad Tarija, EMTAGAS gas Tarija), EMUJOYAS (joyería municipal), EMDELL (distribución eléctrica municipal).</p>
+
+<h2 id="matriz" class="metod-section">7. Matriz de recomendaciones (verbos de acción)</h2>
+
+<p>El verbo final viene de la intersección de los dos ejes en una matriz 5×5:</p>
+
+<table class="metod-table">
+<thead><tr><th></th><th>🟢 Sana</th><th>🔵 Bajo Desempeño</th><th>🟡 Deteriorada</th><th>🟠 Quebrada acum.</th><th>🟠 Art. 354</th></tr></thead>
+<tbody>
+<tr><th>🛡️ Constitucional</th><td>MANTENER + revisión</td><td>MANTENER + monitoreo</td><td>REESTRUCTURAR</td><td>REESTRUCTURAR</td><td><b>RECAPITALIZAR Y REESTRUCTURAR</b></td></tr>
+<tr><th>🏛️ Funcional</th><td>MANTENER</td><td>MANTENER + monitoreo</td><td>REESTRUCTURAR</td><td>REESTRUCTURAR o REASIGNAR</td><td><b>RECAPITALIZAR Y REESTRUCTURAR</b></td></tr>
+<tr><th>📺 Cultural</th><td>MANTENER (debate político)</td><td>MANTENER (revisar relevancia)</td><td><b>CERRAR</b> (debate político)</td><td><b>CERRAR</b></td><td><b>CERRAR</b></td></tr>
+<tr><th>🏭 Comercial</th><td>MANTENER o PRIVATIZAR</td><td><b>PRIVATIZAR si es posible</b></td><td><b>CERRAR</b> (sin going-concern)</td><td><b>CERRAR</b></td><td><b>CERRAR</b></td></tr>
+<tr><th>💧 Municipal</th><td>MANTENER (autoridad mun.)</td><td>MANTENER + monitoreo</td><td>REESTRUCTURAR (autoridad mun.)</td><td><b>CERRAR o FUSIONAR</b></td><td><b>CERRAR o FUSIONAR</b></td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">7.1 Overrides (independiente de la matriz)</h3>
+<ul>
+<li>⚫ <b>Defuncta</b> (cualquier función) → <b>LIQUIDAR</b> (registro formal)</li>
+<li>⚪ <b>Sin datos</b> (cualquier función) → <b>EXIGIR PUBLICACIÓN</b> de estados financieros</li>
+</ul>
+
+<h3 class="metod-sub">7.2 Lógica detrás de "RECAPITALIZAR Y REESTRUCTURAR" combinado</h3>
+<p>Para empresas estratégicas (Constitucional o Funcional) en Quebrada Art. 354, el Código de Comercio (Art. 354) obliga a <b>recapitalizar o disolver</b>. Como son estratégicas, disolver no es opción política/legal viable. Pero <b>recapitalizar sin reestructurar es tirar plata al hoyo</b> — el capital fresco se evapora rápido si el modelo operativo no cambia. Por eso ambas acciones van juntas, no separadas.</p>
+
+<h3 class="metod-sub">7.3 Lógica detrás de CERRAR vs PRIVATIZAR comercial</h3>
+<p>Para empresas comerciales sin esencialidad:</p>
+<ul>
+<li><b>Sana / Bajo Desempeño</b> → tiene valor going-concern → <b>PRIVATIZAR</b> es opción real (hay comprador)</li>
+<li><b>Deteriorada / Quebrada</b> → ningún privado racional compra una empresa con paper profit + 12 banderas + sin facturar → <b>CERRAR</b> es honesto. "Privatizar si aparece comprador" se menciona como escape valve cuando hay datos completos hasta 2025 y operación todavía activa.</li>
+</ul>
+
+<h2 id="overlays" class="metod-section">8. Flags overlay: banderas rojas, sectores sensibles, datos desactualizados</h2>
+
+<p>Los flags son <b>independientes de la celda de la matriz</b> — no cambian el verbo principal, pero modifican la acción específica recomendada.</p>
+
+<h3 class="metod-sub">8.1 Flags de banderas rojas (Q7)</h3>
+<table class="metod-table">
+<thead><tr><th>Banderas</th><th>Sectores normales</th><th>Sectores sensibles (defensa, pensiones, custodia)</th></tr></thead>
+<tbody>
+<tr><td>0-2</td><td>(sin flag)</td><td>(sin flag)</td></tr>
+<tr><td>3-5</td><td>+ revisar gasto</td><td>+ revisar gasto</td></tr>
+<tr><td>6-14</td><td>+ AUDITORÍA Contraloría</td><td>+ <b>INVESTIGACIÓN CRIMINAL</b> (a partir de 10 banderas)</td></tr>
+<tr><td>15+</td><td>+ INVESTIGACIÓN CRIMINAL (fiscalía)</td><td>+ INVESTIGACIÓN CRIMINAL</td></tr>
+</tbody>
+</table>
+
+<p><b>Sectores sensibles</b>: COFADENA (defensa), TAM (transporte militar), GESTORA (pensiones). Umbral bajo (≥10 banderas) por la naturaleza crítica del negocio — gastos sospechosos en defensa o pensiones merecen máxima seriedad incluso sin 15 banderas.</p>
+
+<h3 class="metod-sub">8.2 Flag de datos desactualizados</h3>
+<p>Si <code>year_max_datos</code> &lt; 2025 (la empresa no publicó balance 2025), aparece suffix <b>"(datos hasta 2024)"</b> o marcador <b>"*2024"</b> en la matriz. Empresas afectadas: CARTONBOL, B-Agro, EMAVERDE, EMAPAU, EMAPAV, ES-MUTUN.</p>
+
+<h2 id="supuestos" class="metod-section">9. Supuestos y limitaciones declaradas</h2>
+
+<h3 class="metod-sub">9.1 Supuestos técnicos</h3>
+<ul>
+<li><b>M9 reexpresado, no nominal</b>: usamos capital_reexp (3.1.1 + 3.1.6 ajuste UFV) para mantener coherencia matemática con res_acum (que viene reexpresado en NB-SCI). Implicación: % de capital quemado es menor que el nominal por ~20-30%.</li>
+<li><b>M17_v5</b>: dependencia = (TGN + Transf.Rec.Esp) / Ingresos de Operación. NO captura subsidios implícitos (tarifas reguladas debajo de costo, garantías soberanas, etc.). Ver caja amarilla en sección Q4.</li>
+<li><b>Op_revenue desde cuenta 5.2 PCSP</b> (Ingresos Operacionales puros), NO total_rev (que incluye subsidios). Esto evita distorsión en Q1.</li>
+<li><b>Crecimiento 3-year</b> en Q1, no YoY: porque YoY es más volátil y 3-year captura tendencia estructural.</li>
+<li><b>Fallback CAIF</b>: empresas municipales pequeñas que reportan solo en CAIF (Cuenta-Ahorro-Inversion-Financiamiento) sin Estado de Resultados se procesan correctamente — si RGC = 0, se usa caif_11 como op_revenue.</li>
+<li><b>Sectores sensibles</b>: lista curada {COFADENA, TAM, GESTORA} basada en juicio editorial. Otros sectores podrían argumentarse pero no se incluyeron por defecto.</li>
+</ul>
+
+<h3 class="metod-sub">9.2 Limitaciones de datos</h3>
+<ul>
+<li><b>3-4 empresas sin estados financieros publicados</b>: EPDEOR, SETAR, FCCCP-EPD. Marcadas como Sin datos → EXIGIR PUBLICACIÓN.</li>
+<li><b>Ejecución 2026 NO accesible</b>: SIGEP no publica datos de ejecución en tiempo real para empresas públicas. Las cifras "YTD 2026", "Proyección 2026", "Lo que falta del año" son aproximaciones lineales. Ver sección <a href="#proyecciones">12</a>.</li>
+<li><b>Banderas rojas son señal, no prueba</b>: detectan patrones de gasto anómalos pero NO prueban malversación. Requieren auditoría forense para confirmar o descartar irregularidad.</li>
+<li><b>Datos extraídos por OCR + LLM</b>: aunque hay consenso multi-motor + verificación de árbol, ningún proceso de extracción es 100% perfecto. Casos limítrofes pueden requerir verificación manual del PDF original.</li>
+</ul>
+
+<h3 class="metod-sub">9.3 Limitaciones de interpretación</h3>
+<ul>
+<li><b>NO se calcula impacto distribucional</b>: el reporte no analiza quién absorbe el costo de las decisiones recomendadas (empleados despedidos en cierre, clientes en aumento tarifario, etc.).</li>
+<li><b>NO se incluye análisis de cuándo se debe actuar</b>: las recomendaciones son acciones a tomar, no calendario político.</li>
+<li><b>NO se consideran cambios regulatorios futuros</b>: si cambia la CPE o la Ley de Empresas Públicas, las recomendaciones constitucionales/legales pueden cambiar.</li>
+</ul>
+
+<h2 id="decisiones" class="metod-section">10. Decisiones metodológicas críticas (historial)</h2>
+
+<h3 class="metod-sub">10.1 M17 — 5 versiones iteradas</h3>
+<div class="metod-decision">
+<b>Versión final (v5 OFICIAL)</b>: M17_v5 = (TGN + Transferencias Recursos Específicos) / Ingresos_de_Operación × 100.
+<br>Historial: v1 (broken stock/flow asymmetry) → v2 (label-search ad-hoc) → v3 (SIGEP gap proxy, incluía intra-grupo + IVA) → v4 (TGN-only, perdía Bs 888M) → <b>v5</b>. Total inter-gov transfers 2025 ≈ Bs 16.831 mil M.
+</div>
+
+<h3 class="metod-sub">10.2 M9 — Nominal vs Reexpresado</h3>
+<div class="metod-decision">
+<b>Decisión final</b>: usar M9 reexpresado (capital + ajuste UFV) en lugar de nominal.
+<br>Razón: el numerador (res_acum) ya viene reexpresado en NB-SCI. Comparar reexpresado vs nominal es matemáticamente asimétrico y sobreestima el % quemado.
+<br>Impacto: Capital total del Estado 33,36 mil M (nominal) → 42,66 mil M (reexpresado). Quemado 51,6% → 40,4%. 19 → 17 empresas en quiebra técnica.
+</div>
+
+<h3 class="metod-sub">10.3 Q7 banderas fuera del score de salud</h3>
+<div class="metod-decision">
+<b>Decisión post pre-publish review</b>: Q7 NO entra al score de Salud. Es un eje paralelo (flag overlay).
+<br>Razón: Salud financiera y gobernanza son dimensiones distintas que requieren respuestas distintas. EDITORIAL es financieramente sana CON 9 banderas → MANTENER + AUDITORÍA (no CERRAR como pasaría si Q7 entrara al score).
+</div>
+
+<h3 class="metod-sub">10.4 Pesos del score: +3 para señales que son titular por sí solas</h3>
+<div class="metod-decision">
+<b>Decisión</b>: Paper profit, Q4 extrema, Q5 extremo, Q6 destruye → peso <b>+3 cada uno</b> (no +2).
+<br>Razón: cada una de estas señales es titular de prensa por sí sola. Bs 5 mil M/año al Tesoro = presupuesto del Ministerio de Justicia entero. Por cada Bs 1 propio el Estado pone Bs 3 = transferencia disfrazada de empresa. Paper profit de Bs 7,75 mil M = maquillaje contable masivo.
+</div>
+
+<h3 class="metod-sub">10.5 CERRAR realista vs PRIVATIZAR engañoso</h3>
+<div class="metod-decision">
+<b>Decisión</b>: empresas comerciales Deterioradas o Quebradas → CERRAR (no PRIVATIZAR).
+<br>Razón: una empresa con paper profit + 12 banderas + sin facturar no tiene comprador racional. "Privatizar" en ese contexto es eufemismo. CERRAR es honesto. "PRIVATIZAR si aparece comprador" se menciona como escape valve solo para casos limítrofes con operación reciente.
+</div>
+
+<h3 class="metod-sub">10.6 Capital del Estado reexpresado en la cifra titular</h3>
+<div class="metod-decision">
+<b>Decisión</b>: la cifra titular del reporte es <b>Bs 16,84 mil M</b> (TGN + Transf.Rec.Espec del año), NO la suma de aportes stock + cash burn.
+<br>Razón: titular ciudadano necesita una sola cifra clara. El flujo del año es la única honesta — el stock acumulado es histórico, el cash burn es solución implícita. Las tres se reportan en Q5 separadas con caja amarilla "no es legítimo sumar".
+</div>
+
+<h3 class="metod-sub">10.7 CAIF fallback en extractor</h3>
+<div class="metod-decision">
+<b>Fix aplicado 2026-05-14</b>: si <code>audit_metrics_v8</code> encuentra RGC vacío (op_revenue = 0), buscar fallback en CAIF (caif_11 = Ingresos corrientes, preferir subcódigo 11.2 Venta de Bienes y Servicios).
+<br>Razón: empresas municipales pequeñas (EPSA-COROICO en particular) reportan solo en CAIF, no en Estado de Resultados estándar. Antes el extractor las marcaba como Defuncta erróneamente. Ahora extrae correctamente Bs 1,25M en op_revenue 2025 para EPSA-COROICO.
+</div>
+
+<h2 id="vocabulario" class="metod-section">11. Vocabulario ciudadano — sustituciones obligatorias</h2>
+
+<p>El reporte está diseñado para audiencia mixta (ciudadanos, prensa, congresistas). Vocabulario contable técnico fue reemplazado sistemáticamente:</p>
+
+<table class="metod-table">
+<thead><tr><th>❌ NO usar</th><th>✅ Usar</th></tr></thead>
+<tbody>
+<tr><td>"libros contables", "en los libros"</td><td>"en sus reportes", "lo que dicen los reportes"</td></tr>
+<tr><td>"patrimonio erosionado"</td><td>"han quemado parte del capital del Estado"</td></tr>
+<tr><td>"capital sólido"</td><td>"han generado ganancias en su historia"</td></tr>
+<tr><td>"Margen EBITDA"</td><td>"Ganancia operativa reportada"</td></tr>
+<tr><td>"Margen Caja"</td><td>"Plata que sobró (caja real)"</td></tr>
+<tr><td>"anotaron una venta"</td><td>"anotaron una ganancia operativa"</td></tr>
+<tr><td>"Sin datos suficientes"</td><td>"Estados financieros incompletos"</td></tr>
+<tr><td>"AR / ventas: 1.7x"</td><td>"Sin cobrar: 170% de un año de ventas"</td></tr>
+<tr><td>"Dependencia: 49,3%"</td><td>"Por cada Bs 1 propio, el Estado pone Bs 0,49"</td></tr>
+<tr><td>"M9 Reexpresado: -50%"</td><td>"Han quemado 50% del capital del Estado"</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">11.1 Canon "De cada Bs 100"</h3>
+<p>Para expresar ratios al ciudadano, traducir a "Bs X de cada Bs 100" siempre que sea posible:</p>
+<ul>
+<li>Q1 AR ratio: "Sin cobrar: X% de un año de ventas (= N meses/años de facturación)"</li>
+<li>Q3 capital quemado: "De cada Bs 100 que el Estado puso, las empresas ya perdieron Bs X"</li>
+<li>Q4 dependencia: "El Estado pone Bs X por cada Bs propio"</li>
+<li>Q6 ROIC: "Rinden Bs X por cada Bs 100 invertidos"</li>
+</ul>
+
+<h2 id="reconciliacion" class="metod-section">12. Tabla de reconciliación de cifras grandes</h2>
+
+<p>El reporte menciona varias cifras grandes que <b>NO son sumables entre sí</b> porque miden cosas distintas:</p>
+
+<table class="metod-table">
+<thead><tr><th>Cifra 2025</th><th>Qué mide</th><th>Tipo</th><th>Aparece en</th></tr></thead>
+<tbody>
+<tr><td><b style="color:#c0392b;">~Bs 16,84 mil M</b><br><span style="font-size:9pt;">CIFRA TITULAR</span></td><td>TGN transferencias + Transf.Rec.Específicos del año 2025</td><td>FLOW anual</td><td>Apéndice metodológico · Pregunta 4 · Pregunta 5 componente ①</td></tr>
+<tr><td><b>~Bs 17,91 mil M</b></td><td>Saldo cuenta 3.1.1.2 Aportes al cierre 2025 (acumulado histórico)</td><td>STOCK</td><td>Pregunta 5 componente ②</td></tr>
+<tr><td><b>~Bs 3,85 mil M</b></td><td>Cash burn 2025 (gasto pagado &gt; ingreso percibido en SIGEP)</td><td>FLOW anual</td><td>Pregunta 5 componente ③</td></tr>
+<tr><td><b>~Bs 65 mil M</b></td><td>Gasto total operativo de las 56 empresas en 2025 (mayoría desde sus propias ventas)</td><td>FLOW operativo</td><td>Header "Total gastado por las 56 en 2025"</td></tr>
+<tr><td><b>~Bs 94 mil M</b></td><td>Presupuesto AUTORIZADO PGE 2026 (tope legal, no ejecución)</td><td>Cap autorizado</td><td>Header "Presupuesto operativo 2026"</td></tr>
+</tbody>
+</table>
+
+<div class="metod-caveat">
+⚠️ <b>No es legítimo sumar estas cifras entre sí.</b> Las primeras tres miden compromisos fiscales pero en dimensiones distintas (flujo del año vs stock acumulado vs cash burn). Las dos últimas miden gasto total operativo, no costo fiscal directo.
+</div>
+
+<h2 id="proyecciones" class="metod-section">13. Proyecciones 2026 — aproximaciones, no ejecución real</h2>
+
+<div class="metod-caveat">
+<b>La ejecución presupuestaria real del 2026 NO está públicamente accesible.</b> El SIGEP no publica datos de ejecución en tiempo real para empresas públicas. Por eso TODAS las cifras de "Gasto YTD 2026", "Lo que falta del año 2026", "Proyección total 2026", y la sección "Pérdida por hora/día/mes" son <b>aproximaciones lineales</b>.
+</div>
+
+<h3 class="metod-sub">13.1 Fórmula de proyección</h3>
+<div class="metod-formula">
+growth_mult = PGE_2026_autorizado_total / gasto_2025_real_total<br>
+proyeccion_2026_empresa = gasto_2025_empresa × growth_mult<br>
+YTD_2026 = proyeccion_2026 × YTD_FRACTION (fracción del año transcurrido)<br>
+falta_2026 = proyeccion_2026 - YTD_2026
+</div>
+<p>Para 2026-05-15: growth_mult ≈ 1.446× (gasto sectorial crece 44,6% según PGE 2026 vs ejecución 2025 real). YTD fraction calculada según días transcurridos.</p>
+
+<h3 class="metod-sub">13.2 Limitaciones de la proyección</h3>
+<ul>
+<li>Asume que cada empresa crece a la <b>tasa promedio</b> del sector — empresas concretas pueden crecer mucho más o menos</li>
+<li>No captura cambios discretos (cierre planeado, reforma tarifaria, etc.)</li>
+<li>El presupuesto autorizado PGE NO siempre se ejecuta al 100% — la ejecución real suele ser 70-90% del autorizado</li>
+<li>La estacionalidad del gasto público (concentrado en último trimestre) puede hacer que el YTD lineal sub-estime el ritmo real</li>
+</ul>
+
+<h3 class="metod-sub">13.3 Sección "Pérdida por hora/día/mes"</h3>
+<p>Descompone la proyección anual 2026 de las empresas a cerrar en unidades de tiempo (Bs/segundo, Bs/hora, Bs/día, Bs/mes, Bs/año). <b>Es una herramienta retórica</b> para comunicar la urgencia, NO una medición en tiempo real. La cifra real solo se sabrá cuando el SIGEP publique ejecución oficial 2026.</p>
+
+<h2 id="cifratitular" class="metod-section">14. Cifra titular del reporte</h2>
+
+<div class="metod-decision">
+<b>El costo fiscal directo del Estado a las 56 empresas públicas en 2025 fue Bs 16,84 mil millones</b> (TGN + Transferencias de Recursos Específicos) — un aumento del 18,0% desde el 2023 (Bs 14,27 mil M).
+</div>
+
+<p>Esta es la única cifra declarada como <b>titular</b> del reporte. Las otras cifras grandes son contexto, no titulares. Razones:</p>
+<ul>
+<li>Es flujo puro del año (no stock acumulado, no proyección)</li>
+<li>Sale directo del SIGEP raw (auditable, no editorial)</li>
+<li>Comparable año contra año</li>
+<li>Es la única cifra que el Ministerio de Economía podría reconocer como "lo que el Tesoro pagó este año"</li>
+</ul>
+
+<h2 id="legal" class="metod-section">15. Marco legal aplicado</h2>
+
+<h3 class="metod-sub">15.1 Constitución Política del Estado (2009)</h3>
+<ul>
+<li><b>Art. 348-355</b> — sectores estratégicos protegidos (hidrocarburos, minería, electricidad nacional, agua)</li>
+<li><b>Art. 359-361</b> — hidrocarburos: dominio del pueblo, administra YPFB; NO se pueden privatizar sin reforma constitucional</li>
+<li><b>Art. 369</b> — minerales son dominio del Estado; COMIBOL, YLB, VINTO, ES-MUTUN protegidas</li>
+<li><b>Art. 373-376</b> — agua es derecho humano fundamental; no se puede negar servicio</li>
+<li><b>Art. 378</b> — recursos energéticos estratégicos</li>
+<li><b>Art. 244-249</b> — defensa nacional (afecta COFADENA)</li>
+</ul>
+
+<h3 class="metod-sub">15.2 Código de Comercio</h3>
+<ul>
+<li><b>Artículo 354</b>: una empresa con pérdidas acumuladas que superan el 50% del capital pagado <b>debe recapitalizarse o disolverse</b>. Esta es la "regla legal trumping" que dispara automáticamente la categoría Quebrada Art. 354 en el modelo 5×5.</li>
+</ul>
+
+<h3 class="metod-sub">15.3 Leyes específicas aplicables</h3>
+<ul>
+<li><b>Ley 466 de Empresas Públicas</b> (2013): tipología EPNE/EPN/SAM, obligación de publicar estados auditados anualmente</li>
+<li><b>Ley 3058 de Hidrocarburos</b>: creación de YPFB como EPNE</li>
+<li><b>Ley 535 de Minería y Metalurgia</b> (2014): refuerza COMIBOL</li>
+<li><b>Plan de Cuentas del Sector Público (PCSP)</b>: estándar contable para empresas estatales bolivianas (cuentas dotadas 1.1.1.1, 3.1.1, 3.1.5.1, etc.)</li>
+<li><b>NB-SCI (Normas Básicas del Sistema de Contabilidad Integrada)</b>: regulación contable + reexpresión por UFV</li>
+</ul>
+
+<h2 id="scripts" class="metod-section">16. Archivos y scripts del pipeline</h2>
+
+<table class="metod-table">
+<thead><tr><th>Archivo</th><th>Función</th></tr></thead>
+<tbody>
+<tr><td><code>output/truth.xlsx</code></td><td>Extracción consensuada de los PDFs (todas las celdas con metadata de fuente y validación)</td></tr>
+<tr><td><code>audit_metrics_v8.py</code></td><td>Calcula 28 métricas M1-M28 desde truth.xlsx. Incluye CAIF fallback para empresas municipales pequeñas</td></tr>
+<tr><td><code>56_build_v9_by_bucket.py</code></td><td>Cascade v9.7.3 con archetype assignment y trayectoria (mantenido como referencia interna)</td></tr>
+<tr><td><code>output/financial_metrics_v9_by_bucket_spanish.xlsx</code></td><td>Workbook v9 con 14 pestañas — fuente intermedia para el reporte ciudadano</td></tr>
+<tr><td><code>60_build_citizen_reports.py</code></td><td>Construye el reporte ciudadano completo (HTMLs publicados). Aplica el modelo 5×5 vía <code>apply_new_classification(rec)</code></td></tr>
+<tr><td><code>output/citizen_reports/*.html</code></td><td>Output final publicado en GitHub Pages</td></tr>
+<tr><td><code>empresas_publicas_2023_2025/*.csv</code></td><td>SIGEP raw (TGN, transferencias específicas, ingreso/gasto por categoría, granular)</td></tr>
+<tr><td><code>empresas_publicas_2023_2025/gasto_granular_por_empresa.json</code></td><td>Banderas rojas pre-computadas por empresa (Q7)</td></tr>
+</tbody>
+</table>
+
+<h2 id="replicacion" class="metod-section">17. Cómo replicar este análisis</h2>
+
+<ol>
+<li><b>Obtener PDFs</b> de estados financieros de las 56 empresas (Ministerio de Economía publica algunos; el resto se obtiene caso por caso de cada empresa)</li>
+<li><b>Descargar SIGEP raw</b> desde el portal de transparencia: transferencias_tgn, transferencias_recursos_especificos, ingreso_por_tipo, gasto_por_grupo, resumen_anual</li>
+<li><b>Descargar Ley PGE 2026</b> Tabla N° 4 del Ministerio de Economía y Finanzas Públicas</li>
+<li><b>Procesar PDFs vía OCR multi-motor</b> (los engines usados son: Mistral OCR, Gemini Pro, OpenAI GPT-4, Azure Document Intelligence). Consenso multi-motor + verificación de árbol de cuentas + balance check.</li>
+<li><b>Correr <code>audit_metrics_v8.py</code></b> sobre el output consolidado para producir las 28 métricas + raw bolivianos.</li>
+<li><b>Aplicar el modelo 5×5</b> via la función <code>apply_new_classification(rec)</code> que computa score, asigna función de la lista curada, mapea celda → verbo, agrega overlay flags.</li>
+<li><b>Generar HTMLs</b> via <code>60_build_citizen_reports.py</code>.</li>
+<li><b>Publicar</b> el directorio <code>output/citizen_reports/</code> en GitHub Pages u otro hosting estático.</li>
+</ol>
+
+<p>Repo público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22;">github.com/romer288/empresas-publicas-bolivia</a></p>
+
+<div class="metod-caveat" style="margin-top:36px;">
+<b>Contacto / contribución:</b> errores, omisiones o sugerencias sobre la metodología pueden señalarse via Issues en el repo de GitHub. La curaduría del eje Función (clasificación de empresas como Constitucional/Funcional/Cultural/Comercial/Municipal) es la dimensión más subjetiva y la que más puede disputarse — cualquier empresa puede ser reclasificada con argumento legal o funcional explícito.
+</div>
+
+</body></html>

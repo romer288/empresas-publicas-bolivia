@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Metodología — 56 Empresas Públicas</title><style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Diagnóstico fiscal independiente de las 56 empresas públicas de Bolivia: estados financieros 2023-2025, costo fiscal anual Bs 16,84 mil M, 17 empresas en quiebra técnica (Art. 354), recomendaciones empresa por empresa."><meta property="og:type" content="article"><meta property="og:title" content="Las 56 Empresas Públicas de Bolivia — Diagnóstico Fiscal 2025"><meta property="og:description" content="Diagnóstico fiscal independiente de las 56 empresas públicas de Bolivia: estados financieros 2023-2025, costo fiscal anual Bs 16,84 mil M, 17 empresas en quiebra técnica (Art. 354), recomendaciones empresa por empresa."><meta property="og:image" content="https://romer288.github.io/empresas-publicas-bolivia/og_image.png"><meta property="og:url" content="https://romer288.github.io/empresas-publicas-bolivia/"><meta property="og:site_name" content="Las 56 Empresas Públicas de Bolivia"><meta property="og:locale" content="es_BO"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Las 56 Empresas Públicas de Bolivia"><meta name="twitter:description" content="Diagnóstico fiscal independiente de las 56 empresas públicas de Bolivia: estados financieros 2023-2025, costo fiscal anual Bs 16,84 mil M, 17 empresas en quiebra técnica (Art. 354), recomendaciones empresa por empresa."><meta name="twitter:image" content="https://romer288.github.io/empresas-publicas-bolivia/og_image.png"><title>Metodología — 56 Empresas Públicas</title><style>
 @page { margin: 1.2cm; size: letter; }
 body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.45; max-width: 760px; margin: 24px auto; padding: 0 20px; font-size: 11pt; }
 body.wide-page { max-width: 1320px; }
@@ -107,9 +107,10 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 
 <div class="metod-toc">
 <b>Índice del documento:</b>
-<ol>
+<ol start="0">
+<li><a href="#cronologia">Cronología del desarrollo — la historia honesta de cómo se construyó</a></li>
 <li><a href="#fuentes">Fuentes de datos primarias</a></li>
-<li><a href="#pipeline">Pipeline de extracción — 5 etapas</a></li>
+<li><a href="#pipeline">Pipeline de extracción — 5 etapas (con detalle de cada motor y validador)</a></li>
 <li><a href="#preguntas">Las 7 preguntas: métrica ancla, fórmula, fuente</a></li>
 <li><a href="#clasificacion">Modelo de clasificación 5×5 — Salud × Función</a></li>
 <li><a href="#scoring">Sistema de scoring multidimensional</a></li>
@@ -117,7 +118,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#matriz">Matriz de recomendaciones (verbos de acción)</a></li>
 <li><a href="#overlays">Flags overlay: banderas rojas, sectores sensibles, datos desactualizados</a></li>
 <li><a href="#supuestos">Supuestos y limitaciones declaradas</a></li>
-<li><a href="#decisiones">Decisiones metodológicas críticas (historial)</a></li>
+<li><a href="#decisiones">Decisiones metodológicas críticas (historial completo y razones)</a></li>
 <li><a href="#vocabulario">Vocabulario ciudadano — sustituciones obligatorias</a></li>
 <li><a href="#reconciliacion">Tabla de reconciliación de cifras grandes</a></li>
 <li><a href="#proyecciones">Proyecciones 2026 — aproximaciones, no ejecución real</a></li>
@@ -125,7 +126,151 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#legal">Marco legal aplicado (CPE, Código de Comercio, Leyes)</a></li>
 <li><a href="#scripts">Archivos y scripts del pipeline</a></li>
 <li><a href="#replicacion">Cómo replicar este análisis</a></li>
+<li><a href="#errores">Errores reconocidos durante el desarrollo y cómo se corrigieron</a></li>
+<li><a href="#changelog">Changelog versionado del análisis</a></li>
 </ol>
+</div>
+
+<h2 id="cronologia" class="metod-section">0. Cronología del desarrollo — la historia honesta de cómo se construyó</h2>
+
+<p>Este reporte <b>NO es producto de una sola corrida de extracción</b>. Es el resultado de varios meses de iteración sobre el pipeline de OCR, fórmulas financieras, modelos de clasificación, y revisiones editoriales. Documentamos aquí la secuencia real para que sea auditable.</p>
+
+<div class="metod-step">
+<span class="metod-step-num">A</span><b>Fase 1 — Construcción de la base de extracción de PDFs (semanas 1-8)</b>
+<p>Cada una de las 56 empresas tiene PDFs de estados financieros para los años 2023, 2024 y 2025 (168 documentos en total, ~25 páginas cada uno). El primer problema fue que <b>NO existe un formato estándar único</b>:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>49 empresas usan formato "dotted"</b> — Plan de Cuentas del Sector Público con códigos de 4-6 dígitos en notación con puntos (1.1.1.1, 2.1.4.3, 3.1.1.6, etc.). Ejemplo: YPFB, COMIBOL, ENDE.</li>
+<li><b>3 empresas usan PCGE 5-dígitos</b> — Plan General de Cuentas Empresariales en notación sin puntos (10101, 31100, etc.). Ejemplo: TAM, COFADENA en algunos años.</li>
+<li><b>1 empresa usa PCGE 3-dígitos corto</b> — versión abreviada con cuentas mayores nada más.</li>
+<li><b>Subset adicional usa CAIF</b> (Cuenta-Ahorro-Inversión-Financiamiento) como formato único — empresas municipales pequeñas.</li>
+</ul>
+<p>El extractor original asumía formato dotted uniformemente. Tuvo que ser refactorizado para manejar las tres taxonomías de cuenta — ver memoria interna <code>chart_format_taxonomy.md</code>.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">B</span><b>Fase 2 — Consenso multi-motor y validación de árbol contable (semanas 6-10)</b>
+<p>Una sola pasada de OCR es insuficiente: motores diferentes alucinan en celdas diferentes. La solución fue ejecutar <b>4-5 motores en paralelo</b> por celda y exigir consenso:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>Mistral OCR</b> — fuerte en estructura de tablas, débil en cifras con separadores de miles ambiguos</li>
+<li><b>Gemini Pro</b> — fuerte en contexto y semántica de cuentas, ocasionalmente "redondea" valores</li>
+<li><b>OpenAI GPT-4 Vision</b> — fuerte en validación cruzada, lento en producción masiva</li>
+<li><b>Azure Document Intelligence</b> — fuerte en extracción estructural pura</li>
+<li><b>Mistral Pre-process</b> — pre-clasifica páginas (Balance General vs Estado Resultados vs Notas) antes de extracción semántica</li>
+</ul>
+<p>Cada celda numérica recibe N valores (uno por motor). Reglas de aceptación:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>Consensus + Tree-Consistent</b> (mejor): ≥3 motores coinciden Y el valor cierra la identidad contable padre-hijo. Ej: cuenta 1.1.1 + 1.1.2 + 1.1.3 = 1.1.</li>
+<li><b>Consensus only</b>: 3 motores coinciden pero no cierra el árbol. Marca de seguir investigación.</li>
+<li><b>Tree-only</b>: cierra el árbol pero no hay consenso → más probable correcto que no.</li>
+<li><b>Single source</b>: una sola fuente — marca de baja confianza.</li>
+</ul>
+<p>Output va a <code>output/truth.xlsx</code> con la marca <code>row_classification</code>. Tier 1 (consenso + árbol) llegó al <b>93,7% de filas</b> tras varias iteraciones de fixes — ver memoria interna <code>session_2026_05_05_progress.md</code>.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">C</span><b>Fase 3 — Fixes quirúrgicos sobre truth.xlsx (semanas 9-12)</b>
+<p>Aún con consenso multi-motor, hay celdas problemáticas que requirieron <b>fixes quirúrgicos manuales</b>:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>SALDO injection</b> — cuando una cuenta aparece como "Saldo al cierre" en notas pero no en el balance, se inyecta el valor</li>
+<li><b>AJUSTE/EJEC/VARIACION_J detection</b> — patrones de columnas extra en estados de flujo (ajustes contables, ejecución, variación de período) que requieren detección específica</li>
+<li><b>Sub-A swaps</b> para format-twin PDFs (mismo PDF en dos formatos, uno legible uno no)</li>
+<li><b>Format-twin dedup</b> — descartar la versión menos legible</li>
+<li><b>Patrimonio rebuilt from scratch</b> — el módulo de patrimonio fue completamente reconstruido alcanzando: <b>100% identidad BG (ACTIVO = PASIVO + PATRIMONIO), 100% match BG ↔ Estado Patrimonio, 99,96% cierre de árbol</b>. Ver memoria <code>session_2026_05_08_progress.md</code>.</li>
+<li><b>14 PDFs re-extraídos a alta DPI</b> con Opus (Claude 4.6) en modo Vision tras detectar que OCR estándar fallaba en escaneos de baja resolución</li>
+</ul>
+<p><b>Importante</b>: estos fixes se aplicaron sobre <code>truth.xlsx</code> directamente. Los scripts de pipeline (<code>21_truth_excel.py</code>, <code>24_classify_evidence.py</code>) <b>nunca</b> se re-corren sin extrema cuidado — re-correrlos sobreescribiría todos los fixes manuales.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">D</span><b>Fase 4 — Construcción del marco de métricas M1-M28 (semanas 11-14)</b>
+<p>Con <code>truth.xlsx</code> auditado, se construyó <code>audit_metrics_v8.py</code> que computa <b>28 métricas financieras</b> por empresa-año. Pasó por varias versiones:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>v3 (~2026-05-09)</b>: 18 métricas M1-M18. Senior-practitioner critique aplicado: códigos PCGE 3-dig completos, M16 split en banda de sensibilidad WACC.</li>
+<li><b>v8 (~2026-05-10)</b>: 28 métricas con clasificación por umbrales explícitos Healthy/Warning/Distressed/Critical. M9 dual reading (nominal + reexpresado). M8 decomposition. Gate-removal completo. <b>v8 es la versión canónica del extractor de métricas.</b></li>
+</ul>
+<p>Las métricas son <b>independientes</b> del modelo de clasificación final — pueden alimentar tanto el cascade v9.7.3 (interno, Excel) como el modelo 5×5 (frontend ciudadano, este reporte).</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">E</span><b>Fase 5 — Cascade v9.6 → v9.7.3 (semanas 13-15)</b>
+<p>El primer modelo de clasificación fue un <b>cascade de 6 capas</b> en <code>56_build_v9_by_bucket.py</code>:</p>
+<ol style="margin:6px 0 6px 22px;">
+<li><b>Average severity</b> por empresa-año sobre las métricas primarias</li>
+<li><b>8 audience-oriented block states</b> derivados de las métricas primarias (no de las 28 completas)</li>
+<li><b>10-archetype cascade</b> — asignar uno de 10 arquetipos: Operacionalmente Defuncto, Colapso Multidimensional, Cascarón Funcional, Zombie Subsidiado, Capital Agotado, Trampa Cobranza, Bajo Desempeño Estructural, Comercialmente Sano, Datos Insuficientes, Distrés Mixto</li>
+<li><b>Trayectoria</b> — value-based: Mejorando, Estable, Empeorando, Volátil</li>
+<li><b>Recuperabilidad</b> — lookup table</li>
+<li><b>Recomendación verbo</b> — LIQUIDAR/CERRAR/REESTRUCTURAR/RECAPITALIZAR/PRIVATIZAR/MANTENER via tabla STRATEGIC_TAGS × Archetype × Trayectoria</li>
+</ol>
+<p>v9.7.3 fue la versión técnica final del cascade. <b>Sigue intacto en la pestaña interna "Auditoría" del workbook Excel</b> — útil para analistas que quieran trazar empresa → arquetipo → trayectoria → recomendación con todo el razonamiento.</p>
+<p>Pero el cascade tiene un problema: para la audiencia ciudadana, "Arquetipo 4: Zombie Subsidiado" no comunica nada. Y la lógica encadenada (severity → block state → archetype → trayectoria → recomendación) es opaca al lector no técnico. Por eso surgió un segundo modelo.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">F</span><b>Fase 6 — Modelo 5×5 (semanas 14-15)</b>
+<p>El modelo actual del frontend ciudadano es un <b>matriz 5×5 (Salud × Función) → Verbo</b>:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>Eje Salud</b>: derivado de un score multidimensional sobre las 7 preguntas (Buen Desempeño / Bajo Desempeño / Deteriorada / Quebrada acumulación / Quebrada Art.354 / Defuncta / Sin datos)</li>
+<li><b>Eje Función</b>: curaduría humana con criterio legal (Constitucional CPE 348-355 / Funcional Ley 466 / Cultural / Comercial / Municipal)</li>
+<li><b>Verbo recomendación</b>: tabla lookup 5×5 explícita</li>
+<li><b>Q7 (banderas rojas)</b>: NO entra al score — es flag overlay paralelo</li>
+</ul>
+<p>Diferencias clave del cascade:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li>Lógica <b>en una sola tabla visible</b> (la matriz), no en cascada opaca</li>
+<li>Eje Función es <b>curaduría legal explícita</b>, no inferida desde métricas</li>
+<li>Salud financiera y banderas (gobernanza) son <b>dimensiones independientes</b></li>
+</ul>
+<p>Ver memoria interna <code>clasificacion_5x5_salud_funcion.md</code> y la sección <a href="#clasificacion">4 de este documento</a>.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">G</span><b>Fase 7 — Iteración del frontend con feedback ciudadano (semanas 15-16)</b>
+<p>El reporte HTML pasó por <b>~6 ciclos de feedback explícito del usuario</b> sobre vocabulario y framing. Ejemplos de correcciones reales:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li>"En vez de 'capital quemado' decir 'Bs de cada Bs 100 que el Estado puso'"</li>
+<li>"No 'Sin datos' — decir 'Estados financieros incompletos'" (porque la empresa sí existe, solo no publicó)</li>
+<li>"Cada drill-down debe declarar el año explícitamente — '(2024)' si no es 2025"</li>
+<li>"No 'EBITDA Margin' — decir 'Ganancia operativa reportada'"</li>
+<li>"Reemplazar M17 técnico por 'Por cada Bs 1 propio, el Estado pone Bs X'"</li>
+</ul>
+<p>Estas decisiones están documentadas en la memoria <code>feedback_plain_spanish_citizen.md</code>.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">H</span><b>Fase 8 — Pre-publish review (semana 15)</b>
+<p>Antes de publicar, un reviewer externo identificó 7 riesgos editoriales. Cada uno generó un fix durable:</p>
+<ol style="margin:6px 0 6px 22px;">
+<li><b>Cifra titular única declarada</b>: Bs 16,84 mil M es la titular; las demás son contexto. NO se suman.</li>
+<li><b>Nunca sumar stock + flow</b>: aportes acumulados (stock) ≠ subsidio anual (flow). Caja amarilla de advertencia en Q5.</li>
+<li><b>Listar qué NO captura cada métrica</b>: cada pregunta tiene un caveat de "qué no mide".</li>
+<li><b>Anti-misquote</b>: nunca decir "se autofinancia" — siempre matizar con qué métrica.</li>
+<li><b>Sub-buckets cuando un mismo valor tiene significados distintos</b>: ROIC "IC Inválido" ≠ "Patrimonio Negativo" ≠ "EBIT Negativo".</li>
+<li><b>Capear extremos</b>: ratios >200% / >500% requieren paragraph explicativo de por qué el ratio explota.</li>
+<li><b>Tabla de reconciliación</b> en apéndice — qué cifras no son sumables y por qué.</li>
+</ol>
+<p>Ver memoria <code>feedback_pre_publish_review.md</code>.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">I</span><b>Fase 9 — Bug EPSA-COROICO y CAIF fallback (2026-05-14)</b>
+<p>EPSA-COROICO aparecía marcada erróneamente como Defuncta. Investigación reveló:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li>La empresa SÍ tiene 133 filas en <code>truth.xlsx</code> para 2025</li>
+<li>Pero <code>audit_metrics_v8</code> extraía op_revenue = 0</li>
+<li>Causa raíz: la empresa reporta solo en CAIF (Cuenta-Ahorro-Inversión), no en Estado de Resultados (RGC) estándar</li>
+<li>El extractor solo miraba RGC y daba 0 si la cuenta 5 (Ingresos) estaba vacía</li>
+</ul>
+<p>Fix aplicado: <b>CAIF fallback</b> en <code>audit_metrics_v8.py</code> — si op_revenue del RGC es 0 pero hay datos en CAIF 11.2 (Venta de Bienes y Servicios), usar ese valor. Resultado: EPSA-COROICO ahora muestra Bs 1,25M en op_revenue 2025, su clasificación cambia de Defuncta a la categoría correcta. Solo 1 de 168 entity-years fue afectado, pero la corrección hace el extractor más robusto a futuro para PCGE-native y non-PCGE-native.</p>
+</div>
+
+<div class="metod-caveat">
+<b>Filosofía de desarrollo del reporte:</b>
+<br>1) <b>Transparencia primero</b>: cada cifra grande debe ser auditable hasta la cuenta del PCSP / archivo SIGEP de origen.
+<br>2) <b>Iteración honesta</b>: cuando un modelo falla (M17 v1-v4, cascade opaco para ciudadanos, EPSA-COROICO bug), documentamos el fallo y mostramos la corrección.
+<br>3) <b>Plain-Spanish primero</b>: el ciudadano no debería necesitar curso de contabilidad para entender. Si una frase requiere glosario, se reescribe.
+<br>4) <b>Verbos accionables</b>: "REESTRUCTURAR" es accionable; "Arquetipo 4" no.
+<br>5) <b>Reconocer lo que NO se captura</b>: subsidio cruzado social, soberanía estratégica, equilibrio general. Ver sección "Qué NO captura este análisis" en el resumen.
 </div>
 
 <h2 id="fuentes" class="metod-section">1. Fuentes de datos primarias</h2>
@@ -410,11 +555,19 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 
 <h2 id="decisiones" class="metod-section">10. Decisiones metodológicas críticas (historial)</h2>
 
-<h3 class="metod-sub">10.1 M17 — 5 versiones iteradas</h3>
-<div class="metod-decision">
-<b>Versión final (v5 OFICIAL)</b>: M17_v5 = (TGN + Transferencias Recursos Específicos) / Ingresos_de_Operación × 100.
-<br>Historial: v1 (broken stock/flow asymmetry) → v2 (label-search ad-hoc) → v3 (SIGEP gap proxy, incluía intra-grupo + IVA) → v4 (TGN-only, perdía Bs 888M) → <b>v5</b>. Total inter-gov transfers 2025 ≈ Bs 16.831 mil M.
-</div>
+<h3 class="metod-sub">10.1 M17 — 5 versiones iteradas (historia completa)</h3>
+<p>M17 mide la <b>dependencia financiera del Estado</b>. Es la métrica más iterada del análisis porque su numerador y denominador son ambiguos sin definición estricta. Documentamos las 5 versiones:</p>
+<table class="metod-table">
+<thead><tr><th>Versión</th><th>Fórmula</th><th>Problema detectado</th></tr></thead>
+<tbody>
+<tr><td><b>v1</b><br>(prototipo inicial)</td><td>Aportes_acumulados / Patrimonio_neto</td><td>❌ <b>Stock/flow asymmetry rota</b>: aportes acumulados son stock (balance), patrimonio neto es stock — pero esto medía dependencia ESTRUCTURAL, no anual. Inflaba empresas viejas (mucho aporte histórico) y aplanaba empresas nuevas en distrés.</td></tr>
+<tr><td><b>v2</b><br>(intento label-search)</td><td>Suma de "aportes" + "subsidios" + "transferencias" en notas / Patrimonio</td><td>❌ <b>Label-search ad-hoc</b>: dependía de palabras-clave en notas de los estados financieros. Variaba arbitrariamente entre empresas según cómo titulaban sus notas. Frágil para auditoría.</td></tr>
+<tr><td><b>v3</b><br>(SIGEP proxy)</td><td>Gap SIGEP (Ingreso percibido − Gasto pagado) / Total_recursos_anuales</td><td>❌ <b>Incluía intra-grupo + IVA</b>: el SIGEP "ingreso percibido" incluye transferencias intra-grupo (YPFB → subsidiarias), devoluciones IVA, y otros flujos que no son "subsidio del Estado". Sobreestimaba la dependencia.</td></tr>
+<tr><td><b>v4</b><br>(TGN directos solamente)</td><td>TGN_a_empresa / Ingresos_operación</td><td>❌ <b>Perdía Bs 888M</b>: Bolivia transfiere a las empresas vía TGN directo Y vía "Recursos Específicos" (impuestos finalistas — IDH, regalías, etc. que pasan por SIGEP municipal). Solo TGN omitía ~Bs 888M en 2025.</td></tr>
+<tr><td><b>v5 OFICIAL</b><br>(versión actual)</td><td>(TGN + Transferencias Recursos Específicos) / Ingresos_de_Operación × 100</td><td>✅ Captura el total real de transferencias estatales a la empresa-año. Total 2025 = <b>Bs 16,831 mil M</b> (cifra titular del reporte).</td></tr>
+</tbody>
+</table>
+<p style="margin-top:8px; font-size:10pt; color:#666;"><b>Aplicación operativa</b>: el cascade v9.7.3 originalmente computaba M17_v3. <code>56_build_v9_by_bucket.py</code> aplica un <b>OVERRIDE M17_v5</b> antes de la asignación de archetype para que la clasificación use la versión correcta. Sin este override, varias empresas (YPFB, EMAPA, ENDE) cambiarían de Zombie a otro arquetipo. Ver memoria <code>m17_audit_history.md</code>.</p>
 
 <h3 class="metod-sub">10.2 M9 — Nominal vs Reexpresado</h3>
 <div class="metod-decision">
@@ -451,6 +604,49 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <div class="metod-decision">
 <b>Fix aplicado 2026-05-14</b>: si <code>audit_metrics_v8</code> encuentra RGC vacío (op_revenue = 0), buscar fallback en CAIF (caif_11 = Ingresos corrientes, preferir subcódigo 11.2 Venta de Bienes y Servicios).
 <br>Razón: empresas municipales pequeñas (EPSA-COROICO en particular) reportan solo en CAIF, no en Estado de Resultados estándar. Antes el extractor las marcaba como Defuncta erróneamente. Ahora extrae correctamente Bs 1,25M en op_revenue 2025 para EPSA-COROICO.
+</div>
+
+<h3 class="metod-sub">10.8 Q5 (Asset turnover / productividad) — eliminada del framework</h3>
+<div class="metod-decision">
+<b>Decisión</b>: la pregunta originalmente concebida como Q5 — "¿Usa bien sus recursos?" — se eliminó del reporte ciudadano.
+<br><b>Razones</b>:
+<br>• <b>Asset turnover</b> (ventas / activos totales) es <b>engañoso para SOEs</b>: una empresa de servicios públicos (agua, electricidad) tiene activos fijos enormes (redes, plantas) que justifican bajo turnover sin que eso sea ineficiencia. Comparar SEMAPA con CARTONBOL bajo este ratio es categorialmente erróneo.
+<br>• <b>Productividad por empleado</b> (ventas / planta) es <b>defamatoria por construcción</b>: empresas en sectores intensivos en trabajo (defensa, transporte, servicios sociales) saldrían siempre mal sin que eso sea problema de gestión.
+<br>• No existe una métrica única defendible que distinga "ineficiencia gerencial" de "intensidad capital-vs-trabajo del sector".
+<br><b>Resultado</b>: el reporte mantiene 7 preguntas, no 8. La pregunta Q5 actual ("Exposición fiscal acumulada") es una pregunta diferente (stock + flow combinados con caveat de no-suma).
+</div>
+
+<h3 class="metod-sub">10.9 Op_revenue desde cuenta 5.2, NO total_rev</h3>
+<div class="metod-decision">
+<b>Decisión</b>: Q1 usa <b>op_revenue (cuenta 5.2 Ingresos Operacionales)</b>, NO <b>total_rev (cuenta 5 Ingresos Totales)</b>.
+<br><b>Razón</b>: total_rev incluye:
+<br>• Ingresos no operativos (intereses, alquileres, otros)
+<br>• <b>Transferencias del Estado</b> (TGN + recursos específicos) que aparecen como "ingreso" contable
+<br>Usar total_rev para Q1 ("¿Está vendiendo más?") distorsionaría empresas dependientes del Estado: ENDE recibe transferencias grandes que aparecerían como "ventas crecientes" sin que realmente esté vendiendo más electricidad.
+<br><b>Implicación</b>: la trayectoria de Q1 de YPFB, ENDE, EMAPA, BOA es <b>la trayectoria de su negocio comercial real</b>, no su crecimiento contable.
+</div>
+
+<h3 class="metod-sub">10.10 Bug Patrimonio reconstruido desde cero</h3>
+<div class="metod-decision">
+<b>Decisión</b>: el módulo de extracción de Patrimonio (cuenta 3 — Capital, Reservas, Resultados Acumulados) fue reconstruido completamente en la fase 3 del desarrollo.
+<br><b>Razón</b>: la primera versión confundía:
+<br>• Capital pagado (3.1.1) con Capital reexpresado (3.1.1 + 3.1.6)
+<br>• Resultados acumulados (3.1.5.1) con Resultado del ejercicio (parte de 3.1.5)
+<br>• Aportes pendientes de capitalización (3.1.1.2) con Capital social pagado
+<br>Esto producía errores en Q3 (solvencia) y Q5 (exposición acumulada).
+<br><b>Resultado tras reconstrucción</b>: 100% identidad BG (ACTIVO = PASIVO + PATRIMONIO), 100% match entre BG y Estado Patrimonio, 99,96% cierre de árbol contable. Ver memoria <code>session_2026_05_08_progress.md</code>.
+</div>
+
+<h3 class="metod-sub">10.11 Capital REEXPRESADO en Q3 (no nominal)</h3>
+<div class="metod-decision">
+<b>Decisión</b>: Q3 (solvencia / Art. 354) usa <b>capital reexpresado (3.1.1 + 3.1.6 ajuste UFV)</b>, NO capital nominal (solo 3.1.1).
+<br><b>Razón</b>: las Normas Bolivianas de Contabilidad para el Sector Público (NB-SCI) exigen reexpresar el capital pagado por inflación usando la Unidad de Fomento de Vivienda (UFV). El numerador del ratio Art. 354 — Resultados Acumulados — viene reexpresado por defecto en NB-SCI. Comparar numerador reexpresado contra denominador nominal es matemáticamente asimétrico y sobreestima el % quemado.
+<br><b>Impacto agregado</b>:
+<br>• Capital total del Estado nominal: Bs 33,36 mil M
+<br>• Capital total del Estado reexpresado: Bs 42,66 mil M (+27,9% por UFV)
+<br>• Quemado nominal: 51,6% → quemado reexpresado: 40,4%
+<br>• Empresas en quiebra técnica Art. 354: 19 (nominal) → 17 (reexpresado)
+<br>Ver memoria <code>m9_q3_capital_decision.md</code>.
 </div>
 
 <h2 id="vocabulario" class="metod-section">11. Vocabulario ciudadano — sustituciones obligatorias</h2>
@@ -598,8 +794,105 @@ falta_2026 = proyeccion_2026 - YTD_2026
 
 <p>Repo público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22;">github.com/romer288/empresas-publicas-bolivia</a></p>
 
-<div class="metod-caveat" style="margin-top:36px;">
-<b>Contacto / contribución:</b> errores, omisiones o sugerencias sobre la metodología pueden señalarse via Issues en el repo de GitHub. La curaduría del eje Función (clasificación de empresas como Constitucional/Funcional/Cultural/Comercial/Municipal) es la dimensión más subjetiva y la que más puede disputarse — cualquier empresa puede ser reclasificada con argumento legal o funcional explícito.
+<h2 id="errores" class="metod-section">18. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
+
+<p>Esta sección documenta los <b>errores reales</b> detectados durante el desarrollo y revisión del reporte, junto con su corrección. Es parte del compromiso de transparencia.</p>
+
+<table class="metod-table">
+<thead><tr><th>Error</th><th>Detectado por</th><th>Causa raíz</th><th>Corrección</th></tr></thead>
+<tbody>
+<tr>
+<td><b>M17 dimensionalmente roto</b> (v1)</td>
+<td>Auditoría interna de fórmulas</td>
+<td>Stock/flow mismatch en numerador y denominador</td>
+<td>Refactorización completa hasta v5; ver sección 10.1</td>
+</tr>
+<tr>
+<td><b>Patrimonio mal extraído</b></td>
+<td>Identidad contable ACTIVO = PASIVO + PATRIMONIO no cerraba</td>
+<td>Confusión entre Capital Pagado (3.1.1), Capital Reexpresado (3.1.1 + 3.1.6) y Aportes Pendientes (3.1.1.2)</td>
+<td>Reconstrucción del módulo de patrimonio desde cero; 100% cierre de identidad post-fix</td>
+</tr>
+<tr>
+<td><b>EPSA-COROICO marcada como Defuncta</b></td>
+<td>Feedback del usuario al ver inconsistencia con truth.xlsx</td>
+<td>Extractor solo miraba RGC; la empresa reporta solo en CAIF</td>
+<td>CAIF fallback en <code>audit_metrics_v8.py</code>; ver sección 10.7</td>
+</tr>
+<tr>
+<td><b>BOA inicialmente mal clasificada</b> (como Deteriorada en lugar de Quebrada Art. 354)</td>
+<td>Feedback del usuario: "es imposible que BOA esté bien"</td>
+<td>Score umbral no consideraba Q3 quiebra técnica como overriding</td>
+<td>Regla: Art. 354 ahora trumpa los demás criterios; nueva categoría "Quebrada por Art. 354" en eje Salud</td>
+</tr>
+<tr>
+<td><b>EDITORIAL / GESTORA mal-clasificadas</b> como Deterioradas</td>
+<td>Feedback del usuario</td>
+<td>Q7 banderas rojas estaban entrando al score de Salud</td>
+<td>Q7 sacada del score, hecha flag overlay separado; ver sección 10.3</td>
+</tr>
+<tr>
+<td><b>"PRIVATIZAR comerciales deterioradas"</b> era engañoso</td>
+<td>Feedback del usuario: "CARTONBOL está tan mal que nadie va a comprar"</td>
+<td>Tabla recomendación asignaba PRIVATIZAR a Comercial × Deteriorada sin filtro de realismo</td>
+<td>Regla nueva: Comercial Deteriorada + banderas/no_facturación/datos 2024 → CERRAR (no PRIVATIZAR)</td>
+</tr>
+<tr>
+<td><b>COFADENA con 11 banderas → MANTENER</b> era demasiado suave</td>
+<td>Feedback del usuario: "¿COFADENA realmente es bajo desempeño MANTENER?"</td>
+<td>Sectores sensibles (defensa, pensiones, custodia de fondos) requieren umbral más bajo</td>
+<td>Sectores sensibles ({COFADENA, TAM, GESTORA}) con ≥10 banderas → INVESTIGACIÓN CRIMINAL automática</td>
+</tr>
+<tr>
+<td><b>Empresas sin estados financieros marcadas como Defuncta</b> (EPDEOR, SETAR, FCCCP-EPD)</td>
+<td>Feedback del usuario</td>
+<td>"Sin datos" y "Defuncta" se conflaban</td>
+<td>Distinción nueva: "Sin datos" (existe pero no publica) ≠ "Defuncta" (cesación operativa confirmada con BG)</td>
+</tr>
+<tr>
+<td><b>4+ etiquetas CAUSA_PRINCIPAL incorrectas</b> (ABE = "Boliviana de la Energía Eléctrica", EBC = "Boliviana de Cementos", EMAVS = "Aviación pequeña sin escala", SELA = "Cementera con costos altos", EMAVRA = "Aviación de rescate", EMDELL = "Aluminio del Litoral", GERES = "Recursos estratégicos")</td>
+<td>Crítica editorial externa pre-publicación (verificada localmente)</td>
+<td>Diccionario editorial CAUSA_PRINCIPAL nunca fue auditado contra <code>funcion_empresas.json</code></td>
+<td>Auditoría completa del diccionario contra el archivo de funciones; ~10 entradas reescritas a causas correctas con base sectorial</td>
+</tr>
+<tr>
+<td><b>Cifra titular ambigua</b> entre stock + flow</td>
+<td>Pre-publish review</td>
+<td>Aportes históricos (Bs 17,91 mil M, stock) y subsidio anual (Bs 16,84 mil M, flow) se presentaban con misma jerarquía</td>
+<td>Cifra titular declarada: Bs 16,84 mil M (flow). Stock y otras cifras pasan al apéndice de reconciliación con caja amarilla "no es legítimo sumar"</td>
+</tr>
+<tr>
+<td><b>"RECAPITALIZAR" solo</b> era engañoso para casos Art. 354 estratégicos</td>
+<td>Feedback del usuario: "veo RECAPITALIZAR solo y REESTRUCTURAR solo, esto disfraza"</td>
+<td>Recapitalizar sin reestructurar = tirar plata a un modelo roto</td>
+<td>Verbo combinado nuevo: <b>RECAPITALIZAR Y REESTRUCTURAR</b> para Art. 354 estratégicas; aplicado a YLB, COMIBOL, ENDE en Quebrada Art. 354</td>
+</tr>
+</tbody>
+</table>
+
+<div class="metod-caveat" style="margin-top:18px;">
+<b>Lo que esta tabla implica:</b> ningún diagnóstico complejo se construye sin errores intermedios. Lo que importa es que cada error encontrado generó un fix durable codificado, y que la metodología explícitamente reconoce sus iteraciones en lugar de pretender perfección desde el día uno.
+</div>
+
+<h2 id="changelog" class="metod-section">19. Changelog versionado del análisis</h2>
+
+<table class="metod-table">
+<thead><tr><th>Fecha</th><th>Cambio</th></tr></thead>
+<tbody>
+<tr><td><b>2026-05-05</b></td><td>Tier 1 (Consensus + Tree-Consistent) en truth.xlsx llega a 93,7%. Patrones de detección CAIF EJEC + Flujo AJUSTE + VARIACION_J + sign-aware. Ver memoria <code>session_2026_05_05_progress.md</code>.</td></tr>
+<tr><td><b>2026-05-08</b></td><td>Patrimonio reconstruido desde cero. 100% identidad BG, 100% BG↔Patrim match, 99,96% cierre de árbol. 14 PDFs re-extraídos a alta DPI.</td></tr>
+<tr><td><b>2026-05-09</b></td><td>Marco M1-M18 framework v3 (<code>audit_metrics_v3.py</code>) con senior-practitioner critique aplicado.</td></tr>
+<tr><td><b>2026-05-10</b></td><td>Clasificación v9.1: por-métrica thresholds Healthy/Warning/Distressed/Critical. M9 dual reading + M8 decomposition. <code>audit_metrics_v8.py</code> + <code>54_build_financial_metrics_v9.py</code> son canónicos.</td></tr>
+<tr><td><b>2026-05-11</b></td><td>Archetype framework v9.6 / v9.7.3: 6-layer cascade, 10 arquetipos, trayectoria value-based, recomendación via STRATEGIC_TAGS × Archetype × Trayectoria.</td></tr>
+<tr><td><b>2026-05-12</b></td><td>M17 finaliza en v5 (TGN + Transferencias Recursos Específicos / Ingresos de Operación). Override aplicado en <code>56_build_v9_by_bucket.py</code>.</td></tr>
+<tr><td><b>2026-05-13</b></td><td>Reporte ciudadano (<code>60_build_citizen_reports.py</code>) primera versión publicada. 5 vistas agregadas + 56 fichas.</td></tr>
+<tr><td><b>2026-05-14</b></td><td>Pre-publish review: 7 reglas durables incorporadas. Cifra titular declarada (Bs 16,84 mil M). Capítulo "Qué NO captura este análisis". Bug EPSA-COROICO detectado; fix CAIF fallback aplicado. Q7 movida fuera del score de Salud → flag overlay.</td></tr>
+<tr><td><b>2026-05-15</b></td><td>Modelo 5×5 (Salud × Función) reemplaza cascade v9.7.3 en frontend ciudadano (cascade permanece como auditoría interna). Crítica externa: 10+ etiquetas CAUSA_PRINCIPAL reescritas. Tabs OG + meta tags + viewport. Sección "Marco de política" (Paz/DS 5503/OFEP). Perimeter footnote del "56". FX context box. Steelman section. Esta página Metodología expandida significativamente con cronología del desarrollo, M17 v1-v5 detallado, errores reconocidos, changelog.</td></tr>
+</tbody>
+</table>
+
+<div class="metod-caveat" style="margin-top:24px;">
+<b>Contacto / contribución:</b> errores, omisiones o sugerencias sobre la metodología pueden señalarse via Issues en el repo de GitHub. La curaduría del eje Función (clasificación de empresas como Constitucional/Funcional/Cultural/Comercial/Municipal) es la dimensión más subjetiva y la que más puede disputarse — cualquier empresa puede ser reclasificada con argumento legal o funcional explícito. El diccionario CAUSA_PRINCIPAL es editorial y mejorable.
 </div>
 
 </body></html>

@@ -1360,14 +1360,51 @@ tr:nth-child(even) td { background: #fafafa; }
 
 
 <details style="margin: 48px 0 16px; padding:14px 18px; background:#fafafa; border:1px solid #ddd; border-radius:6px; font-size:10pt; line-height:1.55;">
-<summary style="cursor:pointer; font-weight:600; color:#666;">Apéndice metodológico — notas sobre la medición del costo fiscal</summary>
+<summary style="cursor:pointer; font-weight:600; color:#666;">Apéndice metodológico — reconciliación de cifras agregadas y notas sobre el costo fiscal</summary>
 <div style="margin-top:12px;">
-<p>El cálculo del costo fiscal anual al Estado se refinó iterativamente. Estado actual:</p>
+
+<p><b>Reconciliación de las cifras grandes que aparecen en el reporte.</b> A lo largo del documento aparecen varias cifras totales que miden cosas distintas. Esta tabla las separa explícitamente para evitar confusión:</p>
+
+<table style="width:100%; font-size:10pt; margin:8px 0 16px;">
+<thead><tr style="background:#f0f0f0;">
+  <th style="text-align:left; padding:6px 10px;">Cifra</th>
+  <th style="text-align:left; padding:6px 10px;">Dónde aparece</th>
+  <th style="text-align:left; padding:6px 10px;">Qué incluye</th>
+  <th style="text-align:left; padding:6px 10px;">Qué NO incluye</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:6px 10px; border-top:1px solid #ddd;"><b style="color:#c0392b;">Bs ~16,84 mil M</b><br><span style="font-size:9pt; color:#888;">CIFRA TITULAR</span></td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">TL;DR · Pregunta 4 · banner header de Q5</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">TGN transferencias 2025 + Transferencias de recursos específicos 2025. Flujo del año. Fuente: SIGEP raw (transferencias_tgn.csv + transferencias_recursos_especificos.csv).</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Subsidios indirectos (tarifas reguladas, garantías soberanas, créditos preferenciales del BCB), compensaciones del Tesoro adeudadas pero no pagadas, subsidios cruzados intra-grupo.</td></tr>
+<tr><td style="padding:6px 10px; border-top:1px solid #ddd;"><b>Bs ~17,91 mil M</b></td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Pregunta 5 (componente ②)</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Saldo de la cuenta 3.1.1.2 "Aportes" al cierre de 2025. STOCK acumulado desde fundación de cada empresa, no flujo. Fuente: Balance General.</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Cualquier flujo del año específico — esta cifra es histórica.</td></tr>
+<tr><td style="padding:6px 10px; border-top:1px solid #ddd;"><b>Bs ~3,85 mil M</b></td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Pregunta 5 (componente ③)</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Cash burn 2025 — pérdidas operativas en caja de empresas donde Gasto Pagado &gt; Ingreso Percibido en SIGEP. Implícitamente cubierto por el Tesoro vía aportes futuros, garantías o tolerancia de deuda creciente con proveedores.</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Aportes históricos, transferencias del año (eso es la cifra titular).</td></tr>
+<tr><td style="padding:6px 10px; border-top:1px solid #ddd;"><b>Bs ~65 mil M</b></td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Header — "Total gastado por las 56 en 2025"</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Gasto total operativo de las 56 empresas según sus estados financieros 2025 (cuenta 5 RGC).</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Es el GASTO TOTAL de las empresas — la mayor parte proviene de sus propias ventas, no del Estado. No es costo fiscal.</td></tr>
+<tr><td style="padding:6px 10px; border-top:1px solid #ddd;"><b>Bs ~94 mil M</b></td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Header — "Presupuesto operativo 2026"</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Presupuesto AUTORIZADO de las 56 empresas para 2026 según Ley PGE 2026 Tabla N° 4. Tope legal, no ejecución.</td>
+  <td style="padding:6px 10px; border-top:1px solid #ddd;">Lo que efectivamente van a gastar (suele ser menor que el autorizado).</td></tr>
+</tbody>
+</table>
+
+<p style="background:#fff8e1; padding:10px 14px; border-left:4px solid #f39c12; margin:14px 0;">⚠️ <b>No es legítimo sumar estas cifras entre sí.</b> Las primeras tres miden compromisos fiscales pero en dimensiones distintas (flujo del año vs stock acumulado vs cash burn). Las dos últimas miden gasto total operativo, no costo fiscal.</p>
+
+<p style="margin-top:14px;"><b>Notas adicionales sobre el cálculo:</b></p>
 <ol style="margin:6px 0 10px 22px; padding:0;">
-<li style="margin-bottom:6px;"><b>Costo fiscal = TGN transferencias directas:</b> la cifra oficial del subsidio del Tesoro a SOEs en 2025 es <b>Bs ~16 mil millones</b>, extraída del SIGEP raw filtrando las filas donde el organismo financiador es "Tesoro General de la Nación". Dominado por YPFB (Bs 14,9 mil M en subsidio combustibles) y EMAPA (Bs 977 M en compensación de precios alimentarios). El resto son cifras menores (ENDE Bs 4M, GESTORA Bs 15M, VINTO Bs 17M, etc.).</li>
-<li style="margin-bottom:6px;"><b>"Aportes" mostrados como stock acumulado:</b> el "Aporte 2025" de cada empresa que aparece en las tarjetas es el saldo histórico de la cuenta 3.1.1.2 al cierre de 2025 — NO es lo que el Estado inyectó en 2025. El flujo nuevo de aportes capital en 2025 fue cercano a Bs 0 para la mayoría.</li>
-<li style="margin-bottom:6px;"><b>M17 corregido (v4) en cascada:</b> la dependencia del Estado se calcula como TGN_transferencias / Ingresos_de_Operación × 100. Las recomendaciones (CERRAR, REESTRUCTURAR, etc.) usan esta versión.</li>
-<li style="margin-bottom:6px;"><b>Q8 Gasto productivo:</b> usa las 9 categorías oficiales del SIGEP — (MATERIALES Y SUMINISTROS + ACTIVOS REALES) / Total Gasto × 100. Sin mapping editorial.</li>
+<li style="margin-bottom:6px;"><b>M17_v5 oficial:</b> dependencia = (TGN_transferencias + Transferencias_Recursos_Específicos) / Ingresos_de_Operación × 100. Dominado por YPFB (Bs 14,9 mil M en subsidio combustibles) y EMAPA (Bs 977 M en compensación de precios alimentarios).</li>
+<li style="margin-bottom:6px;"><b>"Aportes" como stock vs flow:</b> el saldo de la cuenta 3.1.1.2 que aparece en las tarjetas es histórico, no del año. El flujo nuevo de aportes en 2025 fue cercano a Bs 0 para la mayoría.</li>
+<li style="margin-bottom:6px;"><b>M9 reexpresado (Q3):</b> usa res_acum / (capital + ajuste UFV 3.1.6) × 100. Esta versión es matemáticamente coherente con res_acum (que ya viene reexpresado en NB-SCI) y produce un ratio fair de "capital quemado".</li>
+<li style="margin-bottom:6px;"><b>Q7 Banderas rojas:</b> análisis granular subpartida nivel 4 SIGEP — detecta crecimientos &gt;+100%, caídas &lt;-50%, categorías "Otros" desproporcionadas, deuda con proveedores creciente. NO prueba malversación, pero merece auditoría.</li>
+<li style="margin-bottom:6px;"><b>Empresas con M17 &lt; 30% pero sin actividad comercial:</b> separadas del bucket "NO reciben transferencias directas" porque su denominador (Ingresos_de_Operación) es casi cero — la métrica no aplica para ellas, no son autofinanciadas.</li>
 </ol>
 </div>
 </details>

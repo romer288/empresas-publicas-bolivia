@@ -99,6 +99,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
   <a href="02_por_recomendacion.html" >Por Recomendación</a>
   <a href="04_por_empresa.html" >Por Empresa Individual</a>
   <a href="03_matriz.html" >Matriz Visual</a>
+  <a href="06_top10.html" >Top 10 Spenders</a>
   <a href="05_metodologia.html" class="active">Metodología</a>
 </nav>
 
@@ -126,6 +127,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#legal">Marco legal aplicado (CPE, Código de Comercio, Leyes)</a></li>
 <li><a href="#regimen_cambiario">Régimen cambiario boliviano y exposición FX por empresa</a></li>
 <li><a href="#modelos_operacion">Modelos de Custodia/Operación — cuándo el 5×5 NO captura toda la historia</a></li>
+<li><a href="#desempeno_operativo">Desempeño Operativo Level-2 — validando si los estados financieros reflejan realidad</a></li>
 <li><a href="#scripts">Archivos y scripts del pipeline</a></li>
 <li><a href="#replicacion">Cómo replicar este análisis</a></li>
 <li><a href="#errores">Errores reconocidos durante el desarrollo y cómo se corrigieron</a></li>
@@ -940,7 +942,105 @@ Fuente: <a href="https://www.gestora.bo/SistemaIntegralPensiones/Inversiones/Dat
 
 <p>Hasta entonces, este reporte aplica el 5×5 estándar a las 56 empresas pero <b>flaggea explícitamente cuándo el framework no es la herramienta correcta</b>, vía el eje de Modelo de Custodia/Operación.</p>
 
-<h2 id="scripts" class="metod-section">18. Archivos y scripts del pipeline</h2>
+<h2 id="desempeno_operativo" class="metod-section">18. Desempeño Operativo Level-2 — validando si los estados financieros reflejan realidad</h2>
+
+<p>Una crítica estructural a cualquier análisis de SOEs basado puramente en estados financieros: <b>en mercados monopólicos o captivos, el P&L no valida si el servicio es bueno</b>. Una empresa con cliente captivo puede tener "ingresos estables" sin que el servicio sea adecuado — porque el cliente no tiene alternativa. Inversamente, una utility con tarifas reguladas debajo del costo puede tener "pérdidas estructurales" mientras entrega excelente servicio.</p>
+
+<h3 class="metod-sub">18.1 Por qué importa</h3>
+<p>En mercado competitivo:</p>
+<ul>
+<li>Ingresos altos = cliente eligió este producto sobre alternativas = servicio bueno</li>
+<li>Ingresos bajos = cliente se fue al competidor = servicio malo</li>
+<li>∴ Estados financieros VALIDAN performance operativa</li>
+</ul>
+
+<p>En mercado monopólico/captivo (la mayoría de SOEs):</p>
+<ul>
+<li>Ingresos altos = puede ser servicio bueno O captivos sin opción</li>
+<li>Ingresos bajos = puede ser tarifa regulada O servicio fallado</li>
+<li>∴ Estados financieros NO VALIDAN performance operativa</li>
+</ul>
+
+<p><b>Test crítico:</b> ¿la empresa quebraría si hubiera competencia? Si "no porque el servicio es bueno y la gente la elegiría", el P&L refleja realidad. Si "sí, sin captividad nadie pagaría", el P&L está mintiendo y la "rentabilidad" o "estabilidad" es renta monopólica disfrazada.</p>
+
+<h3 class="metod-sub">18.2 Alcance del análisis Level-2 en este reporte</h3>
+
+<p>Por restricciones de scope, NO hacemos análisis Level-2 para las 56 empresas. Cubrimos las <b>22 empresas más relevantes</b>:</p>
+
+<table class="metod-table">
+<thead><tr><th>Grupo</th><th>Empresas</th><th>Por qué</th></tr></thead>
+<tbody>
+<tr><td><b>Top 10 mayores gastadores 2025</b></td><td>YPFB, COMIBOL, BOA, VINTO-NAL, EMAPA, ENDE, YLB, EBA, Mi teleférico, GESTORA</td><td>Concentran ~95% del gasto agregado. Lo que pase con estas mueve el headline fiscal. Vista separada en <a href="06_top10.html" style="color:#e67e22;">Top 10 Spenders</a>.</td></tr>
+<tr><td><b>Buen Desempeño financiero</b></td><td>EDITORIAL, EMDELL</td><td>Validar que realmente están bien (no solo financieramente)</td></tr>
+<tr><td><b>Bajo Desempeño financiero</b></td><td>ASP-B, COFADENA, EMAPAU, EMAPAV, EMAPYC, EMSA, ENDE, EPSA COBIJA, EPSA-COROICO, SEMAPA</td><td>Validar si su salud "Bajo Desempeño" subestima o sobreestima el problema</td></tr>
+<tr><td><b>REESTRUCTURAR Municipal</b></td><td>GERES</td><td>Validar que su recomendación REESTRUCTURAR es operativamente correcta</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">18.3 Cómo se cura cada indicador Level-2</h3>
+
+<p>Cada empresa recibe una clasificación: 🟢 bueno · 🟡 medio · 🟠 malo · 🔴 crítico · ⚪ sin_data. El indicador específico depende del sector:</p>
+
+<table class="metod-table">
+<thead><tr><th>Sector</th><th>Indicador Level-2 primario</th><th>Fuente</th></tr></thead>
+<tbody>
+<tr><td>Agua/saneamiento</td><td>Cobertura %, Continuidad horas/día, IANC %</td><td>AAPS Memoria Anual 2024</td></tr>
+<tr><td>Electricidad</td><td>Cobertura %, SAIDI, SAIFI, riesgo apagones</td><td>AETN + Plan Eléctrico Referencial 2035</td></tr>
+<tr><td>Hidrocarburos</td><td>Producción gas/petróleo, disponibilidad combustibles</td><td>ANH + YPFB</td></tr>
+<tr><td>Minería</td><td>Producción anual TM, reservas, empleo</td><td>Min Minería anuario</td></tr>
+<tr><td>Aviación</td><td>OTP, cancelaciones, leasing en USD</td><td>DGAC + empresa</td></tr>
+<tr><td>Aduanas/puertos</td><td>Tonelaje, recaudación, auditorías Contraloría</td><td>Aduana Nacional + aspb.gob.bo</td></tr>
+<tr><td>Transporte urbano</td><td>Pasajeros/día, cobertura territorial</td><td>ATT + empresa</td></tr>
+<tr><td>Pensiones</td><td>Retorno real FCI, tiempo de jubilación</td><td>APS + gestora.bo</td></tr>
+<tr><td>Aseo/residuos</td><td>Frecuencia recolección, cobertura</td><td>Municipios (sin regulador central)</td></tr>
+<tr><td>Defensa</td><td>—</td><td>Opacidad sectorial inherente</td></tr>
+<tr><td>Editorial/cultural</td><td>Output editorial, audiencia</td><td>Empresa + mediciones externas</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">18.4 Hallazgos críticos del análisis Level-2 (2025-2026)</h3>
+
+<div class="metod-caveat">
+<b>🔴 EMAPA — INVESTIGACIÓN FISCAL ACTIVA:</b> Fiscalía intervino EMAPA el 12-nov-2025. Bs 95,5M de daño económico documentado por Min Desarrollo Productivo. Bs 934M bajo investigación contra ex-gerente Franklin Flores en 12 proyectos productivos. Casos específicos: planta procesadora de papa (Bs 41,4M), piscícola Titicaca (88,62% pagado / 34,68% ejecutado ≈ Bs 47M), red corrupción harina (Rubén Ríos sentenciado). Este escándalo NO entra en el análisis financiero de su P&L pero invalida la lectura "Estratégica + MANTENER".
+</div>
+
+<div class="metod-caveat">
+<b>🔴 YPFB — CRISIS ESTRUCTURAL:</b> Producción de gas cayó 30% en la década mientras demanda interna sube 15% anual. Escasez crónica de combustibles 2025. Múltiples escándalos paralelos (Vitol/Trafigura suspensión, Botrading sobreprecios, gasolina adulterada feb 2026, destitución Akly abril 2026). El P&L muestra una empresa "operando" mientras estructuralmente está en crisis.
+</div>
+
+<div class="metod-caveat">
+<b>🔴 ENDE — RIESGO APAGONES 2029:</b> Cortes documentados en Santa Cruz, La Paz, Cochabamba 2025. 65% generación es térmica con gas escaseando. Gobierno admite riesgo de apagones generalizados hacia 2029. Tarifas reguladas mantienen estado financiero "estable" mientras el servicio se degrada.
+</div>
+
+<div class="metod-caveat">
+<b>🟠 EMSA — CRISIS SANITARIA 2025:</b> Cochabamba sufrió crisis de aseo en junio-julio 2025 con basura inundando calles, 50% de camiones varados sin diésel, K'ara K'ara cerrado, 700 ton/día acumulándose. Servicio operativo fallado en tiempo real, no reflejado en P&L.
+</div>
+
+<div class="metod-caveat">
+<b>🔴 GESTORA — DUAL (ya documentado en sección 17):</b> Admin extrae ROE 83% del afiliado captivo mientras FCI rinde −9,03% real. Combinación tóxica monopolio + comisión no regulada hacia abajo + fondo perdiendo poder de compra real.
+</div>
+
+<h3 class="metod-sub">18.5 Hallazgos positivos del análisis Level-2</h3>
+
+<div class="metod-decision">
+<b>🟢 Mi Teleférico:</b> Servicio operativamente exitoso (~250 mil pasajeros/día). Las pérdidas financieras son por TARIFA SUBSIDIADA POLÍTICAMENTE, no por mal funcionamiento operativo. El framework financiero subestima el valor que entrega el servicio.
+</div>
+
+<div class="metod-decision">
+<b>🟢 EMAPYC Yacuiba:</b> Cobertura 97% del área urbana. Una de las EPSAs con mejor cobertura de Bolivia. Su "Bajo Desempeño" financiero subestima — operativamente está entregando servicio adecuado.
+</div>
+
+<div class="metod-decision">
+<b>🟡 EMAPAV Viacha:</b> Activamente renovando red principal de >30 años en 2025. Habilitó pozos alternativos durante obras. Indica gestión activa, no negligencia.
+</div>
+
+<h3 class="metod-sub">18.6 Las 34 empresas restantes (sin análisis Level-2 dedicado)</h3>
+
+<p>Para las otras 34 empresas que NO están en el top 10 ni en Buen/Bajo/REESTRUCTURAR Municipal, este reporte aplica el framework 5×5 estándar SIN análisis Level-2 dedicado. La razón pragmática: el esfuerzo de scrapeo de regulators per empresa rinde poco vs su impacto agregado (las 34 representan ~5% del gasto fiscal total).</p>
+
+<p>Para esas 34, el verdict financiero del 5×5 + el caveat genérico de Modelo de Custodia/Operación (sección 17) son la herramienta del reporte. Lectores que requieran análisis operativo de empresas específicas no top-10 pueden consultar: AAPS para agua, AETN para electricidad, ATT para transporte/telecom, contraloria.gob.bo para auditorías pendientes.</p>
+
+<h2 id="scripts" class="metod-section">19. Archivos y scripts del pipeline</h2>
 
 <table class="metod-table">
 <thead><tr><th>Archivo</th><th>Función</th></tr></thead>
@@ -956,7 +1056,7 @@ Fuente: <a href="https://www.gestora.bo/SistemaIntegralPensiones/Inversiones/Dat
 </tbody>
 </table>
 
-<h2 id="replicacion" class="metod-section">19. Cómo replicar este análisis</h2>
+<h2 id="replicacion" class="metod-section">20. Cómo replicar este análisis</h2>
 
 <ol>
 <li><b>Obtener PDFs</b> de estados financieros de las 56 empresas (Ministerio de Economía publica algunos; el resto se obtiene caso por caso de cada empresa)</li>
@@ -971,7 +1071,7 @@ Fuente: <a href="https://www.gestora.bo/SistemaIntegralPensiones/Inversiones/Dat
 
 <p>Repo público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22;">github.com/romer288/empresas-publicas-bolivia</a></p>
 
-<h2 id="errores" class="metod-section">20. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
+<h2 id="errores" class="metod-section">21. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
 
 <p>Esta sección documenta los <b>errores reales</b> detectados durante el desarrollo y revisión del reporte, junto con su corrección. Es parte del compromiso de transparencia.</p>
 
@@ -1051,7 +1151,7 @@ Fuente: <a href="https://www.gestora.bo/SistemaIntegralPensiones/Inversiones/Dat
 <b>Lo que esta tabla implica:</b> ningún diagnóstico complejo se construye sin errores intermedios. Lo que importa es que cada error encontrado generó un fix durable codificado, y que la metodología explícitamente reconoce sus iteraciones en lugar de pretender perfección desde el día uno.
 </div>
 
-<h2 id="changelog" class="metod-section">21. Changelog versionado del análisis</h2>
+<h2 id="changelog" class="metod-section">22. Changelog versionado del análisis</h2>
 
 <table class="metod-table">
 <thead><tr><th>Fecha</th><th>Cambio</th></tr></thead>

@@ -125,6 +125,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#cifratitular">Cifra titular del reporte</a></li>
 <li><a href="#legal">Marco legal aplicado (CPE, Código de Comercio, Leyes)</a></li>
 <li><a href="#regimen_cambiario">Régimen cambiario boliviano y exposición FX por empresa</a></li>
+<li><a href="#modelos_operacion">Modelos de Custodia/Operación — cuándo el 5×5 NO captura toda la historia</a></li>
 <li><a href="#scripts">Archivos y scripts del pipeline</a></li>
 <li><a href="#replicacion">Cómo replicar este análisis</a></li>
 <li><a href="#errores">Errores reconocidos durante el desarrollo y cómo se corrigieron</a></li>
@@ -869,7 +870,77 @@ Para las otras 7 empresas del Grupo A, el efecto agregado podría sumar otros <b
 </tbody>
 </table>
 
-<h2 id="scripts" class="metod-section">17. Archivos y scripts del pipeline</h2>
+<h2 id="modelos_operacion" class="metod-section">17. Modelos de Custodia/Operación — cuándo el 5×5 NO captura toda la historia</h2>
+
+<p>El framework 5×5 (Salud × Función → Verbo) está diseñado para empresas <b>comerciales operativas</b> — entidades que venden productos/servicios, con clientes, costos, márgenes operativos. Para esas empresas (la mayoría de las 56), el framework captura bien la realidad.</p>
+
+<p>Pero en el universo de empresas públicas hay <b>otros 4 modelos de negocio</b> donde el 5×5 estándar sub-captura la historia. Aplicar el verdict del 5×5 sin contexto puede dar resultados engañosos.</p>
+
+<h3 class="metod-sub">17.1 Los 4 modelos identificados</h3>
+<table class="metod-table">
+<thead><tr><th>Modelo</th><th>Empresas</th><th>Qué el 5×5 captura</th><th>Qué le falta</th></tr></thead>
+<tbody>
+<tr><td><b>🏭 Comercial estándar</b><br>(~17 empresas)</td><td>BOA, TAM, TAB, ESABOL, EBC, EBA, CARTONBOL, EASBA, QUIPUS, B-Agro, EMUJOYAS, KALLPAWAWA, BTV, EDITORIAL, COFADENA, EPDEOR, etc.</td><td>✅ Todo. P&L refleja realidad operativa.</td><td>Nada material.</td></tr>
+<tr style="background:#fdf2f2;"><td><b>💰 Administrador de fondos de terceros</b><br>(1 empresa: GESTORA)</td><td>GESTORA (administra FCI — fondo previsional de Bs 207 mil M de 4 M afiliados)</td><td>❌ Solo el P&L del administrador. Captura comisión que cobra, margen operativo, capital del admin.</td><td><b>Performance del fondo administrado.</b> El admin puede ser rentable mientras el fondo administrado pierde poder de compra real para sus afiliados. Caso GESTORA: admin ROE 83% + FCI rinde −9% real.</td></tr>
+<tr style="background:#fff8e1;"><td><b>🛡️ Administrador de activos del Estado</b><br>(3 empresas)</td><td>ABE (satélite Túpac Katari), ASP-B (concesiones portuarias), DAB (depósitos aduaneros)</td><td>❌ Solo el P&L del administrador.</td><td>Tasa de utilización del activo, costo unitario, calidad del servicio, cumplimiento de mandato técnico. Datos Level-2 no públicos sistemáticamente.</td></tr>
+<tr style="background:#e8f5e9;"><td><b>🚰 Utility regulada</b><br>(~22 empresas)</td><td>ENDE, Mi Teleférico, MISICUNI, EMTAGAS, SETAR, EMDELL, 9 EPSAs de agua, EMAVS/EMAVRA/EMAVERDE, EMSA, EMAVIAS, GERES, EPSA COBIJA</td><td>❌ Solo el P&L (que pierde POR DISEÑO — tarifas reguladas debajo de costo por mandato de servicio público).</td><td>Cobertura del servicio, calidad/continuidad, ratio costo-tarifa, eficiencia operativa vs benchmarks. Para utilities con mandato de subsidio cruzado social, ROIC vs WACC privado NO es la herramienta correcta.</td></tr>
+<tr style="background:#f0f4f8;"><td><b>🏛️ Estratégica constitucional</b><br>(7 empresas)</td><td>YPFB, COMIBOL, YLB, VINTO-NAL, ES-MUTUN, EBIH, EMAPA</td><td>⚠️ Le pega muy duro al ROIC vs WACC privado (13%).</td><td>Valor estratégico de soberanía CPE sobre el recurso (hidrocarburos, minería, electricidad, litio, seguridad alimentaria). Cierre/privatización pueden requerir reforma constitucional. La decisión NO es solo financiera.</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">17.2 GESTORA como caso paradigmático del problema "Admin OK + Custodia Mala"</h3>
+
+<p>GESTORA es la <b>única empresa de las 56 donde tenemos datos Level-2 públicos suficientes</b> para hacer la evaluación completa de la dualidad admin/custodia. Por eso es la primera (y por ahora única) empresa con clasificación <b>salud = 'dual'</b>.</p>
+
+<div class="metod-formula">
+<b>Datos del FCI (Fondo de Capitalización Individual) administrado por GESTORA:</b><br>
+• Valor cuota Apr 2025: Bs 871,3745<br>
+• Valor cuota Apr 2026: Bs 911,1395<br>
+• AUM Apr 2025: Bs 194,6 mil millones<br>
+• AUM Apr 2026: Bs 207,1 mil millones<br>
+• Inflación CPI Bolivia 2025: 14,94%<br><br>
+<b>Retorno nominal del FCI:</b> (911,1395 / 871,3745) − 1 = <b>+4,57% en 12 meses</b><br>
+<b>Retorno REAL del FCI:</b> (1,0457 / 1,1494) − 1 = <b>−9,03% en 12 meses</b><br><br>
+Fuente: <a href="https://www.gestora.bo/SistemaIntegralPensiones/Inversiones/DatosPeriodicosInversiones/" target="_blank" rel="noopener">gestora.bo · Datos Periódicos de Inversiones</a>
+</div>
+
+<h3 class="metod-sub">17.3 Combinación tóxica de 3 factores que hace de GESTORA un caso único</h3>
+<ol>
+<li><b>Monopolio legal sobre base captiva</b> (Ley 065): 4 millones de bolivianos están OBLIGADOS por ley a aportar al sistema GESTORA. No pueden elegir alternativa.</li>
+<li><b>Comisión administrativa NO regulada hacia abajo</b>: a diferencia de tarifas eléctricas o de agua (reguladas debajo del costo), la comisión de GESTORA está calibrada para producir <b>ROE 83% para el administrador</b> (vs 13% WACC privado). Eso es 4-6× lo que rinde un banco privado top en Bolivia.</li>
+<li><b>FCI concentrado en bonos TGN/BCB/SOEs bolivianas</b>: los ahorros previsionales financian el déficit fiscal del mismo Estado que regula a GESTORA. Cuando el peg Bs 6,96/USD se erosionó en 2025, el FCI mantiene valor nominal Bs pero pierde poder de compra real.</li>
+</ol>
+
+<p style="margin:12px 0;"><b>Estos 3 factores juntos producen un resultado sistemáticamente extractivo:</b> el afiliado captivo (1) no puede irse, (2) paga una comisión que enriquece al admin, y (3) ve su ahorro real evaporarse por inflación que el mismo Estado genera con la deuda que el FCI compra. Es un loop cerrado donde el afiliado es la única parte perdedora.</p>
+
+<p>Por eso GESTORA NO califica como "Buen Desempeño" en este reporte — su salud es <b>DUAL</b> y su recomendación es <b>AUDITAR Y RE-REGULAR</b>.</p>
+
+<h3 class="metod-sub">17.4 Verdict por modelo en la matriz 5×5</h3>
+
+<table class="metod-table">
+<thead><tr><th>Modelo</th><th>Cómo entra a la matriz</th><th>Caveat aplicado</th></tr></thead>
+<tbody>
+<tr><td><b>Comercial estándar</b></td><td>Verdict 5×5 directo. Sin modificación.</td><td>Ninguno (caja modelo no se renderiza).</td></tr>
+<tr><td><b>Admin de fondos (GESTORA)</b></td><td>Si la salud Level-1 sería 'buen' pero el fondo administrado rinde &lt;−3% real, override a <b>salud = 'dual'</b> → verbo <b>AUDITAR Y RE-REGULAR</b>.</td><td>Caja con tabla de performance FCI Level-2 al final de la ficha.</td></tr>
+<tr><td><b>Admin de activos</b></td><td>Verdict 5×5 directo, pero con caveat explícito de limitación.</td><td>Caja reconociendo que el P&L no captura performance del activo subyacente.</td></tr>
+<tr><td><b>Utility regulada</b></td><td>Verdict 5×5 directo, pero con caveat explícito.</td><td>Caja explicando que pérdidas pueden ser por diseño del mandato de servicio público.</td></tr>
+<tr><td><b>Estratégica CPE</b></td><td>Verdict 5×5 directo, pero con caveat constitucional.</td><td>Caja recordando que cierre/privatización requieren reforma CPE.</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">17.5 Lo que NO está cubierto y debería estar (roadmap v2)</h3>
+
+<p>Para los modelos no-comerciales, el análisis está limitado por data pública. La versión 2 de este reporte requeriría:</p>
+<ul>
+<li><b>Admin de fondos</b>: extender la metodología FCI a otros administradores de fondos del Estado si los hubiera (actualmente solo GESTORA cumple este perfil)</li>
+<li><b>Admin de activos</b>: scrapear ATT (satélite ABE), AAP (puertos ASP-B), AN (aduana DAB) para obtener métricas Level-2 de utilización y eficiencia</li>
+<li><b>Utility regulada</b>: integrar data de AAPS (agua), AE (electricidad), ATT (transporte) sobre cobertura, calidad de servicio, ratio costo-tarifa por empresa</li>
+<li><b>Estratégica CPE</b>: cuantificar el "valor estratégico" — reservas comprobadas vs producción anual, dependencia de importación pre-empresa, capacidad de respuesta a crisis sectorial</li>
+</ul>
+
+<p>Hasta entonces, este reporte aplica el 5×5 estándar a las 56 empresas pero <b>flaggea explícitamente cuándo el framework no es la herramienta correcta</b>, vía el eje de Modelo de Custodia/Operación.</p>
+
+<h2 id="scripts" class="metod-section">18. Archivos y scripts del pipeline</h2>
 
 <table class="metod-table">
 <thead><tr><th>Archivo</th><th>Función</th></tr></thead>
@@ -885,7 +956,7 @@ Para las otras 7 empresas del Grupo A, el efecto agregado podría sumar otros <b
 </tbody>
 </table>
 
-<h2 id="replicacion" class="metod-section">18. Cómo replicar este análisis</h2>
+<h2 id="replicacion" class="metod-section">19. Cómo replicar este análisis</h2>
 
 <ol>
 <li><b>Obtener PDFs</b> de estados financieros de las 56 empresas (Ministerio de Economía publica algunos; el resto se obtiene caso por caso de cada empresa)</li>
@@ -900,7 +971,7 @@ Para las otras 7 empresas del Grupo A, el efecto agregado podría sumar otros <b
 
 <p>Repo público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22;">github.com/romer288/empresas-publicas-bolivia</a></p>
 
-<h2 id="errores" class="metod-section">19. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
+<h2 id="errores" class="metod-section">20. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
 
 <p>Esta sección documenta los <b>errores reales</b> detectados durante el desarrollo y revisión del reporte, junto con su corrección. Es parte del compromiso de transparencia.</p>
 
@@ -980,7 +1051,7 @@ Para las otras 7 empresas del Grupo A, el efecto agregado podría sumar otros <b
 <b>Lo que esta tabla implica:</b> ningún diagnóstico complejo se construye sin errores intermedios. Lo que importa es que cada error encontrado generó un fix durable codificado, y que la metodología explícitamente reconoce sus iteraciones en lugar de pretender perfección desde el día uno.
 </div>
 
-<h2 id="changelog" class="metod-section">20. Changelog versionado del análisis</h2>
+<h2 id="changelog" class="metod-section">21. Changelog versionado del análisis</h2>
 
 <table class="metod-table">
 <thead><tr><th>Fecha</th><th>Cambio</th></tr></thead>

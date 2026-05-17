@@ -124,6 +124,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#proyecciones">Proyecciones 2026 — aproximaciones, no ejecución real</a></li>
 <li><a href="#cifratitular">Cifra titular del reporte</a></li>
 <li><a href="#legal">Marco legal aplicado (CPE, Código de Comercio, Leyes)</a></li>
+<li><a href="#regimen_cambiario">Régimen cambiario boliviano y exposición FX por empresa</a></li>
 <li><a href="#scripts">Archivos y scripts del pipeline</a></li>
 <li><a href="#replicacion">Cómo replicar este análisis</a></li>
 <li><a href="#errores">Errores reconocidos durante el desarrollo y cómo se corrigieron</a></li>
@@ -763,7 +764,112 @@ falta_2026 = proyeccion_2026 - YTD_2026
 <li><b>NB-SCI (Normas Básicas del Sistema de Contabilidad Integrada)</b>: regulación contable + reexpresión por UFV</li>
 </ul>
 
-<h2 id="scripts" class="metod-section">16. Archivos y scripts del pipeline</h2>
+<h2 id="regimen_cambiario" class="metod-section">16. Régimen cambiario boliviano y exposición FX por empresa</h2>
+
+<p>El reporte aplica un deflactor CPI de 14,94% (inflación oficial 2025, Tabla N° 1 PGE 2026 Reformulado) para distinguir crecimiento nominal de real. <b>Pero ese deflactor subestima la presión real sobre empresas con costos importados</b>, por una divergencia estructural del régimen cambiario boliviano.</p>
+
+<h3 class="metod-sub">16.1 La divergencia oficial vs paralelo</h3>
+<table class="metod-table">
+<thead><tr><th>Período</th><th>Tipo oficial BCB</th><th>Tipo paralelo</th><th>Brecha</th></tr></thead>
+<tbody>
+<tr><td>Histórico (nov-2011 a 2023)</td><td>Bs 6,96/USD (fijo)</td><td>≈ Bs 6,96-7,5</td><td>~0-8%</td></tr>
+<tr><td>2024 (segunda mitad)</td><td>Bs 6,96/USD</td><td>Bs 10-13</td><td>+44-87%</td></tr>
+<tr><td>Mid-2025 (pre-elecciones)</td><td>Bs 6,96/USD</td><td><b>Bs 19-20/USD</b></td><td><b>+173-187%</b></td></tr>
+<tr><td>Enero 2026 (post-Paz)</td><td>Bs 6,96/USD</td><td>Bs ~9,7/USD</td><td>+39%</td></tr>
+<tr><td>1-dic-2025 en adelante</td><td colspan="2">BCB empezó a publicar "valor referencial" — paso de facto fuera del peg</td><td>—</td></tr>
+</tbody>
+</table>
+<p>El boliviano (BOB) está formalmente pegado al dólar a 6,96 desde noviembre 2011. Pero el BCB no tiene reservas suficientes para entregar USD al tipo oficial a todos los demandantes. Esto generó el mercado paralelo, donde se transa USD al precio que efectivamente refleja escasez.</p>
+
+<h3 class="metod-sub">16.2 Clasificación de las 56 empresas en 3 grupos de exposición FX</h3>
+
+<p>Cada empresa fue asignada a uno de tres grupos según su exposición al régimen cambiario. La asignación se basa en intensidad de importaciones críticas y acceso histórico al BCB para USD al tipo oficial.</p>
+
+<table class="metod-table">
+<thead><tr><th>Grupo</th><th>Empresas</th><th>Mecanismo</th><th>Implicación contable</th></tr></thead>
+<tbody>
+<tr style="background:#fdf2f2;">
+<td><b>🔴 A — Subsidio cambiario IMPLÍCITO</b><br>(8 empresas)</td>
+<td>YPFB, ENDE, COMIBOL, YLB, EBIH, VINTO-NAL, ES-MUTUN, EMAPA</td>
+<td>BCB entrega USD al tipo oficial Bs 6,96 (acceso preferencial por sector estratégico). El gap con el paralelo lo absorbe el BCB y el Tesoro <b>fuera del balance de la empresa</b>.</td>
+<td>P&L de la empresa <b>subestima</b> el costo fiscal real. M17_v5 captura solo TGN+Recursos Específicos directos. El "subsidio cambiario" via BCB no es público.</td>
+</tr>
+<tr style="background:#fff8e1;">
+<td><b>🟠 B — Shock cambiario EXPLÍCITO</b><br>(15 empresas)</td>
+<td>BOA, TAM, TAB, ESABOL, EBC, EBA, CARTONBOL, EASBA, QUIPUS, B-Agro, DAB, ASP-B, ENABOL, COFADENA, ABE</td>
+<td>Empresas comerciales/operativas sin acceso preferencial. Compraron USD en mercado paralelo para importar inputs.</td>
+<td>P&L SÍ refleja costo Bs efectivo. Pérdidas fragmentadas en "Compras importadas" (5.1.1), "Diferencia de cambio negativa" (5.3.x), "Otros gastos financieros". Inflación efectiva 20-35% para 2025, no 14,94%.</td>
+</tr>
+<tr style="background:#f0f8f0;">
+<td><b>🟢 C — Mayoritariamente DOMÉSTICO</b><br>(~33 empresas)</td>
+<td>Todas las EPSAs municipales de agua, EMAVS/EMAVRA/EMAVERDE, EMSA, EMAVIAS, GERES, EMUJOYAS, EMDELL, EPSA COBIJA, BTV, EDITORIAL, KALLPAWAWA, Mi teleférico, SAMAPA, EPSA MUNICIPAL, YACANA, SETAR, EMTAGAS, EPDEOR, GESTORA, FCCCP-EPD, ENFE, MISICUNI</td>
+<td>Costos en Bs domésticos (sueldos, servicios locales, insumos nacionales).</td>
+<td>El deflactor CPI 14,94% es razonable. Mínima exposición FX.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">16.3 Casos borderline (juicio editorial)</h3>
+<ul>
+<li><b>EMAPA → Grupo A.</b> Importa trigo, aceite, azúcar para seguridad alimentaria nacional. Históricamente con acceso preferencial al BCB. Podría argumentarse Grupo B en años recientes si la prioridad cambió.</li>
+<li><b>MISICUNI → Grupo C.</b> Hidroeléctrica con activos ya instalados; input importado marginal (turbinas iniciales ya capitalizadas). Costos corrientes son mayoritariamente locales.</li>
+<li><b>COFADENA → Grupo B.</b> Defensa con equipos militares importados; podría argumentarse A si el Ministerio de Defensa tiene acceso preferencial confidencial. Se mantiene B por falta de evidencia pública.</li>
+<li><b>EMTAGAS / SETAR → Grupo C.</b> Distribuidoras departamentales de gas/electricidad — operan principalmente con producto doméstico (YPFB / ENDE como upstream).</li>
+</ul>
+
+<h3 class="metod-sub">16.4 Lo que el régimen cambiario implica para la cifra titular</h3>
+
+<div class="metod-caveat">
+<b>La cifra titular del reporte (Bs 16,84 mil M de subsidio fiscal directo 2025 = TGN + Transferencias Recursos Específicos) NO incluye el subsidio cambiario implícito vía BCB.</b>
+<br><br>
+Estimación grosera del subsidio cambiario implícito a YPFB:
+<ul>
+<li>YPFB importa ~USD 2 mil M/año en combustibles</li>
+<li>Brecha promedio 2025 oficial vs paralelo: ~Bs 8/USD</li>
+<li>Subsidio cambiario implícito YPFB ≈ <b>Bs 16 mil M</b> ADICIONALES</li>
+</ul>
+Sumando los efectos directos + indirectos solo para YPFB: <b>Bs 30+ mil M</b> de costo fiscal real, vs los Bs 14,9 mil M que aparece en M17_v5.
+<br><br>
+Para las otras 7 empresas del Grupo A, el efecto agregado podría sumar otros <b>Bs 5-10 mil M</b> adicionales no capturados.
+<br><br>
+<b>Estimación honesta del costo fiscal real total 2025 a las 56 empresas:</b> probablemente entre <b>Bs 35-50 mil M</b>, no los Bs 16,84 mil M directos. La cuantificación exacta requiere acceso a los flujos BCB-empresa que no son públicos.
+</div>
+
+<h3 class="metod-sub">16.5 Canales contables donde el efecto FX SE escapa del estado financiero individual</h3>
+
+<table class="metod-table">
+<thead><tr><th>Canal</th><th>Cómo evade el P&L</th></tr></thead>
+<tbody>
+<tr><td><b>Acceso preferencial USD del BCB</b> (Grupo A)</td><td>Empresa registra costo a Bs 6,96/USD. Gap con paralelo lo absorbe BCB/Tesoro. La diferencia aparece como transferencia TGN→empresa, deuda BCB→empresa, o "cuenta por pagar" al BCB sin actualizar.</td></tr>
+<tr><td><b>Reexpresión UFV usa CPI, no FX</b></td><td>NB-SCI obliga reexpresar partidas no-monetarias por UFV (ligada a CPI ~15%). Pero si esos activos son maquinaria importada que vale +173% en Bs paralelo, están gravemente subvaluados en libros.</td></tr>
+<tr><td><b>Garantías soberanas en USD</b></td><td>Aparecen en balance al tipo de cambio del registro original. El costo financiero futuro (interés + devaluación implícita) es contingente — no se provisiona contra resultados hasta que se materializa.</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">16.6 Canales donde el efecto FX SÍ entra al estado financiero</h3>
+<ol>
+<li><b>Costo de Bienes Importados (cta 5.1.1)</b>: si la empresa pagó al paralelo, esos Bs están aquí.</li>
+<li><b>Pérdida por Diferencia de Cambio (cta 5.3.x / 5.4.x)</b>: partida específica de NB-SCI. Va a "Otros Gastos / Resultados Financieros", NO a gasto operativo. Por eso Q1 ventas se ve bien pero Q2 ganancia se erosiona en una parte no obvia.</li>
+<li><b>Cuentas por Pagar (cta 2.1.x) en USD</b>: si la deuda en USD no se paga, el saldo Bs en balance crece automáticamente cuando UFV se actualiza.</li>
+<li><b>Resultados Acumulados (cta 3.1.5.1)</b>: las pérdidas anteriores acaban acumulándose acá. Por eso nuestra Q3 (Art. 354 — capital quemado) SÍ captura el efecto neto — pero llega tarde, años después.</li>
+</ol>
+
+<h3 class="metod-sub">16.7 Implicación para cada métrica del reporte</h3>
+<table class="metod-table">
+<thead><tr><th>Métrica</th><th>¿Captura el efecto FX?</th></tr></thead>
+<tbody>
+<tr><td><b>Q1 ventas comerciales</b> (op_revenue)</td><td>NO directamente — sigue siendo ventas en Bs locales</td></tr>
+<tr><td><b>Q2 ganancia operativa</b> (EBITDA)</td><td>Parcialmente — solo costos importados al rate efectivo. NO el subsidio cambiario implícito.</td></tr>
+<tr><td><b>Q2 ganancia neta</b> (post financieros)</td><td>Sí, captura "pérdida diferencia de cambio"</td></tr>
+<tr><td><b>Q3 capital quemado</b> (Art. 354)</td><td>Sí, captura efecto acumulado en patrimonio (pero con lag de años)</td></tr>
+<tr><td><b>Q4 dependencia M17_v5</b></td><td>Captura TGN/Recursos Específicos. NO el subsidio cambiario implícito BCB.</td></tr>
+<tr><td><b>Q5 cash burn (SIGEP)</b></td><td>Sí, captura Bs efectivamente desembolsados al tipo paralelo si fue pagado al paralelo</td></tr>
+<tr><td><b>Q6 ROIC</b></td><td>Parcialmente — capital invertido probablemente al oficial, subestimado</td></tr>
+<tr><td><b>Q7 banderas gasto</b></td><td>Sí — crecimiento anómalo de subpartidas "Pérdida diferencia cambio" se detecta</td></tr>
+</tbody>
+</table>
+
+<h2 id="scripts" class="metod-section">17. Archivos y scripts del pipeline</h2>
 
 <table class="metod-table">
 <thead><tr><th>Archivo</th><th>Función</th></tr></thead>
@@ -779,7 +885,7 @@ falta_2026 = proyeccion_2026 - YTD_2026
 </tbody>
 </table>
 
-<h2 id="replicacion" class="metod-section">17. Cómo replicar este análisis</h2>
+<h2 id="replicacion" class="metod-section">18. Cómo replicar este análisis</h2>
 
 <ol>
 <li><b>Obtener PDFs</b> de estados financieros de las 56 empresas (Ministerio de Economía publica algunos; el resto se obtiene caso por caso de cada empresa)</li>
@@ -794,7 +900,7 @@ falta_2026 = proyeccion_2026 - YTD_2026
 
 <p>Repo público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22;">github.com/romer288/empresas-publicas-bolivia</a></p>
 
-<h2 id="errores" class="metod-section">18. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
+<h2 id="errores" class="metod-section">19. Errores reconocidos durante el desarrollo y cómo se corrigieron</h2>
 
 <p>Esta sección documenta los <b>errores reales</b> detectados durante el desarrollo y revisión del reporte, junto con su corrección. Es parte del compromiso de transparencia.</p>
 
@@ -874,7 +980,7 @@ falta_2026 = proyeccion_2026 - YTD_2026
 <b>Lo que esta tabla implica:</b> ningún diagnóstico complejo se construye sin errores intermedios. Lo que importa es que cada error encontrado generó un fix durable codificado, y que la metodología explícitamente reconoce sus iteraciones en lugar de pretender perfección desde el día uno.
 </div>
 
-<h2 id="changelog" class="metod-section">19. Changelog versionado del análisis</h2>
+<h2 id="changelog" class="metod-section">20. Changelog versionado del análisis</h2>
 
 <table class="metod-table">
 <thead><tr><th>Fecha</th><th>Cambio</th></tr></thead>

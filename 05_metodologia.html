@@ -135,6 +135,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#cifratitular">Cifra titular del reporte</a></li>
 <li><a href="#legal">Marco legal aplicado (CPE, Código de Comercio, Leyes)</a></li>
 <li><a href="#regimen_cambiario">Régimen cambiario boliviano y exposición FX por empresa</a></li>
+<li><a href="#bcb_implicito">Subsidio cambiario implícito BCB — cuantificación y caveats</a></li>
 <li><a href="#modelos_operacion">Modelos de Custodia/Operación — cuándo el 5×5 NO captura toda la historia</a></li>
 <li><a href="#desempeno_operativo">Desempeño Operativo Level-2 — validando si los estados financieros reflejan realidad</a></li>
 <li><a href="#score_operativo">Score Operativo Compuesto Level-2 [0-100]</a></li>
@@ -1232,7 +1233,51 @@ score = max(0, min(100, score))   // capped en [0, 100]
 <b>Lo que esta tabla implica:</b> ningún diagnóstico complejo se construye sin errores intermedios. Lo que importa es que cada error encontrado generó un fix durable codificado, y que la metodología explícitamente reconoce sus iteraciones en lugar de pretender perfección desde el día uno.
 </div>
 
-<h2 id="changelog" class="metod-section">23. Changelog versionado del análisis</h2>
+<h2 id="bcb_implicito" class="metod-section">24. Subsidio cambiario implícito BCB — cuantificación y caveats</h2>
+
+<p>El subsidio cambiario implícito es la <b>diferencia entre lo que el BCB paga por dólares en el mercado (paralelo) y lo que cobra a la empresa pública (oficial Bs 6,96)</b>. Ese gap NO aparece en el estado financiero de la empresa — su COGS importado entra a Bs 6,96 — pero alguien lo absorbe: el BCB (drenaje de reservas) o el Tesoro (emisión / endeudamiento).</p>
+
+<h3 class="metod-sub">24.1 Fórmula</h3>
+<div class="metod-formula">
+<b>apoyo_implícito_BCB</b> = <b>importaciones_USD × (TC_paralelo − TC_oficial)</b><br>
+<br>
+TC_oficial = Bs 6,96/USD (fijo desde 2011)<br>
+TC_paralelo promedio anual: 2023 ≈ Bs 8 · 2024 ≈ Bs 10-11 · 2025 ≈ Bs 13-14 (peak Bs 19,5 mid-2025)<br>
+Brecha promedio aplicada: <b>2023 = Bs 1 · 2024 = Bs 4 · 2025 = Bs 7</b>
+</div>
+
+<h3 class="metod-sub">24.2 Estimación por empresa (Grupo A — 8 SOEs con asignación BCB)</h3>
+<table class="metod-table">
+<thead><tr><th>Empresa</th><th>USD imports 2024 (M)</th><th>USD imports 2025 (M)</th><th>Subsidio 2025 (Bs)</th><th>Confianza</th><th>Fuente principal</th></tr></thead>
+<tbody>
+<tr><td><b>YPFB</b></td><td>2.381</td><td>2.000</td><td>~Bs 14 mil M</td><td>H (alta)</td><td>BCB reporte enero 2025 (Unitel/La Patria) · PGE 2025</td></tr>
+<tr><td><b>ENDE</b></td><td>~125</td><td>~125</td><td>~Bs 875 M</td><td>M (media)</td><td>MHE: capex Bs 1.698M, 86% generación</td></tr>
+<tr><td><b>COMIBOL</b></td><td>~45</td><td>~50</td><td>~Bs 350 M</td><td>L (proxy sectorial)</td><td>Sectoral: minería 10-15% COGS importado</td></tr>
+<tr><td><b>YLB</b></td><td>~110</td><td>~200</td><td>~Bs 1.400 M</td><td>M (media)</td><td>RPCI 2024 + ramp-up reactivos planta industrial</td></tr>
+<tr><td><b>EBIH</b></td><td>~2</td><td>~3</td><td>~Bs 21 M</td><td>H (alta)</td><td>RPCI 2024: USD 1,61M inversión total</td></tr>
+<tr><td><b>VINTO - NAL</b></td><td>~95</td><td>~95</td><td>~Bs 665 M</td><td>L (proxy sectorial)</td><td>Metalurgia: 25-35% COGS importado · 12.683 TMF Sn 2024</td></tr>
+<tr><td><b>ES - MUTUN</b></td><td>~225</td><td>~50</td><td>~Bs 350 M</td><td>H capex / L opex</td><td>Sinosteel USD 546M (72% Eximbank China). Opex post-2025 ~USD 30-60M</td></tr>
+<tr><td><b>EMAPA</b></td><td>64</td><td>~70</td><td>~Bs 490 M</td><td>H (cita pública)</td><td>La Razón Sept-2024: USD 64M imports trigo</td></tr>
+<tr style="background:#fdf2f2; font-weight:700;"><td>TOTAL Grupo A 2025</td><td>—</td><td>~2.593</td><td><b>~Bs 18 mil M</b></td><td>—</td><td>De los cuales ~Bs 14 mil M (YPFB) parcialmente ya en línea "subvención combustibles" del TGN</td></tr>
+</tbody>
+</table>
+
+<h3 class="metod-sub">24.3 Lo verdaderamente invisible (no double-count)</h3>
+<p>Para <b>YPFB</b>, el subsidio implícito Bs ~14 mil M en 2025 está <b>parcialmente reflejado</b> en la línea "subvención combustibles" del TGN (DS 5503 eliminó esta línea hacia adelante a partir de diciembre 2025). El residuo realmente invisible para YPFB es menor.</p>
+<p>Para los otros <b>7 empresas del Grupo A</b>, el subsidio implícito Bs ~4 mil M en 2025 es <b>enteramente invisible</b> — no aparece en ninguna línea de transferencia ni de gasto. Es absorbido directamente por el BCB sin contraparte presupuestaria.</p>
+
+<h3 class="metod-sub">24.4 Caveats explícitos</h3>
+<ol>
+<li><b>Caveat 1 — Volúmenes USD no auditados públicamente.</b> Ninguna SOE publica "USD recibidos del BCB" como ítem de balance. Las estimaciones provienen de notas de prensa, RPCIs y proxies sectoriales. La confianza varía por empresa (ver columna).</li>
+<li><b>Caveat 2 — La brecha aplicada es promedio anual.</b> El paralelo osciló fuertemente intra-año (Bs 9 en enero, peak Bs 19,5 en julio, vuelta a Bs 9-10 en diciembre). Aplicamos brecha promedio simple, no ponderada por estacionalidad de importaciones.</li>
+<li><b>Caveat 3 — No se aplica al Grupo C automáticamente.</b> Las empresas Grupo C ("mayoritariamente doméstico") <b>también tienen exposición FX en pequeñas magnitudes</b> (equipos, software, servicios externos pagados al paralelo). Esa exposición se asume pequeña (&lt; 5% COGS) y no se cuantifica individualmente.</li>
+<li><b>Caveat sobre op_revenue (cuenta 5.2):</b> Asumimos que op_revenue contiene ventas comerciales puras, sin transferencias del Estado. Para empresas como YPFB esto es auditable (TGN va a línea 5.4 "Donaciones y Transferencias Corrientes Recibidas"). Para algunas empresas pequeñas la separación puede no ser estricta en el estado financiero.</li>
+</ol>
+
+<h3 class="metod-sub">24.5 Implicación para la cifra titular</h3>
+<p>La cifra titular del reporte (<b>Bs 16,84 mil M de costo fiscal directo 2025</b>) <b>NO incluye</b> el subsidio cambiario implícito. Sumar el residuo invisible no-YPFB del Grupo A daría una estimación más completa: <b>Bs 16,84 mil M + ~Bs 4 mil M ≈ Bs 21 mil M</b>. Para una cifra "todo incluido" que sume también la parte de YPFB ya parcialmente visible, el rango sería <b>Bs 30-35 mil M</b> en 2025.</p>
+
+<h2 id="changelog" class="metod-section">25. Changelog versionado del análisis</h2>
 
 <table class="metod-table">
 <thead><tr><th>Fecha</th><th>Cambio</th></tr></thead>
@@ -1246,6 +1291,7 @@ score = max(0, min(100, score))   // capped en [0, 100]
 <tr><td><b>2026-05-13</b></td><td>Reporte ciudadano (<code>60_build_citizen_reports.py</code>) primera versión publicada. 5 vistas agregadas + 56 fichas.</td></tr>
 <tr><td><b>2026-05-14</b></td><td>Pre-publish review: 7 reglas durables incorporadas. Cifra titular declarada (Bs 16,84 mil M). Capítulo "Qué NO captura este análisis". Bug EPSA-COROICO detectado; fix CAIF fallback aplicado. Q7 movida fuera del score de Salud → flag overlay.</td></tr>
 <tr><td><b>2026-05-15</b></td><td>Modelo 5×5 (Salud × Función) reemplaza cascade v9.7.3 en frontend ciudadano (cascade permanece como auditoría interna). Crítica externa: 10+ etiquetas CAUSA_PRINCIPAL reescritas. Tabs OG + meta tags + viewport. Sección "Marco de política" (Paz/DS 5503/OFEP). Perimeter footnote del "56". FX context box. Steelman section. Esta página Metodología expandida significativamente con cronología del desarrollo, M17 v1-v5 detallado, errores reconocidos, changelog.</td></tr>
+<tr><td><b>2026-05-17</b></td><td>Refactor metodológico: <b>(1)</b> EBITDA ahora se ancla en Resultado del Ejercicio (cuenta PCSP 3.1.5.3) + D&amp;A + impuestos + intereses + regalías, con fallback a la reconstrucción <code>total_rev − total_g + inflación</code>. <b>(2)</b> M1 EBITDA Margin usa ahora <code>total_revenue</code> (cuenta 5) como denominador para consistencia con el numerador; <code>M1_OpRev_Margin</code> con <code>op_revenue</code> queda como métrica legacy. <b>(3)</b> Q7 productividad cambia a comparación de gap nominal puro entre <code>gasto_operativo_puro</code> (6.1 − 6.1.5/6.1.6/6.1.7) y <code>op_revenue</code>, sin umbral de inflación (mezcla nominal-vs-real eliminada). <b>(4)</b> Q5/Q8 reframe a "ingreso pre-subsidio" — restamos apoyo TGN+Recursos Específicos del INGRESO en vez de añadirlo al BURN; el déficit equivalente crece igual pero la narrativa es honesta. <b>(5)</b> BCB implicit-subsidy cuantificado para 8 SOEs del Grupo A (sección 24). <b>(6)</b> 3 caveats documentados explícitamente en sección 24.4.</td></tr>
 </tbody>
 </table>
 

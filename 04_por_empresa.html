@@ -11,6 +11,7 @@ body.wide-page details table td, body.wide-page .section table td { word-wrap: b
 .verdict-badge.liquidar { background: #1a1a1a; }
 .verdict-badge.mantener { background: #27ae60; }
 .verdict-badge.privatizar { background: #2980b9; }
+.verdict-badge.recapitalizar { background: #8e44ad; }
 .verdict-badge.pendiente { background: #7f8c8d; }
 .name { font-size: 12pt; color: #333; margin-top: 4px; }
 .sector { font-size: 10pt; color: #666; font-style: italic; margin-bottom: 14px; }
@@ -26,6 +27,7 @@ h3 { font-size: 12pt; margin: 18px 0 4px; color: #1a1a1a; }
 .recomendacion.liquidar { background: #1a1a1a; }
 .recomendacion.mantener { background: #27ae60; }
 .recomendacion.privatizar { background: #2980b9; }
+.recomendacion.recapitalizar { background: #8e44ad; }
 .recomendacion.pendiente { background: #7f8c8d; }
 .recomendacion h2 { margin: 0 0 8px; font-size: 12pt; }
 .recomendacion p { margin: 6px 0; font-size: 10.5pt; }
@@ -49,7 +51,7 @@ tr:nth-child(even) td { background: #fafafa; }
 .chip.liquidar { background: #1a1a1a; }
 .chip.cerrar { background: #c0392b; }
 .chip.reestructurar { background: #e67e22; }
-.chip.recapitalizar { background: #f39c12; }
+.chip.recapitalizar { background: #8e44ad; }
 .chip.privatizar { background: #2980b9; }
 .chip.mantener { background: #27ae60; }
 .chip.pendiente { background: #7f8c8d; }
@@ -121,7 +123,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">YPFB</div>
       <div class="emp-name">Yacimientos Petroliferos Fiscales Bolivianos</div>
       <div class="emp-sector">Hidrocarburos</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR + RECAPITALIZAR + revisar gasto">REESTRUCTURAR</span>
   </div>
@@ -144,7 +146,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">Mi teleférico</div>
       <div class="emp-name">Empresa Estatal de Transporte por Cable Mi Teleférico</div>
       <div class="emp-sector">Transporte</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="REASIGNAR FUNCIÓN a otra entidad estatal o CERRAR si la función ya no es estratégica + AUDITORÍA Contraloría">REASIGNAR FUNCIÓN o CERRAR</span>
   </div>
@@ -167,7 +169,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAPA</div>
       <div class="emp-name">Empresa de Apoyo a la Producción de Alimentos</div>
       <div class="emp-sector">Agro</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR o REASIGNAR FUNCIÓN + AUDITORÍA Contraloría">REESTRUCTURAR</span>
   </div>
@@ -190,7 +192,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">ENDE</div>
       <div class="emp-name">Empresa Nacional de Electricidad</div>
       <div class="emp-sector">Energía</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR PROFUNDA (cambio de gestión + plan de saneamiento) + AUDITORÍA Contraloría">REESTRUCTURAR</span>
   </div>
@@ -213,7 +215,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EBA</div>
       <div class="emp-name">Empresa Boliviana de Alimentos y Derivados</div>
       <div class="emp-sector">Agro</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (sin going-concern) + AUDITORÍA Contraloría">CERRAR</span>
   </div>
@@ -236,7 +238,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">COMIBOL</div>
       <div class="emp-name">Corporación Minera de Bolivia</div>
       <div class="emp-sector">Minería</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR (Art. 354 obliga)">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -259,7 +261,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">BOA</div>
       <div class="emp-name">Boliviana de Aviación</div>
       <div class="emp-sector">Transporte</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR + revisar gasto">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -282,7 +284,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">ABE.</div>
       <div class="emp-name">Agencia Boliviana Espacial</div>
       <div class="emp-sector">Servicios</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR + revisar gasto">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -328,7 +330,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">ES - MUTUN</div>
       <div class="emp-name">Empresa Siderúrgica del Mutún</div>
       <div class="emp-sector">Minería <span style="color:#c0392b; font-weight:600; font-size:9pt;">⚠️ datos hasta 2024</span></div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR PROFUNDA (cambio de gestión + plan de saneamiento) + AUDITORÍA Contraloría">REESTRUCTURAR</span>
   </div>
@@ -351,7 +353,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EASBA</div>
       <div class="emp-name">Empresa Azucarera San Buenaventura</div>
       <div class="emp-sector">Agro</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (sin going-concern) + revisar gasto">CERRAR</span>
   </div>
@@ -374,7 +376,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">YLB</div>
       <div class="emp-name">Empresa Pública Nacional Estrategica de Yacimientos de Litio Boliviano</div>
       <div class="emp-sector">Minería</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR (Art. 354 obliga) + AUDITORÍA Contraloría">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -397,7 +399,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EBC</div>
       <div class="emp-name">Empresa Estratégica Boliviana de Construcción y Conservación de Infrae</div>
       <div class="emp-sector">Construcción</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (sin going-concern) + INVESTIGACIÓN CRIMINAL">CERRAR</span>
   </div>
@@ -420,7 +422,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMTAGAS</div>
       <div class="emp-name">Empresa Tarijeña del Gas</div>
       <div class="emp-sector">Hidrocarburos</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (autoridad municipal)">REESTRUCTURAR</span>
   </div>
@@ -443,7 +445,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">TAB</div>
       <div class="emp-name">Transportes Aéreos Bolivianos</div>
       <div class="emp-sector">Transporte</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (sin going-concern) + revisar gasto">CERRAR</span>
   </div>
@@ -466,7 +468,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">VINTO - NAL</div>
       <div class="emp-name">Empresa Metalurgica Vinto - Nacionalizada</div>
       <div class="emp-sector">Minería</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR (Art. 354 obliga) + revisar gasto">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -489,7 +491,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EBIH</div>
       <div class="emp-name">Empresa Boliviana de Industrializacion de Hidrocarburos</div>
       <div class="emp-sector">Hidrocarburos</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR (Art. 354 obliga) + AUDITORÍA Contraloría">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -512,7 +514,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">ELAPAS</div>
       <div class="emp-name">Empresa Local de Agua Potable y Alcantarillado Sucre</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor + AUDITORÍA Contraloría">CERRAR o FUSIONAR</span>
   </div>
@@ -535,7 +537,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">BTV</div>
       <div class="emp-name">Bolivia TV</div>
       <div class="emp-sector">Medios</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR + AUDITORÍA Contraloría">CERRAR</span>
   </div>
@@ -558,7 +560,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">DAB</div>
       <div class="emp-name">Depósitos Aduaneros Bolivianos</div>
       <div class="emp-sector">Logística</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (cambio de gestión) + revisar gasto">REESTRUCTURAR</span>
   </div>
@@ -581,7 +583,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">QUIPUS</div>
       <div class="emp-name">Empresa Pública QUIPUS</div>
       <div class="emp-sector">Industria</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR + revisar gasto">CERRAR</span>
   </div>
@@ -604,7 +606,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAPAS</div>
       <div class="emp-name">Empresa Municipal de Agua Potable y Alcantarillado Sacaba</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor (operación estructuralmente comprometida)">CERRAR o FUSIONAR</span>
   </div>
@@ -627,7 +629,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">TAM</div>
       <div class="emp-name">Empresa Pública Transporte Aéreo Militar</div>
       <div class="emp-sector">Transporte</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip recapitalizar" style="font-size:9pt;" title="RECAPITALIZAR Y REESTRUCTURAR + INVESTIGACIÓN CRIMINAL (sector sensible)">RECAPITALIZAR Y REESTRUCTURAR</span>
   </div>
@@ -650,7 +652,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">B-Agro</div>
       <div class="emp-name">Empresa Boliviana de Producción Agropecuarias</div>
       <div class="emp-sector">Agro <span style="color:#c0392b; font-weight:600; font-size:9pt;">⚠️ datos hasta 2024</span></div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (sin valor going-concern para comprador) + AUDITORÍA Contraloría">CERRAR</span>
   </div>
@@ -673,7 +675,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EDITORIAL</div>
       <div class="emp-name">Empresa Pública Editorial del Estado Plurinacional de Bolivia</div>
       <div class="emp-sector">Medios</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🔵 Bajo Desempeño</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🟡 Bajo Desempeño</div>
     </div>
     <span class="chip mantener" style="font-size:9pt;" title="MANTENER (revisar relevancia) + AUDITORÍA Contraloría">MANTENER</span>
   </div>
@@ -696,7 +698,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">AAPOS</div>
       <div class="emp-name">Administración Autónoma para Obras Sanitarias -Potosí</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor + revisar gasto">CERRAR o FUSIONAR</span>
   </div>
@@ -719,7 +721,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">MISICUNI</div>
       <div class="emp-name">Empresa Misicuni</div>
       <div class="emp-sector">Construcción</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🛡️ Constitucional · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR PROFUNDA (cambio de gestión + plan de saneamiento) + AUDITORÍA Contraloría">REESTRUCTURAR</span>
   </div>
@@ -742,7 +744,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAVS</div>
       <div class="emp-name">EMPRESA MUNICIPAL DE AREAS VERDES SUCRE</div>
       <div class="emp-sector">Servicios Municipales</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor">CERRAR o FUSIONAR</span>
   </div>
@@ -765,7 +767,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">SELA</div>
       <div class="emp-name">Servicio Local Acueducto y Alcantarillado - Oruro</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (autoridad municipal) + revisar gasto">REESTRUCTURAR</span>
   </div>
@@ -788,7 +790,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">GERES</div>
       <div class="emp-name">Empresa Municipal de Gestión de Residuos Sólidos</div>
       <div class="emp-sector">Servicios Municipales</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor">CERRAR o FUSIONAR</span>
   </div>
@@ -926,7 +928,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">GESTORA</div>
       <div class="emp-name">Gestora Pública de la Seguridad Social de Largo Plazo</div>
       <div class="emp-sector">Seguros</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🔵 Bajo Desempeño</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟡 Bajo Desempeño</div>
     </div>
     <span class="chip mantener" style="font-size:9pt;" title="MANTENER + monitoreo + INVESTIGACIÓN CRIMINAL (sector sensible)">MANTENER</span>
   </div>
@@ -949,7 +951,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">SEMAPA</div>
       <div class="emp-name">Servicio Municipal de Agua Potable y Alcantarillado</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor (operación estructuralmente comprometida) + AUDITORÍA Contraloría">CERRAR o FUSIONAR</span>
   </div>
@@ -972,7 +974,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMSA</div>
       <div class="emp-name">Empresa Municipal de Servicio de Aseo</div>
       <div class="emp-sector">Servicios Municipales</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (autoridad municipal) + AUDITORÍA Contraloría">REESTRUCTURAR</span>
   </div>
@@ -995,7 +997,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAVRA</div>
       <div class="emp-name">Empresa Municipal de Areas Verdes y Recreación Alternativa</div>
       <div class="emp-sector">Servicios Municipales</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor + AUDITORÍA Contraloría">CERRAR o FUSIONAR</span>
   </div>
@@ -1018,7 +1020,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">ASP-B</div>
       <div class="emp-name">Administración de Servicios Portuarios - Bolivia</div>
       <div class="emp-sector">Transporte</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (cambio de gestión) + AUDITORÍA Contraloría">REESTRUCTURAR</span>
   </div>
@@ -1041,7 +1043,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">COFADENA</div>
       <div class="emp-name">COFADENA Oficina Central</div>
       <div class="emp-sector">Defensa</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🟠 Quebrada (acumulación)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏛️ Funcional · 🔴 Quebrada (acumulación)</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR o REASIGNAR FUNCIÓN + INVESTIGACIÓN CRIMINAL (sector sensible)">REESTRUCTURAR</span>
   </div>
@@ -1064,7 +1066,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAVIAS</div>
       <div class="emp-name">Empresa Municipal de Asfaltos y Vías</div>
       <div class="emp-sector">Construcción</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Quebrada (Art. 354)</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔴 Quebrada (Art. 354)</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor + AUDITORÍA Contraloría">CERRAR o FUSIONAR</span>
   </div>
@@ -1087,7 +1089,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">ESABOL</div>
       <div class="emp-name">Empresa Servicios Aéreos Bolivianos</div>
       <div class="emp-sector">Transporte</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (PRIVATIZAR si aparece comprador) + revisar gasto">CERRAR</span>
   </div>
@@ -1110,7 +1112,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAPYC</div>
       <div class="emp-name">EMPRESA MUNICIPAL AUTONOMA DE AGUA POTABLE Y ALCANTARILLADO DE YACUIBA</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (autoridad municipal)">REESTRUCTURAR</span>
   </div>
@@ -1133,7 +1135,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EPSA COBIJA</div>
       <div class="emp-name">EMPRESA PUBLICA MUNICIPAL DE SERVICIOS DE AGUA Y ALCANTARRILLADO SANIT</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor (operación estructuralmente comprometida)">CERRAR o FUSIONAR</span>
   </div>
@@ -1156,7 +1158,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMDELL</div>
       <div class="emp-name">EMPRESA MUNICIPAL DE DISTRIBUCION DE ENERGIA ELECTRICA LLALLAGUA</div>
       <div class="emp-sector">Energía</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🔵 Bajo Desempeño</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Bajo Desempeño</div>
     </div>
     <span class="chip mantener" style="font-size:9pt;" title="MANTENER + monitoreo municipal">MANTENER</span>
   </div>
@@ -1179,7 +1181,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAPAR</div>
       <div class="emp-name">EMPRESA MUNICIPAL DE AGUA POTABLE Y ALCANTARILLADO DE RIVERALTA</div>
       <div class="emp-sector">Agua</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor (operación estructuralmente comprometida)">CERRAR o FUSIONAR</span>
   </div>
@@ -1248,7 +1250,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">KALLPAWAWA</div>
       <div class="emp-name">LABORATORIO INDUSTRIAL DE PRODUCTOS NATURALES KALLPAWANA</div>
       <div class="emp-sector">Industria</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">📺 Cultural / discrecional · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (debate político)">CERRAR</span>
   </div>
@@ -1271,7 +1273,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">CARTONBOL</div>
       <div class="emp-name">Cartones de Bolivia</div>
       <div class="emp-sector">Industria <span style="color:#c0392b; font-weight:600; font-size:9pt;">⚠️ datos hasta 2024</span></div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">🏭 Comercial · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR (sin valor going-concern para comprador) + AUDITORÍA Contraloría">CERRAR</span>
   </div>
@@ -1294,7 +1296,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAPAV</div>
       <div class="emp-name">EMPRESA MUNICIPAL DE AGUA POTABLE Y ALCANTARILLADO VIACHA</div>
       <div class="emp-sector">Agua <span style="color:#c0392b; font-weight:600; font-size:9pt;">⚠️ datos hasta 2024</span></div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (autoridad municipal)">REESTRUCTURAR</span>
   </div>
@@ -1317,7 +1319,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMAVERDE</div>
       <div class="emp-name">Empresa Municipal de Áreas Verdes, Parques y Forestación</div>
       <div class="emp-sector">Servicios Municipales <span style="color:#c0392b; font-weight:600; font-size:9pt;">⚠️ datos hasta 2024</span></div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — grave</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — grave</div>
     </div>
     <span class="chip cerrar" style="font-size:9pt;" title="CERRAR o FUSIONAR con entidad municipal mayor (operación estructuralmente comprometida) + AUDITORÍA Contraloría">CERRAR o FUSIONAR</span>
   </div>
@@ -1386,7 +1388,7 @@ tr:nth-child(even) td { background: #fafafa; }
       <div class="emp-sigla">EMUJOYAS</div>
       <div class="emp-name">EMPRESA MUNICIPAL FABRICA DE JOYAS</div>
       <div class="emp-sector">Industria</div>
-      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟡 Deteriorada — leve</div>
+      <div style="font-size:9.5pt; color:#555; margin-top:4px;">💧 Municipal · 🟠 Deteriorada — leve</div>
     </div>
     <span class="chip reestructurar" style="font-size:9pt;" title="REESTRUCTURAR (autoridad municipal)">REESTRUCTURAR</span>
   </div>

@@ -84,60 +84,33 @@ tr:nth-child(even) td { background: #fafafa; }
 .dual-col-operativa .dual-col-header { color:#c0392b; }
 @media (max-width: 720px) { .dual-view { grid-template-columns: 1fr; } }
 </style>
+
 <style>
-.ej-headline { background: linear-gradient(135deg, #c0392b 0%, #8e44ad 100%); color: white; padding: 32px 28px; border-radius: 10px; margin: 18px 0 24px; }
-.ej-headline .label { font-size: 11pt; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-.ej-headline .big { font-size: 36pt; font-weight: 800; line-height: 1.1; margin-bottom: 6px; }
-.ej-headline .usd { font-size: 14pt; opacity: 0.9; margin-bottom: 14px; }
-.ej-headline .ctx { font-size: 11pt; line-height: 1.5; opacity: 0.95; }
-.ej-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 18px 0; }
-.ej-box { background: #fafafa; border-left: 4px solid #e67e22; padding: 14px 16px; border-radius: 4px; }
-.ej-box .lbl { font-size: 9pt; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-.ej-box .val { font-size: 20pt; font-weight: 700; line-height: 1.1; color: #1a1a1a; }
-.ej-box .sub { font-size: 9.5pt; color: #666; margin-top: 4px; line-height: 1.4; }
-.ej-section-title { font-size: 16pt; margin: 28px 0 10px; padding-bottom: 8px; border-bottom: 2px solid #ddd; }
-.ej-veredicto { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 12px 0; }
-.ej-vredict-box { padding: 12px 14px; border-radius: 6px; text-align: center; }
-.ej-vredict-box .n { font-size: 26pt; font-weight: 800; line-height: 1; }
-.ej-vredict-box .l { font-size: 10pt; margin-top: 4px; font-weight: 600; }
-.ej-vredict-box .s { font-size: 8.5pt; color: #555; margin-top: 4px; line-height: 1.3; }
-.ej-table { width: 100%; border-collapse: collapse; font-size: 10.5pt; }
-.ej-table th { background: #f5f5f5; padding: 8px 10px; text-align: left; font-size: 9.5pt; font-weight: 600; border-bottom: 2px solid #ddd; }
-.ej-shock { background: linear-gradient(135deg, #c0392b 0%, #7d1f15 100%); color: white; padding: 24px 24px 4px; border-radius: 10px; margin: 18px 0; }
-.ej-shock h2 { margin: 0 0 6px; font-size: 17pt; color: white; border: none; padding: 0; }
-.ej-shock-sub { font-size: 11pt; opacity: 0.9; margin: 0 0 18px; }
-.ej-shock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px; }
-.ej-shock-card { background: rgba(255,255,255,0.08); padding: 14px 16px; border-radius: 6px; border-left: 4px solid #ffcdd2; }
-.ej-shock-card .num { font-size: 38pt; font-weight: 900; line-height: 1; }
-.ej-shock-card .of { font-size: 12pt; opacity: 0.8; margin-left: 4px; }
-.ej-shock-card .what { font-size: 10.5pt; font-weight: 600; margin: 6px 0 4px; line-height: 1.3; }
-.ej-shock-card .chips { font-size: 9pt; opacity: 0.85; margin-top: 6px; }
-.ej-bar-row { display: grid; grid-template-columns: 200px 1fr 100px; gap: 12px; align-items: center; margin: 8px 0; font-size: 10pt; }
-.ej-bar-track { background: #eee; height: 26px; border-radius: 3px; overflow: hidden; position: relative; }
-.ej-bar-fill { height: 100%; display: flex; align-items: center; padding: 0 8px; color: white; font-weight: 600; font-size: 9.5pt; }
-/* Narrative cards — nueva versión */
-.story-card { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 22px 24px; margin: 14px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-.story-card.danger { border-left: 5px solid #c0392b; }
-.story-card.warn { border-left: 5px solid #e67e22; }
-.story-card.info { border-left: 5px solid #2980b9; }
-.story-card.good { border-left: 5px solid #27ae60; }
-.story-card .stat-line { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
-.story-card .big-stat { font-size: 48pt; font-weight: 900; line-height: 1; color: #c0392b; }
-.story-card .big-stat.green { color: #27ae60; }
-.story-card .big-stat.orange { color: #e67e22; }
-.story-card .of-suffix { font-size: 14pt; color: #888; font-weight: 600; }
-.story-card .headline { font-size: 16pt; font-weight: 700; color: #1a1a1a; line-height: 1.25; margin: 4px 0 12px; }
-.story-card .body-text { font-size: 11pt; line-height: 1.6; color: #444; }
-.story-card .examples { margin-top: 14px; padding: 10px 14px; background: #f8f8f8; border-radius: 4px; font-size: 10pt; }
-.story-card .examples b { color: #c0392b; }
-.story-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 760px) { .story-row { grid-template-columns: 1fr; } }
-.opp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 16px 0; }
-.opp-card { background: #fff5e6; border: 1px solid #f5b041; padding: 16px; border-radius: 6px; text-align: center; }
-.opp-card .icon { font-size: 36pt; line-height: 1; }
-.opp-card .num { font-size: 26pt; font-weight: 800; color: #c0392b; margin: 6px 0; }
-.opp-card .what { font-size: 10.5pt; font-weight: 600; color: #555; line-height: 1.35; }
+.ej-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 18px 0; }}
+.ej-box {{ background: #fafafa; border-left: 4px solid #e67e22; padding: 14px 16px; border-radius: 4px; }}
+.ej-section-title {{ font-size: 17pt; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #ddd; color:#1a1a1a; }}
+.qcard {{ border-radius: 8px; padding: 18px 20px; }}
+.qcard.danger {{ background:#fdf2f2; border-left:5px solid #c0392b; }}
+.qcard.warn {{ background:#fdf6f0; border-left:5px solid #e67e22; }}
+.qcard.info {{ background:#e3f2fd; border-left:5px solid #2980b9; }}
+.qcard .qlabel {{ font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }}
+.qcard .qbig {{ font-size:36pt; font-weight:900; line-height:1; margin:6px 0; }}
+.qcard.danger .qbig {{ color:#c0392b; }}
+.qcard.warn .qbig {{ color:#e67e22; }}
+.qcard.info .qbig {{ color:#2980b9; }}
+.qcard .qtitle {{ font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px; }}
+.qcard .qbody {{ font-size:10pt; line-height:1.5; color:#555; }}
+.qcard .qexamples {{ margin-top:10px; font-size:9pt; color:#666; }}
+.story-card {{ background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 22px 24px; margin: 14px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }}
+.story-card.danger {{ border-left: 5px solid #c0392b; }}
+.story-card.warn {{ border-left: 5px solid #e67e22; }}
+.story-card.info {{ border-left: 5px solid #2980b9; }}
+.story-card h3 {{ font-size:15pt; margin:0 0 10px; color:#1a1a1a; }}
+.story-card p {{ font-size:11pt; line-height:1.55; color:#444; margin:6px 0; }}
+.bigbar {{ background:#eee; height:32px; border-radius:4px; overflow:hidden; display:flex; }}
+.bigbar .seg {{ display:flex; align-items:center; padding:0 12px; color:white; font-weight:700; font-size:10pt; }}
 </style>
+
 </head>
 <body class="wide-page">
 <nav class="nav-bar">
@@ -151,375 +124,329 @@ tr:nth-child(even) td { background: #fafafa; }
   <a href="05_metodologia.html" >Metodología</a>
 </nav>
 <h1 class="agg-h1">Resumen Ejecutivo</h1>
-<p class="agg-subtitle">Lo que el ciudadano, periodista, economista o político necesita saber en 60 segundos sobre las 56 empresas públicas bolivianas. Datos: estados financieros 2025 + SIGEP.</p>
+<p class="agg-subtitle">Lo que el ciudadano, periodista, economista o político necesita saber en 60-90 segundos sobre las 56 empresas públicas bolivianas. Datos: estados financieros 2025 + SIGEP.</p>
 
-<!-- ============================================================
-     STORY 1 — La señal más fuerte: solo 4 de 56 están sanas
-============================================================ -->
-<div class="story-card danger">
-<div class="stat-line">
-  <div class="big-stat">4</div>
-  <div class="of-suffix">de 56 empresas están realmente sanas</div>
-</div>
-<div class="headline">El 93% del sistema de empresas públicas necesita algún tipo de intervención</div>
-<div class="body-text">
-Solo <b>4 de las 56 empresas</b> (7%) operan sin problemas financieros serios. Las otras <b style="color:#c0392b;">52 están deterioradas, en quiebra técnica, defunctas o sin publicar estados</b>. Esto no es un caso aislado de una empresa mal manejada — es un patrón sistémico.
-</div>
+<!-- BLOQUE 1: Headline shock -->
+<div style="background:linear-gradient(135deg, #c0392b 0%, #7d1f15 100%); color:white; padding:28px 30px; border-radius:10px; margin:18px 0 24px;">
+<div style="font-size:11pt; opacity:0.9; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">DIAGNÓSTICO EN UNA LÍNEA</div>
+<div style="font-size:26pt; font-weight:800; line-height:1.2;">Solo <span style="color:#fff;">4 de 56</span> empresas públicas están sanas. El <b style="color:#ffcdd2;">93% del sistema necesita intervención.</b></div>
+<div style="font-size:12pt; opacity:0.92; margin-top:10px; line-height:1.5;">Esto NO es un caso aislado — es un patrón sistémico que afecta los precios que pagás, los impuestos que aportás, y la plata que el Estado podría haber invertido en escuelas y hospitales.</div>
 </div>
 
-<!-- ============================================================
-     LAS 9 PREGUNTAS — VISIÓN AGREGADA DEL SISTEMA
-============================================================ -->
-<h2 class="ej-section-title">🚨 Las 9 preguntas — radiografía del sistema en 2025</h2>
-<p style="margin:0 0 14px; font-size:11pt; color:#555;">Las mismas 9 preguntas que aparecen en el Resumen General, pero acá <b>sumadas a nivel de las 56 empresas</b> — para que se entienda en una sola lectura el estado del sistema.</p>
+<!-- BLOQUE 2: Las 9 preguntas -->
+<h2 class="ej-section-title">🚨 Las 9 preguntas — radiografía agregada del sistema (cifras 2025)</h2>
+<p style="margin:0 0 14px; font-size:11pt; color:#555;">Las mismas 9 preguntas del Resumen General, sumadas a nivel del sistema. Cada empresa puede aparecer en varias categorías a la vez.</p>
 
 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 14px; margin-bottom:24px;">
 
-<!-- Q1: Ventas y cobranza -->
-<div style="background:#fdf2f2; border-left:5px solid #c0392b; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q1 · Ventas y cobranza</div>
-  <div style="font-size:36pt; font-weight:900; color:#c0392b; line-height:1; margin:6px 0;">551</div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">días promedio sin cobrar (<b>18 meses</b>)</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">El sistema acumula <b>Bs, 63,60 mil millones (<b>~USD 6,56 mil M</b>)</b> en facturas sin cobrar. Es <b>más que el total de ventas anuales</b>. La mayor parte es deuda del propio Tesoro a sus empresas que nunca paga a tiempo.</div>
-  <div style="margin-top:8px; font-size:9.5pt; color:#666;">📍 <b>20 empresas</b> con AR ≥50% de sus ventas anuales</div>
+<div class="qcard danger">
+  <div class="qlabel">Q1 · Ventas — ¿venden más o menos cada año?</div>
+  <div class="qbig">13<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">venden MENOS cada año (caída >5% entre 2023 y 2025)</div>
+  <div class="qbody">El sistema completo vendió <b>Bs, 45,99 mil millones en 2023</b> y <b>Bs, 42,12 mil millones en 2025</b> = <b style="color:#c0392b;">-8.4%</b> en 3 años. Y eso es <b>antes de inflación</b> — el deterioro real es peor. Otras 24 venden más, 2 estables, 17 no facturan operativamente.</div>
+  <div class="qexamples">📉 Las que más cayeron: <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">EBC (-90%)</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">QUIPUS (-53%)</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">EMAVIAS (-36%)</span></div>
 </div>
 
-<!-- Q2: Ganan plata real? -->
-<div style="background:#fdf2f2; border-left:5px solid #c0392b; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q2 · ¿Ganan plata real?</div>
-  <div style="font-size:36pt; font-weight:900; color:#c0392b; line-height:1; margin:6px 0;">17<span style="font-size:14pt; color:#888;"> de 56</span></div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">pierden plata en su operación real</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">Sus costos operativos son <b>mayores</b> que sus ingresos por ventas. Adicionalmente, <b>14 gastan más que lo que venden</b> — la diferencia la cubre el Tesoro o se acumula como deuda con proveedores.</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">📍 <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">YPFB</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">COMIBOL</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">BOA</span></div>
+<div class="qcard danger">
+  <div class="qlabel">Q1b · Cobranzas — ¿les pagan a tiempo?</div>
+  <div class="qbig">18<span style="font-size:14pt; color:#888;"> meses</span></div>
+  <div class="qtitle">promedio sin cobrar — un año y medio de ventas pendientes</div>
+  <div class="qbody"><i>Cuentas por cobrar = ventas que ya hicieron pero por las que todavía no les pagaron.</i> En el sistema acumulan <b>Bs, 63,60 mil millones (<b>~USD 6,56 mil M</b>)</b> sin cobrar — más que un año entero de ventas. La mayor parte es deuda del propio Tesoro a sus empresas. <b>20</b> empresas tienen pendiente más del 50% de sus ventas anuales.</div>
 </div>
 
-<!-- Q3: Solvencia -->
-<div style="background:#fdf2f2; border-left:5px solid #c0392b; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q3 · Solvencia legal</div>
-  <div style="font-size:36pt; font-weight:900; color:#c0392b; line-height:1; margin:6px 0;">41%</div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">del capital del Estado ya quemado en pérdidas</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">Bs 17.1 mil M (<b>~USD 1,76 mil M</b>) de los Bs 41.7 mil M que el Tesoro puso. <b>17 empresas están en quiebra técnica</b> bajo el Artículo 354 del Código de Comercio (perdieron más del 50% de su capital).</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">📍 <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">COMIBOL</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">BOA</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">VINTO - NAL</span></div>
+<div class="qcard danger">
+  <div class="qlabel">Q2 · ¿Lo que ganan se convierte en plata?</div>
+  <div class="qbig">17<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">pierden plata en su operación real</div>
+  <div class="qbody">Sus costos operativos son <b>mayores</b> que sus ventas. La ganancia operativa AGREGADA del sistema fue de <b>Bs, -12,69 mil millones</b> en 2023 y <b style="color:#c0392b;">Bs, -18,60 mil millones</b> en 2025 — empeoró en <b>Bs, -5,91 mil millones</b>. Adicionalmente, <b>14 gastan más de lo que venden</b>.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">YPFB</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">COMIBOL</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">BOA</span></div>
 </div>
 
-<!-- Q4: Dependencia del Estado -->
-<div style="background:#fdf6f0; border-left:5px solid #e67e22; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q4 · Dependencia del Estado</div>
-  <div style="font-size:36pt; font-weight:900; color:#e67e22; line-height:1; margin:6px 0;">7<span style="font-size:14pt; color:#888;"> de 56</span></div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">no pueden vivir sin transferencias del Estado</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">Pierden plata operativamente Y reciben apoyo del Tesoro — si el Estado les corta la transferencia, no pueden pagar sueldos ni insumos. <b>6 empresas</b> reciben más del 25% de sus ventas como subsidio directo.</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">📍 Top: <b>YPFB · EMAPA · COMIBOL · VINTO · COFADENA</b></div>
+<div class="qcard danger">
+  <div class="qlabel">Q3 · ¿Están legalmente solventes?</div>
+  <div class="qbig">41%</div>
+  <div class="qtitle">del capital del Estado ya quemado en pérdidas</div>
+  <div class="qbody">El Tesoro puso <b>Bs, 41,65 mil millones (<b>~USD 4,29 mil M</b>)</b> en estas empresas a lo largo de los años. Las pérdidas acumuladas ya se comieron <b style="color:#c0392b;">Bs, 17,07 mil millones (<b>~USD 1,76 mil M</b>)</b>. <b>17 empresas están en quiebra técnica</b> bajo el Artículo 354 del Código de Comercio.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">COMIBOL</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">BOA</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">VINTO - NAL</span></div>
 </div>
 
-<!-- Q5: Costo al Estado -->
-<div style="background:#fdf6f0; border-left:5px solid #e67e22; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q5 · Cuánto cuesta al Estado</div>
-  <div style="font-size:32pt; font-weight:900; color:#e67e22; line-height:1; margin:6px 0;">Bs, 16,84 mil millones</div>
-  <div style="font-size:13pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;"><b>~USD 1,74 mil M</b> transferidos en 2025</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">= <b>Bs 1.347 (~USD 139) por cada uno</b> de los 12,5 M de bolivianos. El apoyo creció <b>18%</b> desde 2023.</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">⚠️ <b>NO incluye</b> subsidio cambiario BCB (todo incluido sería ~USD 2,9-3,3 mil M)</div>
+<div class="qcard warn">
+  <div class="qlabel">Q4 · ¿Dependen del Estado?</div>
+  <div class="qbig">7<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">quebrarían sin transferencias del Tesoro</div>
+  <div class="qbody">Pierden plata operativamente <b>Y</b> reciben apoyo del Estado para no quebrar. <b>Adicionalmente reciben subsidios indirectos</b>: subsidio cambiario BCB (USD oficial Bs 6,96 vs paralelo Bs 9-19), garantías soberanas a deuda, transferencias intra-grupo. <b>Estas son las MISMAS que más gastan del sistema</b> (ver "el escándalo" más abajo).</div>
 </div>
 
-<!-- Q6: ROIC / destrucción de valor -->
-<div style="background:#fdf2f2; border-left:5px solid #c0392b; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q6 · ¿Rinde la plata pública?</div>
-  <div style="font-size:36pt; font-weight:900; color:#c0392b; line-height:1; margin:6px 0;">31<span style="font-size:14pt; color:#888;"> de 56</span></div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">destruyen valor con la plata pública</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">Rinden por debajo de cero — por cada Bs 100 que el Estado invierte, sale menos. Esta es la razón #1 por la que <b>no se pueden privatizar</b>: ningún inversionista compra una empresa que pierde plata.</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">📍 <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">YPFB</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">COMIBOL</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">VINTO - NAL</span></div>
+<div class="qcard warn">
+  <div class="qlabel">Q5 · ¿Cuánto le cuesta al Estado?</div>
+  <div class="qbig">~USD 3,41 mil M</div>
+  <div class="qtitle">apoyo "todo incluido" 2025</div>
+  <div class="qbody">
+  <b>Apoyo SIGEP directo</b>: Bs, 16,84 mil millones (<b>~USD 1,74 mil M</b>)<br>
+  <b>+ Subsidio cambiario BCB</b>: ~Bs, 16,20 mil millones (<b>~USD 1,67 mil M</b>)<br>
+  <b>= TOTAL</b>: ~Bs, 33,04 mil millones (<b>~USD 3,41 mil M</b>)<br>
+  = <b>Bs 2.643 (<b>~USD 272</b>) por cada boliviano</b>
+  </div>
 </div>
 
-<!-- Q7: Productividad -->
-<div style="background:#fdf6f0; border-left:5px solid #e67e22; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q7 · Productividad operacional</div>
-  <div style="font-size:36pt; font-weight:900; color:#e67e22; line-height:1; margin:6px 0;">5<span style="font-size:14pt; color:#888;"> de 56</span></div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">extraen renta: gastan MÁS, venden MENOS</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">El gasto operativo subió mientras las ventas comerciales cayeron. Patrón clásico de empresa que aprovecha mercado cautivo sin entregar más servicio. Otras <b>1</b> tienen gasto desbordado (sube más que la inflación sin que las ventas acompañen).</div>
+<div class="qcard danger">
+  <div class="qlabel">Q6 · ¿Rinde la plata pública?</div>
+  <div class="qbig">31<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">destruyen valor con la plata pública</div>
+  <div class="qbody">Rinden por debajo de cero — por cada Bs 100 que el Estado invierte, sale menos. <b>Esta es la razón #1 por la que NO se pueden privatizar</b>: ningún inversionista compra una empresa que pierde plata.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">YPFB</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">COMIBOL</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">VINTO - NAL</span></div>
 </div>
 
-<!-- Q8: LIQUIDEZ -->
-<div style="background:#fdf2f2; border-left:5px solid #c0392b; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q8 · Liquidez (cuánto sobreviven)</div>
-  <div style="font-size:36pt; font-weight:900; color:#c0392b; line-height:1; margin:6px 0;">8<span style="font-size:14pt; color:#888;"> de 56</span></div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">se quedan sin plata en menos de 12 meses</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">Al ritmo actual de quema de caja: <b style="color:#c0392b;">2 con liquidez crítica (≤3 meses)</b> — quiebra técnica inminente sin rescate. <b>6 con liquidez frágil (3-12 meses)</b>. Otras 6 en vigilancia (12-36 meses).</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">📍 <b>YACANA</b> (2m) <b>ABE.</b> (2m) <b>BTV</b> (4m)</div>
+<div class="qcard warn">
+  <div class="qlabel">Q7 · Productividad — ¿costos suben más que ventas?</div>
+  <div class="qbig">25<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">tienen costos subiendo entre 2023 y 2025</div>
+  <div class="qbody">De estas, <b>5 están en extracción de renta extrema</b>: sus costos suben mientras sus ventas caen. Eso es el patrón clásico de empresa cautiva que aprovecha falta de competencia sin entregar más servicio.</div>
 </div>
 
-<!-- Q9: Banderas SIGEP -->
-<div style="background:#fdf6f0; border-left:5px solid #e67e22; border-radius:6px; padding:18px 20px;">
-  <div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Q9 · Patrón de gasto irregular</div>
-  <div style="font-size:36pt; font-weight:900; color:#e67e22; line-height:1; margin:6px 0;">282</div>
-  <div style="font-size:12pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;">banderas rojas en gasto SIGEP del sistema</div>
-  <div style="font-size:10pt; line-height:1.5; color:#555;">Distribuidas en <b>42 de las 56 empresas</b>. <b>24 acumulan 6 o más banderas</b> cada una: aumentos sospechosos +100%, categorías "Otros" desproporcionadas, deudas crecientes con proveedores, gastos nuevos sin justificación.</div>
-  <div style="margin-top:8px; font-size:9pt; color:#666;">📍 <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">EMAPA</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">ENDE</span> <span style="display:inline-block; padding:2px 7px; background:#fff3e0; border-radius:3px; font-size:9pt; margin-right:3px;">YLB</span></div>
+<div class="qcard danger">
+  <div class="qlabel">Q8 · Liquidez — ¿cuánto sobreviven?</div>
+  <div class="qbig">8<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">se quedan sin plata en menos de 12 meses</div>
+  <div class="qbody"><b style="color:#c0392b;">2 con liquidez crítica</b> (≤3 meses) — quiebra técnica inminente sin rescate. <b>6 con liquidez frágil</b> (3-12 meses).</div>
+  <div class="qexamples">📍 <b>YACANA</b> (2m) <b>ABE.</b> (2m) <b>BTV</b> (4m)</div>
+</div>
+
+<div class="qcard warn">
+  <div class="qlabel">Q9 · Patrón de gasto irregular</div>
+  <div class="qbig">282</div>
+  <div class="qtitle">banderas rojas en gasto SIGEP del sistema</div>
+  <div class="qbody">Distribuidas en <b>42 de las 56 empresas</b>. <b>24 acumulan 6 o más banderas cada una</b>: aumentos sospechosos, categorías "Otros" desproporcionadas, deudas con proveedores creciendo, gastos nuevos sin justificación clara.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">EMAPA</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">ENDE</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">YLB</span></div>
 </div>
 
 </div>
 
-<!-- ============================================================
-     SECCIÓN 2026 — EL COSTO DEL NO-ACTUAR + URGENCIA POLÍTICA
-============================================================ -->
-<div style="background:linear-gradient(135deg, #8e44ad 0%, #5e3370 100%); color:white; padding:24px 28px; border-radius:10px; margin:24px 0;">
-<div style="font-size:9.5pt; opacity:0.85; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">⏳ MIENTRAS SE DISCUTE, EL COSTO SUBE</div>
-<div style="font-size:18pt; font-weight:700; line-height:1.3; margin-bottom:14px;">El gobierno de Paz asumió el 8-nov-2025 prometiendo reformar las empresas públicas. <span style="color:#fff;">Sin acción concreta en 2026, el costo seguirá subiendo <b style="color:#ffcdd2;">~USD 156,0 M más este año</b>.</span></div>
-<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-top:14px;">
-<div style="background:rgba(255,255,255,0.10); padding:14px 16px; border-radius:6px;">
-  <div style="font-size:9pt; opacity:0.8; text-transform:uppercase; letter-spacing:0.5px;">2023 (gobierno Arce)</div>
-  <div style="font-size:22pt; font-weight:800; margin-top:4px;">Bs, 14,27 mil millones</div>
-  <div style="font-size:11pt; font-weight:600; opacity:0.9;"><b>~USD 1,47 mil M</b></div>
-</div>
-<div style="background:rgba(255,255,255,0.10); padding:14px 16px; border-radius:6px;">
-  <div style="font-size:9pt; opacity:0.8; text-transform:uppercase; letter-spacing:0.5px;">2025 (último año Arce)</div>
-  <div style="font-size:22pt; font-weight:800; margin-top:4px;">Bs, 16,84 mil millones</div>
-  <div style="font-size:11pt; font-weight:600; opacity:0.9;"><b>~USD 1,74 mil M</b> <span style="color:#ffcdd2;">(+18% vs 2023)</span></div>
-</div>
-<div style="background:rgba(255,255,255,0.20); border:2px solid #ffcdd2; padding:14px 16px; border-radius:6px;">
-  <div style="font-size:9pt; opacity:0.95; text-transform:uppercase; letter-spacing:0.5px;">2026 PROYECCIÓN (gobierno Paz)</div>
-  <div style="font-size:22pt; font-weight:800; margin-top:4px; color:#ffcdd2;">Bs, 18,35 mil millones</div>
-  <div style="font-size:11pt; font-weight:600;"><b>~USD 1,89 mil M</b> <span style="color:#ffcdd2;">(+~USD 156,0 M)</span></div>
-</div>
-</div>
-<div style="margin-top:16px; padding:12px 16px; background:rgba(255,255,255,0.10); border-radius:6px; font-size:10.5pt; line-height:1.55;">
-<b>📌 Contexto:</b> el DS 5503 (17-dic-2025) eliminó el subsidio universal a combustibles. El Art. 7 del PGE Reformulado abril 2026 creó un régimen excepcional de 30 días vía OFEP para reorganizar/disolver empresas del nivel central. <b>Pero los procesos concretos aún no se ejecutaron</b> — mientras tanto, el costo sigue subiendo. Cada mes de retraso son ~~USD 13,0 M adicionales que se siguen quemando.
-</div>
+<!-- BLOQUE 3: Maquillaje contable -->
+<h2 class="ej-section-title">🎭 Maquillaje contable — lo que esconden los estados financieros</h2>
+<p style="margin:0 0 14px; font-size:11pt; color:#555;">Más allá de las pérdidas visibles, hay tres patrones de maquillaje contable detectados en el sistema:</p>
+
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px;">
+
+<div class="qcard danger">
+  <div class="qlabel">Maquillaje #1</div>
+  <div class="qbig">14<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">Ganancia en papel pero caja en negativo</div>
+  <div class="qbody">Reportan utilidad en sus estados pero el cash neto real es negativo. La "ganancia" está en cuentas por cobrar al Tesoro que nunca paga.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">YLB</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">ABE.</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">EBIH</span></div>
 </div>
 
-<!-- ============================================================
-     STORY 2 — Sin el Estado, X empresas quiebran
-============================================================ -->
-<div class="story-card warn">
-<div class="stat-line">
-  <div class="big-stat orange">7</div>
-  <div class="of-suffix">empresas estarían en bancarrota sin las transferencias del Estado</div>
-</div>
-<div class="headline">Estas empresas pierden plata operativamente y sobreviven solo porque el Estado las financia</div>
-<div class="body-text">
-Sus costos operativos son <b>mayores que sus ventas reales</b> — si el Tesoro deja de transferirles plata, no pueden pagar sueldos, no pueden comprar insumos, no pueden seguir operando. Las 5 más grandes:
-</div>
-<table style="width:100%; margin-top:14px; font-size:10.5pt; border-collapse:collapse;">
-<thead><tr style="background:#fafafa;"><th style="padding:8px 10px; text-align:left;">Empresa</th><th style="padding:8px 10px; text-align:right;">Pierden en operación 2025</th><th style="padding:8px 10px; text-align:right;">Lo que el Estado les dio en 2025</th></tr></thead>
-<tbody><tr><td style="padding:7px 10px;"><b>YPFB</b></td><td style="padding:7px 10px; text-align:right; color:#c0392b;">Bs, -16,40 mil millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD -1,69 mil M</b></span></td><td style="padding:7px 10px; text-align:right;">Bs, 15,25 mil millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD 1,57 mil M</b></span></td></tr><tr><td style="padding:7px 10px;"><b>EMAPA</b></td><td style="padding:7px 10px; text-align:right; color:#c0392b;">Bs, -1,07 mil millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD -110,3 M</b></span></td><td style="padding:7px 10px; text-align:right;">Bs, 997 millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD 102,7 M</b></span></td></tr><tr><td style="padding:7px 10px;"><b>VINTO - NAL</b></td><td style="padding:7px 10px; text-align:right; color:#c0392b;">Bs, -100 millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD -10,3 M</b></span></td><td style="padding:7px 10px; text-align:right;">Bs, 62 millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD 6,3 M</b></span></td></tr><tr><td style="padding:7px 10px;"><b>COMIBOL</b></td><td style="padding:7px 10px; text-align:right; color:#c0392b;">Bs, -2,07 mil millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD -213,6 M</b></span></td><td style="padding:7px 10px; text-align:right;">Bs, 24 millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD 2,5 M</b></span></td></tr><tr><td style="padding:7px 10px;"><b>COFADENA</b></td><td style="padding:7px 10px; text-align:right; color:#c0392b;">Bs, -12 millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD -1,3 M</b></span></td><td style="padding:7px 10px; text-align:right;">Bs, 10 millones<br><span style="font-size:8.5pt; color:#888;"><b>~USD 1,0 M</b></span></td></tr></tbody>
-</table>
-<div class="examples"><b>Implicación política:</b> el debate "cerrar o no cerrar" estas empresas no es solo financiero — afecta servicios esenciales (combustibles, alimentos, minería estratégica). Pero el costo de mantenerlas operando es muy alto y crece cada año.</div>
+<div class="qcard danger">
+  <div class="qlabel">Maquillaje #2</div>
+  <div class="qbig">10<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">Escondiendo pérdidas en capital de trabajo</div>
+  <div class="qbody">Brecha entre ganancia operativa reportada y cash real >25% de ventas. Están financiando pérdidas con deuda creciente a proveedores que tampoco pagan, o con cobranza inflada en libros.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">ENDE</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">SEMAPA</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">ABE.</span></div>
 </div>
 
-<!-- ============================================================
-     STORY 3 — Capital del Estado quemado
-============================================================ -->
-<div class="story-card danger">
-<div class="stat-line">
-  <div class="big-stat">41%</div>
-  <div class="of-suffix">del capital que el Estado puso en estas empresas ya se quemó en pérdidas</div>
-</div>
-<div class="headline">De cada Bs 100 que el Tesoro invirtió a lo largo de los años, ya se perdieron Bs 41</div>
-<div class="body-text">
-El Estado puso un total acumulado de <b>Bs, 41,65 mil millones (<b>~USD 4,29 mil M</b>)</b> como capital para fundar y capitalizar estas 56 empresas. Hoy, las pérdidas acumuladas suman <b style="color:#c0392b;">Bs, 17,07 mil millones (<b>~USD 1,76 mil M</b>)</b>. Eso es plata real ya perdida — no la "vamos a recuperar después", se evaporó en años de operaciones deficitarias.
-</div>
-<div style="margin-top:14px;">
-<div style="background:#eee; height:32px; border-radius:4px; overflow:hidden; display:flex;">
-<div style="background:#c0392b; height:100%; width:41%; display:flex; align-items:center; padding:0 12px; color:white; font-weight:700;">Bs 17.1 mil M quemados (41%)</div>
-<div style="background:#27ae60; height:100%; flex:1; display:flex; align-items:center; padding:0 12px; color:white; font-weight:700;">Bs 24.6 mil M restantes</div>
-</div>
-</div>
+<div class="qcard danger">
+  <div class="qlabel">Maquillaje #3</div>
+  <div class="qbig">7<span style="font-size:14pt; color:#888;"> de 56</span></div>
+  <div class="qtitle">Movimiento patrimonial inexplicado</div>
+  <div class="qbody">El patrimonio cambió en magnitudes que NO se explican por el resultado del año. Requiere verificar notas a estados financieros — posible aporte/ajuste no divulgado en el cuerpo principal.</div>
+  <div class="qexamples">📍 <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">BOA</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">EBA</span> <span style="display:inline-block; padding:2px 8px; background:#fff3e0; color:#1a1a1a; border-radius:3px; font-size:9pt; margin-right:3px; font-weight:600;">EBIH</span></div>
 </div>
 
-<!-- ============================================================
-     STORY 4 — Por qué no se pueden privatizar
-============================================================ -->
-<div class="story-card info">
-<div class="stat-line">
-  <div class="big-stat" style="color:#2980b9;">31</div>
-  <div class="of-suffix">empresas destruyen valor — un comprador privado NO las quiere</div>
-</div>
-<div class="headline">¿Por qué simplemente no las privatizan? Porque no hay quién las compre</div>
-<div class="body-text">
-Para vender una empresa, alguien tiene que estar dispuesto a comprarla. Las <b>31 empresas que destruyen valor</b> rinden por debajo de cero — pierden plata. Ningún inversionista privado paga por algo que le va a costar plata operar. Casos extremos como <b>YPFB</b> <b>COMIBOL</b> <b>VINTO - NAL</b> tendrían que <b>regalarse</b> (o incluso pagarle al comprador para que se las lleve y asuma las pérdidas).
-<br><br>
-Las únicas privatizables realistas son las pocas con valor económico positivo y modelo de negocio compatible con operador privado — muchísimo menos que las 31 en mala situación.
-</div>
 </div>
 
-<!-- ============================================================
-     STORY 5 — Por qué no llega inversión a Bolivia
-============================================================ -->
-<div class="story-card info">
-<div class="headline" style="margin-bottom:14px;">📉 ¿Por qué no llega inversión extranjera a Bolivia? Esta es parte de la respuesta</div>
-<div class="body-text">
-Los inversionistas internacionales miran señales antes de poner plata en un país. El Estado boliviano les muestra:
-<ul style="margin:10px 0 0 22px; padding:0; line-height:1.7;">
-<li><b>87% del gasto público</b> (Bs 56.7 mil M, <b>~USD 5,85 mil M</b>) está concentrado en 8 empresas estratégicas (YPFB, ENDE, COMIBOL...) — varias destruyen valor</li>
-<li><b>Tipo de cambio fijo Bs 6,96/USD</b> desde 2011, pero el paralelo llegó a Bs 19-20 en 2025 — señal de escasez crónica de divisas</li>
-<li><b>41% del capital público ya quemado</b> sin un plan público claro de recuperación</li>
-<li><b>31 de 56 empresas estatales</b> rindiendo por debajo del costo de capital — significa que el Estado mismo NO confía operativamente en su propia inversión</li>
-</ul>
-</div>
-</div>
+<!-- BLOQUE 4: EL ESCÁNDALO -->
+<h2 class="ej-section-title">💥 El escándalo: las gigantes son las MISMAS que más gastan Y las que quebrarían sin el Estado</h2>
+<p style="margin:0 0 14px; font-size:11.5pt; line-height:1.55; color:#1a1a1a;">Las empresas que pierden más plata operativamente y dependen del Estado para vivir <b>NO son las pequeñas</b> — son los gigantes del sistema. Las 5 empresas listadas abajo concentran <b>~80% del gasto público de las 56 y casi todo el costo fiscal real</b>.</p>
 
-<!-- ============================================================
-     STORY 6 — Cuánto cuesta + qué se podría hacer con esa plata
-============================================================ -->
-<h2 class="ej-section-title">💰 ¿Cuánto le cuesta esto al ciudadano boliviano?</h2>
-
-<div class="story-row">
-<div class="story-card danger" style="margin:0;">
-<div class="stat-line">
-  <div class="big-stat">Bs, 16,84 mil millones</div>
-</div>
-<div style="font-size:13pt; font-weight:700; color:#c0392b; margin-bottom:4px;"><b>~USD 1,74 mil M</b></div>
-<div class="headline" style="font-size:13pt;">Lo que el Estado les transfirió en 2025</div>
-<div class="body-text">
-= <b>Bs 1.347 (<b>~USD 139</b>) por cada boliviano</b>, niño, anciano, persona ocupada o desempleada, vivan en La Paz o en Pando. El apoyo creció <b>18%</b> desde 2023.
-<br><br>
-<b>Proyección 2026 (si no se actúa)</b>: ~Bs, 17,68 mil millones ≈ <b>~USD 1,82 mil M</b>.
-</div>
-</div>
-
-<div class="story-card warn" style="margin:0;">
-<div class="stat-line">
-  <div class="big-stat orange">Bs, 2,12 mil millones</div>
-</div>
-<div style="font-size:13pt; font-weight:700; color:#e67e22; margin-bottom:4px;"><b>~USD 218,3 M</b></div>
-<div class="headline" style="font-size:13pt;">Lo que se ahorraría en 2026 cerrando las 25 empresas marcadas</div>
-<div class="body-text">
-Esto representa <b>solo el 2.3% del gasto total</b>. Lo damos en perspectiva abajo — con esta plata se hubiera podido construir mucha infraestructura social.
-</div>
-</div>
-</div>
-
-<h3 style="font-size:14pt; margin:24px 0 8px; color:#1a1a1a;">📚 Con los <b>~USD 218,3 M</b> que se ahorrarían cerrando esas 25 empresas, en Bolivia se podrían construir:</h3>
-<div class="opp-grid">
-<div class="opp-card"><div class="icon">🏫</div><div class="num">211</div><div class="what">escuelas secundarias nuevas <br><span style="font-size:9pt; color:#888;">(~Bs 4 M c/u)</span></div></div>
-<div class="opp-card"><div class="icon">🏥</div><div class="num">14</div><div class="what">hospitales de segundo nivel <br><span style="font-size:9pt; color:#888;">(~Bs 50 M c/u)</span></div></div>
-<div class="opp-card"><div class="icon">🛣️</div><div class="num">176</div><div class="what">km de carretera asfaltada <br><span style="font-size:9pt; color:#888;">(~Bs 7 M/km)</span></div></div>
-<div class="opp-card"><div class="icon">🏠</div><div class="num">8,471</div><div class="what">viviendas sociales <br><span style="font-size:9pt; color:#888;">(~Bs 100 mil c/u)</span></div></div>
-<div class="opp-card"><div class="icon">🎓</div><div class="num">84,717</div><div class="what">becas universitarias anuales <br><span style="font-size:9pt; color:#888;">(~Bs 15 mil c/u)</span></div></div>
-</div>
-<p style="margin:14px 0 0; font-size:10pt; color:#666; font-style:italic;">Costos de referencia aproximados basados en presupuestos públicos bolivianos recientes. No se pueden hacer todas simultáneamente — son alternativas excluyentes que ilustran la magnitud del costo de oportunidad.</p>
-
-<h3 style="font-size:14pt; margin:24px 0 8px; color:#1a1a1a;">📚 Con los <b>~USD 1,74 mil M</b> que el Estado transfirió en 2025 a las 56 empresas se hubieran podido construir:</h3>
-<div class="opp-grid">
-<div class="opp-card"><div class="icon">🏫</div><div class="num">1,683</div><div class="what">escuelas secundarias</div></div>
-<div class="opp-card"><div class="icon">🏥</div><div class="num">112</div><div class="what">hospitales de segundo nivel</div></div>
-<div class="opp-card"><div class="icon">🏠</div><div class="num">67,343</div><div class="what">viviendas sociales</div></div>
-</div>
-
-<div style="background:#fff8e1; border-left:4px solid #f39c12; padding:10px 14px; margin:14px 0; font-size:10pt; line-height:1.5;">
-⚠️ Esta cifra (Bs 16.8 mil M) <b>NO incluye</b> el subsidio cambiario implícito cuando el BCB entrega USD oficial a Bs 6,96 mientras el paralelo está en Bs 9,7. Costo "todo incluido" 2025: <b>Bs 28-32 mil M (<b>USD 2,9-3,3 mil M</b>)</b>. Ver Metodología sección 24.
-</div>
-
-<!-- ============================================================
-     SECCIÓN 3 — LA PARADOJA: cerrar las chicas NO resuelve el problema
-============================================================ -->
-<h2 class="ej-section-title">⚡ El hallazgo clave: cerrar las pequeñas no resuelve el problema fiscal</h2>
-<p style="margin:0 0 14px; font-size:11.5pt; line-height:1.6; color:#1a1a1a;">
-El reporte recomienda <b style="color:#c0392b;">cerrar, liquidar o privatizar 25 de las 56 empresas</b>. Pero esas 25 empresas solo representan <b>2.3% del gasto total</b>. Las que verdaderamente mueven el resultado fiscal son las 8 constitucionales (YPFB, ENDE, COMIBOL, YLB, MUTUN, MISICUNI, VINTO, EBIH) — concentran <b>87% del gasto</b> pero NO se pueden cerrar (la CPE Art. 348-355 las protege).
-</p>
-
-<div style="background:#fafafa; border:1px solid #ddd; padding:18px 22px; border-radius:6px; margin:14px 0;">
-<div style="font-size:11pt; font-weight:700; margin-bottom:12px;">¿Dónde está la plata del gasto público de las 56? <span style="font-weight:400; font-size:10pt; color:#666;">(Total: Bs, 65,02 mil millones ≈ ~USD 6,70 mil M)</span></div>
-
-<div class="ej-bar-row">
-  <div><b>🛡️ Constitucionales</b><br><span style="font-size:9pt; color:#666;">8 empresas · NO se pueden cerrar</span></div>
-  <div class="ej-bar-track"><div class="ej-bar-fill" style="width:87%; background:#c0392b;">87%</div></div>
-  <div style="text-align:right;"><b>Bs, 56,73 mil millones</b><br><span style="font-size:9pt; color:#888;">~USD 5,85 mil M</span></div>
-</div>
-
-<div class="ej-bar-row">
-  <div><b>🏛️ Funcionales esenciales</b><br><span style="font-size:9pt; color:#666;">9 empresas · servicio único difícil de cerrar</span></div>
-  <div class="ej-bar-track"><div class="ej-bar-fill" style="width:10%; background:#e67e22;">10%</div></div>
-  <div style="text-align:right;"><b>Bs, 6,40 mil millones</b><br><span style="font-size:9pt; color:#888;">~USD 659,9 M</span></div>
-</div>
-
-<div class="ej-bar-row">
-  <div><b>📊 Resto (cerrable + viable)</b><br><span style="font-size:9pt; color:#666;">39 empresas · comerciales, culturales, municipales</span></div>
-  <div class="ej-bar-track"><div class="ej-bar-fill" style="width:3%; background:#27ae60;">3%</div></div>
-  <div style="text-align:right;"><b>Bs, 1,89 mil millones</b><br><span style="font-size:9pt; color:#888;">~USD 194,5 M</span></div>
-</div>
-
-<div style="margin-top:18px; padding:14px 16px; background:#fdf2f2; border-left:4px solid #c0392b; border-radius:4px;">
-<p style="margin:0; font-size:10.5pt; line-height:1.6;"><b style="color:#c0392b;">💡 Implicación política:</b> aún cerrando las 25 empresas marcadas como "CERRAR / LIQUIDAR / PRIVATIZAR" se ahorra <b>~Bs, 1,46 mil millones (~USD 151,0 M) = 2.3% del gasto total</b>. <b>El otro 98% sigue intocable hasta que el Estado decida REESTRUCTURAR PROFUNDA a las gigantes</b> (YPFB, ENDE, COMIBOL, EMAPA, BOA). El problema fiscal no se resuelve cerrando empresas chicas — se resuelve reformando las grandes.</p>
-</div>
-</div>
-
-<!-- ============================================================
-     SECCIÓN 4 — Las 10 más gastadoras
-============================================================ -->
-<h2 class="ej-section-title">🏆 Las 10 empresas que más gastan en 2025 — concentran el 97% del gasto público</h2>
-<p style="margin:0 0 10px; font-size:10.5pt; color:#555;">Estas 10 son las que mueven el resultado. Cerrar las otras 46 ahorra menos del 4% del gasto agregado.</p>
-<table class="ej-table">
-<thead><tr><th>#</th><th>Empresa</th><th>Función</th><th>Salud</th><th style="text-align:right;">Gasto 2025 (Bs · USD · % del total)</th><th>Recomendación</th></tr></thead>
-<tbody><tr><td style="padding:8px 10px; border-top:1px solid #eee;">1</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>YPFB</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 46,93 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 4,84 mil M</b> · 72.2% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA Y RECAPITALIZAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">2</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>COMIBOL</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 5,07 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 522,2 M</b> · 7.8% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA Y RECAPITALIZAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">3</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>BOA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 3,18 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 327,6 M</b> · 4.9% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">4</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>VINTO - NAL</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 2,73 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 281,8 M</b> · 4.2% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA Y RECAPITALIZAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">5</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>EMAPA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 1,99 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 204,8 M</b> · 3.1% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">6</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>ENDE</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🟠 Deteriorada — grave</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 1,23 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 126,8 M</b> · 1.9% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip reestructurar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">7</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>YLB</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (Art. 354)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 545 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 56,2 M</b> · 0.8% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">8</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>EBA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏭 Comercial</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 425 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 43,8 M</b> · 0.7% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip cerrar" style="font-size:8.5pt;">CERRAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">9</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>Mi teleférico</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🟠 Deteriorada — grave</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 403 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 41,6 M</b> · 0.6% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip reestructurar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">10</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>GESTORA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🟡 Bajo Desempeño</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 337 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 34,7 M</b> · 0.5% del total</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip mantener" style="font-size:8.5pt;">MANTENER</span></td></tr></tbody>
+<table style="width:100%; font-size:10.5pt; border-collapse:collapse; margin:14px 0; background:white; box-shadow:0 1px 3px rgba(0,0,0,0.05); border-radius:6px; overflow:hidden;">
+<thead style="background:#fdf2f2;"><tr>
+<th style="padding:10px; text-align:left;">Ranking</th>
+<th style="padding:10px; text-align:left;">Empresa</th>
+<th style="padding:10px; text-align:right;">Pierde operativamente 2025</th>
+<th style="padding:10px; text-align:right;">Apoyo SIGEP recibido</th>
+<th style="padding:10px; text-align:right;">+ Subsidio BCB estimado</th>
+<th style="padding:10px; text-align:right;">Gasto total 2025</th>
+</tr></thead>
+<tbody><tr><td style="padding:8px 10px; border-top:1px solid #eee;">#1</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>YPFB</b></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; color:#c0392b;">Bs, -16,40 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD -1,69 mil M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right;">Bs, 15,25 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD 1,57 mil M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-size:9.5pt;">~Bs 14 mil M</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 46,93 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD 4,84 mil M</b></span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">#5</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>EMAPA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; color:#c0392b;">Bs, -1,07 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD -110,3 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right;">Bs, 997 millones<br><span style="font-size:9pt; color:#888;"><b>~USD 102,7 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-size:9.5pt;">—</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 1,99 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD 204,8 M</b></span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">#2</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>COMIBOL</b></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; color:#c0392b;">Bs, -2,07 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD -213,6 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right;">Bs, 24 millones<br><span style="font-size:9pt; color:#888;"><b>~USD 2,5 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-size:9.5pt;">~Bs 1,5 mil M</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 5,07 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD 522,2 M</b></span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">#4</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>VINTO - NAL</b></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; color:#c0392b;">Bs, -100 millones<br><span style="font-size:9pt; color:#888;"><b>~USD -10,3 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right;">Bs, 62 millones<br><span style="font-size:9pt; color:#888;"><b>~USD 6,3 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-size:9.5pt;">~Bs 300 M</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 2,73 mil millones<br><span style="font-size:9pt; color:#888;"><b>~USD 281,8 M</b></span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">#27</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>COFADENA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; color:#c0392b;">Bs, -12 millones<br><span style="font-size:9pt; color:#888;"><b>~USD -1,3 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right;">Bs, 10 millones<br><span style="font-size:9pt; color:#888;"><b>~USD 1,0 M</b></span></td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-size:9.5pt;">—</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 60 millones<br><span style="font-size:9pt; color:#888;"><b>~USD 6,2 M</b></span></td></tr></tbody>
 </table>
 
-<!-- ============================================================
-     SECCIÓN 5 — Diagnóstico salud + recomendaciones (resumido)
-============================================================ -->
-<h2 class="ej-section-title">📊 Cómo están las 56 — diagnóstico financiero por nivel de salud</h2>
-<div class="ej-veredicto">
-<div class="ej-vredict-box" style="background:#e8f5e9; border:1px solid #c8e6c9;"><div class="n" style="color:#27ae60;">1</div><div class="l">🟢 Buen Desempeño</div><div class="s">Sin señales de problemas</div></div>
-<div class="ej-vredict-box" style="background:#fff8e1; border:1px solid #ffe082;"><div class="n" style="color:#f39c12;">3</div><div class="l">🟡 Bajo Desempeño</div><div class="s">Vigilar, aún viables</div></div>
-<div class="ej-vredict-box" style="background:#fdf6f0; border:1px solid #ffd0a3;"><div class="n" style="color:#e67e22;">22</div><div class="l">🟠 Deteriorada</div><div class="s">13 leve + 9 grave</div></div>
-<div class="ej-vredict-box" style="background:#fdf2f2; border:1px solid #f5b7b1;"><div class="n" style="color:#c0392b;">22</div><div class="l">🔴 Quebrada</div><div class="s">16 acumulación + 6 Art. 354</div></div>
-<div class="ej-vredict-box" style="background:#1a1a1a; color:white;"><div class="n">5</div><div class="l" style="color:white;">⚫ Defunctas</div><div class="s" style="color:#bbb;">Ya no operan</div></div>
-<div class="ej-vredict-box" style="background:#f5f5f5; border:1px solid #ddd;"><div class="n" style="color:#888;">3</div><div class="l">⚪ Sin datos</div><div class="s">No publican</div></div>
+<div style="background:#fdf2f2; border-left:4px solid #c0392b; padding:14px 18px; border-radius:4px; margin:14px 0;">
+<b style="color:#c0392b;">💡 Insight clave:</b> <b>YPFB sola concentra el 90,6% del apoyo SIGEP y ~85% del subsidio cambiario BCB.</b> El costo fiscal real de las empresas públicas es esencialmente el costo de YPFB. Las otras 55 empresas, juntas, representan menos del 12% del costo. <b>Sin YPFB, este reporte sería ~1/8 del problema.</b> Esto explica por qué el DS 5503 (eliminación subsidio combustibles) es el cambio más importante — y por qué los efectos reales se verán en estados financieros 2026.
 </div>
 
-<h2 class="ej-section-title">⚖️ Qué se debe hacer con cada una — distribución de acciones</h2>
-<div class="ej-veredicto">
-<div class="ej-vredict-box" style="background:#e8f5e9; border:1px solid #c8e6c9;"><div class="n" style="color:#27ae60;">4</div><div class="l">MANTENER</div><div class="s">Operación viable</div></div>
-<div class="ej-vredict-box" style="background:#fff8e1; border:1px solid #ffe082;"><div class="n" style="color:#e67e22;">14</div><div class="l">REESTRUCTURAR</div><div class="s">Simple o profunda</div></div>
-<div class="ej-vredict-box" style="background:#f3e5f5; border:1px solid #ce93d8;"><div class="n" style="color:#8e44ad;">10</div><div class="l">RECAPITALIZAR</div><div class="s">Art. 354 obliga</div></div>
-<div class="ej-vredict-box" style="background:#e3f2fd; border:1px solid #90caf9;"><div class="n" style="color:#2980b9;">0</div><div class="l">PRIVATIZAR</div><div class="s">Estado no necesita</div></div>
-<div class="ej-vredict-box" style="background:#fdf2f2; border:1px solid #f5b7b1;"><div class="n" style="color:#c0392b;">20</div><div class="l">CERRAR / FUSIONAR</div><div class="s">Cierre o fusión</div></div>
-<div class="ej-vredict-box" style="background:#1a1a1a; color:white;"><div class="n">5</div><div class="l" style="color:white;">LIQUIDAR</div><div class="s" style="color:#bbb;">Formalizar cierre</div></div>
-<div class="ej-vredict-box" style="background:#f5f5f5; border:1px solid #ddd;"><div class="n" style="color:#888;">3</div><div class="l">PUBLICAR</div><div class="s">Exigir transparencia</div></div>
+<!-- BLOQUE 5: ¿Por qué no se pueden privatizar? -->
+<div class="story-card info">
+<h3>🚫 ¿Por qué no se las puede privatizar simplemente?</h3>
+<p>Para vender una empresa, alguien tiene que estar dispuesto a comprarla. Las <b>31 empresas que destruyen valor</b> rinden por debajo de cero — pierden plata operativamente. Ningún inversionista privado paga por algo que va a costarle plata operar. Las extremas (capital negativo, deuda creciente con proveedores) tendrían que <b>regalarse o pagarle al comprador para que se las lleve</b>.</p>
+<p>Las únicas privatizables realistas son las pocas con valor económico positivo. <b>Para el resto, la decisión es: reformar profundamente o cerrar</b> — no hay tercera vía vía privatización.</p>
 </div>
 
-<!-- ============================================================
-     SECCIÓN 6 — Por hora/día/mes del cierre
-============================================================ -->
-<h2 class="ej-section-title">💸 Cuánto pierde el Estado por hora en las 25 empresas que deberían cerrarse</h2>
-<p style="margin:0 0 14px; font-size:10.5pt; color:#555;">Estas 25 empresas proyectan un gasto de <b>Bs, 2,12 mil millones (~USD 218,3 M)</b> en 2026.</p>
-<div class="ej-grid">
-<div class="ej-box" style="border-left-color:#c0392b;"><div class="lbl">Por HORA</div><div class="val">Bs, 242 mil</div><div class="sub">~USD 25 mil cada hora</div></div>
-<div class="ej-box" style="border-left-color:#c0392b;"><div class="lbl">Por MES</div><div class="val">Bs, 176 millones</div><div class="sub">~USD 18,2 M cada 30 días</div></div>
-<div class="ej-box" style="border-left-color:#c0392b;"><div class="lbl">Por AÑO 2026</div><div class="val">Bs, 2,12 mil millones</div><div class="sub">~USD 218,3 M proyectado</div></div>
-<div class="ej-box" style="border-left-color:#27ae60;"><div class="lbl">% del gasto total</div><div class="val">2.3%</div><div class="sub">Lo que se ahorra cerrándolas todas</div></div>
+<!-- BLOQUE 6: ¿Por qué no llega inversión a Bolivia? -->
+<div class="story-card info">
+<h3>📉 ¿Por qué no llega inversión extranjera a Bolivia?</h3>
+<p>Los inversionistas internacionales miran cinco señales antes de poner plata en un país. Bolivia falla en todas ellas relacionadas con las empresas públicas:</p>
+<ol style="font-size:11pt; line-height:1.6; margin:10px 0 0 22px;">
+<li><b>Capacidad operativa del sector público</b>: 31 de 56 empresas estatales destruyen valor. Eso muestra que el Estado mismo no puede operar rentablemente sus sectores estratégicos.</li>
+<li><b>Acceso a divisas</b>: el BCB no entrega USD al tipo oficial (Bs 6,96) — el paralelo llegó a Bs 19-20 en 2025. Un inversionista no puede repatriar utilidades a precio razonable.</li>
+<li><b>Estabilidad cambiaria</b>: peg artificial Bs 6,96 desde 2011 con paralelo divergente. Volatilidad e impredecibilidad.</li>
+<li><b>Sectores estratégicos cerrados</b>: hidrocarburos, minería y electricidad están bajo control constitucional del Estado (Art. 348-355). El privado no puede entrar a esos sectores como propietario.</li>
+<li><b>Seguridad jurídica</b>: historial de nacionalizaciones (2006-2014) y respeto de contratos cuestionado por la comunidad inversora.</li>
+</ol>
 </div>
 
-<!-- ============================================================
-     SECCIÓN 7 — Marco legal de tocabilidad
-============================================================ -->
+<!-- BLOQUE 7: ¿Cuánto cuesta esto al ciudadano? -->
+<h2 class="ej-section-title">💰 ¿Cuánto cuesta esto al ciudadano boliviano?</h2>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; margin:14px 0;">
+
+<div style="background:#fafafa; border-left:5px solid #2980b9; padding:18px 20px; border-radius:6px;">
+<div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">① Presupuesto TOTAL 2026</div>
+<div style="font-size:24pt; font-weight:900; color:#2980b9; margin:6px 0;">Bs, 94,03 mil millones</div>
+<div style="font-size:13pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;"><b>~USD 9,69 mil M</b></div>
+<div style="font-size:10pt; line-height:1.5; color:#555;">Lo que las 56 empresas tienen aprobado <b>gastar en TOTAL</b> en 2026 (PGE 2026, Tabla N° 4). Lo cubren MAYORMENTE con sus propios ingresos por ventas. El Estado complementa lo que falta. ~70% es YPFB.</div>
+</div>
+
+<div style="background:#fff8e1; border-left:5px solid #e67e22; padding:18px 20px; border-radius:6px;">
+<div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">② Apoyo DIRECTO del Estado 2025</div>
+<div style="font-size:24pt; font-weight:900; color:#e67e22; margin:6px 0;">Bs, 16,84 mil millones</div>
+<div style="font-size:13pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;"><b>~USD 1,74 mil M</b></div>
+<div style="font-size:10pt; line-height:1.5; color:#555;">TGN + Recursos Específicos del SIGEP. <b>YPFB sola = 90,6%</b> (Bs 15,25 mil M). Por habitante: <b>Bs 1.347</b> (<b>~USD 139</b>). Creció <b>+18%</b> desde 2023.</div>
+</div>
+
+<div style="background:#fdf2f2; border-left:5px solid #c0392b; padding:18px 20px; border-radius:6px;">
+<div style="font-size:9pt; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">③ + Subsidio BCB implícito</div>
+<div style="font-size:24pt; font-weight:900; color:#c0392b; margin:6px 0;">~Bs, 16,20 mil millones</div>
+<div style="font-size:13pt; font-weight:700; color:#1a1a1a; margin-bottom:6px;"><b>~USD 1,67 mil M</b></div>
+<div style="font-size:10pt; line-height:1.5; color:#555;">Cuando el BCB les vende USD al oficial Bs 6,96 mientras el paralelo está en Bs 9-19. <b>NO aparece en presupuestos</b>. YPFB ~Bs 14 mil M. Estimación auditada para 8 empresas del Grupo A.</div>
+</div>
+
+</div>
+
+<div style="background:linear-gradient(135deg, #c0392b 0%, #7d1f15 100%); color:white; padding:22px 26px; border-radius:8px; margin:14px 0 24px;">
+<div style="font-size:10pt; opacity:0.9; text-transform:uppercase; letter-spacing:1px;">TOTAL COSTO 2025 "TODO INCLUIDO"</div>
+<div style="font-size:32pt; font-weight:900; margin:6px 0;">Bs, 33,04 mil millones ≈ <b>~USD 3,41 mil M</b></div>
+<div style="font-size:13pt; line-height:1.5;"><b>= Bs 2.643 (<b>~USD 272</b>) por cada uno de los 12,5 millones de bolivianos.</b> No importa si vivís en La Paz o Pando, niño o anciano, ocupado o desempleado.</div>
+</div>
+
+<!-- BLOQUE 8: La paradoja -->
+<h2 class="ej-section-title">⚡ La paradoja: cerrar las pequeñas NO resuelve el problema fiscal</h2>
+<p style="margin:0 0 14px; font-size:11pt; line-height:1.6;">El reporte recomienda <b>cerrar 25 de las 56 empresas</b>. Pero esas 25 solo representan <b>2.3% del gasto del sistema</b>. Las 8 empresas constitucionales (YPFB, ENDE, COMIBOL, YLB, MUTUN, MISICUNI, VINTO, EBIH) concentran <b>87% del gasto</b> y <b>NO se pueden cerrar</b> sin reforma constitucional (CPE Art. 348-355).</p>
+
+<div style="background:#fafafa; border:1px solid #ddd; border-radius:6px; padding:18px 20px; margin:14px 0;">
+<div style="font-size:11pt; font-weight:700; margin-bottom:12px;">¿Dónde está la plata? Distribución del gasto de las 56 empresas</div>
+<div class="bigbar">
+<div class="seg" style="background:#c0392b; width:87%;">87% Constitucionales (intocables)</div>
+<div class="seg" style="background:#e67e22; width:10%;">10% Funcionales</div>
+<div class="seg" style="background:#27ae60; flex:1;">3% Resto</div>
+</div>
+<p style="margin:14px 0 0; font-size:10.5pt; line-height:1.55;"><b>Implicación política:</b> el problema fiscal real está en las gigantes constitucionales (YPFB, ENDE, COMIBOL, etc.), <b>no en cerrar empresas chicas</b>. Cerrar las 25 cerrables ahorra <b>Bs, 2,12 mil millones (<b>~USD 218,3 M</b>)</b> = solo 2.3% del gasto. <b>La única manera de mover el resultado fiscal es REESTRUCTURAR PROFUNDAMENTE las gigantes.</b></p>
+</div>
+
+<!-- BLOQUE 9: ¿Qué se podría hacer con esa plata? -->
+<h2 class="ej-section-title">🏗️ ¿Qué se podría hacer con esa plata?</h2>
+
+<div style="background:#fff5e6; padding:18px 22px; border-radius:8px; border:1px solid #f5b041; margin:14px 0;">
+<div style="font-size:11.5pt; margin-bottom:14px;">Con los <b>Bs, 2,12 mil millones</b> (<b>~USD 218,3 M</b>) que se ahorrarían en 2026 cerrando las 25 empresas marcadas:</div>
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-bottom:14px;">
+<div style="background:white; padding:14px; border-radius:6px;"><div style="font-size:28pt; font-weight:900; color:#c0392b;">26%</div><div style="font-size:10.5pt; line-height:1.4;">del presupuesto anual de <b>salud pública</b> de Bolivia (Bs ~8 mil M)</div></div>
+<div style="background:white; padding:14px; border-radius:6px;"><div style="font-size:28pt; font-weight:900; color:#c0392b;">7%</div><div style="font-size:10.5pt; line-height:1.4;">del presupuesto anual de <b>educación</b> de Bolivia (Bs ~30 mil M)</div></div>
+</div>
+<div style="font-size:10.5pt; margin-bottom:10px;"><b>O en infraestructura concreta</b> (costos reales 2025):</div>
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:10px;">
+<div style="background:white; padding:12px; border-radius:6px; text-align:center;"><div style="font-size:32pt;">🏥</div><div style="font-size:22pt; font-weight:900; color:#c0392b;">7</div><div style="font-size:9.5pt; color:#555;">hospitales de 2do nivel<br><span style="color:#888;">(Bs 300 M c/u)</span></div></div>
+<div style="background:white; padding:12px; border-radius:6px; text-align:center;"><div style="font-size:32pt;">🛣️</div><div style="font-size:22pt; font-weight:900; color:#c0392b;">105</div><div style="font-size:9.5pt; color:#555;">km carretera asfaltada<br><span style="color:#888;">(Bs 20 M/km)</span></div></div>
+<div style="background:white; padding:12px; border-radius:6px; text-align:center;"><div style="font-size:32pt;">🏠</div><div style="font-size:22pt; font-weight:900; color:#c0392b;">5,294</div><div style="font-size:9.5pt; color:#555;">viviendas sociales<br><span style="color:#888;">(Bs 400 K c/u)</span></div></div>
+</div>
+</div>
+
+<div style="background:#fdf2f2; padding:18px 22px; border-radius:8px; border:1px solid #f5b7b1; margin:14px 0;">
+<div style="font-size:11.5pt; margin-bottom:10px;">Con los <b>Bs, 33,04 mil millones</b> (<b>~USD 3,41 mil M</b>) del costo total al Estado en 2025 (SIGEP + BCB):</div>
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+<div style="background:white; padding:14px; border-radius:6px;"><div style="font-size:28pt; font-weight:900; color:#c0392b;">413%</div><div style="font-size:10.5pt; line-height:1.4;">del presupuesto anual de <b>salud pública</b> (~4 veces)</div></div>
+<div style="background:white; padding:14px; border-radius:6px;"><div style="font-size:28pt; font-weight:900; color:#c0392b;">110%</div><div style="font-size:10.5pt; line-height:1.4;">del presupuesto anual de <b>educación</b></div></div>
+</div>
+<p style="margin:10px 0 0; font-size:10pt; color:#666; font-style:italic;">La educación pública en Bolivia es gratuita, por eso no usamos "becas universitarias" como comparación. Salud y educación reciben Bs ~38 mil M juntos al año (presupuestos nacionales aproximados); el costo de las empresas públicas equivale a casi el 90% de ese paquete educación+salud.</p>
+</div>
+
+<!-- BLOQUE 10: Proyección 2026 con 3 escenarios concretos -->
+<h2 class="ej-section-title">⏳ Proyección 2026 — tres escenarios CONCRETOS según las reformas del gobierno Paz</h2>
+<p style="margin:0 0 14px; font-size:11pt; line-height:1.6;">El gobierno de Paz asumió el 8-nov-2025 prometiendo reformar las empresas públicas. El <b>DS 5503</b> (17-dic-2025) eliminó el subsidio universal a combustibles. El <b>Art. 7</b> del PGE Reformulado abril 2026 habilita reorganización vía OFEP. <b>El impacto real depende de cuánto se ejecute en 2026</b>:</p>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; margin:14px 0;">
+
+<div style="background:#fdf2f2; border:2px solid #c0392b; border-radius:8px; padding:18px 20px;">
+<div style="font-size:10pt; font-weight:700; color:#c0392b; text-transform:uppercase; letter-spacing:0.5px;">⛔ Escenario A — Sin acción</div>
+<div style="font-size:11pt; color:#555; margin:6px 0;">Si todo sigue igual y nada se ejecuta. Apoyo SIGEP +9% anual histórico + subsidio BCB constante.</div>
+<div style="font-size:24pt; font-weight:900; color:#c0392b; margin:8px 0;">Bs, 34,55 mil millones</div>
+<div style="font-size:13pt; font-weight:700;"><b>~USD 3,56 mil M</b></div>
+<div style="font-size:9.5pt; color:#888; margin-top:6px;">Cambio vs 2025: <b style="color:#c0392b;">+~USD 156,0 M</b></div>
+</div>
+
+<div style="background:#fff8e1; border:2px solid #e67e22; border-radius:8px; padding:18px 20px;">
+<div style="font-size:10pt; font-weight:700; color:#e67e22; text-transform:uppercase; letter-spacing:0.5px;">🟡 Escenario B — DS 5503 efectivo</div>
+<div style="font-size:11pt; color:#555; margin:6px 0;">YPFB ya no recibe subsidio combustibles. Apoyo SIGEP YPFB → 0. Subsidio BCB YPFB → 0. Resto del sistema sigue igual.</div>
+<div style="font-size:24pt; font-weight:900; color:#e67e22; margin:8px 0;">Bs, 3,79 mil millones</div>
+<div style="font-size:13pt; font-weight:700;"><b>~USD 390,3 M</b></div>
+<div style="font-size:9.5pt; color:#888; margin-top:6px;">Cambio vs 2025: <b style="color:#27ae60;">~USD -3,02 mil M</b></div>
+</div>
+
+<div style="background:#e8f5e9; border:2px solid #27ae60; border-radius:8px; padding:18px 20px;">
+<div style="font-size:10pt; font-weight:700; color:#27ae60; text-transform:uppercase; letter-spacing:0.5px;">🟢 Escenario C — Mejor caso</div>
+<div style="font-size:11pt; color:#555; margin:6px 0;">DS 5503 + paralelo cambiario normalizado. Subsidio BCB para todo el Grupo A se evapora.</div>
+<div style="font-size:24pt; font-weight:900; color:#27ae60; margin:8px 0;">Bs, 1,59 mil millones</div>
+<div style="font-size:13pt; font-weight:700;"><b>~USD 163,5 M</b></div>
+<div style="font-size:9.5pt; color:#888; margin-top:6px;">Cambio vs 2025: <b style="color:#27ae60;">~USD -3,24 mil M</b></div>
+</div>
+
+</div>
+
+<div style="background:#fff8e1; border-left:4px solid #f39c12; padding:14px 18px; border-radius:4px; font-size:10.5pt; line-height:1.55;">
+⚠️ <b>Caveat clave</b> para escenarios B y C: el costo <b>NO desaparece — se transfiere al consumidor</b>. Eliminar el subsidio a combustibles significa que los precios de gasolina/diesel suben al precio internacional. Hay presión inflacionaria, impacto en transporte/agricultura, y costo político. El "ahorro fiscal" es real pero el costo social puede ser sensible. <b>El SIGEP recién publicará las cifras reales 2026 en 2027</b> — hasta entonces son proyecciones basadas en estos supuestos.
+</div>
+
+<!-- BLOQUE 11: Top 10 -->
+<h2 class="ej-section-title">🏆 Las 10 que más gastan dentro de las 56 empresas públicas — concentran el 97% del gasto del sistema</h2>
+<p style="margin:0 0 10px; font-size:10.5pt; color:#555;">Atención: este 97% es del gasto de las 56 empresas públicas, NO del Presupuesto General del Estado total (que es muchísimo más grande e incluye salud, educación, infraestructura, etc.). El PGE 2026 para las 56 empresas es Bs 94 mil M; el PGE total nacional es mucho mayor.</p>
+<table style="width:100%; font-size:10.5pt; border-collapse:collapse; background:white; box-shadow:0 1px 3px rgba(0,0,0,0.05); border-radius:6px; overflow:hidden;">
+<thead style="background:#f5f5f5;"><tr>
+<th style="padding:9px;">#</th><th style="padding:9px;">Empresa</th><th style="padding:9px;">Función</th><th style="padding:9px;">Salud</th>
+<th style="padding:9px; text-align:right;">Gasto 2025 (Bs · USD · % del total 56)</th>
+<th style="padding:9px;">Recomendación</th>
+</tr></thead>
+<tbody><tr><td style="padding:8px 10px; border-top:1px solid #eee;">1</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>YPFB</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 46,93 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 4,84 mil M</b> · 72.2%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA Y RECAPITALIZAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">2</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>COMIBOL</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 5,07 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 522,2 M</b> · 7.8%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA Y RECAPITALIZAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">3</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>BOA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 3,18 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 327,6 M</b> · 4.9%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">4</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>VINTO - NAL</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 2,73 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 281,8 M</b> · 4.2%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA Y RECAPITALIZAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">5</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>EMAPA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 1,99 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 204,8 M</b> · 3.1%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">6</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>ENDE</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🟠 Deteriorada — grave</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 1,23 mil millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 126,8 M</b> · 1.9%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip reestructurar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">7</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>YLB</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🛡️ Constitucional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (Art. 354)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 545 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 56,2 M</b> · 0.8%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip recapitalizar" style="font-size:8.5pt;">RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">8</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>EBA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏭 Comercial</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🔴 Quebrada (acumulación)</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 425 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 43,8 M</b> · 0.7%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip cerrar" style="font-size:8.5pt;">CERRAR</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">9</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>Mi teleférico</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🟠 Deteriorada — grave</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 403 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 41,6 M</b> · 0.6%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip reestructurar" style="font-size:8.5pt;">REESTRUCTURAR PROFUNDA</span></td></tr><tr><td style="padding:8px 10px; border-top:1px solid #eee;">10</td><td style="padding:8px 10px; border-top:1px solid #eee;"><b>GESTORA</b></td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt; color:#666;">🏛️ Funcional</td><td style="padding:8px 10px; border-top:1px solid #eee; font-size:9pt;">🟡 Bajo Desempeño</td><td style="padding:8px 10px; border-top:1px solid #eee; text-align:right; font-weight:600;">Bs, 337 millones<br><span style="font-size:8.5pt; color:#888; font-weight:400;"><b>~USD 34,7 M</b> · 0.5%</span></td><td style="padding:8px 10px; border-top:1px solid #eee;"><span class="chip mantener" style="font-size:8.5pt;">MANTENER</span></td></tr></tbody>
+</table>
+
+<!-- BLOQUE 12: Distribución (resumido) -->
+<h2 class="ej-section-title">📊 Distribución por salud + recomendaciones (resumido)</h2>
+<div class="ej-veredicto" style="margin:10px 0 16px;"><div class="ej-vredict-box" style="background:#e8f5e9; border:1px solid #c8e6c9;"><div class="n" style="color:#27ae60;">1</div><div class="l">🟢 Buen</div><div class="s">Sin problemas</div></div><div class="ej-vredict-box" style="background:#fff8e1; border:1px solid #ffe082;"><div class="n" style="color:#f39c12;">3</div><div class="l">🟡 Bajo</div><div class="s">Vigilar</div></div><div class="ej-vredict-box" style="background:#fdf6f0; border:1px solid #ffd0a3;"><div class="n" style="color:#e67e22;">22</div><div class="l">🟠 Deteriorada</div><div class="s">13+9</div></div><div class="ej-vredict-box" style="background:#fdf2f2; border:1px solid #f5b7b1;"><div class="n" style="color:#c0392b;">22</div><div class="l">🔴 Quebrada</div><div class="s">16+6</div></div><div class="ej-vredict-box" style="background:#1a1a1a; color:white;"><div class="n">5</div><div class="l" style="color:white;">⚫ Defunctas</div><div class="s" style="color:#bbb;">Ya no operan</div></div><div class="ej-vredict-box" style="background:#f5f5f5;"><div class="n" style="color:#888;">3</div><div class="l">⚪ Sin datos</div><div class="s">No publican</div></div></div>
+<div class="ej-veredicto"><div class="ej-vredict-box" style="background:#e8f5e9;"><div class="n" style="color:#27ae60;">4</div><div class="l">MANTENER</div></div><div class="ej-vredict-box" style="background:#fff8e1;"><div class="n" style="color:#e67e22;">14</div><div class="l">REESTRUCTURAR</div></div><div class="ej-vredict-box" style="background:#f3e5f5;"><div class="n" style="color:#8e44ad;">10</div><div class="l">RECAPITALIZAR</div></div><div class="ej-vredict-box" style="background:#e3f2fd;"><div class="n" style="color:#2980b9;">0</div><div class="l">PRIVATIZAR</div></div><div class="ej-vredict-box" style="background:#fdf2f2;"><div class="n" style="color:#c0392b;">20</div><div class="l">CERRAR / FUSIONAR</div></div><div class="ej-vredict-box" style="background:#1a1a1a; color:white;"><div class="n">5</div><div class="l" style="color:white;">LIQUIDAR</div></div><div class="ej-vredict-box" style="background:#f5f5f5;"><div class="n" style="color:#888;">3</div><div class="l">PUBLICAR</div></div></div>
+
+<!-- BLOQUE 13: Marco legal -->
 <h2 class="ej-section-title">🏛️ Qué se puede tocar y qué no — marco legal</h2>
 <div class="ej-grid">
-<div class="ej-box" style="border-left-color:#c0392b;"><div class="lbl">🛡️ Constitucional</div><div class="val">8</div><div class="sub"><b>NO se pueden cerrar</b> (CPE Art. 348-355 — requiere reforma constitucional). YPFB, ENDE, COMIBOL, YLB, MUTUN, MISICUNI, VINTO, EBIH</div></div>
-<div class="ej-box" style="border-left-color:#e67e22;"><div class="lbl">🏛️ Funcional esencial</div><div class="val">9</div><div class="sub">Cierre <b>posible vía DS</b> pero costo político alto. Servicio único. EMAPA, GESTORA, BOA, TAM, Mi teleférico, COFADENA, ASP-B, DAB, ABE</div></div>
-<div class="ej-box" style="border-left-color:#2980b9;"><div class="lbl">🏭 Comercial</div><div class="val">13</div><div class="sub"><b>Cierre directo vía DS</b> — compiten con privados, Estado no necesita ser dueño</div></div>
-<div class="ej-box" style="border-left-color:#9b59b6;"><div class="lbl">📺 Cultural</div><div class="val">3</div><div class="sub">Cierre vía DS con debate político</div></div>
-<div class="ej-box" style="border-left-color:#27ae60;"><div class="lbl">💧 Municipal</div><div class="val">23</div><div class="sub"><b>Decisión local</b> (concejo municipal + AAPS) — no requiere acción del nivel central</div></div>
+<div class="ej-box" style="border-left-color:#c0392b;"><div class="lbl" style="font-size:9pt; color:#888; text-transform:uppercase;">🛡️ Constitucional</div><div class="val" style="font-size:20pt; font-weight:700; margin:4px 0;">8</div><div class="sub"><b>NO se pueden cerrar</b> (CPE Art. 348-355). YPFB, ENDE, COMIBOL, YLB, MUTUN, MISICUNI, VINTO, EBIH</div></div>
+<div class="ej-box" style="border-left-color:#e67e22;"><div class="lbl" style="font-size:9pt; color:#888; text-transform:uppercase;">🏛️ Funcional esencial</div><div class="val" style="font-size:20pt; font-weight:700; margin:4px 0;">9</div><div class="sub">Cierre vía DS posible pero costo político alto. EMAPA, GESTORA, BOA, COFADENA, Mi teleférico, ASP-B, DAB, ABE</div></div>
+<div class="ej-box" style="border-left-color:#2980b9;"><div class="lbl" style="font-size:9pt; color:#888; text-transform:uppercase;">🏭 Comercial</div><div class="val" style="font-size:20pt; font-weight:700; margin:4px 0;">13</div><div class="sub">Cierre directo vía DS. Estado no necesita ser dueño</div></div>
+<div class="ej-box" style="border-left-color:#9b59b6;"><div class="lbl" style="font-size:9pt; color:#888; text-transform:uppercase;">📺 Cultural</div><div class="val" style="font-size:20pt; font-weight:700; margin:4px 0;">3</div><div class="sub">Cierre vía DS con debate político</div></div>
+<div class="ej-box" style="border-left-color:#27ae60;"><div class="lbl" style="font-size:9pt; color:#888; text-transform:uppercase;">💧 Municipal</div><div class="val" style="font-size:20pt; font-weight:700; margin:4px 0;">23</div><div class="sub">Decisión del Concejo Municipal — no requiere acción nacional</div></div>
 </div>
 
-<!-- ============================================================
-     SECCIÓN 8 — Marco político del momento
-============================================================ -->
+<!-- BLOQUE 14: Marco político -->
 <h2 class="ej-section-title">📍 Marco político del momento</h2>
 <div style="background:#f0f4f8; border-left:4px solid #2c3e50; padding:14px 18px; border-radius:4px; font-size:10.5pt; line-height:1.6;">
-<p style="margin:0 0 8px;">El gobierno de <b>Rodrigo Paz Pereira</b> asumió el 8-nov-2025. El <b>DS 5503 (17-dic-2025)</b> eliminó el subsidio universal a combustibles. El <b>PGE Reformulado abril 2026</b> incluyó el <b>Artículo 7</b> — régimen excepcional para reorganizar, disolver y liquidar empresas públicas del nivel central en 30 días vía OFEP → COSEEP → DS sectorial.</p>
-<p style="margin:0; font-size:10pt;"><b>⚠️ Importante:</b> el Art. 7 cubre solo empresas nivel central (~28). Las ~23 municipales y ~3 departamentales requieren acción del Concejo Municipal o Asamblea Departamental — <b>no</b> están sujetas al mandato OFEP.</p>
+<p style="margin:0 0 8px;">Gobierno de <b>Rodrigo Paz Pereira</b> asumió 8-nov-2025. <b>DS 5503</b> (17-dic-2025) eliminó subsidio universal combustibles. <b>Art. 7</b> del PGE Reformulado abril 2026 habilita reorganización/disolución de empresas públicas nivel central en 30 días vía OFEP → COSEEP → DS sectorial.</p>
+<p style="margin:0; font-size:10pt;"><b>⚠️ Alcance del mandato:</b> Art. 7 cubre solo empresas nivel central (~28). Las ~23 municipales y ~3 departamentales requieren acción del Concejo Municipal o Asamblea Departamental — <b>no</b> sujetas a OFEP.</p>
 </div>
 
-<!-- ============================================================
-     SECCIÓN 9 — Links a otras vistas
-============================================================ -->
+<!-- BLOQUE 15: Links -->
 <h2 class="ej-section-title">🔍 ¿Querés profundizar?</h2>
 <div class="ej-grid">
-<div class="ej-box"><div class="lbl">Análisis detallado</div><div style="margin:8px 0;"><a href="00_resumen_general.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Resumen General →</a></div><div class="sub">Las 9 preguntas a nivel agregado con cifras y drilling-down empresa por empresa.</div></div>
+<div class="ej-box"><div class="lbl">Análisis detallado</div><div style="margin:8px 0;"><a href="00_resumen_general.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Resumen General →</a></div><div class="sub">Las 9 preguntas a nivel agregado con drill-down empresa por empresa.</div></div>
 <div class="ej-box"><div class="lbl">Matriz visual</div><div style="margin:8px 0;"><a href="03_matriz.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Matriz 5×6 →</a></div><div class="sub">Las 56 empresas en una grilla Función × Salud financiera.</div></div>
-<div class="ej-box"><div class="lbl">Empresa por empresa</div><div style="margin:8px 0;"><a href="04_por_empresa.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Vista individual →</a></div><div class="sub">Una tarjeta por cada una de las 56, ordenadas por costo al Tesoro.</div></div>
+<div class="ej-box"><div class="lbl">Empresa por empresa</div><div style="margin:8px 0;"><a href="04_por_empresa.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Vista individual →</a></div><div class="sub">Una tarjeta por cada una de las 56.</div></div>
 <div class="ej-box"><div class="lbl">Por tipo de problema</div><div style="margin:8px 0;"><a href="01_por_arquetipo.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Por tipo de problema →</a></div><div class="sub">Agrupadas por salud financiera.</div></div>
-<div class="ej-box"><div class="lbl">Por recomendación</div><div style="margin:8px 0;"><a href="02_por_recomendacion.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Por acción →</a></div><div class="sub">Agrupadas por verbo de acción.</div></div>
-<div class="ej-box"><div class="lbl">Metodología</div><div style="margin:8px 0;"><a href="05_metodologia.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Cómo se calcula todo →</a></div><div class="sub">Fórmulas, supuestos, fuentes, tipo de cambio.</div></div>
+<div class="ej-box"><div class="lbl">Por recomendación</div><div style="margin:8px 0;"><a href="02_por_recomendacion.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Por acción →</a></div><div class="sub">Agrupadas por verbo.</div></div>
+<div class="ej-box"><div class="lbl">Metodología</div><div style="margin:8px 0;"><a href="05_metodologia.html" style="font-size:11pt; color:#e67e22; font-weight:600;">Cómo se calcula →</a></div><div class="sub">Fórmulas, supuestos, fuentes, tipo de cambio.</div></div>
 </div>
 
 </body></html>

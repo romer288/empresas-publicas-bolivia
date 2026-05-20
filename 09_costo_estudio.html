@@ -97,6 +97,10 @@ tr:nth-child(even) td { background: #fafafa; }
 .cost-table tr.total td { background: #fff8e1; font-weight: 700; }
 .cost-card { background: white; border: 1px solid #e0e0e0; border-left: 4px solid #e67e22; border-radius: 6px; padding: 18px 22px; margin: 12px 0; }
 .cost-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 14px 0; }
+.scenario-card { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 18px 22px; margin: 12px 0; }
+.scenario-card.local { border-left: 5px solid #27ae60; }
+.scenario-card.big4 { border-left: 5px solid #f39c12; }
+.scenario-card.tier1 { border-left: 5px solid #c0392b; }
 </style>
 </head>
 <body class="wide-page">
@@ -114,161 +118,218 @@ tr:nth-child(even) td { background: #fafafa; }
 <h1 class="agg-h1">Costo del Estudio</h1>
 <p class="agg-subtitle">Lo que habría costado este reporte si una consultora privada lo hubiera hecho. <b>Se entrega como bien público, sin costo.</b></p>
 
-<!-- BLOQUE 1: Headline -->
+<!-- DISCLAIMER de transparencia sobre las estimaciones -->
+<div style="background:#fff8e1; border-left:4px solid #f39c12; padding:12px 16px; margin:10px 0 22px; font-size:10pt; line-height:1.55; border-radius:4px;">
+⚠️ <b>Sobre estas estimaciones:</b> NO tengo acceso a cotizaciones reales para este scope específico. Los rangos abajo son <b>estimaciones basadas en tarifas públicas conocidas del mercado boliviano de consultoría profesional</b> y en contratos similares publicados históricamente en <b>SICOES</b> (Sistema de Contrataciones Estatales — sicoes.gob.bo). Cualquier consultora real podría cotizar fuera de estos rangos según su capacidad, experiencia previa con el sector y necesidad del trabajo. <b>Si conocés cotizaciones reales para estudios similares</b>, podés señalármelo via Issues en GitHub y actualizo estas cifras.
+</div>
+
+<!-- BLOQUE 1: Headline ajustado al mercado boliviano -->
 <div class="cost-headline">
-<div class="label">💰 PRECIO DE MERCADO ESTIMADO</div>
-<div class="big">USD 280.000 – 500.000</div>
-<div class="sub">≈ Bs 2,7 – 4,8 millones</div>
-<div style="margin-top:14px; font-size:12pt; line-height:1.5; opacity:0.95;">
-Equivalente a lo que cobra una consultora financiera mediana o un Big4 (Deloitte, EY, KPMG, PwC) por un estudio de la profundidad de éste: análisis financiero de 56 empresas × 3 años + modelado sectorial + escenarios macro + reporte público.
+<div class="label">💰 RANGO ESTIMADO DE PRECIO DE MERCADO EN BOLIVIA</div>
+<div class="big">USD 80.000 – 300.000</div>
+<div class="sub">≈ Bs 770.000 – 2,9 millones</div>
+<div style="margin-top:14px; font-size:11.5pt; line-height:1.5; opacity:0.95;">
+Rango típico para un estudio de esta profundidad (análisis financiero de 56 empresas × 3 años + modelado sectorial + escenarios macro + reporte público) ejecutado por consultoras profesionales <b>operando en Bolivia</b>. El rango bajo aplica a consultoras locales medianas; el alto a Big4 (Deloitte, EY, KPMG, PwC) con equipo mayoritariamente local.
 </div>
 </div>
 
 <div style="background:#e8f5e9; border-left:4px solid #27ae60; padding:14px 18px; margin:14px 0; font-size:11pt; line-height:1.55; border-radius:4px;">
-✅ <b>Pero este reporte se publica gratis para la ciudadanía boliviana</b>. No hay factura, no hay sponsor pagando, no hay contrato con el Estado. Es un esfuerzo independiente para que la sociedad pueda evaluar cómo se gasta el dinero público.
+✅ <b>Pero este reporte se publica gratis para la ciudadanía boliviana</b>. Costo real gastado: <b>~USD 30-50</b> en APIs de OCR (Mistral, OpenAI, Gemini, Azure) + tiempo personal. No hay sponsor, no hay contrato con el Estado, no hay marca comercial detrás.
 </div>
 
-<!-- BLOQUE 2: Desglose del costo de mercado -->
-<h2 class="cost-section">📋 Desglose del costo de mercado</h2>
-<p style="font-size:11pt; color:#555; line-height:1.55;">Estimación basada en tarifas de mercado de consultoría financiera Big4 / mid-tier para un proyecto de esta naturaleza (~600-1.200 horas-persona, equipo multidisciplinario):</p>
+<!-- BLOQUE 2: Tres escenarios de costo -->
+<h2 class="cost-section">📊 Tres escenarios de costo en el mercado boliviano</h2>
+
+<div class="scenario-card local">
+<div style="display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;">
+<div><div style="font-size:9pt; color:#888; font-weight:700; text-transform:uppercase;">Escenario 1 — Consultora local boliviana</div>
+<div style="font-size:14pt; font-weight:700; color:#1a1a1a;">BDO Bolivia, Crowe Horwath, Mazars Bolivia, KPMG audit local, AT Kearney local, o equivalente</div></div>
+<div style="text-align:right;"><div style="font-size:28pt; font-weight:900; color:#27ae60;">USD 60–150k</div><div style="font-size:12pt; color:#666;">Bs 580k – 1,45 M</div></div>
+</div>
+<p style="font-size:11pt; color:#555; line-height:1.6; margin:10px 0 0;">Equipo: 1 socio + 1 senior manager + 2 senior analysts + 2 juniors. Duración: 2-3 meses. Tarifas locales bolivianas (USD 30-200/hora dependiendo del rol). Cubre extracción + análisis + reporte + sustentación. <b>Sin imagen "premium internacional"</b>; la marca tiene credibilidad local pero no internacional.</p>
+</div>
+
+<div class="scenario-card big4">
+<div style="display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;">
+<div><div style="font-size:9pt; color:#888; font-weight:700; text-transform:uppercase;">Escenario 2 — Big4 con equipo mayoritariamente local</div>
+<div style="font-size:14pt; font-weight:700; color:#1a1a1a;">Deloitte Bolivia, EY Bolivia, KPMG Bolivia, PwC Bolivia (con socio o senior internacional)</div></div>
+<div style="text-align:right;"><div style="font-size:28pt; font-weight:900; color:#f39c12;">USD 150–300k</div><div style="font-size:12pt; color:#666;">Bs 1,45 – 2,9 M</div></div>
+</div>
+<p style="font-size:11pt; color:#555; line-height:1.6; margin:10px 0 0;">Equipo: 1 socio internacional + 1-2 directores/managers + 4-5 senior analysts locales + juniors. Duración: 3-4 meses. Tarifas mixtas: partner internacional USD 400-800/h, manager local USD 150-300/h, senior local USD 80-180/h. <b>Cobertura de QA internacional + uso de marca Big4 para credibilidad ante mercados internacionales</b>.</p>
+</div>
+
+<div class="scenario-card tier1">
+<div style="display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;">
+<div><div style="font-size:9pt; color:#888; font-weight:700; text-transform:uppercase;">Escenario 3 — Top-tier strategy (NO operan en Bolivia)</div>
+<div style="font-size:14pt; font-weight:700; color:#1a1a1a;">McKinsey, Bain, BCG (vendrían desde São Paulo, Santiago o Lima)</div></div>
+<div style="text-align:right;"><div style="font-size:28pt; font-weight:900; color:#c0392b;">USD 500k – 1,5 M</div><div style="font-size:12pt; color:#666;">Bs 4,8 – 14,5 M</div></div>
+</div>
+<p style="font-size:11pt; color:#555; line-height:1.6; margin:10px 0 0;">Equipo: 6-8 personas internacionales viajando a Bolivia. Tarifas: partner USD 1.000-1.500/hora, principal USD 600-1.000/h, associate USD 300-500/h. Duración: 3-5 meses. <b>Costos extra de logística internacional</b> (viajes, hotel, viáticos), legal review, branding. <b>NO tienen presencia permanente en Bolivia</b> — el costo se justifica solo para contratos de gobierno o estudios privados de muy alto perfil.</p>
+</div>
+
+<!-- BLOQUE 3: Desglose detallado del escenario más probable -->
+<h2 class="cost-section">📋 Desglose detallado — Escenario 1 (consultora local Bolivia)</h2>
+<p style="font-size:11pt; color:#555;">Estimación basada en tarifas públicas conocidas del mercado profesional boliviano (firmas como BDO, Crowe Horwath, Mazars, PKF Bolivia operan con estas tarifas para empresas privadas medianas/grandes):</p>
 
 <table class="cost-table">
-<thead><tr><th style="width:30%;">Rol / Componente</th><th>Descripción</th><th class="num">Horas est.</th><th class="num">Tarifa USD/h</th><th class="num">Subtotal USD</th></tr></thead>
+<thead><tr><th style="width:28%;">Rol</th><th>Trabajo</th><th class="num">Horas est.</th><th class="num">Tarifa Bolivia USD/h</th><th class="num">Subtotal</th></tr></thead>
 <tbody>
 <tr>
-  <td><b>Socio / Partner</b></td>
-  <td>Supervisión metodológica, sign-off, framework analítico</td>
-  <td class="num">30-60</td>
-  <td class="num">600-1.200</td>
-  <td class="num">USD 18.000 – 72.000</td>
+  <td><b>Socio responsable</b></td>
+  <td>Sign-off metodológico, framework, presentación final</td>
+  <td class="num">40</td>
+  <td class="num">150-250</td>
+  <td class="num">USD 6.000 – 10.000</td>
 </tr>
 <tr>
-  <td><b>Director / Senior Manager</b></td>
-  <td>Diseño del marco de 9 preguntas, calibración del scoring, validación cruzada</td>
-  <td class="num">100-150</td>
-  <td class="num">300-500</td>
-  <td class="num">USD 30.000 – 75.000</td>
+  <td><b>Senior Manager</b></td>
+  <td>Diseño análisis, validación cruzada, coordinación equipo</td>
+  <td class="num">120</td>
+  <td class="num">80-150</td>
+  <td class="num">USD 9.600 – 18.000</td>
 </tr>
 <tr>
-  <td><b>2 Senior Analysts financieros</b></td>
-  <td>Análisis empresa por empresa, modelado de proyecciones sectoriales, drill-downs</td>
-  <td class="num">300-500</td>
-  <td class="num">200-300</td>
-  <td class="num">USD 60.000 – 150.000</td>
+  <td><b>2 Senior Analysts</b></td>
+  <td>Análisis empresa por empresa, modelado proyecciones, drill-downs</td>
+  <td class="num">400</td>
+  <td class="num">50-100</td>
+  <td class="num">USD 20.000 – 40.000</td>
 </tr>
 <tr>
-  <td><b>3 Junior Analysts</b></td>
-  <td>Extracción de PDFs, normalización de datos, QA cruzado, transcripción</td>
-  <td class="num">500-800</td>
-  <td class="num">100-180</td>
-  <td class="num">USD 50.000 – 144.000</td>
+  <td><b>2 Junior Analysts</b></td>
+  <td>Extracción PDFs, normalización datos, QA, transcripción</td>
+  <td class="num">500</td>
+  <td class="num">25-50</td>
+  <td class="num">USD 12.500 – 25.000</td>
 </tr>
 <tr>
   <td><b>Especialista sectorial</b></td>
-  <td>Drivers macro: precios commodities, regulación, tipo de cambio, política fiscal</td>
-  <td class="num">40-80</td>
-  <td class="num">300-500</td>
-  <td class="num">USD 12.000 – 40.000</td>
+  <td>Drivers macro: hidrocarburos, minería, electricidad, tipo de cambio</td>
+  <td class="num">60</td>
+  <td class="num">100-200</td>
+  <td class="num">USD 6.000 – 12.000</td>
 </tr>
 <tr>
-  <td><b>OCR + procesamiento IA</b></td>
+  <td><b>OCR + procesamiento</b></td>
   <td>168 PDFs × 4-5 motores de OCR (Mistral, Gemini, GPT-4 Vision, Azure)</td>
   <td class="num">—</td>
   <td class="num">—</td>
-  <td class="num">USD 5.000 – 12.000</td>
+  <td class="num">USD 3.000 – 8.000</td>
 </tr>
 <tr>
   <td><b>Diseño + producción</b></td>
-  <td>Reporte HTML responsive, gráficos, layout, copy-editing, traducción</td>
+  <td>Reporte ejecutivo + anexos + traducción + diagramas</td>
+  <td class="num">60</td>
+  <td class="num">40-80</td>
+  <td class="num">USD 2.400 – 4.800</td>
+</tr>
+<tr>
+  <td><b>QA + review</b></td>
+  <td>Revisión legal + financiera + pre-publish</td>
+  <td class="num">40</td>
   <td class="num">80-150</td>
-  <td class="num">100-150</td>
-  <td class="num">USD 10.000 – 25.000</td>
+  <td class="num">USD 3.200 – 6.000</td>
 </tr>
 <tr>
-  <td><b>Quality assurance + review</b></td>
-  <td>Revisión legal + financiera + pre-publish editorial</td>
-  <td class="num">50-100</td>
-  <td class="num">200-400</td>
-  <td class="num">USD 15.000 – 40.000</td>
-</tr>
-<tr>
-  <td><b>Overhead + management</b></td>
-  <td>Coordinación, comunicaciones, infraestructura, contingencia (~10-15%)</td>
+  <td><b>Overhead + utilidad</b></td>
+  <td>Coordinación, infra, margen del proveedor (~15-20%)</td>
   <td class="num">—</td>
   <td class="num">—</td>
-  <td class="num">USD 25.000 – 50.000</td>
+  <td class="num">USD 8.000 – 15.000</td>
 </tr>
 <tr class="total">
-  <td colspan="4"><b>TOTAL — Mid-tier consultancy (Bs ~2,7 - 4,8 mil M)</b></td>
-  <td class="num"><b>USD 280.000 – 500.000</b></td>
-</tr>
-<tr style="background:#fdf2f2;">
-  <td colspan="4"><b>TOTAL — Top-tier (McKinsey, Bain, BCG)</b> con misma scope</td>
-  <td class="num"><b>USD 700.000 – 1.500.000</b></td>
+  <td colspan="4"><b>SUBTOTAL — Escenario 1 (consultora local boliviana)</b></td>
+  <td class="num"><b>USD 70.700 – 138.800</b></td>
 </tr>
 </tbody>
 </table>
 
-<!-- BLOQUE 3: Tiempo de mercado vs tiempo real -->
+<p style="margin:10px 0; font-size:10pt; color:#666; line-height:1.55;"><b>Horas totales del equipo:</b> ~1.220 horas-persona. <b>Duración calendario:</b> 2-3 meses si trabaja full-time, 4-5 si comparte con otros clientes. <b>Rango Bs:</b> 685k – 1,35 M.</p>
+
+<!-- BLOQUE 4: Tiempo de mercado vs tiempo real -->
 <h2 class="cost-section">⏱️ Tiempo de mercado vs tiempo real</h2>
 <div class="cost-grid">
-
 <div class="cost-card" style="border-left-color:#c0392b;">
 <div style="font-size:9pt; color:#888; font-weight:700; text-transform:uppercase;">🏢 Consultora tradicional</div>
-<div style="font-size:30pt; font-weight:900; color:#c0392b; margin:6px 0;">3-6 meses</div>
-<div style="font-size:10.5pt; color:#555; line-height:1.5;">Equipo de 8-12 personas. Pipeline manual de extracción de PDFs. Análisis empresa por empresa. Validación legal y técnica. Reporte producido al final.</div>
+<div style="font-size:30pt; font-weight:900; color:#c0392b; margin:6px 0;">2-4 meses</div>
+<div style="font-size:10.5pt; color:#555; line-height:1.5;">Equipo de 6-7 personas. Pipeline manual de extracción de PDFs. Análisis empresa por empresa. Validación legal y técnica. Reporte producido al final.</div>
 </div>
-
 <div class="cost-card" style="border-left-color:#27ae60;">
 <div style="font-size:9pt; color:#888; font-weight:700; text-transform:uppercase;">⚡ Tiempo real de este reporte</div>
 <div style="font-size:30pt; font-weight:900; color:#27ae60; margin:6px 0;">~15 días</div>
-<div style="font-size:10.5pt; color:#555; line-height:1.5;">Una sola persona + tooling automatizado: OCR multi-motor con consenso, asistencia LLM para extracción y análisis, iteración rápida con feedback. Publicación continua.</div>
+<div style="font-size:10.5pt; color:#555; line-height:1.5;">Una persona + tooling automatizado: OCR multi-motor con consenso, asistencia LLM para extracción y análisis, iteración rápida con feedback. Publicación continua.</div>
 </div>
-
 </div>
 
 <div style="background:#f0f4f8; border-left:4px solid #2c3e50; padding:14px 18px; margin:14px 0; font-size:10.5pt; line-height:1.6; border-radius:4px;">
-<b>¿Cómo se logró?</b> La combinación de extracción multi-motor automatizada (4-5 OCR/Vision engines con consenso) + clasificación asistida por LLM + iteración rápida basada en feedback ciudadano permitió comprimir un proceso de 600-1.200 horas-persona en un esfuerzo individual de unas 200-300 horas reales (15 días × 15-20 h/día). El resultado es <b>~10× más rápido y ~100× más barato</b> que el approach tradicional.
+<b>¿Cómo se logró?</b> La combinación de extracción multi-motor automatizada (4-5 OCR/Vision engines con consenso) + clasificación asistida por LLM + iteración rápida basada en feedback permitió comprimir el trabajo. El resultado es <b>~5-8× más rápido y ~1.000× más barato</b> que el approach tradicional. El ahorro principal NO viene de "mejor talento", sino de <b>automatizar las partes tediosas</b> (extracción de PDFs, normalización de datos, validación cruzada de cifras).
 </div>
 
-<!-- BLOQUE 4: Comparación con presupuestos públicos -->
+<!-- BLOQUE 5: Comparación con presupuestos públicos -->
 <h2 class="cost-section">💸 Lo que habría costado al ciudadano boliviano</h2>
-<p style="font-size:11pt; color:#555; line-height:1.55;">Si el Estado Boliviano hubiera contratado esta consultoría:</p>
+<p style="font-size:11pt; color:#555; line-height:1.55;">Si el Estado Boliviano hubiera contratado esta consultoría con presupuesto público, el costo equivaldría a:</p>
 
 <table class="cost-table">
-<thead><tr><th>Comparación</th><th class="num">Equivalente en USD</th><th class="num">Equivalente en Bs</th></tr></thead>
+<thead><tr><th>Comparación</th><th class="num">USD</th><th class="num">Bs</th></tr></thead>
 <tbody>
-<tr><td>Costo mid-tier de este estudio</td><td class="num">USD 280.000 – 500.000</td><td class="num">Bs 2,7 – 4,8 M</td></tr>
-<tr><td>= salario anual promedio de ~50 maestros bolivianos</td><td class="num">≈ USD 280.000</td><td class="num">≈ Bs 2,7 M</td></tr>
-<tr><td>= construcción de 1-2 escuelas secundarias completas</td><td class="num">USD 200.000 – 500.000</td><td class="num">Bs 2 – 5 M</td></tr>
-<tr><td>= 15-30 km de carretera asfaltada rural</td><td class="num">USD 300.000 – 600.000</td><td class="num">Bs 3 – 6 M</td></tr>
-<tr><td>= 12-20 viviendas sociales del Programa PRO</td><td class="num">USD 300.000 – 500.000</td><td class="num">Bs 3 – 5 M</td></tr>
+<tr><td><b>Escenario 1</b> — costo realista de consultora local</td><td class="num">USD 60-150k</td><td class="num">Bs 580k - 1,45 M</td></tr>
+<tr><td>= salario anual de ~15-35 maestros bolivianos (Bs ~4-5k/mes promedio)</td><td class="num">≈ USD 60-150k</td><td class="num">≈ Bs 580k - 1,45 M</td></tr>
+<tr><td>= construcción de 0,5-1,5 escuelas secundarias completas (Bs 300-500k c/u)</td><td class="num">USD 60-150k</td><td class="num">Bs 580k - 1,45 M</td></tr>
+<tr><td>= 3-7 km de carretera asfaltada rural (Bs ~200k/km)</td><td class="num">USD 60-150k</td><td class="num">Bs 580k - 1,45 M</td></tr>
+<tr><td>= 1-3 viviendas sociales del Programa PRO (Bs ~400k c/u)</td><td class="num">USD 60-150k</td><td class="num">Bs 580k - 1,45 M</td></tr>
 </tbody>
 </table>
 
-<!-- BLOQUE 5: Por qué se publica gratis -->
+<p style="margin:10px 0; font-size:10pt; color:#666; font-style:italic;">Costos de referencia boliviana 2025. Las cifras de obra pública son estimadas, no de un contrato específico. La idea es ilustrar la magnitud, no precisar el equivalente exacto.</p>
+
+<!-- BLOQUE 6: Fuentes de las estimaciones -->
+<h2 class="cost-section">🔍 Fuentes y benchmarks utilizados</h2>
+<table class="cost-table">
+<thead><tr><th>Fuente</th><th>Uso en la estimación</th></tr></thead>
+<tbody>
+<tr><td><b>SICOES</b> (sicoes.gob.bo)</td><td>Sistema de Contrataciones Estatales del Estado Plurinacional. Publica contratos de consultoría adjudicados, montos y plazos. Referencia indirecta para estudios técnicos similares contratados por el Estado.</td></tr>
+<tr><td><b>Cámara Boliviana de Servicios Profesionales</b></td><td>Tarifarios sugeridos para servicios profesionales (auditoría, consultoría, ingeniería, etc.).</td></tr>
+<tr><td><b>Tarifas Big4 en Bolivia</b></td><td>Conocimiento general del mercado: Deloitte, EY, KPMG, PwC operan en La Paz/Santa Cruz con tarifas 30-50% menores que sus oficinas matrices internacionales.</td></tr>
+<tr><td><b>Consultoras locales medianas</b></td><td>BDO Bolivia, Crowe Horwath Bolivia, Mazars Bolivia, PKF, Berthin Amengual & Asociados, Audicon — segmento de "Big mid-tier" con tarifas profesionales documentadas.</td></tr>
+<tr><td><b>Salarios públicos de referencia</b></td><td>Auditor senior Contraloría: Bs 18-25k/mes (USD 22-30k/año). Especialista senior MEFP: Bs 20-30k/mes. Usados para inferir costos-hora razonables.</td></tr>
+<tr><td><b>Consultor freelance senior</b></td><td>Profesionales financieros independientes en Bolivia cobran USD 50-150/hora según experiencia y reputación.</td></tr>
+</tbody>
+</table>
+
+<!-- BLOQUE 7: Costos REALES de este reporte -->
+<h2 class="cost-section">📌 Costo real gastado en este reporte (verificable)</h2>
+<div style="background:white; border:1px solid #e0e0e0; padding:18px 22px; border-radius:6px;">
+<table class="cost-table" style="margin:0;">
+<thead><tr><th>Concepto</th><th class="num">USD</th><th class="num">Notas</th></tr></thead>
+<tbody>
+<tr><td>APIs OCR/Vision (Mistral, OpenAI, Gemini, Azure)</td><td class="num">~25-40</td><td>~168 PDFs × 4-5 motores × tokens/imagen</td></tr>
+<tr><td>Hosting GitHub Pages</td><td class="num">0</td><td>Gratuito para repos públicos</td></tr>
+<tr><td>Dominio</td><td class="num">0</td><td>Usa subdomain de github.io</td></tr>
+<tr><td>Software</td><td class="num">0</td><td>Python + librerías open source (pandas, openpyxl, etc.)</td></tr>
+<tr><td>Diseño + tipografía</td><td class="num">0</td><td>HTML/CSS estándar, sin licencias propietarias</td></tr>
+<tr><td>Tiempo personal</td><td class="num">no monetizado</td><td>~200-300 horas de una persona (15 días × 15-20h/día)</td></tr>
+<tr class="total"><td><b>TOTAL desembolsado</b></td><td class="num"><b>~USD 30-50</b></td><td>Café y luz aparte</td></tr>
+</tbody>
+</table>
+</div>
+
+<p style="margin:14px 0; font-size:10.5pt; line-height:1.55; color:#555;">El costo marginal de generar este reporte una vez completado es <b>prácticamente cero</b>. Cualquier ciudadano puede acceder gratis a la versión publicada en GitHub Pages, descargar los HTML, modificar el código, contribuir mejoras.</p>
+
+<!-- BLOQUE 8: Por qué se publica gratis -->
 <h2 class="cost-section">🎯 ¿Por qué se publica gratis?</h2>
 <div style="background:white; border:1px solid #e0e0e0; padding:18px 22px; border-radius:6px; font-size:11pt; line-height:1.7;">
-<p>Porque la información sobre cómo se administran las empresas públicas — qué tan sanas están, cuánto cuestan al ciudadano, qué decisiones políticas se deberían tomar — <b>es un bien público</b>. El Estado boliviano publica los datos crudos (estados financieros, SIGEP, PGE), pero <b>no los analiza ni los traduce</b> en lenguaje accesible.</p>
+<p>Porque la información sobre cómo se administran las empresas públicas — qué tan sanas están, cuánto cuestan al ciudadano, qué decisiones se deberían tomar — <b>es un bien público</b>. El Estado boliviano publica los datos crudos (estados financieros, SIGEP, PGE), pero <b>no los analiza ni los traduce</b> en lenguaje accesible al ciudadano común.</p>
 <p>El propósito de este reporte es:</p>
 <ol style="margin:10px 0 0 22px;">
 <li><b>Que el ciudadano común pueda evaluar</b> a las empresas públicas sin necesidad de un curso de contabilidad.</li>
-<li><b>Que el periodismo tenga material verificable</b> con cifras auditables hasta la cuenta del PCSP.</li>
+<li><b>Que el periodismo tenga material verificable</b> con cifras auditables hasta la cuenta del Plan de Cuentas del Sector Público (PCSP).</li>
 <li><b>Que los políticos y técnicos del Estado</b> tengan un baseline objetivo para discutir reformas.</li>
-<li><b>Que se demuestre que la transparencia es posible</b> y barata cuando hay voluntad y tooling correcto.</li>
+<li><b>Que se demuestre que la transparencia es posible y barata</b> cuando hay voluntad y tooling correcto.</li>
 </ol>
 </div>
 
-<!-- BLOQUE 6: Notas metodológicas del costo -->
-<h2 class="cost-section">📌 Notas sobre la estimación</h2>
-<div style="background:#fafafa; padding:14px 18px; border-radius:6px; font-size:10pt; line-height:1.55; color:#555;">
-<p><b>Fuentes de tarifas:</b> tarifas de mercado de consultoría financiera publicadas por firmas Big4 para servicios profesionales (2024-2025). Bolivia tiene tarifas locales ~40-60% menores que mercados desarrollados; usamos el rango medio porque un estudio de esta escala normalmente requiere participación parcial de consultores internacionales o senior expats.</p>
-<p><b>Lo que NO incluye esta estimación:</b> costo de oportunidad del talento (estos profesionales podrían estar haciendo deals más lucrativos), riesgo reputacional de la consultora (cualquier error grave en el reporte impacta su marca), tiempo de revisión legal (cláusulas de no-difamación para empresas públicas), licencias de software propietario (Bloomberg, S&P Capital IQ, etc.).</p>
-<p><b>Lo que SÍ se gastó realmente en este estudio:</b> ~USD 30-50 en APIs de OCR/Vision (Mistral, OpenAI, Gemini, Azure), tiempo personal, y café. El costo marginal de generar este reporte una vez completado es prácticamente cero — cualquier ciudadano puede acceder gratis a la versión publicada en GitHub Pages.</p>
-</div>
-
 <div style="background:#fff5e6; border-left:4px solid #e67e22; padding:14px 18px; margin:24px 0; font-size:11pt; line-height:1.6; border-radius:4px;">
-🎯 <b>Si encontrás errores</b> o tenés sugerencias para mejorar el análisis, podés señalarlos vía Issues en el repositorio público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22; font-weight:600;">github.com/romer288/empresas-publicas-bolivia</a>. Tu feedback hace que el próximo reporte sea mejor — sin costo adicional para nadie.
+🎯 <b>Si encontrás errores en las cifras del reporte O en estas estimaciones de costo</b>, podés señalarlos vía Issues en el repositorio público: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22; font-weight:600;">github.com/romer288/empresas-publicas-bolivia</a>. Si conocés cotizaciones reales de consultoras bolivianas para estudios similares, también — actualizo las cifras con la mejor data disponible.
 </div>
 
 </body></html>

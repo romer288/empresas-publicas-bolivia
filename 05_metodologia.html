@@ -358,7 +358,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <h2 id="preguntas" class="metod-section">3. Las 9 preguntas: métrica ancla, fórmula, fuente</h2>
 
 <div class="metod-decision">
-<b>Actualización del framework:</b> el reporte original tenía 7 preguntas. En la versión actual se agregaron <b>Q7 (Productividad Operacional)</b> y <b>Q8 (Liquidez / Cash Runway)</b> antes de la pregunta de gasto granular (ahora Q9). Razón: las 7 preguntas originales eran exclusivamente financieras y no capturaban el patrón "renta-seeking" típico de monopolios (gasto sube, output no) ni el riesgo de liquidez. Las 2 nuevas preguntas son computables automáticamente para las 56 empresas con la data existente.
+<b>Actualización del framework:</b> el reporte original tenía 7 preguntas. En la versión actual se agregaron <b>Q7 (Productividad Operacional)</b> y <b>Q8 (Liquidez / Meses de supervivencia)</b> antes de la pregunta de gasto granular (ahora Q9). Razón: las 7 preguntas originales eran exclusivamente financieras y no capturaban el patrón "extracción de renta" típico de monopolios (gasto sube, output no) ni el riesgo de liquidez. Las 2 nuevas preguntas son computables automáticamente para las 56 empresas con la data existente.
 </div>
 
 <p>Cada pregunta tiene una <b>métrica ancla</b> con fórmula auditable y umbrales explícitos. Los rangos se mapean a categorías en lenguaje ciudadano.</p>
@@ -370,7 +370,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <tr><td><b>2. ¿Ganancia → caja real?</b></td><td>M1 EBITDA Margin vs M19 Cash Margin + brecha</td><td>M1 = EBITDA / op_revenue × 100 (libros).<br>M19 = (Ingreso percibido − Gasto pagado) / Ingreso percibido × 100 (caja SIGEP).<br>Brecha 2025 (Bs) = EBITDA_25 − Neto_SIGEP_25</td><td>truth.xlsx (EBITDA) + SIGEP resumen_anual.csv (caja)</td><td>Gana ambos (M1>0 Y M19>0) / Paper profit (M1>0 Y M19&lt;0) / Pierde ambos / Pierde libros gana caja</td></tr>
 <tr><td><b>3. ¿Legalmente solvente?</b></td><td>M9 Reexpresado (UFV)</td><td>M9b = res_acum / (capital + ajuste_capital_UFV) × 100</td><td>BG cuentas 3.1.5.1 (Resultados Acumulados) + 3.1.1 (Capital Pagado) + 3.1.6 (Ajuste UFV)</td><td>Sano ≥0 / Erosionado −50 ≤ M9b &lt; 0 / Quiebra técnica Art. 354 a M9b ≤ −50</td></tr>
 <tr><td><b>4. ¿Dependencia del Estado?</b></td><td>M17_v5</td><td>M17_v5 = (TGN_transferencias + Transferencias_Recursos_Específicos) / Ingresos_de_Operación × 100</td><td>SIGEP raw: transferencias_tgn.csv + transferencias_recursos_especificos.csv + ingreso_por_tipo.csv</td><td>NO recibe &lt;30 / Moderada 30–100 / Alta 100–300 / Extrema &gt;300 (+ flag "Sin actividad comercial" si op_rev &lt; Bs 1M)</td></tr>
-<tr><td><b>5. ¿Costo al Estado?</b></td><td>Tres cifras separadas (NO se suman)</td><td>① Apoyo flujo 2025 = TGN + Transf.Rec.Espec (mismo numerador que M17_v5)<br>② Aportes stock = saldo cuenta 3.1.1.2 al 31-dic-2025<br>③ Cash burn = M21 (= max(0, −Neto_SIGEP_2025))</td><td>SIGEP + BG cuenta 3.1.1.2 + SIGEP M21</td><td>Cada cifra se reporta separada — ver caja amarilla en sección Q5</td></tr>
+<tr><td><b>5. ¿Costo al Estado?</b></td><td>Tres cifras separadas (NO se suman)</td><td>① Apoyo flujo 2025 = TGN + Transf.Rec.Espec (mismo numerador que M17_v5)<br>② Aportes stock = saldo cuenta 3.1.1.2 al 31-dic-2025<br>③ Quema de plata = M21 (= max(0, −Neto_SIGEP_2025))</td><td>SIGEP + BG cuenta 3.1.1.2 + SIGEP M21</td><td>Cada cifra se reporta separada — ver caja amarilla en sección Q5</td></tr>
 <tr><td><b>6. ¿Capital rinde?</b></td><td>M15 ROIC</td><td>M15 = NOPAT / Invested Capital × 100<br>NOPAT = EBIT × (1 − tax_rate)<br>Invested Capital = Patrimonio + Deuda Total − Caja<br>Flags string: 'EBIT Negativo' / 'Patrimonio Negativo' / 'IC Inválido'</td><td>truth.xlsx (EBITDA, impuestos, D&A, intereses) + BG (patrimonio, deuda, caja)</td><td>Rinde bien ≥13 / Rinde poco 5–13 / Break-even 0–5 / Destruye valor &lt;0 o flag EBIT/Patrim Negativo / IC Inválido = no aplica</td></tr>
 <tr><td><b>7. ¿Gasto irregular?</b></td><td>Conteo de banderas rojas + Bs en banderas</td><td>Por cada subpartida nivel 4 SIGEP (~50-130 por empresa): flag si crecimiento &gt;+100% (con monto &gt;Bs 500k), caída &gt;−50%, categoría "Otros/Imprevistos" desproporcionada, deuda con proveedores creciente. Bs = suma v2025 en subpartidas marcadas</td><td>SIGEP gasto granular (54.191 filas)</td><td>0 (regular) / 1-2 (leves) / 3-5 (múltiples) / 6+ (altamente irregular)</td></tr>
 </tbody>
@@ -506,7 +506,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <tr><th>🛡️ Constitucional</th><td>MANTENER + revisión</td><td>MANTENER + monitoreo</td><td>REESTRUCTURAR</td><td>REESTRUCTURAR</td><td><b>RECAPITALIZAR Y REESTRUCTURAR</b></td></tr>
 <tr><th>🏛️ Funcional</th><td>MANTENER</td><td>MANTENER + monitoreo</td><td>REESTRUCTURAR</td><td>REESTRUCTURAR o REASIGNAR</td><td><b>RECAPITALIZAR Y REESTRUCTURAR</b></td></tr>
 <tr><th>📺 Cultural</th><td>MANTENER (debate político)</td><td>MANTENER (revisar relevancia)</td><td><b>CERRAR</b> (debate político)</td><td><b>CERRAR</b></td><td><b>CERRAR</b></td></tr>
-<tr><th>🏭 Comercial</th><td>MANTENER o PRIVATIZAR</td><td><b>PRIVATIZAR si es posible</b></td><td><b>CERRAR</b> (sin going-concern)</td><td><b>CERRAR</b></td><td><b>CERRAR</b></td></tr>
+<tr><th>🏭 Comercial</th><td>MANTENER o PRIVATIZAR</td><td><b>PRIVATIZAR si es posible</b></td><td><b>CERRAR</b> (sin como negocio viable)</td><td><b>CERRAR</b></td><td><b>CERRAR</b></td></tr>
 <tr><th>💧 Municipal</th><td>MANTENER (autoridad mun.)</td><td>MANTENER + monitoreo</td><td>REESTRUCTURAR (autoridad mun.)</td><td><b>CERRAR o FUSIONAR</b></td><td><b>CERRAR o FUSIONAR</b></td></tr>
 </tbody>
 </table>
@@ -523,8 +523,8 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <h3 class="metod-sub">7.3 Lógica detrás de CERRAR vs PRIVATIZAR comercial</h3>
 <p>Para empresas comerciales sin esencialidad:</p>
 <ul>
-<li><b>Sana / Bajo Desempeño</b> → tiene valor going-concern → <b>PRIVATIZAR</b> es opción real (hay comprador)</li>
-<li><b>Deteriorada / Quebrada</b> → ningún privado racional compra una empresa con paper profit + 12 banderas + sin facturar → <b>CERRAR</b> es honesto. "Privatizar si aparece comprador" se menciona como escape valve cuando hay datos completos hasta 2025 y operación todavía activa.</li>
+<li><b>Sana / Bajo Desempeño</b> → tiene valor como negocio viable → <b>PRIVATIZAR</b> es opción real (hay comprador)</li>
+<li><b>Deteriorada / Quebrada</b> → ningún privado racional compra una empresa con ganancia solo en papel + 12 banderas + sin facturar → <b>CERRAR</b> es honesto. "Privatizar si aparece comprador" se menciona como escape valve cuando hay datos completos hasta 2025 y operación todavía activa.</li>
 </ul>
 
 <h2 id="overlays" class="metod-section">8. Flags overlay: banderas rojas, sectores sensibles, datos desactualizados</h2>
@@ -612,13 +612,13 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <h3 class="metod-sub">10.5 CERRAR realista vs PRIVATIZAR engañoso</h3>
 <div class="metod-decision">
 <b>Decisión</b>: empresas comerciales Deterioradas o Quebradas → CERRAR (no PRIVATIZAR).
-<br>Razón: una empresa con paper profit + 12 banderas + sin facturar no tiene comprador racional. "Privatizar" en ese contexto es eufemismo. CERRAR es honesto. "PRIVATIZAR si aparece comprador" se menciona como escape valve solo para casos limítrofes con operación reciente.
+<br>Razón: una empresa con ganancia solo en papel + 12 banderas + sin facturar no tiene comprador racional. "Privatizar" en ese contexto es eufemismo. CERRAR es honesto. "PRIVATIZAR si aparece comprador" se menciona como escape valve solo para casos limítrofes con operación reciente.
 </div>
 
 <h3 class="metod-sub">10.6 Capital del Estado reexpresado en la cifra titular</h3>
 <div class="metod-decision">
-<b>Decisión</b>: la cifra titular del reporte es <b>Bs 16,84 mil M</b> (TGN + Transf.Rec.Espec del año), NO la suma de aportes stock + cash burn.
-<br>Razón: titular ciudadano necesita una sola cifra clara. El flujo del año es la única honesta — el stock acumulado es histórico, el cash burn es solución implícita. Las tres se reportan en Q5 separadas con caja amarilla "no es legítimo sumar".
+<b>Decisión</b>: la cifra titular del reporte es <b>Bs 16,84 mil M</b> (TGN + Transf.Rec.Espec del año), NO la suma de aportes stock + quema de plata.
+<br>Razón: titular ciudadano necesita una sola cifra clara. El flujo del año es la única honesta — el stock acumulado es histórico, el quema de plata es solución implícita. Las tres se reportan en Q5 separadas con caja amarilla "no es legítimo sumar".
 </div>
 
 <h3 class="metod-sub">10.7 CAIF fallback en extractor</h3>
@@ -708,14 +708,14 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <tbody>
 <tr><td><b style="color:#c0392b;">~Bs 16,84 mil M</b><br><span style="font-size:9pt;">CIFRA TITULAR</span></td><td>TGN transferencias + Transf.Rec.Específicos del año 2025</td><td>FLOW anual</td><td>Apéndice metodológico · Pregunta 4 · Pregunta 5 componente ①</td></tr>
 <tr><td><b>~Bs 17,91 mil M</b></td><td>Saldo cuenta 3.1.1.2 Aportes al cierre 2025 (acumulado histórico)</td><td>STOCK</td><td>Pregunta 5 componente ②</td></tr>
-<tr><td><b>~Bs 3,85 mil M</b></td><td>Cash burn 2025 (gasto pagado &gt; ingreso percibido en SIGEP)</td><td>FLOW anual</td><td>Pregunta 5 componente ③</td></tr>
+<tr><td><b>~Bs 3,85 mil M</b></td><td>Quema de plata 2025 (gasto pagado &gt; ingreso percibido en SIGEP)</td><td>FLOW anual</td><td>Pregunta 5 componente ③</td></tr>
 <tr><td><b>~Bs 65 mil M</b></td><td>Gasto total operativo de las 56 empresas en 2025 (mayoría desde sus propias ventas)</td><td>FLOW operativo</td><td>Header "Total gastado por las 56 en 2025"</td></tr>
 <tr><td><b>~Bs 94 mil M</b></td><td>Presupuesto AUTORIZADO PGE 2026 (tope legal, no ejecución)</td><td>Cap autorizado</td><td>Header "Presupuesto operativo 2026"</td></tr>
 </tbody>
 </table>
 
 <div class="metod-caveat">
-⚠️ <b>No es legítimo sumar estas cifras entre sí.</b> Las primeras tres miden compromisos fiscales pero en dimensiones distintas (flujo del año vs stock acumulado vs cash burn). Las dos últimas miden gasto total operativo, no costo fiscal directo.
+⚠️ <b>No es legítimo sumar estas cifras entre sí.</b> Las primeras tres miden compromisos fiscales pero en dimensiones distintas (flujo del año vs stock acumulado vs quema de plata). Las dos últimas miden gasto total operativo, no costo fiscal directo.
 </div>
 
 <h2 id="proyecciones" class="metod-section">13. Proyecciones 2026 — aproximaciones, no ejecución real</h2>
@@ -883,7 +883,7 @@ Para las otras 7 empresas del Grupo A, el efecto agregado podría sumar otros <b
 <tr><td><b>Q2 ganancia neta</b> (post financieros)</td><td>Sí, captura "pérdida diferencia de cambio"</td></tr>
 <tr><td><b>Q3 capital quemado</b> (Art. 354)</td><td>Sí, captura efecto acumulado en patrimonio (pero con lag de años)</td></tr>
 <tr><td><b>Q4 dependencia M17_v5</b></td><td>Captura TGN/Recursos Específicos. NO el subsidio cambiario implícito BCB.</td></tr>
-<tr><td><b>Q5 cash burn (SIGEP)</b></td><td>Sí, captura Bs efectivamente desembolsados al tipo paralelo si fue pagado al paralelo</td></tr>
+<tr><td><b>Q5 quema de plata (SIGEP)</b></td><td>Sí, captura Bs efectivamente desembolsados al tipo paralelo si fue pagado al paralelo</td></tr>
 <tr><td><b>Q6 ROIC</b></td><td>Parcialmente — capital invertido probablemente al oficial, subestimado</td></tr>
 <tr><td><b>Q7 banderas gasto</b></td><td>Sí — crecimiento anómalo de subpartidas "Pérdida diferencia cambio" se detecta</td></tr>
 </tbody>

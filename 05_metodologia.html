@@ -128,7 +128,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#cronologia">Cronología del desarrollo — la historia honesta de cómo se construyó</a></li>
 <li><a href="#fuentes">Fuentes de datos primarias</a></li>
 <li><a href="#pipeline">Pipeline de extracción — 5 etapas (con detalle de cada motor y validador)</a></li>
-<li><a href="#preguntas">Las 7 preguntas: métrica ancla, fórmula, fuente</a></li>
+<li><a href="#preguntas">Las 9 preguntas: métrica ancla, fórmula, fuente</a></li>
 <li><a href="#clasificacion">Modelo de clasificación 5×5 — Salud × Función</a></li>
 <li><a href="#scoring">Sistema de scoring multidimensional</a></li>
 <li><a href="#funcion">Curaduría del eje Función — clasificación de las 56 empresas</a></li>
@@ -231,7 +231,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <span class="metod-step-num">F</span><b>Fase 6 — Modelo 5×5 → 5×6 con sub-grado leve/grave (días 10-14)</b>
 <p>El modelo actual del frontend ciudadano es un <b>matriz 5×5 (Salud × Función) → Verbo</b>:</p>
 <ul style="margin:6px 0 6px 22px;">
-<li><b>Eje Salud</b>: derivado de un score multidimensional sobre las 7 preguntas (Buen Desempeño / Bajo Desempeño / Deteriorada / Quebrada acumulación / Quebrada Art.354 / Defuncta / Sin datos)</li>
+<li><b>Eje Salud</b>: derivado de un score multidimensional sobre las 9 preguntas (Buen Desempeño / Bajo Desempeño / Deteriorada / Quebrada acumulación / Quebrada Art.354 / Defuncta / Sin datos)</li>
 <li><b>Eje Función</b>: curaduría humana con criterio legal (Constitucional CPE 348-355 / Funcional Ley 466 / Cultural / Comercial / Municipal)</li>
 <li><b>Verbo recomendación</b>: tabla lookup 5×5 explícita</li>
 <li><b>Q7 (banderas rojas)</b>: NO entra al score — es flag overlay paralelo</li>
@@ -829,14 +829,15 @@ falta_2026 = proyeccion_2026 - YTD_2026
 <tr><td>2024 (segunda mitad)</td><td>Bs 6,96/USD</td><td>Bs 10-13</td><td>+44-87%</td></tr>
 <tr><td>Mid-2025 (pre-elecciones)</td><td>Bs 6,96/USD</td><td><b>Bs 19-20/USD</b></td><td><b>+173-187%</b></td></tr>
 <tr><td>Enero 2026 (post-Paz)</td><td>Bs 6,96/USD</td><td>Bs ~9,7/USD</td><td>+39%</td></tr>
-<tr><td>1-dic-2025 en adelante</td><td colspan="2">BCB empezó a publicar "valor referencial" — paso de facto fuera del peg</td><td>—</td></tr>
+<tr><td><b>Mayo 2026 (actual)</b></td><td>Bs 6,96/USD (fijo) + <b>BCB referencial Bs 9,21 compra / Bs 9,40 venta</b></td><td><b>Bs 9,85 - 10,05/USD</b></td><td><b>+42-44%</b></td></tr>
+<tr><td>1-dic-2025 en adelante</td><td colspan="2">BCB empezó a publicar "valor referencial" — el sistema está <b>en transición, NO unificado</b>: coexisten oficial fijo Bs 6,96, referencial BCB Bs 9,21-9,40 y paralelo Bs 9,85-10,05</td><td>—</td></tr>
 </tbody>
 </table>
 <p>El boliviano (BOB) está formalmente pegado al dólar a 6,96 desde noviembre 2011. Pero el BCB no tiene reservas suficientes para entregar USD al tipo oficial a todos los demandantes. Esto generó el mercado paralelo, donde se transa USD al precio que efectivamente refleja escasez.</p>
 
 <div style="margin:12px 0; padding:12px 16px; background:#e8f5e9; border-left:4px solid #27ae60; border-radius:4px; font-size:10.5pt; line-height:1.6;">
 <b>💱 Tipo de cambio referencial usado en este reporte para conversión USD:</b> <b>Bs 9,70/USD</b> (paralelo enero 2026, post-transición Paz).
-<br>Las conversiones a USD que aparecen al lado de las cifras Bs en el Resumen General son <b>aproximaciones referenciales</b> usando este tipo. Razón de elegir el paralelo y no el oficial: el oficial (Bs 6,96) no refleja el poder de compra real ni la escasez efectiva de divisas. Usar el oficial inflaría artificialmente las cifras en USD por un factor de ~1,4×. Para análisis estrictamente contables, usar el oficial; para una lectura económica honesta, el paralelo es más justo.
+<br>Las conversiones a USD que aparecen al lado de las cifras Bs en el Resumen General son <b>aproximaciones referenciales</b> usando este tipo. El paralelo de <b>mayo 2026 está en Bs 9,85-10,05/USD</b> — usar el tipo enero (Bs 9,70) en vez del mayo introduce un sesgo de ~2-3% que es menor que las incertidumbres de extracción de las cifras subyacentes. Razón de elegir el paralelo y no el oficial: el oficial (Bs 6,96) no refleja el poder de compra real ni la escasez efectiva de divisas. Usar el oficial inflaría artificialmente las cifras en USD por un factor de ~1,4×. Para análisis estrictamente contables, usar el oficial; para una lectura económica honesta, el paralelo es más justo.
 </div>
 
 <h3 class="metod-sub">16.2 Clasificación de las 56 empresas en 3 grupos de exposición FX</h3>

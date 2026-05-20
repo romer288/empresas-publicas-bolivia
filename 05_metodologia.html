@@ -139,7 +139,6 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li><a href="#bcb_implicito">Subsidio cambiario implícito BCB — cuantificación y caveats</a></li>
 <li><a href="#modelos_operacion">Modelos de Custodia/Operación — cuándo el 5×5 NO captura toda la historia</a></li>
 <li><a href="#desempeno_operativo">Desempeño Operativo Level-2 — validando si los estados financieros reflejan realidad</a></li>
-<li><a href="#score_operativo">Score Operativo Compuesto Level-2 [0-100]</a></li>
 <li><a href="#scripts">Archivos y scripts del pipeline</a></li>
 <li><a href="#replicacion">Cómo replicar este análisis</a></li>
 <li><a href="#errores">Errores reconocidos durante el desarrollo y cómo se corrigieron</a></li>
@@ -800,6 +799,11 @@ falta_2026 = proyeccion_2026 - YTD_2026
 </table>
 <p>El boliviano (BOB) está formalmente pegado al dólar a 6,96 desde noviembre 2011. Pero el BCB no tiene reservas suficientes para entregar USD al tipo oficial a todos los demandantes. Esto generó el mercado paralelo, donde se transa USD al precio que efectivamente refleja escasez.</p>
 
+<div style="margin:12px 0; padding:12px 16px; background:#e8f5e9; border-left:4px solid #27ae60; border-radius:4px; font-size:10.5pt; line-height:1.6;">
+<b>💱 Tipo de cambio referencial usado en este reporte para conversión USD:</b> <b>Bs 9,70/USD</b> (paralelo enero 2026, post-transición Paz).
+<br>Las conversiones a USD que aparecen al lado de las cifras Bs en el Resumen General son <b>aproximaciones referenciales</b> usando este tipo. Razón de elegir el paralelo y no el oficial: el oficial (Bs 6,96) no refleja el poder de compra real ni la escasez efectiva de divisas. Usar el oficial inflaría artificialmente las cifras en USD por un factor de ~1,4×. Para análisis estrictamente contables, usar el oficial; para una lectura económica honesta, el paralelo es más justo.
+</div>
+
 <h3 class="metod-sub">16.2 Clasificación de las 56 empresas en 3 grupos de exposición FX</h3>
 
 <p>Cada empresa fue asignada a uno de tres grupos según su exposición al régimen cambiario. La asignación se basa en intensidad de importaciones críticas y acceso histórico al BCB para USD al tipo oficial.</p>
@@ -1056,74 +1060,7 @@ Fuente: <a href="https://www.gestora.bo/SistemaIntegralPensiones/Inversiones/Dat
 
 <p>Para esas 34, el verdict financiero del 5×5 + el caveat genérico de Modelo de Custodia/Operación (sección 17) son la herramienta del reporte. Lectores que requieran análisis operativo de empresas específicas no top-10 pueden consultar: AAPS para agua, AETN para electricidad, ATT para transporte/telecom, contraloria.gob.bo para auditorías pendientes.</p>
 
-<h2 id="score_operativo" class="metod-section">19. Score Operativo Compuesto Level-2 [0-100]</h2>
-
-<p>Al final de cada ficha aparece un <b>Score Operativo Compuesto</b> que integra en un solo número [0-100] las dimensiones operativas más allá del estado financiero. La filosofía es <b>risk-deduction baseline 100</b>: una empresa se presume sana hasta que evidencia documentada indique lo contrario. El score es transparente (cada factor visible en el desglose) y aplicable a las 56 empresas.</p>
-
-<h3 class="metod-sub">19.1 Fórmula</h3>
-<div class="metod-formula">
-score = 100<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c0392b;">− penalizaciones por evidencia documentada de problemas</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#27ae60;">+ bonus por evidencia documentada de excelencia</span><br><br>
-score = max(0, min(100, score))   // capped en [0, 100]
-</div>
-
-<h3 class="metod-sub">19.2 Tabla de penalizaciones y bonus</h3>
-<table class="metod-table">
-<thead><tr><th>Factor</th><th>Puntos</th><th>Detección</th></tr></thead>
-<tbody>
-<tr><td>Banderas rojas SIGEP ≥10</td><td style="color:#c0392b;">−20</td><td>Automático (n_banderas_rojas)</td></tr>
-<tr><td>Banderas rojas SIGEP 6-9</td><td style="color:#c0392b;">−10</td><td>Automático</td></tr>
-<tr><td>Investigación fiscal activa</td><td style="color:#c0392b;">−40</td><td>Curado (DESEMPENO_OPERATIVO: indicador contiene "investigación fiscal")</td></tr>
-<tr><td>Crisis operacional documentada</td><td style="color:#c0392b;">−25</td><td>Curado (DESEMPENO_OPERATIVO status='critico')</td></tr>
-<tr><td>Servicio operativamente fallido</td><td style="color:#c0392b;">−15</td><td>Curado (DESEMPENO_OPERATIVO status='malo')</td></tr>
-<tr><td>FCI rinde negativo (admin fondos)</td><td style="color:#c0392b;">−30</td><td>Solo GESTORA: FCI ret_real &lt; 0</td></tr>
-<tr><td>Sector sensible + banderas ≥6</td><td style="color:#c0392b;">−15</td><td>Automático (COFADENA, TAM, GESTORA)</td></tr>
-<tr><td>Exposición FX implícita (Grupo A)</td><td style="color:#c0392b;">−10</td><td>Automático (EXPOSICION_FX = 'A_implicito')</td></tr>
-<tr><td>Datos solo hasta 2024 (no publicó 2025)</td><td style="color:#c0392b;">−5</td><td>Automático (year_max_datos &lt; 2025)</td></tr>
-<tr><td>Cobertura/calidad servicio buena</td><td style="color:#27ae60;">+10</td><td>Curado (DESEMPENO_OPERATIVO status='bueno')</td></tr>
-<tr><td>Mandato CPE constitucional cumplido</td><td style="color:#27ae60;">+5</td><td>Automático (modelo='estrategica_cpe' + funcion='constitucional' + no quebrada extrema)</td></tr>
-</tbody>
-</table>
-
-<h3 class="metod-sub">19.3 Buckets del score</h3>
-<ul>
-<li><b>80-100:</b> 🟢 Riesgo bajo</li>
-<li><b>60-79:</b> 🟡 Riesgo medio</li>
-<li><b>40-59:</b> 🟠 Riesgo alto</li>
-<li><b>0-39:</b> 🔴 Riesgo crítico</li>
-</ul>
-
-<h3 class="metod-sub">19.4 Ejemplos concretos</h3>
-
-<div class="metod-decision">
-<b>YPFB:</b> baseline 100 − 20 (banderas ≥10) − 25 (crisis operacional) − 10 (FX implícito) + 5 (mandato CPE) = <b>50 → 🟠 Riesgo alto</b>
-</div>
-
-<div class="metod-decision">
-<b>EMAPA:</b> baseline 100 − 20 (banderas) − 40 (investigación fiscal Nov 2025) − 10 (FX implícito) = <b>30 → 🔴 Riesgo crítico</b>
-</div>
-
-<div class="metod-decision">
-<b>GESTORA:</b> baseline 100 − 20 (banderas) − 30 (FCI rinde negativo) − 15 (sector sensible + banderas) = <b>35 → 🔴 Riesgo crítico</b>
-</div>
-
-<div class="metod-decision">
-<b>EMAPYC Yacuiba:</b> baseline 100 + 10 (cobertura 97% documentada) = 110 → cap a 100 = <b>100 → 🟢 Riesgo bajo</b>
-</div>
-
-<h3 class="metod-sub">19.5 Por qué baseline 100 (risk-deduction)</h3>
-<p>Dos filosofías posibles:</p>
-<ul>
-<li><b>A. Risk-deduction (la elegida):</b> arranca en 100, baja con evidencia documentada de problemas. Las empresas sin scrutinio público quedan en 100 por default.</li>
-<li><b>B. Evidence-required:</b> arranca en 50 (neutral). Sube con evidencia positiva, baja con negativa. Las empresas sin data quedan en 50.</li>
-</ul>
-<p>Elegimos A porque cumple mejor el test ciudadano: "score 30/100 significa que TIENE problemas documentados" en lugar de "puede tener problemas que no detectamos". Es honesto sobre la asimetría — penalizamos por evidencia disponible, no por sospecha.</p>
-
-<h3 class="metod-sub">19.6 Limitación principal — sesgo de scrutinio público</h3>
-<p>Las empresas grandes con cobertura mediática (YPFB, ENDE, EMAPA, GESTORA) reciben más penalizaciones simplemente porque hay más evidencia documentada. Las empresas chicas o opacas (COFADENA, ENABOL, KALLPAWAWA) pueden tener problemas equivalentes pero menos documentados, resultando en score más alto por falta de evidencia. <b>El score alto en empresas opacas debe leerse como "sin evidencia contraria documentada", no como "verificadamente saludable".</b></p>
-
-<h2 id="scripts" class="metod-section">20. Archivos y scripts del pipeline</h2>
+<h2 id="scripts" class="metod-section">19. Archivos y scripts del pipeline</h2>
 
 <table class="metod-table">
 <thead><tr><th>Archivo</th><th>Función</th></tr></thead>

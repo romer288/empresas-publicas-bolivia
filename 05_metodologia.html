@@ -112,7 +112,12 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
   <a href="04_por_empresa.html" >Por Empresa Individual</a>
   <a href="03_matriz.html" >Matriz Visual</a>
   <a href="05_metodologia.html" class="active">Metodología</a>
+  <a href="09_costo_estudio.html" >Costo del Estudio</a>
 </nav>
+<div style="background:#fff8e1; border-left:4px solid #f39c12; padding:10px 14px; margin:0 0 14px; font-size:10pt; line-height:1.5; border-radius:4px;">
+ℹ️ <b>Este reporte se construyó con datos públicos oficiales del Estado Boliviano</b>: estados financieros publicados por las propias empresas (SEPEC/MEFP), Sistema de Gestión Pública SIGEP (transferencias TGN, gastos e ingresos por empresa), y la Ley del PGE 2026. <b>Para 2026, el gobierno aún NO ha publicado la partida de ejecución presupuestaria por empresa</b> — las proyecciones 2026 son modelos con supuestos explícitos, no datos reales.
+</div>
+
 
 <h1 class="agg-h1">Metodología Completa — Desde la Extracción Hasta el Reporte Final</h1>
 <p class="agg-subtitle">Cómo se construye este reporte: fuentes de datos, pipeline de extracción, métricas, clasificación 5×5, supuestos, limitaciones, y decisiones metodológicas. Documento técnico exhaustivo para auditoría y replicación.</p>
@@ -149,10 +154,10 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 
 <h2 id="cronologia" class="metod-section">0. Cronología del desarrollo — la historia honesta de cómo se construyó</h2>
 
-<p>Este reporte <b>NO es producto de una sola corrida de extracción</b>. Es el resultado de varios meses de iteración sobre el pipeline de OCR, fórmulas financieras, modelos de clasificación, y revisiones editoriales. Documentamos aquí la secuencia real para que sea auditable.</p>
+<p>Este reporte se construyó en <b>~15 días de trabajo intensivo</b> (5-20 de mayo de 2026), con iteración rápida sobre el pipeline de OCR, fórmulas financieras, modelos de clasificación y revisiones editoriales. Lo que en una consultoría tradicional habría tomado <b>3-6 meses con un equipo de 8-12 personas</b> (ver pestaña <a href="09_costo.html" style="color:#e67e22;">Costo del Estudio</a>) se hizo aquí en días gracias a tooling automatizado de OCR multi-modelo + IA generativa para clasificación + iteración asistida por LLM. Documentamos aquí la secuencia real para que sea auditable.</p>
 
 <div class="metod-step">
-<span class="metod-step-num">A</span><b>Fase 1 — Construcción de la base de extracción de PDFs (semanas 1-8)</b>
+<span class="metod-step-num">A</span><b>Fase 1 — Construcción de la base de extracción de PDFs (días 1-3)</b>
 <p>Cada una de las 56 empresas tiene PDFs de estados financieros para los años 2023, 2024 y 2025 (168 documentos en total, ~25 páginas cada uno). El primer problema fue que <b>NO existe un formato estándar único</b>:</p>
 <ul style="margin:6px 0 6px 22px;">
 <li><b>49 empresas usan formato "dotted"</b> — Plan de Cuentas del Sector Público con códigos de 4-6 dígitos en notación con puntos (1.1.1.1, 2.1.4.3, 3.1.1.6, etc.). Ejemplo: YPFB, COMIBOL, ENDE.</li>
@@ -164,7 +169,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">B</span><b>Fase 2 — Consenso multi-motor y validación de árbol contable (semanas 6-10)</b>
+<span class="metod-step-num">B</span><b>Fase 2 — Consenso multi-motor y validación de árbol contable (días 3-5)</b>
 <p>Una sola pasada de OCR es insuficiente: motores diferentes alucinan en celdas diferentes. La solución fue ejecutar <b>4-5 motores en paralelo</b> por celda y exigir consenso:</p>
 <ul style="margin:6px 0 6px 22px;">
 <li><b>Mistral OCR</b> — fuerte en estructura de tablas, débil en cifras con separadores de miles ambiguos</li>
@@ -184,7 +189,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">C</span><b>Fase 3 — Fixes quirúrgicos sobre truth.xlsx (semanas 9-12)</b>
+<span class="metod-step-num">C</span><b>Fase 3 — Fixes quirúrgicos sobre truth.xlsx (días 4-5)</b>
 <p>Aún con consenso multi-motor, hay celdas problemáticas que requirieron <b>fixes quirúrgicos manuales</b>:</p>
 <ul style="margin:6px 0 6px 22px;">
 <li><b>SALDO injection</b> — cuando una cuenta aparece como "Saldo al cierre" en notas pero no en el balance, se inyecta el valor</li>
@@ -198,7 +203,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">D</span><b>Fase 4 — Construcción del marco de métricas M1-M28 (semanas 11-14)</b>
+<span class="metod-step-num">D</span><b>Fase 4 — Construcción del marco de métricas M1-M28 (días 5-6)</b>
 <p>Con <code>truth.xlsx</code> auditado, se construyó <code>audit_metrics_v8.py</code> que computa <b>28 métricas financieras</b> por empresa-año. Pasó por varias versiones:</p>
 <ul style="margin:6px 0 6px 22px;">
 <li><b>v3 (~2026-05-09)</b>: 18 métricas M1-M18. Senior-practitioner critique aplicado: códigos PCGE 3-dig completos, M16 split en banda de sensibilidad WACC.</li>
@@ -208,7 +213,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">E</span><b>Fase 5 — Cascade v9.6 → v9.7.3 (semanas 13-15)</b>
+<span class="metod-step-num">E</span><b>Fase 5 — Cascade v9.6 → v9.7.3 (días 6-7)</b>
 <p>El primer modelo de clasificación fue un <b>cascade de 6 capas</b> en <code>56_build_v9_by_bucket.py</code>:</p>
 <ol style="margin:6px 0 6px 22px;">
 <li><b>Average severity</b> por empresa-año sobre las métricas primarias</li>
@@ -223,7 +228,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">F</span><b>Fase 6 — Modelo 5×5 (semanas 14-15)</b>
+<span class="metod-step-num">F</span><b>Fase 6 — Modelo 5×5 → 5×6 con sub-grado leve/grave (días 10-14)</b>
 <p>El modelo actual del frontend ciudadano es un <b>matriz 5×5 (Salud × Función) → Verbo</b>:</p>
 <ul style="margin:6px 0 6px 22px;">
 <li><b>Eje Salud</b>: derivado de un score multidimensional sobre las 7 preguntas (Buen Desempeño / Bajo Desempeño / Deteriorada / Quebrada acumulación / Quebrada Art.354 / Defuncta / Sin datos)</li>
@@ -241,7 +246,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">G</span><b>Fase 7 — Iteración del frontend con feedback ciudadano (semanas 15-16)</b>
+<span class="metod-step-num">G</span><b>Fase 7 — Iteración del frontend con feedback ciudadano (días 9-15)</b>
 <p>El reporte HTML pasó por <b>~6 ciclos de feedback explícito del usuario</b> sobre vocabulario y framing. Ejemplos de correcciones reales:</p>
 <ul style="margin:6px 0 6px 22px;">
 <li>"En vez de 'capital quemado' decir 'Bs de cada Bs 100 que el Estado puso'"</li>
@@ -254,7 +259,7 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 </div>
 
 <div class="metod-step">
-<span class="metod-step-num">H</span><b>Fase 8 — Pre-publish review (semana 15)</b>
+<span class="metod-step-num">H</span><b>Fase 8 — Pre-publish review (día 10)</b>
 <p>Antes de publicar, un reviewer externo identificó 7 riesgos editoriales. Cada uno generó un fix durable:</p>
 <ol style="margin:6px 0 6px 22px;">
 <li><b>Cifra titular única declarada</b>: Bs 16,84 mil M es la titular; las demás son contexto. NO se suman.</li>
@@ -278,6 +283,35 @@ code { background:#f4f4f4; padding:1px 5px; border-radius:3px; font-size:10pt; }
 <li>El extractor solo miraba RGC y daba 0 si la cuenta 5 (Ingresos) estaba vacía</li>
 </ul>
 <p>Fix aplicado: <b>CAIF fallback</b> en <code>audit_metrics_v8.py</code> — si op_revenue del RGC es 0 pero hay datos en CAIF 11.2 (Venta de Bienes y Servicios), usar ese valor. Resultado: EPSA-COROICO ahora muestra Bs 1,25M en op_revenue 2025, su clasificación cambia de Defuncta a la categoría correcta. Solo 1 de 168 entity-years fue afectado, pero la corrección hace el extractor más robusto a futuro para PCGE-native y non-PCGE-native.</p>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">J</span><b>Fase 10 — Calibración estricta del scoring + matriz 5×6 + marco legal (días 12-14)</b>
+<p>Refactor mayor del modelo de clasificación:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>Score recalibrado a estándares SME private lending</b> (no distribucionales) — ver memoria <code>scoring_calibration_2026_05_17.md</code></li>
+<li><b>9 preguntas en lugar de 7</b> — Q7 productividad y Q8 liquidez se agregaron al score, no eran flags overlay</li>
+<li><b>Matriz 5×6</b>: columna "Deteriorada" se divide en "leve (8-12)" y "grave (13-17)" con verbos distintos</li>
+<li><b>Fix K — Prioridad score sobre Art. 354</b>: si score ≥18, salud='quebrada_acum'; Art. 354 solo aplica si score < 18</li>
+<li><b>Reclasificación funcional → comercial</b> (Fix L): ENABOL, ENFE, QUIPUS, YACANA, EPDEOR ahora son comerciales (función sustituible)</li>
+<li><b>Verbos nuevos</b>: REESTRUCTURAR PROFUNDA, REESTRUCTURAR PROFUNDA Y RECAPITALIZAR, RECAPITALIZAR Y REESTRUCTURAR PROFUNDA</li>
+<li><b>Funcional grave ya no sugiere CERRAR</b>: Mi teleférico/EMAPA prestan servicios únicos sin sustituto técnico</li>
+</ul>
+</div>
+
+<div class="metod-step">
+<span class="metod-step-num">K</span><b>Fase 11 — Resumen Ejecutivo v4 con forecast Top 10 (días 14-15)</b>
+<p>Nueva pestaña de aterrizaje (landing page) con storytelling visceral para ciudadanos:</p>
+<ul style="margin:6px 0 6px 22px;">
+<li><b>Las 9 preguntas en agregado</b> con cifras viscerales (10 cards: Q1+Q1b separadas)</li>
+<li><b>Maquillaje contable</b> (3 cards): paper profit + escondiendo WC + movimiento patrimonial inexplicado</li>
+<li><b>Escándalo top spenders = quebrarían sin Estado</b> con tabla concreta YPFB/EMAPA/COMIBOL/VINTO/COFADENA</li>
+<li><b>Marco legal de tocabilidad</b> (5 categorías) con qué se puede cerrar y cómo</li>
+<li><b>Costo "todo incluido"</b> SIGEP + BCB = USD 3,4 mil M (no solo USD 1,74 mil M de SIGEP directo)</li>
+<li><b>Proyección 2026 SISTEMA</b> corregida con desglose real SIGEP YPFB: subvención combustibles verificada = Bs 10,64 mil M (no el 100% del apoyo). Tres escenarios A/B/C con cálculo concreto.</li>
+<li><b>Forecast 2026 EMPRESA POR EMPRESA</b> para top 10 con drivers sectoriales y escenarios BASE/OPT/PES por empresa.</li>
+<li><b>Comparaciones de costo de oportunidad</b> en infraestructura social (hospitales, carreteras, viviendas) y porcentaje de presupuestos sectoriales de salud y educación.</li>
+</ul>
 </div>
 
 <div class="metod-caveat">

@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Diagnóstico fiscal independiente de las 56 empresas públicas de Bolivia por Arth Romero: estados financieros 2023-2025, costo fiscal "todo incluido" 2025 Bs 29-37 mil M, solo 1 de 56 empresas está plenamente sana, recomendaciones empresa por empresa con dataset CSV auditable."><meta name="author" content="Arth Romero"><meta property="og:type" content="article"><meta property="og:title" content="Las 56 Empresas Públicas de Bolivia — Diagnóstico Fiscal · por Arth Romero"><meta property="og:description" content="Diagnóstico fiscal independiente de las 56 empresas públicas de Bolivia por Arth Romero: estados financieros 2023-2025, costo fiscal "todo incluido" 2025 Bs 29-37 mil M, solo 1 de 56 empresas está plenamente sana, recomendaciones empresa por empresa con dataset CSV auditable."><meta property="og:image" content="https://romer288.github.io/empresas-publicas-bolivia/og_image.png"><meta property="og:url" content="https://romer288.github.io/empresas-publicas-bolivia/"><meta property="og:site_name" content="Las 56 Empresas Públicas de Bolivia"><meta property="og:locale" content="es_BO"><meta property="article:author" content="Arth Romero"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Las 56 Empresas Públicas de Bolivia · por Arth Romero"><meta name="twitter:description" content="Diagnóstico fiscal independiente de las 56 empresas públicas de Bolivia por Arth Romero: estados financieros 2023-2025, costo fiscal "todo incluido" 2025 Bs 29-37 mil M, solo 1 de 56 empresas está plenamente sana, recomendaciones empresa por empresa con dataset CSV auditable."><meta name="twitter:image" content="https://romer288.github.io/empresas-publicas-bolivia/og_image.png"><title>Sobre el autor — Las 56 Empresas Públicas de Bolivia</title><style>
+@page { margin: 1.2cm; size: letter; }
+body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.45; max-width: 760px; margin: 24px auto; padding: 0 20px; font-size: 11pt; }
+body.wide-page { max-width: 1320px; }
+body.wide-page details > table, body.wide-page .section table { width: 100%; }
+body.wide-page details table td, body.wide-page .section table td { word-wrap: break-word; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 16px; }
+.sigla { font-size: 38pt; font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.verdict-badge { display: inline-block; padding: 10px 18px; background: #e67e22; color: white; font-weight: 700; font-size: 11pt; letter-spacing: 0.5px; }
+.verdict-badge.cerrar { background: #c0392b; }
+.verdict-badge.liquidar { background: #1a1a1a; }
+.verdict-badge.mantener { background: #27ae60; }
+.verdict-badge.privatizar { background: #2980b9; }
+.verdict-badge.recapitalizar { background: #8e44ad; }
+.verdict-badge.pendiente { background: #7f8c8d; }
+.name { font-size: 12pt; color: #333; margin-top: 4px; }
+.sector { font-size: 10pt; color: #666; font-style: italic; margin-bottom: 14px; }
+h3 { font-size: 12pt; margin: 18px 0 4px; color: #1a1a1a; }
+.q-verdict { font-weight: 700; color: #e67e22; }
+.q-verdict.si-bueno { color: #27ae60; }
+.q-verdict.si-malo { color: #c0392b; }
+.q-text { margin: 2px 0 0; font-size: 10.5pt; }
+.q-interp { font-size: 9.5pt; color: #666; font-style: italic; margin: 4px 0 0; line-height: 1.4; }
+.section-intro { margin: 14px 0 16px; font-size: 10.5pt; }
+.recomendacion { background: #e67e22; color: white; padding: 18px 22px; margin-top: 24px; }
+.recomendacion.cerrar { background: #c0392b; }
+.recomendacion.liquidar { background: #1a1a1a; }
+.recomendacion.mantener { background: #27ae60; }
+.recomendacion.privatizar { background: #2980b9; }
+.recomendacion.recapitalizar { background: #8e44ad; }
+.recomendacion.pendiente { background: #7f8c8d; }
+.recomendacion h2 { margin: 0 0 8px; font-size: 12pt; }
+.recomendacion p { margin: 6px 0; font-size: 10.5pt; }
+.recomendacion ul { margin: 6px 0 6px 18px; font-size: 10.5pt; padding: 0; }
+.recomendacion .ministers { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.35); font-size: 10pt; line-height: 1.6; }
+/* aggregate */
+.agg-h1 { font-size: 22pt; margin: 0 0 4px; }
+.agg-subtitle { color: #666; font-size: 12pt; margin: 0 0 24px; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 28px; }
+.stat-box { padding: 14px; background: #f5f5f5; border-left: 4px solid #e67e22; }
+.stat-box .label { font-size: 9.5pt; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-box .value { font-size: 18pt; font-weight: 800; margin: 4px 0; }
+.stat-box .sub { font-size: 9.5pt; color: #888; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+th { background: #f0f0f0; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 1.5px solid #ccc; }
+td { padding: 7px 10px; border-bottom: 0.5px solid #eee; }
+tr:nth-child(even) td { background: #fafafa; }
+.section { margin-top: 32px; }
+.section h2 { font-size: 14pt; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid #ddd; }
+.chip { display: inline-block; font-size: 10pt; font-weight: 600; padding: 3px 8px; margin: 3px; border-radius: 3px; color: white; }
+.chip.liquidar { background: #1a1a1a; }
+.chip.cerrar { background: #c0392b; }
+.chip.reestructurar { background: #e67e22; }
+.chip.recapitalizar { background: #8e44ad; }
+.chip.privatizar { background: #2980b9; }
+.chip.mantener { background: #27ae60; }
+.chip.pendiente { background: #7f8c8d; }
+.matriz { display: grid; grid-template-columns: 220px 1fr 1fr; gap: 6px; margin-top: 14px; }
+.matriz .col-header { text-align: center; padding: 10px 6px; background: #f0f0f0; font-weight: 600; }
+.matriz .row-label { padding: 12px; background: #fafafa; border-right: 2px solid #ddd; }
+.matriz .row-label .arq-name { font-weight: 600; font-size: 11pt; }
+.matriz .row-label .arq-desc { font-size: 9.5pt; color: #666; margin-top: 2px; }
+.matriz .cell { padding: 10px; background: #fafafa; min-height: 48px; }
+/* Navegación */
+.nav-bar { display: flex; gap: 14px; margin: 0 0 20px; padding: 12px 16px; background: #1a1a1a; border-radius: 4px; flex-wrap: wrap; }
+.nav-bar a { color: white; text-decoration: none; font-size: 11pt; padding: 4px 10px; border-radius: 3px; transition: background 0.15s; }
+.nav-bar a:hover { background: rgba(255,255,255,0.15); }
+.nav-bar a.active { background: #e67e22; }
+.stat-box.clickable { cursor: pointer; transition: background 0.15s, border-left-width 0.15s; }
+.stat-box.clickable:hover { background: #ebebeb; border-left-width: 8px; }
+.stat-box.clickable .label::after { content: ' →'; color: #e67e22; }
+.nav-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.nav-choice a { display: block; padding: 18px; background: #fff; border: 2px solid #e67e22; border-radius: 6px; text-decoration: none; color: #1a1a1a; transition: background 0.15s; }
+.nav-choice a:hover { background: #fff5e6; }
+.nav-choice a .title { font-size: 14pt; font-weight: 700; color: #e67e22; margin-bottom: 4px; }
+.nav-choice a .desc { font-size: 10.5pt; color: #555; }
+@media print { body { margin: 0; max-width: none; padding: 1cm; } .recomendacion, .verdict-badge, .chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .nav-bar, .stat-box.clickable::after { display: none; } }
+.dual-view { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:10px 0 16px; }
+.dual-col { padding:12px 14px; border-radius:6px; border-top:3px solid; font-size:10.5pt; line-height:1.55; }
+.dual-col-oficial { border-top-color:#95a5a6; background:#f8f8f8; }
+.dual-col-operativa { border-top-color:#c0392b; background:#fef8f7; }
+.dual-col-header { font-size:9pt; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; color:#555; }
+.dual-col-oficial .dual-col-header { color:#7f8c8d; }
+.dual-col-operativa .dual-col-header { color:#c0392b; }
+@media (max-width: 720px) { .dual-view { grid-template-columns: 1fr; } }
+</style></head>
+<body>
+<nav class="nav-bar">
+  <a href="10_como_leer.html"  style="background:#fff5e6; font-weight:700;">📖 Cómo leer este estudio</a>
+  <a href="08_resumen_ejecutivo.html" >Resumen Ejecutivo</a>
+  <a href="00_resumen_general.html" >Resumen General</a>
+  <a href="07_resumen_general_con_subsidios.html" >Resumen con Subsidios</a>
+  <a href="01_por_arquetipo.html" >Por Tipo de Problema</a>
+  <a href="02_por_recomendacion.html" >Por Recomendación</a>
+  <a href="04_por_empresa.html" >Por Empresa Individual</a>
+  <a href="03_matriz.html" >Matriz Visual</a>
+  <a href="05_metodologia.html" >Metodología</a>
+  <a href="09_costo_estudio.html" >Costo del Estudio</a>
+  <a href="11_sobre_el_autor.html" class="active">👤 Sobre el autor</a>
+  <a href="empresas_publicas_bolivia_dataset.csv" style="background:#e8f5e9; font-weight:700;" download>📥 Dataset CSV</a>
+</nav>
+<div style="background:#1a1a1a; color:#bbb; font-size:9pt; padding:5px 16px; text-align:right; font-family:monospace;">v1.0 · revisión continua · reportá errores en <a href="https://github.com/romer288/empresas-publicas-bolivia/issues" style="color:#e67e22; text-decoration:none;">github.com/romer288/empresas-publicas-bolivia/issues</a></div>
+<div style="background:#fff8e1; border-left:4px solid #f39c12; padding:10px 14px; margin:0 0 14px; font-size:10pt; line-height:1.5; border-radius:4px;">
+ℹ️ <b>Este reporte se construyó con datos públicos oficiales del Estado Boliviano</b>: estados financieros publicados por las propias empresas (SEPEC/MEFP), Sistema de Gestión Pública SIGEP (transferencias TGN, gastos e ingresos por empresa), y la Ley del PGE 2026. <b>Para 2026, el gobierno aún NO ha publicado la partida de ejecución presupuestaria por empresa</b> — las proyecciones 2026 son modelos con supuestos explícitos, no datos reales.
+</div>
+
+<div class="container">
+
+<h1>👤 Sobre el autor</h1>
+
+<div style="display:flex; gap:30px; flex-wrap:wrap; align-items:flex-start; margin:24px 0;">
+
+<div style="flex:1; min-width:300px;">
+  <div style="font-size:28pt; font-weight:800; color:#1a1a1a; line-height:1.1; margin-bottom:6px;">Arth Romero</div>
+  <div style="font-size:13pt; color:#666; margin-bottom:14px;">Finance & Strategy · Private Credit Analytics · IA aplicada</div>
+
+  <p style="font-size:12pt; line-height:1.7; color:#333;">Profesional de finanzas y estrategia con experiencia apoyando due diligence, estructuración de operaciones, reportes ejecutivos y automatización de procesos en múltiples fondos de crédito privado por aproximadamente USD 500 millones en exposición. Combina análisis financiero riguroso con ejecución técnica directa (infraestructura analítica interna, workflows automatizados y materiales para Comités de Inversión). Base sólida en modelado financiero más habilidades prácticas de IA y automatización de datos aplicadas a eficiencia operativa.</p>
+
+  <div style="margin:24px 0;">
+    <a href="https://www.linkedin.com/in/romero-arth-218907196/" target="_blank" rel="noopener" style="display:inline-block; padding:12px 22px; background:#0a66c2; color:white; border-radius:6px; text-decoration:none; font-weight:700; font-size:13pt; margin-right:10px;">in · Conectar en LinkedIn</a>
+    <a href="https://github.com/romer288" target="_blank" rel="noopener" style="display:inline-block; padding:12px 22px; background:#1a1a1a; color:white; border-radius:6px; text-decoration:none; font-weight:700; font-size:13pt;">GitHub: romer288</a>
+  </div>
+</div>
+
+</div>
+
+<h2 style="margin-top:36px;">📌 ¿Por qué este estudio?</h2>
+<div style="background:white; border:1px solid #e0e0e0; padding:22px 26px; border-radius:8px; font-size:11.5pt; line-height:1.75;">
+<p>El Estado boliviano publica los datos de sus 56 empresas públicas — estados financieros, SIGEP, PGE — pero <b>no los traduce a un formato accesible al ciudadano</b>. Para un periodista, un congresista o un votante común, esos datos están técnicamente disponibles pero efectivamente invisibles: requieren saber leer un PCSP, navegar 168 PDFs, cruzar con SIGEP, validar consistencia.</p>
+
+<p>Este estudio cierra esa brecha. Toma los datos oficiales tal cual están publicados, los procesa con un pipeline OCR multi-motor + validación cruzada, y los presenta empresa por empresa con cifras en bolivianos reales y lenguaje sin jerga financiera. Se publica <b>como bien público, sin costo</b>.</p>
+
+<p>El propósito no es decirle al Estado qué hacer. Es <b>poner el diagnóstico técnico sobre la mesa</b> para que el debate público — sobre cierres, reformas, subsidios, función social de empresas públicas — se haga con información, no con anécdotas.</p>
+</div>
+
+<h2 style="margin-top:36px;">📞 Cómo contactar</h2>
+<div style="background:#f5f7fa; border:1px solid #d0d7de; padding:22px 26px; border-radius:8px; font-size:11.5pt; line-height:1.75;">
+<p><b>Periodistas, académicos, funcionarios o representantes de las empresas</b>: pueden contactarme directo por <a href="https://www.linkedin.com/in/romero-arth-218907196/" target="_blank" rel="noopener" style="color:#0a66c2; font-weight:700;">LinkedIn</a>. Estoy disponible para:</p>
+<ul>
+  <li>Profundizar en una empresa o sector específico</li>
+  <li>Validar metodología o supuestos</li>
+  <li>Compartir el dataset crudo para análisis independiente</li>
+  <li>Comentar sobre temas específicos a la actualidad fiscal boliviana</li>
+</ul>
+
+<p><b>Para corrección de errores de datos</b>: preferiblemente vía <a href="https://github.com/romer288/empresas-publicas-bolivia/issues" style="color:#e67e22; font-weight:700;">Issues en GitHub</a> — quedan en registro público y se corrigen con commit visible.</p>
+</div>
+
+<h2 style="margin-top:36px;">📰 Para prensa — cómo citar</h2>
+<div style="background:white; border:2px solid #e67e22; padding:22px 26px; border-radius:8px; font-size:11.5pt; line-height:1.75;">
+<p><b>Atribución sugerida:</b></p>
+<div style="background:#fff5e6; padding:14px 18px; border-radius:6px; font-style:italic; font-family:Georgia, serif;">
+"Las 56 Empresas Públicas de Bolivia — Diagnóstico Fiscal", por <b>Arth Romero</b>. Disponible en <a href="https://romer288.github.io/empresas-publicas-bolivia/" style="color:#e67e22;">romer288.github.io/empresas-publicas-bolivia/</a>
+</div>
+
+<p style="margin-top:18px;"><b>Headline cifras verificables (mayo 2026):</b></p>
+<ul>
+  <li>Solo 1 de 56 empresas públicas está plenamente sana (DAB).</li>
+  <li>Costo fiscal "todo incluido" 2025: rango <b>Bs 29-37 mil M</b> (≈ <b>Bs 2.643 por cada boliviano</b>).</li>
+  <li>YPFB sola concentra ~85% del problema fiscal del sistema de empresas públicas.</li>
+  <li>Cerrar las 25 empresas legalmente cerrables ahorra apenas <b>2,3% del gasto</b> — el problema está en las constitucionales intocables.</li>
+  <li>Las 8 empresas constitucionales (YPFB, ENDE, COMIBOL, YLB, MUTUN, MISICUNI, VINTO, EBIH) <b>no se pueden cerrar</b> sin reforma constitucional (CPE Art. 348-355).</li>
+</ul>
+
+<p><b>Dataset CSV auditable para verificación:</b> <a href="empresas_publicas_bolivia_dataset.csv" download style="color:#e67e22; font-weight:700;">📥 empresas_publicas_bolivia_dataset.csv (56 filas, 28 columnas)</a></p>
+</div>
+
+<h2 style="margin-top:36px;">🤝 Reconocimientos</h2>
+<div style="background:#f5f7fa; padding:18px 22px; border-radius:8px; font-size:11pt; line-height:1.7; color:#555;">
+<p>Este estudio combina <b>datos oficiales publicados por el Estado Boliviano</b> (SEPEC/MEFP, SIGEP, BCB, PGE) con procesamiento automatizado: OCR multi-motor (Mistral, OpenAI GPT-4 Vision, Google Gemini, Azure Document Intelligence), pipelines Python para extracción y normalización, y validación asistida por LLM. La metodología completa está documentada en <a href="05_metodologia.html" style="color:#e67e22;">Metodología</a>. El costo total desembolsado fue de ~USD 30-50 en APIs — el detalle está en <a href="09_costo_estudio.html" style="color:#e67e22;">Costo del Estudio</a>.</p>
+</div>
+
+</div>
+
+<footer style="background:#1a1a1a; color:#ddd; padding:28px 22px; margin-top:48px; font-size:10.5pt; line-height:1.7; border-top:3px solid #e67e22;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:flex-start;">
+    <div style="flex:1; min-width:280px;">
+      <div style="font-size:13pt; font-weight:700; color:#fff; margin-bottom:6px;">Análisis y código: Arth Romero</div>
+      <div style="color:#bbb; font-size:10pt; line-height:1.55;">Profesional de finanzas y estrategia · análisis de crédito privado y portafolios · automatización con Python, SQL, Azure e IA.</div>
+      <div style="margin-top:10px;">
+        <a href="https://www.linkedin.com/in/romero-arth-218907196/" target="_blank" rel="noopener" style="display:inline-block; padding:6px 14px; background:#0a66c2; color:white; border-radius:4px; text-decoration:none; font-weight:600; margin-right:8px;">in · Conectar en LinkedIn</a>
+        <a href="11_sobre_el_autor.html" style="display:inline-block; padding:6px 14px; background:#e67e22; color:white; border-radius:4px; text-decoration:none; font-weight:600;">👤 Sobre el autor</a>
+      </div>
+    </div>
+    <div style="flex:1; min-width:280px;">
+      <div style="font-size:11pt; font-weight:700; color:#fff; margin-bottom:6px;">Sobre el estudio</div>
+      <div style="color:#bbb; font-size:10pt;">Diagnóstico ciudadano independiente · publicado como bien público (sin costo) · datos oficiales del Estado Boliviano (SEPEC/MEFP, SIGEP, PGE 2026).</div>
+      <div style="margin-top:10px; font-size:10pt;">
+        Código fuente: <a href="https://github.com/romer288/empresas-publicas-bolivia" style="color:#e67e22; text-decoration:none;">github.com/romer288/empresas-publicas-bolivia</a><br>
+        Reportar errores: <a href="https://github.com/romer288/empresas-publicas-bolivia/issues" style="color:#e67e22; text-decoration:none;">Issues</a><br>
+        Dataset auditable: <a href="empresas_publicas_bolivia_dataset.csv" style="color:#e67e22; text-decoration:none;" download>📥 CSV (56 filas)</a>
+      </div>
+    </div>
+    <div style="flex:1; min-width:240px;">
+      <div style="font-size:11pt; font-weight:700; color:#fff; margin-bottom:6px;">Citá con atribución</div>
+      <div style="color:#bbb; font-size:10pt; line-height:1.55;">Uso libre con atribución. Si lo citás en prensa o análisis: <i>"Las 56 Empresas Públicas de Bolivia — Diagnóstico Fiscal, por Arth Romero"</i> + link al sitio.</div>
+    </div>
+  </div>
+  <div style="max-width:1100px; margin:18px auto 0; padding-top:14px; border-top:1px solid #333; color:#888; font-size:9pt; text-align:center;">v1.0 · 2026 · Bien público · Sin costo para el ciudadano</div>
+</footer>
+
+</body></html>
